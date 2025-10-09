@@ -1,0 +1,2825 @@
+SENA Level
+
+Topics
+PERSONAL PRONOUNS, POSSESSIVE ADJECTIVE, PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION. ADJECTIVES TO DESCRIBE FEELINGS, APPEARANCE AND PERSONALITY, ORDINAL AND CARDINAL NUMBERS, VERB TO BE, DAILY ROUTINES (SIMPLE PRESENT), NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE) 
+
+ALPHABET
+
+Topic: ALPHABET
+Level: A1.1
+Q: A
+A: A (/eɪ/)
+O: B (/biː/) | H (/eɪtʃ/) | A (/eɪ/) | K (/keɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: B
+A: B (/biː/)
+O: B (/biː/) | O (/oʊ/) | X (/ɛks/) | K (/keɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: C
+A: C (/siː/)
+O: B (/biː/) | O (/oʊ/) | X (/ɛks/) | C (/siː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: D
+A: D (/diː/)
+O: B (/biː/) | D (/diː/) | X (/ɛks/) | C (/siː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: E
+A: E (/iː/)
+O: B (/biː/) | D (/diː/) | E (/iː/) | C (/siː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: F
+A: F (/ɛf/)
+O: F (/ɛf/) | Q (/kjuː/) | E (/iː/) | Z (/ziː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: G
+A: G (/dʒiː/)
+O: J (/dʒeɪ/) | Q (/kjuː/) | W (/ˈdʌbl.juː/) | G (/dʒiː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: H
+A: H (/eɪtʃ/)
+O: B (/biː/) | H (/eɪtʃ/) | A (/eɪ/) | K (/keɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: I
+A: I (/aɪ/)
+O: P (/piː/) | I (/aɪ/) | A (/eɪ/) | K (/keɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: J
+A: J (/dʒeɪ/)
+O: B (/biː/) | O (/oʊ/) | X (/ɛks/) | J (/dʒeɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: K
+A: K (/keɪ/)
+O: B (/biː/) | O (/oʊ/) | K (/keɪ/) | C (/siː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: L
+A: L (/ɛl/)
+O: L (/ɛl/) | D (/diː/) | X (/ɛks/) | C (/siː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: V
+A: V (/viː/)
+O: L (/ɛl/) | D (/diː/) | V (/viː/) | C (/siː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: P
+A: P (/piː/)
+O: B (/biː/) | O (/oʊ/) | K (/keɪ/) | P (/piː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: S
+A: S (/ɛs/)
+O: B (/biː/) | O (/oʊ/) | S (/ɛs/) | J (/dʒeɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: Z
+A: Z (/ziː/)
+O: P (/piː/) | I (/aɪ/) | A (/eɪ/) | Z (/ziː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: T
+A: T (/tiː/)
+O: T (/tiː/) | Q (/kjuː/) | W (/ˈdʌbl.juː/) | G (/dʒiː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: U
+A: U (/juː/)
+O: B (/biː/) | U (/juː/) | A (/eɪ/) | K (/keɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: X
+A: X (/ɛks/)
+O: B (/biː/) | U (/juː/) | A (/eɪ/) | X (/ɛks/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: Y
+A: Y (/waɪ/)
+O: B (/biː/) | H (/eɪtʃ/) | Y (/waɪ/) | K (/keɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: Q
+A: Q (/kjuː/)
+O: B (/biː/) | Q (/kjuː/) | Y (/waɪ/) | K (/keɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: R
+A: R (/ɑːr/)
+O: R (/ɑːr/) | O (/oʊ/) | X (/ɛks/) | K (/keɪ/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: N
+A: N (/ɛn/)
+O: B (/biː/) | N (/ɛn/) | X (/ɛks/) | C (/siː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: M
+A: M (/ɛm/)
+O: B (/biː/) | N (/ɛn/) | M (/ɛm/) | C (/siː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: W
+A: W (/ˈdʌbl.juː/)
+O: B (/biː/) | W (/ˈdʌbl.juː/) | K (/keɪ/) | P (/piː/)
+
+Topic: ALPHABET
+Level: A1.1
+Q: O
+A: O (/oʊ/)
+O: B (/biː/) | W (/ˈdʌbl.juː/) | O (/oʊ/) | P (/piː/)
+
+
+NUMBERS
+
+Topic: NUMBERS
+Level: A1.1
+Q: 1
+A: 1 (one)
+O: 1 (one) | 2 (two) | 10 (ten) | 5 (five)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 2
+A: 2 (two)
+O: 3 (three) | 2 (two) | 9 (nine) | 4 (four)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 3
+A: 3 (three)
+O: 5 (five) | 3 (three) | 6 (six) | 1 (one)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 4
+A: 4 (four)
+O: 2 (two) | 7 (seven) | 4 (four) | 8 (eight)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 5
+A: 5 (five)
+O: 5 (five) | 1 (one) | 6 (six) | 3 (three)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 6
+A: 6 (six)
+O: 4 (four) | 6 (six) | 2 (two) | 7 (seven)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 7
+A: 7 (seven)
+O: 9 (nine) | 7 (seven) | 8 (eight) | 6 (six)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 8
+A: 8 (eight)
+O: 3 (three) | 8 (eight) | 5 (five) | 9 (nine)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 9
+A: 9 (nine)
+O: 6 (six) | 7 (seven) | 9 (nine) | 1 (one)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 10
+A: 10 (ten)
+O: 10 (ten) | 2 (two) | 11 (eleven) | 12 (twelve)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 11
+A: 11 (eleven)
+O: 11 (eleven) | 13 (thirteen) | 9 (nine) | 15 (fifteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 12
+A: 12 (twelve)
+O: 10 (ten) | 12 (twelve) | 14 (fourteen) | 11 (eleven)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 13
+A: 13 (thirteen)
+O: 13 (thirteen) | 15 (fifteen) | 12 (twelve) | 18 (eighteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 14
+A: 14 (fourteen)
+O: 17 (seventeen) | 14 (fourteen) | 16 (sixteen) | 13 (thirteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 15
+A: 15 (fifteen)
+O: 15 (fifteen) | 13 (thirteen) | 12 (twelve) | 18 (eighteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 16
+A: 16 (sixteen)
+O: 19 (nineteen) | 14 (fourteen) | 16 (sixteen) | 20 (twenty)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 17
+A: 17 (seventeen)
+O: 18 (eighteen) | 17 (seventeen) | 16 (sixteen) | 19 (nineteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 18
+A: 18 (eighteen)
+O: 20 (twenty) | 18 (eighteen) | 14 (fourteen) | 19 (nineteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 19
+A: 19 (nineteen)
+O: 16 (sixteen) | 17 (seventeen) | 19 (nineteen) | 15 (fifteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 20
+A: 20 (twenty)
+O: 20 (twenty) | 18 (eighteen) | 21 (twenty-one) | 23 (twenty-three)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 21
+A: 21 (twenty-one)
+O: 21 (twenty-one) | 25 (twenty-five) | 20 (twenty) | 19 (nineteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 22
+A: 22 (twenty-two)
+O: 22 (twenty-two) | 24 (twenty-four) | 21 (twenty-one) | 27 (twenty-seven)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 23
+A: 23 (twenty-three)
+O: 26 (twenty-six) | 20 (twenty) | 23 (twenty-three) | 22 (twenty-two)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 24
+A: 24 (twenty-four)
+O: 24 (twenty-four) | 22 (twenty-two) | 25 (twenty-five) | 29 (twenty-nine)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 25
+A: 25 (twenty-five)
+O: 27 (twenty-seven) | 25 (twenty-five) | 20 (twenty) | 30 (thirty)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 26
+A: 26 (twenty-six)
+O: 24 (twenty-four) | 28 (twenty-eight) | 26 (twenty-six) | 29 (twenty-nine)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 27
+A: 27 (twenty-seven)
+O: 30 (thirty) | 27 (twenty-seven) | 26 (twenty-six) | 23 (twenty-three)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 28
+A: 28 (twenty-eight)
+O: 28 (twenty-eight) | 29 (twenty-nine) | 24 (twenty-four) | 27 (twenty-seven)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 29
+A: 29 (twenty-nine)
+O: 29 (twenty-nine) | 28 (twenty-eight) | 27 (twenty-seven) | 30 (thirty)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 30
+A: 30 (thirty)
+O: 30 (thirty) | 25 (twenty-five) | 20 (twenty) | 28 (twenty-eight)
+
+
+COLORS
+
+Topic: COLORS
+Level: A1.1
+Q: Red
+A: Red (/rɛd/)
+O: Blue (/bluː/) | Yellow (/ˈjɛloʊ/) | Red (/rɛd/) | Green (/ɡriːn/)
+
+Topic: COLORS
+Level: A1.1
+Q: Blue
+A: Blue (/bluː/)
+O: Orange (/ˈɔːrɪndʒ/) | Blue (/bluː/) | White (/waɪt/) | Pink (/pɪŋk/)
+
+Topic: COLORS
+Level: A1.1
+Q: Yellow
+A: Yellow (/ˈjɛloʊ/)
+O: Yellow (/ˈjɛloʊ/) | Green (/ɡriːn/) | Black (/blæk/) | Gray (/ɡreɪ/)
+
+Topic: COLORS
+Level: A1.1
+Q: Green
+A: Green (/ɡriːn/)
+O: Red (/rɛd/) | Green (/ɡriːn/) | Purple (/ˈpɜːrpəl/) | Brown (/braʊn/)
+
+Topic: COLORS
+Level: A1.1
+Q: Black
+A: Black (/blæk/)
+O: Gray (/ɡreɪ/) | Black (/blæk/) | Blue (/bluː/) | White (/waɪt/)
+
+Topic: COLORS
+Level: A1.1
+Q: White
+A: White (/waɪt/)
+O: Yellow (/ˈjɛloʊ/) | Pink (/pɪŋk/) | White (/waɪt/)e | Black (/blæk/)
+
+Topic: COLORS
+Level: A1.1
+Q: Orange
+A: Orange (/ˈɔːrɪndʒ/)
+O: Purple (/ˈpɜːrpəl/) | Orange (/ˈɔːrɪndʒ/) | Red (/rɛd/) | Green (/ɡriːn/)
+
+Topic: COLORS
+Level: A1.1
+Q: Pink
+A: Pink (/pɪŋk/)
+O: Pink (/pɪŋk/) | Blue (/bluː/) | Orange (/ˈɔːrɪndʒ/) | Yellow (/ˈjɛloʊ/)
+
+Topic: COLORS
+Level: A1.1
+Q: Grey
+A: Gray (/ɡreɪ/)
+O: Black (/blæk/) | Gray (/ɡreɪ/) | Brown (/braʊn/) | White (/waɪt/)
+
+Topic: COLORS
+Level: A1.1
+Q: Brown
+A: Brown (/braʊn/)
+O: Brown (/braʊn/) | Red (/rɛd/) | Black (/blæk/) | Green (/ɡriːn/)
+
+1. PERSONAL PRONOUNS
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: They
+A: They
+O: She | I | You | They
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: she
+A: she
+O: she | they | we | he
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Carlos is very tall.
+A: he
+O: she | he | I | you
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Listen and select the sentence with the correct pronoun:
+A: I am here
+O: He are here | They is here | I am here | You am here
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: we
+A: we
+O: you | we | I | it
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Laura and John are dancing Salsa.
+A: They
+O: He | I | She | They
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: him
+A: him
+O: them | me | us | him
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: She is an actress.
+A: she
+O: I | she | he | it
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: He’s working hard.
+A: he
+O: she | we | they | he
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:     am a teacher.
+A: I
+O: He | I | She | They
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:     is my best friend.
+A: He
+O: You | He | I | We
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Where are     from?
+A: you
+O: I | you | she | it
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:     am very happy today.
+A: I
+O: I | He | She | They
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:     am your new teacher.
+A: I
+O: He | I | You | They
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Hello! Are     ready?
+A: you
+O: you | we | they | I
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Look at the cat!     is sleeping.
+A: It
+O: He | You | She | It
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Hello Juan and María! How are    ?
+A: you
+O: you | we | they | she
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Are     going to the cinema?
+A: they
+O: he | it | they | we
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:     am learning English.
+A: I
+O: I | You | She | It
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Where are     from?
+A: you
+O: I | you | they | it
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:     am very happy today.
+A: I
+O: They | You | I | It
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Hello! Are     ready?
+A: you
+O: she | they | you | it
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:     am learning English.
+A: I
+O: She | they | You | I
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:     am happy.
+A: I
+O: He | I | You | They
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:      are my friend.
+A: You
+O: You | we | they | I
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:    is cold today.
+A: It
+O: You | we | you | It
+
+2. POSSESSIVE ADJECTIVES
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Peter is doing     homework.
+A: his
+O: his | her | our | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: We love     school.
+A: our
+O: my | your | our | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: She is washing     hands.
+A: her
+O: his | her | their | our
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: The dog is eating     food.
+A: its
+O: its | her | his | my
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Laura is washing     hands.
+A: her
+O: his | her | their | our
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: John loves     new phone.
+A: his
+O: my | her | their | his
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: The cat is eating     food.
+A: its
+O: its | her | my | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Is this     bag, Peter?
+A: your
+O: his | my | your | our
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Ana and I like     school.
+A: our
+O: our | their | her | your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Pedro never forgets     keys.
+A: his
+O: my | your | his | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Is this     car, Ana?
+A: your
+O: your | her | their | our
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: We like     English class.
+A: our
+O: my | our | their | her
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: She listens to     music all day.
+A: her
+O: his | her | our | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: The students are doing     project.
+A: their
+O: our | their | his | her
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Carlos always wears     jacket.
+A: his
+O: his | her | my | your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: She plays the guitar with     brother.
+A: her
+O: her | his | your | our
+
+3. PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The cat is     the box.
+A: in
+O: on | in | under | next
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The ball is     the table.
+A: under
+O: under | between | in | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: She is walking     the park.
+A: to
+O: to | on | behind | in
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The store is     the school and the bank.
+A: between
+O: in | between | on | over
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The books are     the shelf.
+A: on
+O: on | under | over | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The ball is     the box.
+A: in
+O: in | on | under | next
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The cat is     the table.
+A: under
+O: on | under | over | between
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The picture is     the wall.
+A: on
+O: under | in | on | over
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: My shoes are     the bed.
+A: under
+O: next | over | under | between
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The store is     the library and the bank.
+A: between
+O: behind | under | between | above
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The dog is sitting     the door.
+A: near
+O: near | in | over | between
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: I am walking     the park.
+A: through
+O: to | through | behind | under
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The plane is flying      the clouds.
+A: above
+O: under | beside | above | in
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The children are jumping     the sofa.
+A: on
+O: in | on | above | next
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: We are going     school now.
+A: to
+O: to | from | into | on
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The books are     the shelf.
+A: on
+O: on | under | over | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: My pencil fell     the table.
+A: off
+O: off | on | behind | at
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The chair is     the desk.
+A: next to
+O: next to | between | in | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The flowers are     the vase.
+A: in
+O: on | in | over | beside
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: There is a lamp     the table.
+A: above
+O: above | under | on | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The car is parked     the garage.
+A: in
+O: at | on | in | next
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The shoes are     the door.
+A: behind
+O: behind | between | above | at
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The dog jumped     the fence.
+A: over
+O: over | on | beside | between
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: We walked     the river for an hour.
+A: along
+O: along | across | through | on
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The phone is     the table.
+A: on
+O: on | under | above | off
+
+4. ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I am very    . I didn’t sleep well.
+A: tired
+O: tired | funny | tall | short
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: He is    . He tells great jokes.
+A: funny
+O: bored | funny | sad | angry
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: She is a/an     person. Everyone trusts her.
+A: honest
+O: honest | lazy | tall | angry
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My friend is very    . He never studies.
+A: lazy
+O: lazy | smart | helpful | happy
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: Maria is    . She helps her friends.
+A: helpful
+O: tired | helpful | shy | bored
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My sister has     hair.
+A: long
+O: tall | long | loud | small
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: That man is    . He goes to the gym.
+A: strong
+O: strong | weak | tired | bored
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I feel    . It’s my birthday!
+A: excited
+O: sad | angry | excited | tired
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: She looks    . She got a new dress.
+A: beautiful
+O: sad | beautiful | funny | hungry
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The baby is    . He is crying.
+A: tired
+O: tired | tall | lazy | Smart
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I am very    . I didn’t sleep well.
+A: tired
+O: tired | funny | tall | short
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My sister is very    . She always smiles.
+A: happy
+O: happy | angry | small | bored
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: Peter is    . He makes everyone laugh.
+A: funny
+O: funny | tired | quiet | tall
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My dog is    . He is not big.
+A: small
+O: small | tall | angry | serious
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: He is    . He always helps people.
+A: kind
+O: kind | sad | short | loud
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The boy is    . He is not talking.
+A: quiet
+O: quiet | happy | friendly | big
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I feel     when I watch a scary movie.
+A: scared
+O: scared | tall | friendly | short
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My father is very    . He works a lot.
+A: hardworking
+O: hardworking | lazy | small | noisy
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I’m     because I have a test today.
+A: nervous
+O: nervous | tired | friendly | loud
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My cat is    . He sleeps all day.
+A: lazy
+O: lazy | funny | tall | kind
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: They are    . They are always together.
+A: friendly
+O: friendly | quiet | angry | tired
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The baby is    . He is not happy.
+A: sad
+O: sad | funny | strong | busy
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My brother is very    . He doesn’t like to talk.
+A: shy
+O: shy | happy | tall | kind
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The teacher is    . She explains very well.
+A: smart
+O: smart | lazy | small | angry
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I am     because it’s my birthday!
+A: excited
+O: excited | tired | short | nervous
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My friend is    . He likes to talk a lot.
+A: talkative
+O: talkative | quiet | shy | sad
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: She is very    . She always smiles and helps.
+A: nice
+O: nice | tired | scared | big
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The boy is    . He never studies.
+A: lazy
+O: lazy | hardworking | quiet | friendly
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: We are     because we are going on a trip!
+A: happy
+O: happy | shy | tired | lazy
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My grandma is very    . She tells great stories.
+A: interesting
+O: interesting | angry | tall | scared
+
+5. ORDINAL AND CARDINAL NUMBERS
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: I have     sisters.
+A: three
+O: three | third | twelf | tenth
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: My birthday is on the     of May.
+A: first
+O: one | first | two | three
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: We are in the     grade.
+A: fourth
+O: fourth | four | forty | fourteen
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: She is     years old.
+A: fifteen
+O: fifteen | fifteenth | fith | fifteenth
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: He is the     student in the list.
+A: third
+O: three | third | thirteenth | thirty
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: I have     apples in my bag.
+A: three
+O: three | third | thirteen | thirty
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: Today is my     birthday.
+A: first
+O: first | one | once | five
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: She is in the     grade.
+A: second
+O: second | two | twice | twelve
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: I live on the     floor.
+A: third
+O: third | three | thirteen | thirty
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: There are     students in the class.
+A: fifteen
+O: fifteen | fifty | fifth | fifteenth
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: My classroom is on the     floor.
+A: fourth
+O: fourth | four | forty | fourteen
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: He has     brothers.
+A: two
+O: two | second | twelfth | tenth
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: She is the     person in line.
+A: fifth
+O: fifth | five | fifteen | fifty
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: We have     dogs at home.
+A: four
+O: four | fourth | forty | fourteen
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: This is my     time here.
+A: first
+O: first | one | once | eleven
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: June is the     month of the year.
+A: sixth
+O: sixth | six | sixteen | sixty
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: There are     books on the table.
+A: seven
+O: seven | seventy | seventeen | seventh
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: She is the     in the race.
+A: eighth
+O: eighth | eight | eighteen | eighty
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: I have     pencils in my bag.
+A: ten
+O: ten | tenth | twenty | twelve
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: October is the     month.
+A: tenth
+O: tenth | ten | twelfth | twenty
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: He has     candies.
+A: twelve
+O: twelve | twelfth | twenty | two
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: My birthday is on the     of May.
+A: ninth
+O: ninth | nine | nineteen | ninety
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: The baby is     months old.
+A: eleven
+O: eleven | eleventh | twenty | seventeen
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: This is the     question on the test.
+A: seventh
+O: seventh | seven | seventeen | seventy
+
+Topic: ORDINAL AND CARDINAL NUMBERS
+Level: A1.1
+Q: I have     cousins.
+A: six
+O: six | sixth | sixty | sixteen
+
+6. VERB TO BE
+
+Topic: VERB TO BE
+Level: A1.1
+Q: I     a student.
+A: am
+O: am | is | are | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: They     from Colombia.
+A: are
+O: is | are | am | was
+
+Topic: VERB TO BE
+Level: A1.1
+Q: She     my teacher.
+A: is
+O: is | are | be | were
+
+Topic: VERB TO BE
+Level: A1.1
+Q: We     happy today.
+A: are
+O: am | are | is | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: You     tired.
+A: are
+O: are | is | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: She     my sister.
+A: is
+O: is | are | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: They     at school.
+A: are
+O: are | is | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: We     friends.
+A: are
+O: are | is | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: He     a teacher.
+A: is
+O: is | are | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: You     very kind.
+A: are
+O: are | is | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: It     a big dog.
+A: is
+O: is | are | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: I     not tired.
+A: am
+O: am | is | are | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: She     not at home.
+A: is
+O: is | are | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: They     not ready.
+A: are
+O: are | is | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q:     you a doctor?
+A: Are
+O: Are | Is | Am | Do
+
+Topic: VERB TO BE
+Level: A1.1
+Q:     he your friend?
+A: Is
+O: Is | Are | Am | Does
+
+Topic: VERB TO BE
+Level: A1.1
+Q:     I late?
+A: Am
+O: Am | Is | Are | Do
+
+Topic: VERB TO BE
+Level: A1.1
+Q: Where     she from?
+A: is
+O: is | are | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: How old     you?
+A: are
+O: are | is | am | do
+
+Topic: VERB TO BE
+Level: A1.1
+Q: What     this?
+A: is
+O: is | are | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: My parents     from Canada.
+A: are
+O: are | is | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: We     not in class today.
+A: are
+O: are | is | am | be
+
+Topic: VERB TO BE
+Level: A1.1
+Q:     it cold outside?
+A: Is
+O: Is | Are | Am | Be
+
+Topic: VERB TO BE
+Level: A1.1
+Q: I     happy today.
+A: am
+O: am | is | are | do
+
+7. DAILY ROUTINES (SIMPLE PRESENT)
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: I     at 6 a.m.
+A: wake up
+O: wake up | wakes up | woke up | getting up
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: She     breakfast at 7:00.
+A: eats
+O: eat | eats | eating | ate
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: They     TV at night.
+A: watch
+O: watches | watch | watched | watching
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: He     to school by bus.
+A: goes
+O: go | goes | going | gone
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: We     lunch at 12:30.
+A: have
+O: have | has | having | had
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: I     my teeth every morning.
+A: brush
+O: brush | brushes | brushing | brushed
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: She     homework in the afternoon.
+A: does
+O: do | does | did | doing
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: I     up at 7 a.m. every day.
+A: get
+O: get | gets | getting | got
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: She     breakfast at 8 o’clock.
+A: has
+O: has | have | having | had
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: They     to school by bus.
+A: go
+O: go | goes | going | went
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: My dad     work at 6:00 a.m.
+A: starts
+O: starts | start | starting | started
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: We     lunch at 12:30.
+A: eat
+O: eat | eats | ate | eating
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: She     her teeth every morning.
+A: brushes
+O: brushes | brush | brushing | brushed
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: I     TV in the evening.
+A: watch
+O: watch | watches | watching | watched
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: He     home at 5 p.m.
+A: gets
+O: gets | get | getting | got
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: We     dinner together every night.
+A: have
+O: have | has | having | had
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: My sister     her homework after school.
+A: does
+O: does | do | doing | did
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: I     a shower before bed.
+A: take
+O: take | takes | taking | took
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: He     to bed at 10 p.m.
+A: goes
+O: goes | go | going | gone
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q:     you go to school on Saturday?
+A: Do
+O: Do | Does | Did | Are
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q:     she play the piano every day?
+A: Does
+O: Does | Do | Is | Has
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: I     my clothes in the morning.
+A: put on
+O: put on | puts on | putting on | putted on
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: He     coffee in the morning.
+A: drinks
+O: drinks | drink | drinking | drank
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: They     the bus at 7:30.
+A: take
+O: take | takes | taking | took
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: She     to music before bed.
+A: listens
+O: listens | listen | listening | listened
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: We     our friends at school.
+A: see
+O: see | sees | seeing | saw
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q: He     the newspaper in the morning.
+A: reads
+O: reads | read | reading | reading
+
+8. NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: I     going to the park now.
+A: am
+O: am | is | are | be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: They     playing soccer.
+A: are
+O: is | am | are | be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: She     watching TV.
+A: is
+O: is | are | am | do
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: We     having lunch at the moment.
+A: are
+O: is | are | am | has
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: He     not working today.
+A: is
+O: is | are | am | was
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: I     studying English now.
+A: am
+O: am | is | are | do
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: They     traveling next week.
+A: are
+O: are | is | am | be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: She     visiting her parents this weekend.
+A: is
+O: is | are | am | was
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: I     going to the dentist tomorrow.
+A: am
+O: am | is | are | be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: She     visiting her grandma this weekend.
+A: is
+O: is | are | am | be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: We     having a party on Friday.
+A: are
+O: are | is | am | be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: They     traveling to Paris next week.
+A: are
+O: are | is | am | be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: He     not coming to class tomorrow.
+A: is
+O: is | are | am | be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: I     meeting my friends later.
+A: am
+O: am | is | are | be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q:     you going to the cinema tonight?
+A: Are
+O: Are | Is | Am | Do
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q:     she taking the test tomorrow?
+A: Is
+O: Is | Are | Am | Does
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: He is     his homework this afternoon.
+A: doing
+O: doing | do | does | did
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: They are     lunch with us tomorrow.
+A: having
+O: having | have | has | had
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: We are     a movie at 6 p.m.
+A: watching
+O: watching | watch | watched | watches
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: I’m     my cousin on Saturday.
+A: visiting
+O: visiting | visit | visited | visits
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: She is     a new dress for the party.
+A: buying
+O: buying | buy | buys | bought
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: Are you     to the beach tomorrow?
+A: going
+O: going | go | gone | goes
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: My parents are     dinner tonight.
+A: cooking
+O: cooking | cook | cooked | cooks
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: I’m not     today. I feel sick.
+A: working
+O: working | work | worked | works
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: We are     our teacher after class.
+A: meeting
+O: meeting | meet | met | meets
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: He’s     soccer after school.
+A: playing
+O: playing | plays | play | played
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: She isn’t     to the party.
+A: coming
+O: coming | come | comes | came
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q: Are they     their project today?
+A: starting
+O: starting | start | starts | started
+
+SENA Level 2 A1.2
+
+Topics
+SIMPLE PRESENT, FREQUENCY ADVERBS, THIRD PERSON RULES, SIMPLE PAST, -ED PRONUNCIATION, USED TO, COUNTABLE/UNCOUNTABLE NOUNS, QUANTIFIERS
+
+1. SIMPLE PRESENT (1–10)
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: She _ to school every day.
+A: goes
+O: go | goes | going | gone
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: I _ like coffee.
+A: don't
+O: don't | doesn't | am not | not
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: _ you play tennis?
+A: Do
+O: Does | Do | Did | Are
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: He _ eat meat. He’s vegetarian.
+A: doesn’t
+O: don’t | doesn’t | isn’t | didn’t
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: _ does your brother live?
+A: Where
+O: When | What | Where | Why
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: What time _ you get up?
+A: do
+O: does | do | is | are
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: They _ TV in the evening.
+A: watch
+O: watches | watch | watching | watched
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: He _ like pizza.
+A: doesn’t
+O: don't | does | doesn’t | is not
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: Does she work on weekends?
+A: Yes, she does
+O: Yes, she do | Yes, she is | Yes, she does | Yes, she working
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q: I _ in an office.
+A: work
+O: works | work | working | to work
+
+2. FREQUENCY ADVERBS (11–15)
+
+Topic: FREQUENCY ADVERBS
+Level: A1.2
+Q: I _ go to bed at 10 p.m.
+A: always
+O: always | ever | yesterday | soon
+
+Topic: FREQUENCY ADVERBS
+Level: A1.2
+Q: He _ eats breakfast in the morning.
+A: usually
+O: ever | usually | late | last
+
+Topic: FREQUENCY ADVERBS
+Level: A1.2
+Q: They _ go to the cinema on Sundays.
+A: always
+O: always | went | going | was
+
+Topic: FREQUENCY ADVERBS
+Level: A1.2
+Q: We _ travel in December.
+A: all correct
+O: often | usually | rarely | all correct
+
+Topic: FREQUENCY ADVERBS
+Level: A1.2
+Q: She is _ on time.
+A: always
+O: always | ever | was | sometime
+
+... (continúa con el mismo formato para preguntas 16–50)
+
+3. THIRD PERSON RULES -S / -ES (16–20)
+
+Topic: THIRD PERSON RULES -S / -ES
+Level: A1.2
+Q: He _ football every weekend.
+A: plays
+O: play | plays | playing | played
+
+Topic: THIRD PERSON RULES -S / -ES
+Level: A1.2
+Q: She _ to music.
+A: listens
+O: listen | listens | listening | listened
+
+Topic: THIRD PERSON RULES -S / -ES
+Level: A1.2
+Q: My dad _ dinner.
+A: cooks
+O: cook | cooks | cooked | cooking
+
+Topic: THIRD PERSON RULES -S / -ES
+Level: A1.2
+Q: The baby _ all night.
+A: cries
+O: cry | cries | crying | crys
+
+Topic: THIRD PERSON RULES -S / -ES
+Level: A1.2
+Q: He _ the guitar very well.
+A: plays
+O: play | plays | playing | played
+
+4. SIMPLE PAST (21–30)
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: I _ a movie last night.
+A: watched
+O: watch | watched | watching | watches
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: She _ go to the party yesterday.
+A: didn't
+O: didn't | doesn't | don’t | did
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: Did you _ your homework?
+A: do
+O: did | doing | do | done
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: They _ to the beach last weekend.
+A: went
+O: go | went | going | goes
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: He _ a cake for her birthday.
+A: made
+O: makes | make | made | making
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: We _ at home yesterday.
+A: were
+O: were | are | was | be
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: I _ a book.
+A: read
+O: read | reads | reading | rode
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: Did she _ the piano?
+A: play
+O: play | plays | playing | played
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: They _ the car the day before yesterday.
+A: washed
+O: washed | washing | washes | wash
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q: He _ buy the ticket.
+A: didn't
+O: didn't | doesn’t | don’t | did
+
+5. -ED PRONUNCIATION (31–35)
+
+Topic: -ED PRONUNCIATION
+Level: A1.2
+Q: “Played” ends in:
+A: /d/
+O: /t/ | /d/ | /ɪd/ | /s/
+
+Topic: -ED PRONUNCIATION
+Level: A1.2
+Q: “Watched” ends in:
+A: /t/
+O: /d/ | /ɪd/ | /t/ | /z/
+
+Topic: -ED PRONUNCIATION
+Level: A1.2
+Q: “Needed” ends in:
+A: /ɪd/
+O: /d/ | /t/ | /ɪd/ | /s/
+
+Topic: -ED PRONUNCIATION
+Level: A1.2
+Q: “Worked” ends in:
+A: /t/
+O: /t/ | /d/ | /ɪd/ | /k/
+
+Topic: -ED PRONUNCIATION
+Level: A1.2
+Q: “Visited” ends in:
+A: /ɪd/
+O: /t/ | /d/ | /ɪd/ | /s/
+
+6. USED TO (36–40)
+
+Topic: USED TO
+Level: A1.2
+Q: I _ play soccer when I was a child.
+A: used to
+O: used to | use to | using | uses
+
+Topic: USED TO
+Level: A1.2
+Q: She _ have long hair.
+A: used
+O: used | use | uses | used to
+
+Topic: USED TO
+Level: A1.2
+Q: We _ live in Canada.
+A: used to
+O: use to | used to | using to | used
+
+Topic: USED TO
+Level: A1.2
+Q: _ you use to go camping?
+A: Did
+O: Did | Do | Does | Were
+
+Topic: USED TO
+Level: A1.2
+Q: He didn’t _ eat vegetables.
+A: use to
+O: used | use to | used to | using
+
+7. COUNTABLE AND UNCOUNTABLE NOUNS (41–45)
+
+Topic: COUNTABLE AND UNCOUNTABLE NOUNS
+Level: A1.2
+Q: An apple is a _ noun.
+A: countable
+O: countable | uncountable | proper | plural
+
+Topic: COUNTABLE AND UNCOUNTABLE NOUNS
+Level: A1.2
+Q: Water is _
+A: uncountable
+O: countable | uncountable | plural | regular
+
+Topic: COUNTABLE AND UNCOUNTABLE NOUNS
+Level: A1.2
+Q: How much _ do you drink?
+A: juice
+O: apples | juice | bananas | egg
+
+Topic: COUNTABLE AND UNCOUNTABLE NOUNS
+Level: A1.2
+Q: I have two _ in my bag.
+A: sandwiches
+O: milk | juice | sandwiches | sugar
+
+Topic: COUNTABLE AND UNCOUNTABLE NOUNS
+Level: A1.2
+Q: Do you have any _?
+A: rice
+O: rice | rices | bread | cheese
+
+8. QUANTIFIERS (46–50)
+
+Topic: QUANTIFIERS
+Level: A1.2
+Q: There is _ water in the glass.
+A: some
+O: many | a few | some | any
+
+Topic: QUANTIFIERS
+Level: A1.2
+Q: I don’t have _ money.
+A: much
+O: some | much | few | a
+
+Topic: QUANTIFIERS
+Level: A1.2
+Q: She has _ apples.
+A: a lot of
+O: much | any | a lot of | a
+
+Topic: QUANTIFIERS
+Level: A1.2
+Q: Are there _ students in the room?
+A: any
+O: some | any | a lot | much
+
+Topic: QUANTIFIERS
+Level: A1.2
+Q: We have _ bread.
+A: a lot of
+O: a lot of | many | much | few
+
+
+SENA Level 3 A2.1
+
+Topics
+PAST SIMPLE VS. PRESENT PERFECT, FUTURE EXPRESSIONS (GOING TO / WILL), COMPARATIVES AND SUPERLATIVES, MODAL VERBS (CAN, SHOULD), VOCABULARY IN CONTEXT, QUESTION FORMS, TIME EXPRESSIONS, EVERYDAY COMMUNICATION
+
+1. PAST SIMPLE VS. PRESENT PERFECT (1–10)
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: I _ my keys yesterday.
+A: lost
+O: have lost | lost | loses | lose
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: She _ already _ the letter.
+A: has written
+O: writes | has written | wrote | was writing
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: We _ this movie before.
+A: have seen
+O: saw | see | have seen | seen
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: They _ to London last summer.
+A: went
+O: have gone | went | go | going
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: He _ in this company for five years.
+A: has worked
+O: worked | has worked | works | working
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: I _ him last night.
+A: saw
+O: seen | see | saw | have seen
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: Have you ever _ sushi?
+A: tried
+O: try | tried | trying | tries
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: They _ to the museum last weekend.
+A: went
+O: go | gone | went | goes
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: She _ her homework yet.
+A: hasn’t finished
+O: didn’t finish | hasn’t finished | hasn’t finish | finished
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q: We _ in Bogotá since January.
+A: have lived
+O: lived | have lived | live | are living
+
+2. FUTURE EXPRESSIONS (GOING TO / WILL) (11–15)
+
+Topic: FUTURE EXPRESSIONS
+Level: A2.1
+Q: I _ visit my grandmother tomorrow.
+A: am going to
+O: go | will | am going to | went
+
+Topic: FUTURE EXPRESSIONS
+Level: A2.1
+Q: She _ be a doctor one day.
+A: will
+O: will | is going | going to | was
+
+Topic: FUTURE EXPRESSIONS
+Level: A2.1
+Q: They _ travel to Spain next month.
+A: are going to
+O: went | going | are going to | will be
+
+Topic: FUTURE EXPRESSIONS
+Level: A2.1
+Q: We _ have a party on Saturday.
+A: will
+O: will | do | have | going to
+
+Topic: FUTURE EXPRESSIONS
+Level: A2.1
+Q: It looks cloudy. It _ rain.
+A: is going to
+O: rains | will | is going to | is
+
+3. COMPARATIVES AND SUPERLATIVES (16–20)
+
+Topic: COMPARATIVES AND SUPERLATIVES
+Level: A2.1
+Q: My car is _ than yours.
+A: faster
+O: fastest | faster | fast | more fast
+
+Topic: COMPARATIVES AND SUPERLATIVES
+Level: A2.1
+Q: That was the _ movie I've ever seen.
+A: best
+O: better | good | best | the best
+
+Topic: COMPARATIVES AND SUPERLATIVES
+Level: A2.1
+Q: She is _ than her sister.
+A: taller
+O: tall | taller | tallest | more tall
+
+Topic: COMPARATIVES AND SUPERLATIVES
+Level: A2.1
+Q: This test is _ than the last one.
+A: easier
+O: more easy | easier | easiest | easy
+
+Topic: COMPARATIVES AND SUPERLATIVES
+Level: A2.1
+Q: December is the _ month of the year.
+A: coldest
+O: colder | coldest | more cold | cool
+
+4. MODAL VERBS (CAN, SHOULD) (21–25)
+
+Topic: MODAL VERBS
+Level: A2.1
+Q: You _ see a doctor.
+A: should
+O: can | will | should | may
+
+Topic: MODAL VERBS
+Level: A2.1
+Q: I _ swim very well.
+A: can
+O: can | should | may | will
+
+Topic: MODAL VERBS
+Level: A2.1
+Q: He _ eat so much sugar.
+A: shouldn't
+O: can | shouldn’t | doesn’t | isn’t
+
+Topic: MODAL VERBS
+Level: A2.1
+Q: _ you help me, please?
+A: Can
+O: Do | Can | Should | Will
+
+Topic: MODAL VERBS
+Level: A2.1
+Q: Students _ study before the test.
+A: should
+O: may | can | should | will
+
+5. VOCABULARY IN CONTEXT (26–30)
+
+Topic: VOCABULARY IN CONTEXT
+Level: A2.1
+Q: My laptop is not working. It’s _.
+A: broken
+O: clean | broken | bright | cheap
+
+Topic: VOCABULARY IN CONTEXT
+Level: A2.1
+Q: Be _ when crossing the street.
+A: careful
+O: noisy | careful | sleepy | heavy
+
+Topic: VOCABULARY IN CONTEXT
+Level: A2.1
+Q: The store is _ on Sundays.
+A: closed
+O: close | closing | closed | open
+
+Topic: VOCABULARY IN CONTEXT
+Level: A2.1
+Q: I’m very _. Can I have some water?
+A: thirsty
+O: hungry | sleepy | thirsty | tired
+
+Topic: VOCABULARY IN CONTEXT
+Level: A2.1
+Q: We had a _ time at the park.
+A: great
+O: great | green | loud | free
+
+6. QUESTION FORMS (31–35)
+
+Topic: QUESTION FORMS
+Level: A2.1
+Q: _ do you live?
+A: Where
+O: What | Where | Why | How
+
+Topic: QUESTION FORMS
+Level: A2.1
+Q: _ old are you?
+A: How
+O: How | What | Where | Who
+
+Topic: QUESTION FORMS
+Level: A2.1
+Q: _ is your favorite color?
+A: What
+O: Who | When | What | Where
+
+Topic: QUESTION FORMS
+Level: A2.1
+Q: _ are you wearing today?
+A: What
+O: When | What | Who | How
+
+Topic: QUESTION FORMS
+Level: A2.1
+Q: _ are you sad?
+A: Why
+O: Who | Why | When | Where
+
+7. TIME EXPRESSIONS (36–40)
+
+Topic: TIME EXPRESSIONS
+Level: A2.1
+Q: We meet _ Mondays.
+A: on
+O: in | at | on | for
+
+Topic: TIME EXPRESSIONS
+Level: A2.1
+Q: I will call you _ lunch.
+A: after
+O: before | after | by | at
+
+Topic: TIME EXPRESSIONS
+Level: A2.1
+Q: He was born _ 1990.
+A: in
+O: in | on | at | by
+
+Topic: TIME EXPRESSIONS
+Level: A2.1
+Q: The train leaves _ 5:00 p.m.
+A: at
+O: on | in | at | from
+
+Topic: TIME EXPRESSIONS
+Level: A2.1
+Q: She arrived _ the morning.
+A: in
+O: at | in | on | of
+
+8. EVERYDAY COMMUNICATION (41–50)
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: Hello! How are you?
+A: I’m fine, thanks.
+O: I’m fine, thanks. | Yes, I am. | She is good. | Bye!
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: Can I help you?
+A: Yes, please.
+O: Yes, please. | I go shopping. | Maybe not. | Hello!
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: See you later!
+A: Bye!
+O: Bye! | Hello! | Sure! | Please!
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: What’s your name?
+A: My name is Anna.
+O: My name is Anna. | I am from Bogotá. | I’m fine. | It’s red.
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: Thank you!
+A: You’re welcome.
+O: Please! | You’re welcome. | Go away! | Yes!
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: Excuse me.
+A: Yes?
+O: Yes? | No! | Goodbye. | Come on!
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: What time is it?
+A: It’s 3:00 p.m.
+O: It’s 3:00 p.m. | I’m late. | She is tired. | It’s sunny.
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: How much is this?
+A: It’s five dollars.
+O: It’s five dollars. | Yes, I do. | I don’t know. | It’s blue.
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: Can you repeat that, please?
+A: Sure!
+O: Sure! | Yes, you can. | It’s mine. | No, I won’t.
+
+Topic: EVERYDAY COMMUNICATION
+Level: A2.1
+Q: Goodbye!
+A: See you soon!
+O: See you soon! | Hello! | How are you? | Maybe later.
+
+B1.1
+
+Topic: TRAVEL
+Level: B1.1
+Q: Where are you going on your next vacation?
+A: I’m going to Italy with my family.
+O: I’m going to Italy with my family. | Last year. | I will eat pasta. | Yes, I did.
+
+Topic: FOOD AND DRINK
+Level: B1.1
+Q: What’s your favorite dish to cook?
+A: I love cooking chicken curry.
+O: I love cooking chicken curry. | I ate yesterday. | Yes, I do. | Three times a week.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What do you usually eat for breakfast?
+A: I usually eat eggs and toast.
+O: I usually eat eggs and toast. | I go to school. | I drink shampoo. | I wash my clothes.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: How often do you cook at home?
+A: I cook at home three times a week.
+O: I cook at home three times a week. | I cook outside every day. | I never drink water. | I don’t like shoes.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What’s your favorite dish to prepare?
+A: I love making pasta with tomato sauce.
+O: I love making pasta with tomato sauce. | I take the bus. | I sing in the shower. | I fix my computer.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: Do you prefer eating out or cooking at home?
+A: I prefer cooking at home because it’s healthier.
+O: I prefer cooking at home because it’s healthier. | I prefer to sleep. | I don’t eat food. | I buy new clothes.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What ingredients do you need to make a salad?
+A: You need lettuce, tomato, cucumber, and olive oil.
+O: You need lettuce, tomato, cucumber, and olive oil. | You need shoes and a phone. | You need sugar and chocolate only. | You need water and soap.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What’s a common meal in your country?
+A: Rice with chicken is very common.
+O: Rice with chicken is very common. | A blanket and a pillow. | Washing the car. | Drinking coffee with socks.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What do vegetarians usually avoid?
+A: They avoid eating meat.
+O: They avoid eating meat. | They avoid drinking water. | They avoid using a phone. | They avoid walking.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What should you do before cooking?
+A: You should wash your hands.
+O: You should wash your hands. | You should close your eyes. | You should go shopping. | You should sleep.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: How do you make an omelet?
+A: Beat eggs, add ingredients, and cook in a pan.
+O: Beat eggs, add ingredients, and cook in a pan. | Put it in the freezer. | Drive a car. | Write a story.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What kitchen appliance do you use to heat food quickly?
+A: A microwave.
+O: A microwave. | A blender. | A refrigerator. | A lamp.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What’s the difference between baking and frying?
+A: Baking uses the oven, and frying uses oil in a pan.
+O: Baking uses the oven, and frying uses oil in a pan. | Baking is walking. | Frying is writing. | Baking is drinking tea.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What do you usually drink with dinner?
+A: I usually drink water or juice.
+O: I usually drink water or juice. | I drink paper. | I watch TV. | I paint pictures.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What is a healthy snack?
+A: A piece of fruit or some nuts.
+O: A piece of fruit or some nuts. | A hamburger and fries. | A chocolate cake. | A soda with ice cream.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What is a common ingredient in desserts?
+A: Sugar is very common.
+O: Sugar is very common. | Salt is only used. | Pepper is sweet. | Soap is popular.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What do you use a blender for?
+A: To mix or blend fruits and liquids.
+O: To mix or blend fruits and liquids. | To bake cookies. | To cut meat. | To boil eggs.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What food do you always keep in your fridge?
+A: I always keep milk and vegetables.
+O: I always keep milk and vegetables. | I keep books and pens. | I store shoes. | I hide clothes.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: Why is it important to eat fruits and vegetables?
+A: Because they contain vitamins and fiber.
+O: Because they contain vitamins and fiber. | Because they are expensive. | Because they are cold. | Because they taste like meat.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What’s the best way to cook rice?
+A: Boil it in water until it’s soft.
+O: Boil it in water until it’s soft. | Fry it in a toaster. | Mix it with paint. | Bake it in the fridge.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What do you usually eat when you’re in a hurry?
+A: A sandwich or something quick.
+O: A sandwich or something quick. | A big dinner. | A five-course meal. | I wait until midnight.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Q: What is one thing you should never do while cooking?
+A: Leave the stove unattended.
+O: Leave the stove unattended. | Wash your hands. | Cut vegetables. | Read a recipe.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Topic: HOBBIES AND FREE TIME
+Level: B1.1
+Q: What do you like doing in your free time?
+A: I enjoy painting and reading novels.
+O: I enjoy painting and reading novels. | My book is big. | I walk to work. | No, not today.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Topic: WORK AND JOBS
+Level: B1.1
+Q: What do you do for a living?
+A: I work as a graphic designer.
+O: I work as a graphic designer. | I like work. | Yes, I do. | It’s a good job.
+
+Topic: FOOD AND COOKING
+Level: B1.1
+Topic: HEALTH
+Level: B1.1
+Q: How often do you exercise?
+A: I try to exercise three times a week.
+O: I try to exercise three times a week. | I’m tired. | Yes, I am. | It’s raining.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you usually greet your neighbors?
+A: I say "Good morning" with a smile.
+O: I say "Good morning" with a smile. | I ignore them. | I shout at them. | I walk away quickly.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: What do you say when you need someone’s attention politely?
+A: Excuse me, could I ask you something?
+O: Excuse me, could I ask you something? | Hey you! Listen! | Move aside! | I don't care.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you respond when someone thanks you?
+A: You're welcome.
+O: You're welcome. | Don't mention it. | Whatever. | No problem.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: What’s an appropriate way to end a formal email?
+A: Best regards,
+O: Best regards, | See ya! | Later! | Cheers!
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you apologize for being late?
+A: I'm sorry for being late; there was traffic.
+O: I'm sorry for being late; there was traffic. | It's not my fault. | I don't care. | You should wait.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you ask for clarification in a conversation?
+A: Could you please explain that again?
+O: Could you please explain that again? | I wasn't listening. | Say what? | Never mind.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: What do you say when you meet someone for the first time?
+A: Nice to meet you.
+O: Nice to meet you. | Who are you? | Go away. | I don't like strangers.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you offer help to someone carrying heavy bags?
+A: Would you like some help with those bags?
+O: Would you like some help with those bags? | That's your problem. | You should exercise more. | I can't help.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you respond to an invitation you can't accept?
+A: Thank you, but I won't be able to attend.
+O: Thank you, but I won't be able to attend. | No way! | I hate parties. | Maybe, whatever.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: What do you say when you accidentally bump into someone?
+A: I'm sorry, I didn't see you there.
+O: I'm sorry, I didn't see you there. | Watch where you're going! | That was your fault. | Move!
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you politely ask someone to repeat something?
+A: Could you repeat that, please?
+O: Could you repeat that, please? | Say it again! | Huh? | I wasn't paying attention.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: What do you say when you receive a compliment?
+A: Thank you, that's very kind of you.
+O: Thank you, that's very kind of you. | Whatever. | I know. | It's nothing.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you express agreement in a conversation?
+A: I completely agree with you.
+O: I completely agree with you. | You're wrong. | Maybe. | I don't care.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you express disagreement politely?
+A: I see your point, but I have a different opinion.
+O: I see your point, but I have a different opinion. | That's stupid. | You're wrong. | Whatever.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you ask someone to wait a moment?
+A: Could you please wait a moment?
+O: Could you please wait a moment? | Hold on! | Wait! | Just a sec.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you respond when someone offers you help?
+A: Yes, please. That would be great.
+O: Yes, please. That would be great. | No, I don't need you. | Maybe later. | I can manage.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you introduce a friend to someone else?
+A: This is my friend, Sarah.
+O: This is my friend, Sarah. | She's nobody. | Meet her. | I don't know her.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you ask for someone's opinion?
+A: What do you think about this idea?
+O: What do you think about this idea? | Do you even care? | I don't need your opinion. | Whatever.
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you express gratitude in a formal setting?
+A: I really appreciate your assistance.
+O: I really appreciate your assistance. | Thanks, I guess. | It's about time. | Finally!
+
+Topic: EVERYDAY COMMUNICATION
+Level: B1.1
+Q: How do you respond when someone apologizes to you?
+A: It's okay, don't worry about it.
+O: It's okay, don't worry about it. | You should be sorry. | Too late. | I can't forgive you.
+
+B1.2
+
+Topic: EDUCATION
+Level: B1.2
+Q: What subject did you find most difficult at school?
+A: I found math the most difficult.
+O: I found math the most difficult. | School is fun. | I go to school. | Yes, it is.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: How has technology changed your life?
+A: It has made communication much easier.
+O: It has made communication much easier. | I have a phone. | Yes, very fast. | Sometimes I call.
+
+Topic: SHOPPING
+Level: B1.2
+Q: Do you prefer shopping online or in stores?
+A: I prefer shopping online because it’s more convenient.
+O: I prefer shopping online because it’s more convenient. | Yes, I do. | The mall is big. | Not on Sunday.
+
+Topic: ENVIRONMENT
+Level: B1.2
+Q: What do you do to help the environment?
+A: I recycle and use public transport.
+O: I recycle and use public transport. | I like nature. | It’s green. | Every day.
+
+Topic: RELATIONSHIPS
+Level: B1.2
+Q: How do you stay in touch with your friends?
+A: We usually chat online or meet for coffee.
+O: We usually chat online or meet for coffee. | Friends are nice. | Yes, I do. | Once a month.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What kind of phone do you use?
+A: I use a smartphone with internet access.
+O: I use a smartphone with internet access. | I use a pencil and paper. | I ride a bicycle. | I don’t watch TV.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: How often do you check your email?
+A: I check it several times a day.
+O: I check it several times a day. | I check my food. | I email once a year. | I use a calculator.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What do people use tablets for?
+A: They use them for reading and watching videos.
+O: They use them for reading and watching videos. | To cook food. | To drive cars. | To build houses.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What’s a common danger of using social media too much?
+A: It can affect your mental health.
+O: It can affect your mental health. | You become stronger. | It improves your driving. | You sleep better.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What should you do before downloading an app?
+A: You should read the reviews.
+O: You should read the reviews. | You should delete your phone. | You should run. | You should eat first.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What can happen if you use the same password for all accounts?
+A: Your information can be hacked.
+O: Your information can be hacked. | You save more money. | You get faster internet. | Your phone charges faster.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: How can technology help students?
+A: It allows access to online learning resources.
+O: It allows access to online learning resources. | It helps them sleep. | It reduces their homework. | It makes food taste better.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What is one disadvantage of remote work?
+A: People may feel isolated.
+O: People may feel isolated. | People eat more. | People drive more. | People sing more.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What do we call a program that damages computers?
+A: A virus.
+O: A virus. | A charger. | A browser. | A modem.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What’s the purpose of a firewall in a computer?
+A: To protect it from unauthorized access.
+O: To protect it from unauthorized access. | To heat the room. | To charge the battery. | To play music.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What do people often use cloud storage for?
+A: To save files online.
+O: To save files online. | To send postcards. | To play sports. | To paint walls.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What can a smartwatch do besides telling the time?
+A: It can track your physical activity.
+O: It can track your physical activity. | It makes coffee. | It cleans your house. | It plays football.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: Why do many people avoid reading online comments?
+A: Because they can be negative or toxic.
+O: Because they can be negative or toxic. | They are always helpful. | They give free food. | They make calls.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: How does artificial intelligence help businesses?
+A: It automates tasks and saves time.
+O: It automates tasks and saves time. | It cooks lunch. | It drives buses. | It builds walls.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What’s a good habit when using your phone in public?
+A: Keep the volume low or use headphones.
+O: Keep the volume low or use headphones. | Talk loudly. | Play music for everyone. | Take photos of strangers.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: Why is it important to update your software?
+A: To fix bugs and improve security.
+O: To fix bugs and improve security. | To remove colors. | To break the phone. | To get fewer apps.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What is “screen time”?
+A: The time you spend looking at digital devices.
+O: The time you spend looking at digital devices. | The time you cook dinner. | The time you exercise. | The time you walk your dog.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What is a podcast?
+A: It’s an audio program you can listen to online.
+O: It’s an audio program you can listen to online. | It’s a type of video game. | It’s a photo filter. | It’s a TV channel.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What do you call a person who writes computer programs?
+A: A programmer.
+O: A programmer. | A gardener. | A driver. | A chef.
+
+Topic: TECHNOLOGY
+Level: B1.2
+Q: What should you do if you receive a suspicious email?
+A: Delete it without clicking on any links.
+O: Delete it without clicking on any links. | Share it with everyone. | Reply with your information. | Print and save it.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What should you do if you feel stressed?
+A: You should try to relax and take deep breaths.
+O: You should try to relax and take deep breaths. | You should work more. | You should eat candy. | You should ignore it.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: Why is sleep important for your health?
+A: Because it helps your body and mind recover.
+O: Because it helps your body and mind recover. | Because it wastes time. | Because it makes you angry. | Because it causes stress.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: How often should you exercise to stay healthy?
+A: At least three times a week.
+O: At least three times a week. | Once a year. | Never. | Every five minutes.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What is a balanced diet?
+A: A diet that includes all food groups in proper amounts.
+O: A diet that includes all food groups in proper amounts. | A diet of only fast food. | Only drinking water. | Eating every hour.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What should you do if you have a high fever?
+A: You should see a doctor.
+O: You should see a doctor. | Go to a concert. | Drink soda. | Stay in the sun.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What’s one benefit of drinking water regularly?
+A: It keeps your body hydrated and energized.
+O: It keeps your body hydrated and energized. | It makes you sleepy. | It gives you a cold. | It increases stress.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What’s the best way to avoid getting a cold?
+A: Wash your hands frequently.
+O: Wash your hands frequently. | Eat ice cream. | Stay awake all night. | Wear sandals.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: Why is regular physical activity important?
+A: Because it improves your heart health and fitness.
+O: Because it improves your heart health and fitness. | Because it makes you tired. | Because it is boring. | Because it wastes energy.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What should you do if you feel dizzy at school or work?
+A: Sit down and ask for help.
+O: Sit down and ask for help. | Start running. | Shout loudly. | Ignore it.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What is one effect of too much sugar in your diet?
+A: It can increase the risk of diabetes.
+O: It can increase the risk of diabetes. | It gives you superpowers. | It helps you sleep. | It makes you taller.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: Why is mental health important?
+A: Because it affects how we think, feel, and act.
+O: Because it affects how we think, feel, and act. | Because it helps us clean. | Because it helps us travel. | Because it improves our cooking.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What should you do if someone near you has a medical emergency?
+A: Call emergency services immediately.
+O: Call emergency services immediately. | Walk away. | Take a photo. | Ask them to wait.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What’s a good way to reduce anxiety?
+A: Practice breathing exercises or meditation.
+O: Practice breathing exercises or meditation. | Eat chocolate only. | Skip meals. | Avoid people.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: How can you protect your eyes when using a computer?
+A: Take breaks and look at something far away.
+O: Take breaks and look at something far away. | Sit closer to the screen. | Increase the brightness. | Wear sunglasses indoors.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: Why is breakfast considered important?
+A: Because it gives you energy to start the day.
+O: Because it gives you energy to start the day. | Because it makes you tired. | Because it replaces dinner. | Because it's optional.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What does “well-being” mean?
+A: A state of being healthy and happy.
+O: A state of being healthy and happy. | A type of exercise. | A kind of food. | A type of hospital.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What should you do before starting a new fitness routine?
+A: Consult a doctor or a fitness expert.
+O: Consult a doctor or a fitness expert. | Eat junk food. | Stay up late. | Watch TV first.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What’s a healthy way to deal with frustration?
+A: Talk to someone or write in a journal.
+O: Talk to someone or write in a journal. | Break something. | Scream at people. | Ignore everyone.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: How can walking benefit your health?
+A: It improves circulation and reduces stress.
+O: It improves circulation and reduces stress. | It causes illness. | It weakens your legs. | It makes you hungry.
+
+Topic: HEALTH AND WELL-BEING
+Level: B1.2
+Q: What’s one way to strengthen your immune system?
+A: Eat a variety of fruits and vegetables.
+O: Eat a variety of fruits and vegetables. | Avoid all food. | Stay indoors all day. | Drink only soda.

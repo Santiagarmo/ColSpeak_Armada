@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- VideoView optimizado para mejor reproducción -->
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:keepScreenOn="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hardwareAccelerated="true"
+        android:scrollbars="none"
+        android:overScrollMode="never" />
+
+    <!-- Información del video -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="🎥 Video del Instructor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_color"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Usa los controles para reproducir, pausar y navegar por el video."
+        android:textSize="14sp"
+        android:textColor="@color/text_color"
+        android:gravity="center" />
+
+</LinearLayout>

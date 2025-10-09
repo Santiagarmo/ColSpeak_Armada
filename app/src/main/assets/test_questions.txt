@@ -1,0 +1,3 @@
+What is this object?|coffee maker|ball|plate|coffee maker|dog|POSSESSIVE ADJECTIVES|A1.1|ic_coffee_maker
+What is this object?|book|pen|book|table|chair|POSSESSIVE ADJECTIVES|A1.1|ic_book
+What is this object?|car|bike|car|bus|train|POSSESSIVE ADJECTIVES|A1.1|ic_car 

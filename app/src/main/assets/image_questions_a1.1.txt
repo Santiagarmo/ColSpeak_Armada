@@ -1,0 +1,44 @@
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[pi]/pi/|[em]/em/|[pi]/pi/|[ar]/ɑ(r)/|ti|ALPHABET|A1.1|letter_p.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ei]/eɪ/|[ci]/si/|[ou]/əʊ/|[ei]/eɪ/|[kei]/keɪ/|ALPHABET|A1.1|letter_a.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ef]/ef/|[es]/es/|[ef]/ef/|[ai]/aɪ/|[dabliu]/ˈdʌb(ə)l ju/|ALPHABET|A1.1|letter_f.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ou]/əʊ/|[ou]/əʊ/|[iu]/ju/|[ex]/eks/|[uai]/waɪ/|ALPHABET|A1.1|letter_o.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[uai]/waɪ/|[ou]/əʊ/|[iu]/ju/|[uai]/waɪ/|[ti]/ti/|ALPHABET|A1.1|letter_y.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ar]/ɑ(r)|[eich]/eɪtʃ/|[kei]/keɪ/|[ai]/aɪ/|[ar]/ɑ(r)|ALPHABET|A1.1|letter_r.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ai]/aɪ/|[kei]/keɪ/|[eich]/eɪtʃ/|[ai]/aɪ/|[ex]/eks/|ALPHABET|A1.1|letter_i.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[es]/es/|[ex]/eks/|[uvi]/vi/|[en]/en/|[es]/es/|ALPHABET|A1.1|letter_s.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[bi]/bi/|[zi]/zed/|[pi]/pi/|[ti]/ti/|[bi]/bi/|ALPHABET|A1.1|letter_b.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ci]/si/|[zi]/zed/|[pi]/pi/|[ci]/si/|[ti]/ti/|ALPHABET|A1.1|letter_c.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[di]/di/|[ti]/ti/|[di]/di/|[ci]/si/|[pi]/pi/|ALPHABET|A1.1|letter_d.svg
+¿Esta letra como se pronuncia? /        How is this letter pronounced?|[i]/i/|[pi]/pi/|[ci]/si/|[i]/i/|[ti]/ti/|ALPHABET|A1.1|letter_e.svg
+
+¿Que número es esta imagen? /           What number is this image?|nineteen|twentyeight|nineteen|thirtynine|nine|NUMBERS|A1.1|19_calend.svg
+¿Que número es esta imagen? /           What number is this image?|twentyfive|fifteen|thirtyfive|twentyfive|twentyeight|NUMBERS|A1.1|dec_25.svg
+¿Que número es esta imagen? /           What number is this image?|thirtyone|eleven|thirtyone|thirtyseven|twentyone|NUMBERS|A1.1|31_calend.svg
+¿Que número es esta imagen? /           What number is this image?|seventeen|seventeen|twentyseventh|seven|eighteen|NUMBERS|A1.1|17_calend.svg
+¿Que número es esta imagen? /           What number is this image?|twentyone|thirtyone|twentyone|twentyfour|eleven|NUMBERS|A1.1|21_calend.svg
+¿Que número es esta imagen? /           What number is this image?|one|four|three|one|nine|NUMBERS|A1.1|1_img.svg
+¿Que número es esta imagen? /           What number is this image?|two|thirtyone|twentyeight|two|five|NUMBERS|A1.1|2_img.svg
+¿Que número es esta imagen? /           What number is this image?|three|six|nine|one|three|NUMBERS|A1.1|3_img.svg
+¿Que número es esta imagen? /           What number is this image?|two thousand eighteen|two thousand twenty two|two thousand twenty-eight|two thousand eighteen|two thousand eleven|NUMBERS|A1.1|2018_img.svg
+¿Que número es esta imagen? /           What number is this image?|ten|thirtyone|five|ten|four|NUMBERS|A1.1|10_img.svg
+
+¿Que color es esta imagen? /            What color is this image?|Red (/rɛd/)|Green (/ɡriːn/)|Orange (/ˈɔːrɪndʒ/)|Blue (/bluː/)|Red (/rɛd/)|COLORS|A1.1|apple.svg
+¿Que color es esta imagen? /            What color is this image?|Green (/ɡriːn/)|Purple|Green (/ɡriːn/)|Brown (/braʊn/)|Black (/blæk/)|COLORS|A1.1|pera.svg
+¿Que color es esta imagen? /            What color is this image?|Yellow (/ˈjɛloʊ/)|Red (/rɛd/)|Orange (/ˈɔːrɪndʒ/)|Yellow (/ˈjɛloʊ/)|Green (/ɡriːn/)|COLORS|A1.1|banana.svg
+¿Que color es esta imagen? /            What color is this image?|Orange (/ˈɔːrɪndʒ/)|Blue (/bluː/)|Orange (/ˈɔːrɪndʒ/)|Red (/rɛd/)|Purple (/ˈpɜːrpəl/)|COLORS|A1.1|laranja_orange.svg
+¿Que color es esta imagen? /            What color is this image?|Black (/blæk/)|Black (/blæk/)|Green (/ɡriːn/)|Purple (/ˈpɜːrpəl/)|Yellow (/ˈjɛloʊ/)|COLORS|A1.1|stand.svg
+¿Que color es esta imagen? /            What color is this image?|Purple (/ˈpɜːrpəl/)|Black (/blæk/)|Green (/ɡriːn/)|Orange (/ˈɔːrɪndʒ/)|Purple (/ˈpɜːrpəl/)|COLORS|A1.1|purple_shorts.svg
+¿Que color es esta imagen? /            What color is this image?|Blue (/bluː/)|Red (/rɛd/)|Blue (/bluː/)|Orange (/ˈɔːrɪndʒ/)|Yellow (/ˈjɛloʊ/)|COLORS|A1.1|blue_jacket.svg
+¿Que color es esta imagen? /            What color is this image?|Brown (/braʊn/)|Brown (/braʊn/)|Red (/rɛd/)|Orange (/ˈɔːrɪndʒ/)|Yellow (/ˈjɛloʊ/)|COLORS|A1.1|brown_rice.svg
+¿Que color es esta imagen? /            What color is this image?|Pink (/pɪŋk/)|Green (/ɡriːn/)|Red (/rɛd/)|Orange (/ˈɔːrɪndʒ/)|Pink (/pɪŋk/)|COLORS|A1.1|pink_boot.svg
+¿Que color es esta imagen? /            What color is this image?|White (/waɪt/)|White (/waɪt/)|Yellow (/ˈjɛloʊ/)|Orange (/ˈɔːrɪndʒ/)|Pink (/pɪŋk/)|COLORS|A1.1|white_rabbit.svg
+
+
+What is this object?|coffee maker|ball|plate|coffee maker|dog|POSSESSIVE ADJECTIVES|A1.1|ic_coffee_maker
+What is this object?|book|pen|book|table|chair|POSSESSIVE ADJECTIVES|A1.1|ic_book
+What is this object?|car|bike|car|bus|train|POSSESSIVE ADJECTIVES|A1.1|ic_car
+What is this object?|apple|banana|apple|orange|grape|POSSESSIVE ADJECTIVES|A1.1|ic_apple
+What is this object?|cat|dog|cat|bird|fish|POSSESSIVE ADJECTIVES|A1.1|ic_cat
+What is this object?|tree|flower|tree|grass|bush|POSSESSIVE ADJECTIVES|A1.1|ic_tree
+What is this object?|sun|moon|sun|star|cloud|POSSESSIVE ADJECTIVES|A1.1|ic_sun
+What is this object?|water|fire|water|earth|air|POSSESSIVE ADJECTIVES|A1.1|ic_water 

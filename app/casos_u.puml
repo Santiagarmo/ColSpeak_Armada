@@ -1,0 +1,79 @@
+@startuml
+skinparam backgroundColor white
+skinparam usecase {
+    BackgroundColor white
+    BorderColor black
+    ArrowColor black
+}
+
+left to right direction
+
+' Actores
+actor Usuario
+actor Sistema
+
+' Paquetes y casos de uso
+package "Gestión de Usuario" {
+    usecase "UC-01: Iniciar Sesión" as UC01
+    usecase "UC-02: Registrar Usuario" as UC02
+    usecase "UC-03: Modificar Perfil" as UC03
+}
+
+package "Aprendizaje" {
+    usecase "UC-04: Acceder a Nivel A1" as UC04
+    usecase "UC-05: Realizar Ejercicios" as UC05
+    usecase "UC-06: Practicar Pronunciación" as UC06
+    usecase "UC-07: Completar Quiz" as UC07
+}
+
+package "Gestión de Datos" {
+    usecase "UC-08: Sincronizar Datos" as UC08
+    usecase "UC-09: Guardar Progreso" as UC09
+}
+
+' Relaciones principales
+Usuario --> UC01
+Usuario --> UC02
+Usuario --> UC03
+Usuario --> UC04
+Usuario --> UC05
+Usuario --> UC06
+Usuario --> UC07
+
+Sistema --> UC08
+Sistema --> UC09
+
+' Relaciones de extensión
+UC01 .> UC08 : <<extend>>
+UC02 .> UC08 : <<extend>>
+UC05 .> UC09 : <<extend>>
+UC06 .> UC09 : <<extend>>
+UC07 .> UC09 : <<extend>>
+
+' Notas para casos de uso específicos
+note right of UC01
+  Flujos Alternativos:
+  - Credenciales inválidas
+  - Sin conexión
+  - Cuenta no registrada
+end note
+
+note right of UC05
+  Flujos Alternativos:
+  - Respuesta incorrecta
+  - Sin conexión
+end note
+
+note right of UC06
+  Requisitos:
+  - Micrófono
+  - Permisos de audio
+end note
+
+note right of UC08
+  Precondiciones:
+  - Conexión a internet
+  - Datos pendientes
+end note
+
+@enduml

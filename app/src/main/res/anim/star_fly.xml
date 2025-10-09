@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="2000"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator">
+    
+    <!-- Movimiento horizontal de izquierda a derecha -->
+    <translate
+        android:fromXDelta="-200%"
+        android:toXDelta="200%"
+        android:fromYDelta="0%"
+        android:toYDelta="0%" />
+    
+    <!-- Rotación durante el vuelo -->
+    <rotate
+        android:fromDegrees="0"
+        android:toDegrees="720"
+        android:pivotX="50%"
+        android:pivotY="50%" />
+    
+    <!-- Escala para efecto de acercamiento -->
+    <scale
+        android:fromXScale="0.5"
+        android:toXScale="1.2"
+        android:fromYScale="0.5"
+        android:toYScale="1.2"
+        android:pivotX="50%"
+        android:pivotY="50%" />
+    
+    <!-- Alpha para efecto de aparición y desvanecimiento -->
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:duration="500"
+        android:startOffset="0" />
+    
+    <alpha
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0"
+        android:duration="500"
+        android:startOffset="1500" />
+        
+</set>
+

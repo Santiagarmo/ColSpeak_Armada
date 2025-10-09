@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Botón volver y exportar -->
+        <LinearLayout
+            android:id="@+id/eBtnReturnMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start|center_vertical"
+            android:padding="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_medium">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_small"
+                android:layout_height="@dimen/icon_size_small"
+                android:src="@drawable/back"
+                android:contentDescription="@string/return_menu"
+                android:layout_marginEnd="@dimen/spacing_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/return_button"
+                android:textSize="@dimen/text_size_large"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/exportButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:layout_marginEnd="16dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/summary"
+                    android:layout_marginEnd="6dp"
+                    android:contentDescription="Exportar CSV" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exportar CSV"
+                    android:textSize="18sp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/historyTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test Response History"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
+
+        <!-- Botón continuar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/continueButton"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:text="Continue"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:backgroundTint="#FF9017"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+        <!-- 📋 Tabla con scroll horizontal y vertical -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="horizontal">
+
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical">
+
+                    <TableLayout
+                        android:id="@+id/quizHistoryTable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="*"
+                        android:padding="4dp"
+                        android:background="@android:color/transparent" />
+                </ScrollView>
+            </HorizontalScrollView>
+        </FrameLayout>
+
+        <!-- Menú inferior -->
+        <!-- Menú inferior -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="40dp"
+        android:paddingBottom="20dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="100dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/menu_0" />
+
+        <ImageView
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="120dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/home0" />
+
+        <ImageView
+            android:id="@+id/imgBirdMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="25dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bird0_menu" />
+
+        <ImageView
+            android:id="@+id/imgQuizMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="35dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/quiz0_menu"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgPronunMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_marginStart="255dp"
+            android:layout_marginTop="35dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/pronun0_menu"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/btnProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|top"
+            android:layout_marginEnd="60dp"
+            android:layout_marginTop="120dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/profile" />
+    </FrameLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Speak</string>
+    <string name="start_listening">Iniciar</string>
+    <string name="stop_listening">Detener</string>
+    <string name="speech_permission_required">Se requiere permiso de reconocimiento de voz</string>
+    <string name="speech_permission_denied">Permiso de reconocimiento de voz denegado</string>
+    <string name="speech_error">Error en el reconocimiento de voz</string>
+    <string name="return_button">Return</string>
+    <string name="return_menu">Retornar Menu-Return Menu</string>
+    <string name="instruction_listening">
+        Prueba de Escucha <b>/ Listening Test</b>
+    </string>
+    <string name="title_quiz">
+        Prueba de opción múltiple <b>/ Multiple Choice Test</b>
+    </string>
+    <string name="text_quiz">
+        Lea el texto y complete o seleccione la respuesta correcta. <b>/ Read the text and complete or select the correct answer.</b>
+    </string>
+    <string name="option_listening">
+        Seleccione la opción correcta <b>/ Select the correct option</b>
+    </string>
+    <string name="help_title">Ayuda / Help</string>
+    <string name="help_alphabet_title">Pronunciación del alfabeto / The alphabet pronunciation</string>
+    <string name="help_audio_playing">Reproduciendo audio</string>
+    <string name="help_audio_error">Error reproduciendo audio</string>
+</resources>

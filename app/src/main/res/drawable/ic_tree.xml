@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Tronco del árbol -->
+    <path
+        android:fillColor="#8D6E63"
+        android:pathData="M90,140 H110 V190 H90 Z" />
+
+    <!-- Copa principal -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M60,100 A40,40 0 1,1 140,100 A40,40 0 1,1 60,100 Z" />
+
+    <!-- Copa secundaria izquierda -->
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M40,110 A30,30 0 1,1 80,110 A30,30 0 1,1 40,110 Z" />
+
+    <!-- Copa secundaria derecha -->
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M120,110 A30,30 0 1,1 160,110 A30,30 0 1,1 120,110 Z" />
+
+    <!-- Sombra del tronco -->
+    <path
+        android:fillColor="#5D4037"
+        android:pathData="M95,160 H105 V190 H95 Z" />
+
+</vector> 

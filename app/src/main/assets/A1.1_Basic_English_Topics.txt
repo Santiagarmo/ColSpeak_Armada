@@ -1,0 +1,535 @@
+Topic: ALPHABET
+Level: A1.1
+Q: A A
+
+Topic: ALPHABET
+Level: A1.1
+Q: A B C
+
+Topic: ALPHABET
+Level: A1.1
+Q: D E F
+
+Topic: ALPHABET
+Level: A1.1
+Q: G
+
+Topic: ALPHABET
+Level: A1.1
+Q: G H
+
+Topic: ALPHABET
+Level: A1.1
+Q: H
+
+Topic: ALPHABET
+Level: A1.1
+Q: I I
+
+Topic: ALPHABET
+Level: A1.1
+Q: J
+
+Topic: ALPHABET
+Level: A1.1
+Q: J K
+
+Topic: ALPHABET
+Level: A1.1
+Q: K
+
+Topic: ALPHABET
+Level: A1.1
+Q: U J
+
+Topic: ALPHABET
+Level: A1.1
+Q: V K
+
+Topic: ALPHABET
+Level: A1.1
+Q: W
+
+Topic: NUMBERS
+Level: A1.1
+Q: One
+
+Topic: NUMBERS
+Level: A1.1
+Q: Two
+
+Topic: NUMBERS
+Level: A1.1
+Q: Three
+
+Topic: NUMBERS
+Level: A1.1
+Q: Four
+
+Topic: NUMBERS
+Level: A1.1
+Q: Five
+
+Topic: NUMBERS
+Level: A1.1
+Q: Six
+
+Topic: NUMBERS
+Level: A1.1
+Q: Seven
+
+Topic: NUMBERS
+Level: A1.1
+Q: Eight
+
+Topic: NUMBERS
+Level: A1.1
+Q: Nine
+
+Topic: NUMBERS
+Level: A1.1
+Q: Ten
+
+Topic: NUMBERS
+Level: A1.1
+Q: Eleven
+
+Topic: NUMBERS
+Level: A1.1
+Q: Twelve
+
+Topic: NUMBERS
+Level: A1.1
+Q: Thirteen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Fourteen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Fifteen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Sixteen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Seventeen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Eighteen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Nineteen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Twenty
+
+Topic: COLORS
+Level: A1.1
+Q: Red
+
+Topic: COLORS
+Level: A1.1
+Q: Blue
+
+Topic: COLORS
+Level: A1.1
+Q: Green
+
+Topic: COLORS
+Level: A1.1
+Q: Yellow
+
+Topic: COLORS
+Level: A1.1
+Q: Black
+
+Topic: COLORS
+Level: A1.1
+Q: White
+
+Topic: COLORS
+Level: A1.1
+Q: Orange
+
+Topic: COLORS
+Level: A1.1
+Q: Pink
+
+Topic: COLORS
+Level: A1.1
+Q: Purple
+
+Topic: COLORS
+Level: A1.1
+Q: Brown
+
+1. PERSONAL PRONOUNS
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: I am a teacher.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: They make me laugh.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Where are you from?
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: I am very happy today.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: We study together.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Hello! Are you ready?
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: They make me laugh.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: They are playing soccer.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: We are playing.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: I am learning English.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: We are cooking.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: I am happy.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: You are my friend.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: He is a doctor.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: She is tired.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: It is cold today.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: We are students.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: They are at home.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: I like pizza.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: You are funny.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: He plays soccer.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: She sings well.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: It works fine.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: We love music.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: They dance a lot.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: I have a cat.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: You run fast.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: He reads books.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: She drinks water.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: It is a dog.
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: We go to school.
+
+2. POSSESSIVE ADJECTIVES
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: This is my book.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Peter is doing his homework.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: We love our school.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: This is my pencil.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: John loves his new phone.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Is this your bag, Peter?
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Ana and I like our school.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Is this your car, Ana?
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: We like our English class.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Carlos always wears his jacket.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: This is our house.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: I like my shoes.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: My book is on the table.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Your car is red.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: His name is John.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Her phone is new.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Its tail is long.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Our house is big.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Their dog is friendly.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: My parents are kind.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Your teacher is nice.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: His bike is blue.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Her dress is beautiful.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Its color is bright.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Our school is near.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Their car is fast.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: My room is clean.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Your book is interesting.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: His dog is small.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Her eyes are green.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Our team won.
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Their house is old.
+
+Topic: Days of the Week
+Level: A1.1
+Q: Monday
+
+Topic: Days of the Week
+Level: A1.1
+Q: Tuesday
+
+Topic: Days of the Week
+Level: A1.1
+Q: Wednesday
+
+Topic: Days of the Week
+Level: A1.1
+Q: Thursday
+
+Topic: Days of the Week
+Level: A1.1
+Q: Friday
+
+Topic: Days of the Week
+Level: A1.1
+Q: Saturday
+
+Topic: Days of the Week
+Level: A1.1
+Q: Sunday
+
+Topic: Family Members
+Level: A1.1
+Q: Mother
+
+Topic: Family Members
+Level: A1.1
+Q: Father
+
+Topic: Family Members
+Level: A1.1
+Q: Brother
+
+Topic: Family Members
+Level: A1.1
+Q: Sister
+
+Topic: Family Members
+Level: A1.1
+Q: Grandmother
+
+Topic: Family Members
+Level: A1.1
+Q: Grandfather
+
+Topic: Family Members
+Level: A1.1
+Q: Uncle
+
+Topic: Family Members
+Level: A1.1
+Q: Aunt
+
+Topic: Family Members
+Level: A1.1
+Q: Cousin
+
+Topic: Family Members
+Level: A1.1
+Q: Baby
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Pencil
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Pen
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Notebook
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Eraser
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Desk
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Chair
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Ruler
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Book
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Bag
+
+Topic: Classroom Objects
+Level: A1.1
+Q: Board

@@ -1,0 +1,27 @@
+Topic: GRAMMAR
+Level: A2.1
+Description: Advanced grammar rules with sequential images
+Q: Present Perfect Tense Rule
+Q: Past Continuous Usage
+Q: Future Perfect Structure
+Q: Conditional Sentences Type 1
+Q: Passive Voice Formation
+Q: Reported Speech Changes
+Q: Modal Verbs Functions
+Q: Gerund vs Infinitive
+Q: Relative Clauses
+Q: Subjunctive Mood
+
+Topic: VOCABULARY
+Level: A2.1
+Description: Advanced vocabulary categories with visual context
+Q: Business Terminology
+Q: Academic Vocabulary
+Q: Technical Terms
+Q: Idiomatic Expressions
+Q: Phrasal Verbs
+Q: Collocations
+Q: Synonyms and Antonyms
+Q: Word Formation
+Q: Contextual Meanings
+Q: Register Variations

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A4F7C"
+    tools:context=".MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="500dp"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_small">
+
+            <!-- Header compacto para landscape -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/eBtnReturnMenu"
+                    android:layout_width="@dimen/min_touch_target"
+                    android:layout_height="@dimen/min_touch_target"
+                    android:src="@drawable/back"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/spacing_small" />
+
+                <!-- Título compacto -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Level A1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textStyle="bold"
+                    android:padding="@dimen/spacing_small" />
+
+                <!-- Espacio para balance -->
+                <View
+                    android:layout_width="@dimen/min_touch_target"
+                    android:layout_height="@dimen/min_touch_target" />
+
+            </LinearLayout>
+
+            <!-- Mapa principal optimizado para landscape -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:minHeight="400dp">
+
+                <!-- Mapa de fondo -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/map_a1"
+                    android:adjustViewBounds="true" />
+
+                <!-- Botón Start - Posición ajustada para landscape -->
+                <ImageView
+                    android:id="@+id/eButtonStart"
+                    android:layout_width="@dimen/icon_size_large_128"
+                    android:layout_height="@dimen/icon_size_large_128"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="@dimen/spacing_xl_120"
+                    android:layout_marginTop="@dimen/spacing_xl_280"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/start"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Elementos que aparecen con animación - Start Group - Rodeando el Start en landscape -->
+                <!-- ABC - Arriba del Start -->
+                <ImageView
+                    android:id="@+id/imgABC"
+                    android:layout_width="@dimen/icon_size_medium"
+                    android:layout_height="@dimen/icon_size_medium"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="@dimen/spacing_xl_60"
+                    android:layout_marginTop="@dimen/spacing_xl_320"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/abc"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Numbers - Derecha del Start -->
+                <ImageView
+                    android:id="@+id/imgNumbers"
+                    android:layout_width="@dimen/icon_size_medium"
+                    android:layout_height="@dimen/icon_size_medium"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="@dimen/spacing_xl_160"
+                    android:layout_marginTop="@dimen/spacing_xl_230"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/numbers"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Colors - Abajo del Start -->
+                <ImageView
+                    android:id="@+id/imgColors"
+                    android:layout_width="@dimen/icon_size_medium"
+                    android:layout_height="@dimen/icon_size_medium"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="@dimen/spacing_xl_260"
+                    android:layout_marginTop="@dimen/spacing_xl_320"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/colors"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Pronouns - Diagonal superior derecha del Start -->
+                <ImageView
+                    android:id="@+id/imgPronouns"
+                    android:layout_width="@dimen/icon_size_medium"
+                    android:layout_height="@dimen/icon_size_medium"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="@dimen/spacing_xl_220"
+                    android:layout_marginTop="@dimen/spacing_xl_400"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/pronouns"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Possessive - Diagonal inferior derecha del Start -->
+                <ImageView
+                    android:id="@+id/imgPossesive"
+                    android:layout_width="@dimen/icon_size_medium"
+                    android:layout_height="@dimen/icon_size_medium"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="@dimen/spacing_xl_100"
+                    android:layout_marginTop="@dimen/spacing_xl_400"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/possesive"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Map Icon 2 - Trigger para segundo grupo -->
+                <ImageView
+                    android:id="@+id/imgIcMap2"
+                    android:layout_width="@dimen/icon_size_medium"
+                    android:layout_height="@dimen/icon_size_medium"
+                    android:layout_gravity="end|center"
+                    android:layout_marginEnd="@dimen/spacing_xl"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_map2"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Elementos del segundo grupo - Posiciones landscape -->
+                <ImageView
+                    android:id="@+id/imgPrepos"
+                    android:layout_width="@dimen/icon_size_medium"
+                    android:layout_height="@dimen/icon_size_medium"
+                    android:layout_gravity="end|center"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:layout_marginTop="80dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/prepositions"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/imgAdject"
+                    android:layout_width="@dimen/icon_size_medium"
+                    android:layout_height="@dimen/icon_size_medium"
+                    android:layout_gravity="end|center"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginTop="80dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/adjectives"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Actividades especiales - Posicionadas en landscape -->
+                <ImageView
+                    android:id="@+id/btnImageIdentification"
+                    android:layout_width="@dimen/icon_size_large"
+                    android:layout_height="@dimen/icon_size_large"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="100dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_quiz"
+                    android:contentDescription="Identificación de Imágenes"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/btnImageIdentificationAudio"
+                    android:layout_width="@dimen/icon_size_large"
+                    android:layout_height="@dimen/icon_size_large"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:layout_marginTop="100dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_audio"
+                    android:contentDescription="Identificación de Imágenes con Audio"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+            </FrameLayout>
+
+            <!-- Menú inferior compacto para landscape -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/menu_0"
+                    android:adjustViewBounds="true" />
+
+                <!-- Elementos del menú inferior -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_medium">
+
+                    <ImageView
+                        android:id="@+id/homeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home0"
+                        android:scaleType="centerInside"
+                        android:layout_margin="@dimen/spacing_small" />
+
+                    <ImageView
+                        android:id="@+id/imgBirdMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/bird0_menu"
+                        android:scaleType="centerInside"
+                        android:layout_margin="@dimen/spacing_small"
+                        android:background="?attr/selectableItemBackgroundBorderless" />
+
+                    <ImageView
+                        android:id="@+id/btnProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/profile"
+                        android:scaleType="centerInside"
+                        android:layout_margin="@dimen/spacing_small"
+                        android:background="?attr/selectableItemBackgroundBorderless" />
+
+                </LinearLayout>
+
+                <!-- Menús ocultos del bird -->
+                <ImageView
+                    android:id="@+id/imgQuizMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/quiz0_menu"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="120dp"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/imgPronunMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/pronun0_menu"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="end|center"
+                    android:layout_marginEnd="120dp"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

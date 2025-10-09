@@ -1,0 +1,127 @@
+Topic: ALPHABET
+Level: A1.1
+Description: Basic alphabet pronunciation
+Q: H [eitʃ]
+Q: J [dʒei]
+Q: A [ei]
+Q: K [kei]
+Q: B [bi:]
+Q: C [si:]
+Q: D [di:]
+Q: E [i:]
+Q: G [dʒi:]
+Q: P [pi:]
+Q: T [ti:]
+Q: V [vi:]
+Q: Z [zi:]/[zed]
+Q: F [ef]
+Q: L [el]
+Q: M [em]
+Q: N [en]
+Q: S [es]
+Q: X [eks]
+Q: I [ai]
+Q: Y [wai]
+Q: O [ou]
+Q: Q [kju:]
+Q: U [ju:]
+Q: W ['dʌbəl.ju:]
+Q: R [ar]
+
+Topic: NUMBERS
+Level: A1.1
+Description: Basic numbers 1-20
+Q: One [wʌn]
+Q: Two [tu:]
+Q: Three [θri:]
+Q: Four [fɔ:]
+Q: Five [faiv]
+Q: Six [sɪks]
+Q: Seven [ˈsevən]
+Q: Eight [eɪt]
+Q: Nine [naɪn]
+Q: Ten [ten]
+Q: Eleven [ɪˈlevən]
+Q: Twelve [twelv]
+Q: Thirteen [θɜːˈtiːn]
+Q: Fourteen [fɔːˈtiːn]
+Q: Fifteen [fɪfˈtiːn]
+Q: Sixteen [sɪksˈtiːn]
+Q: Seventeen [sevənˈtiːn]
+Q: Eighteen [eɪˈtiːn]
+Q: Nineteen [naɪnˈtiːn]
+Q: Twenty [ˈtwenti]
+
+Topic: COLORS
+Level: A1.1
+Description: Basic colors
+Q: Red [red]
+Q: Blue [blu:]
+Q: Green [gri:n]
+Q: Yellow [ˈjeləʊ]
+Q: Black [blæk]
+Q: White [waɪt]
+Q: Purple [ˈpɜːpl]
+Q: Orange [ˈɒrɪndʒ]
+Q: Brown [braʊn]
+Q: Pink [pɪŋk]
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Description: Personal pronouns usage
+Q: I am a teacher
+Q: You are my friend
+Q: He is a doctor
+Q: She is tired
+Q: It is cold today
+Q: We are students
+Q: They are at home
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Description: Possessive adjectives usage
+Q: This is my book
+Q: Your car is red
+Q: His name is John
+Q: Her phone is new
+Q: Our house is big
+Q: Their dog is friendly
+
+Topic: DAYS OF THE WEEK
+Level: A1.1
+Description: Days of the week
+Q: Monday
+Q: Tuesday
+Q: Wednesday
+Q: Thursday
+Q: Friday
+Q: Saturday
+Q: Sunday
+
+Topic: FAMILY MEMBERS
+Level: A1.1
+Description: Family members vocabulary
+Q: Mother
+Q: Father
+Q: Brother
+Q: Sister
+Q: Grandmother
+Q: Grandfather
+Q: Uncle
+Q: Aunt
+Q: Cousin
+Q: Baby
+
+Topic: CLASSROOM OBJECTS
+Level: A1.1
+Description: Classroom objects vocabulary
+Q: Pencil
+Q: Pen
+Q: Notebook
+Q: Eraser
+Q: Desk
+Q: Chair
+Q: Ruler
+Q: Book
+Q: Bag
+Q: Board

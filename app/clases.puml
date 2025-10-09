@@ -1,0 +1,83 @@
+@startuml Speak UML
+
+' Clases principales
+class MainActivity {
+  - FirebaseUser eUser
+  - FirebaseAuth eAuth
+  - FirebaseDatabase firebaseDatabase
+  - DatabaseReference databaseReference
+  - Button eButtonEnd
+  - Button eButtonPlay
+  - TextView eTextUid
+  - TextView eTextName
+  - TextView eTextEmail
+  - TextView eTextDate
+  - TextView eTextScore
+  + onCreate()
+  - UserData()
+  - EndSession()
+  - LoggedUser()
+}
+
+class LoginActivity {
+  - EditText eLoginEmail
+  - EditText eLoginPassword
+  - Button eButtonLogin
+  - FirebaseAuth eAuth
+  - FirebaseDatabase eDatase
+  - ProgressDialog eProgress
+  + onCreate()
+  - login()
+  - LoginUser()
+}
+
+class RegisterActivity {
+  - EditText eTextName
+  - EditText eTextEmail
+  - EditText eTextPassword
+  - Button eButtonRegister
+  - Button eButtonLogin
+  - TextView eTextDate
+  - FirebaseAuth eAuth
+  - FirebaseDatabase eDatase
+  - ProgressDialog eProgress
+  + onCreate()
+  - clickRegister()
+}
+
+' Clases de Firebase
+class FirebaseAuth {
+  + getInstance()
+  + signInWithEmailAndPassword()
+  + createUserWithEmailAndPassword()
+  + signOut()
+}
+
+class FirebaseDatabase {
+  + getInstance()
+  + getReference()
+}
+
+class FirebaseUser {
+  + getUid()
+  + getEmail()
+}
+
+' Relaciones
+MainActivity --> FirebaseAuth
+MainActivity --> FirebaseDatabase
+MainActivity --> FirebaseUser
+
+LoginActivity --> FirebaseAuth
+LoginActivity --> FirebaseDatabase
+LoginActivity --> FirebaseUser
+
+RegisterActivity --> FirebaseAuth
+RegisterActivity --> FirebaseDatabase
+RegisterActivity --> FirebaseUser
+
+MainActivity --> LoginActivity
+MainActivity --> RegisterActivity
+LoginActivity --> RegisterActivity
+
+@enduml

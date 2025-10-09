@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Base de la cafetera -->
+    <path
+        android:fillColor="#5D4037"
+        android:pathData="M50,160 H150 V170 H50 Z" />
+
+    <!-- Cuerpo principal -->
+    <path
+        android:fillColor="#8D6E63"
+        android:pathData="M60,60 H140 V160 H60 Z" />
+
+    <!-- Panel frontal (pantalla o controles) -->
+    <path
+        android:fillColor="#D7CCC8"
+        android:pathData="M70,70 H130 V100 H70 Z" />
+
+    <!-- Botón -->
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M110,110 A5,5 0 1,1 109.9,110 Z" />
+
+    <!-- Jarra -->
+    <path
+        android:fillColor="#A1887F"
+        android:pathData="M80,120 H120 Q125,120 125,125 V145 Q125,150 120,150 H80 Q75,150 75,145 V125 Q75,120 80,120 Z" />
+
+    <!-- Café en la jarra -->
+    <path
+        android:fillColor="#4E342E"
+        android:pathData="M82,135 H118 V145 H82 Z" />
+
+    <!-- Asa de la jarra -->
+    <path
+        android:fillColor="#6D4C41"
+        android:pathData="M125,130 Q135,135 125,140 Z" />
+
+    <!-- Tapa superior -->
+    <path
+        android:fillColor="#3E2723"
+        android:pathData="M60,60 H140 Q145,60 140,55 H60 Q55,60 60,60 Z" />
+
+</vector>
+

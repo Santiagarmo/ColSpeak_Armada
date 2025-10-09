@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:fitsSystemWindows="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center_vertical">
+
+                <!-- Logo de la aplicación -->
+                <ImageView
+                    android:id="@+id/app_logo"
+                    android:layout_width="160dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_colspeak_front"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="32dp"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Logo de la aplicación" />
+
+                <!-- Contenedor del formulario -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <!-- Título dentro del card -->
+                        <TextView
+                            android:id="@+id/security_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Verificación\nde seguridad"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="#002C4D"
+                            android:gravity="center"
+                            android:layout_marginBottom="16dp" />
+
+                        <!-- Descripción dentro del card -->
+                        <TextView
+                            android:id="@+id/security_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Esta aplicación requiere verificación temporal antes de su lanzamiento oficial.\n\nIngrese la contraseña de acceso temporal para continuar.\n\nEsta verificación solo se requiere una vez por dispositivo."
+                            android:textSize="18sp"
+                            android:textColor="#1A4F7C"
+                            android:gravity="center"
+                            android:layout_marginBottom="24dp"
+                            android:lineSpacingExtra="1dp" />
+
+                        <!-- Campo de contraseña -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            app:hintEnabled="false"
+                            app:passwordToggleEnabled="true"
+                            app:passwordToggleTint="#99868686"
+                            app:boxStrokeColor="#002C4D"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:boxCornerRadiusTopStart="28dp"
+                            app:boxCornerRadiusTopEnd="28dp"
+                            app:boxCornerRadiusBottomStart="28dp"
+                            app:boxCornerRadiusBottomEnd="28dp"
+                            app:boxBackgroundColor="#D4E5ED">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/password_input"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Contraseña de acceso"
+                                android:inputType="textPassword"
+                                android:imeOptions="actionDone"
+                                android:textColorHint="#99868686"
+                                android:maxLines="1"
+                                android:textColor="#002C4D"
+                                app:cornerRadius="28dp"/>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Botón de verificación (Naranja) -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/verify_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:text="Verificar y Continuar"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:cornerRadius="28dp"
+                            app:backgroundTint="#FF9017"
+                            android:textColor="@android:color/white"
+                            android:layout_marginBottom="6dp" />
+
+                        <!-- Botón de configuración de seguridad (Gris) -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/config_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:text="Configuración de Seguridad"
+                            android:textSize="16sp"
+                            app:cornerRadius="28dp"
+                            app:backgroundTint="#9E9E9E"
+                            android:textColor="@android:color/white" />
+
+                        <!-- Texto de intentos -->
+                        <TextView
+                            android:id="@+id/attempts_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Intentos: 0/5"
+                            android:textSize="12sp"
+                            android:textColor="#FF0000"
+                            android:gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Información adicional -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Seguridad temporal activada\nVerificación por dispositivo único"
+                    android:textSize="13sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="100dp" />
+
+            </LinearLayout>
+
+            <!-- Olas al final, fuera del padding -->
+            <ImageView
+                android:id="@+id/waves_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:scaleType="fitXY"
+                android:src="@drawable/olas"
+                android:contentDescription="Decoración de olas" />
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

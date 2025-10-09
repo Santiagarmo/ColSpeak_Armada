@@ -1,0 +1,60 @@
+@startuml
+skinparam backgroundColor white
+skinparam linetype ortho
+
+' Definición de entidades
+entity "USUARIO" as user {
+  + id : INTEGER <<PK>>
+  --
+  email : TEXT <<UNIQUE>>
+  password : TEXT
+  sync_status : INTEGER
+  last_login : DATETIME
+  auth_token : TEXT
+  offline_mode : INTEGER
+}
+
+entity "RESULTADO_PRONUNCIACION" as pron {
+  + id : INTEGER <<PK>>
+  --
+  user_id : INTEGER <<FK>>
+  reference_text : TEXT
+  spoken_text : TEXT
+  score : REAL
+  timestamp : DATETIME
+  sync_status : INTEGER
+}
+
+entity "RESULTADO_QUIZ" as quiz {
+  + id : INTEGER <<PK>>
+  --
+  user_id : INTEGER <<FK>>
+  question : TEXT
+  correct_answer : TEXT
+  user_answer : TEXT
+  is_correct : INTEGER
+  timestamp : DATETIME
+}
+
+' Relaciones
+user ||--o{ pron : "realiza"
+user ||--o{ quiz : "completa"
+
+' Notas
+note right of user
+  sync_status:
+  0 = no sincronizado
+  1 = sincronizado
+end note
+
+note right of pron
+  Almacena resultados de
+  ejercicios de pronunciación
+end note
+
+note right of quiz
+  Almacena resultados de
+  preguntas de selección múltiple
+end note
+
+@enduml

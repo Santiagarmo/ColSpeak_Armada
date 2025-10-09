@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/gradient_background">
+
+    <ImageView
+        android:id="@+id/btnCloseHelpModal"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/close_modal"
+        android:contentDescription="Close"
+        android:layout_gravity="end"/>
+
+    <ImageView
+        android:id="@+id/helpHeaderIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/help"
+        android:gravity="center"
+        android:layout_marginBottom="0dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/helpHeaderTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ayuda / Help"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_marginTop="0dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/helpIntroText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Explora la ayuda y domina cada tema! 📘 Aquí encontrarás explicaciones claras, ejemplos detallados, imágenes, audios, videos y texto para aprender de manera fácil y divertida."
+        android:textSize="18sp"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:gravity="center" />
+
+    <GridLayout
+        android:id="@+id/gridTopics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:columnCount="3" />
+
+</LinearLayout>
+
+

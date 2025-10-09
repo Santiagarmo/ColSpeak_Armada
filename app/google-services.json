@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1018379285063",
+    "project_id": "colspeak-7fa36",
+    "storage_bucket": "colspeak-7fa36.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018379285063:android:f1a29e5d11767cc21c7762",
+        "android_client_info": {
+          "package_name": "com.example.speak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADigfjrPPHjXTMfvarMGzTo0HmqiuvfCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,80 @@
+@startuml Speak Casos de Uso
+
+' Actores
+actor Usuario
+actor Firebase
+
+' Casos de Uso
+rectangle "Speak App" {
+    usecase "Registrar Usuario" as UC1
+    usecase "Iniciar Sesión" as UC2
+    usecase "Ver Información Personal" as UC3
+    usecase "Iniciar Juego/Actividad" as UC4
+    usecase "Cerrar Sesión" as UC5
+    usecase "Validar Credenciales" as UC6
+    usecase "Almacenar Datos" as UC7
+}
+
+' Relaciones con Usuario
+Usuario --> UC1
+Usuario --> UC2
+Usuario --> UC3
+Usuario --> UC4
+Usuario --> UC5
+
+' Relaciones con Firebase
+Firebase --> UC6
+Firebase --> UC7
+
+' Relaciones entre casos de uso
+UC1 ..> UC6 : <<include>>
+UC1 ..> UC7 : <<include>>
+UC2 ..> UC6 : <<include>>
+UC3 ..> UC7 : <<include>>
+
+' Descripciones de casos de uso
+note right of UC1
+  El usuario ingresa:
+  - Nombre
+  - Email
+  - Contraseña
+  - Fecha de registro
+end note
+
+note right of UC2
+  El usuario ingresa:
+  - Email
+  - Contraseña
+end note
+
+note right of UC3
+  Muestra:
+  - ID de usuario
+  - Nombre
+  - Email
+  - Fecha de registro
+  - Calificación
+end note
+
+note right of UC4
+  Inicia la actividad
+  principal del juego
+end note
+
+note right of UC5
+  Cierra la sesión
+  actual y redirige
+  al registro
+end note
+
+note right of UC6
+  Valida credenciales
+  con Firebase Auth
+end note
+
+note right of UC7
+  Almacena datos
+  en Firebase Database
+end note
+
+@enduml

@@ -1,0 +1,62 @@
+@startuml
+skinparam backgroundColor white
+skinparam sequence {
+    ArrowColor black
+    ActorBorderColor black
+    LifeLineBorderColor black
+    ParticipantBorderColor black
+    ParticipantBackgroundColor white
+}
+
+actor User
+participant "LoginActivity" as Login
+participant "RegisterActivity" as Register
+participant "MainActivity" as Main
+participant "Level_A1" as Level
+participant "QuestionActivity" as Question
+participant "SQLite" as DB
+participant "Pronunciation" as Pron
+participant "Quiz" as Quiz
+
+User -> Login: Inicia sesión
+activate Login
+Login -> DB: Verifica credenciales
+DB --> Login: Resultado autenticación
+Login --> User: Éxito/Fallo
+deactivate Login
+
+User -> Register: Registra nuevo usuario
+activate Register
+Register -> DB: Almacena datos usuario
+DB --> Register: Confirmación registro
+Register --> User: Éxito/Fallo
+deactivate Register
+
+User -> Main: Accede a menú principal
+activate Main
+Main -> Level: Selecciona nivel A1
+deactivate Main
+
+activate Level
+Level -> Question: Inicia preguntas
+deactivate Level
+
+activate Question
+Question -> DB: Obtiene preguntas
+DB --> Question: Datos preguntas
+Question --> User: Muestra preguntas
+deactivate Question
+
+User -> Pron: Accede a pronunciación
+activate Pron
+Pron --> User: Muestra ejercicios
+deactivate Pron
+
+User -> Quiz: Accede a quiz
+activate Quiz
+Quiz -> DB: Obtiene preguntas quiz
+DB --> Quiz: Datos quiz
+Quiz --> User: Muestra quiz
+deactivate Quiz
+
+@enduml

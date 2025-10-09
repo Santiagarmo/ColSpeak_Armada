@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Círculo exterior -->
+    <path
+        android:fillColor="#1B365D"
+        android:pathData="M60,10 A50,50 0 1,1 60,110 A50,50 0 1,1 60,10 Z" />
+    
+    <!-- Círculo interior -->
+    <path
+        android:fillColor="#F5F5DC"
+        android:pathData="M60,20 A40,40 0 1,1 60,100 A40,40 0 1,1 60,20 Z" />
+    
+    <!-- Texto superior -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M30,25 Q60,15 90,25" />
+    
+    <!-- Texto inferior -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M25,95 Q60,105 95,95" />
+    
+    <!-- Ancla central -->
+    <path
+        android:fillColor="#1B365D"
+        android:pathData="M50,45 L70,45 L70,55 L60,65 L50,55 Z" />
+    
+    <!-- Libro -->
+    <path
+        android:fillColor="#8B4513"
+        android:pathData="M45,70 L75,70 L75,80 L45,80 Z" />
+    
+    <!-- Búho (círculo usando path) -->
+    <path
+        android:fillColor="#8B4513"
+        android:pathData="M60,42 A8,8 0 1,1 60,58 A8,8 0 1,1 60,42 Z" />
+    
+    <!-- Ojo izquierdo del búho -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M57,46 A2,2 0 1,1 57,50 A2,2 0 1,1 57,46 Z" />
+    
+    <!-- Ojo derecho del búho -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M63,46 A2,2 0 1,1 63,50 A2,2 0 1,1 63,46 Z" />
+        
+</vector>

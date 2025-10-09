@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Fondo negro -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M0,0 L120,0 L120,120 L0,120 Z" />
+    
+    <!-- Cabeza del personaje -->
+    <path
+        android:fillColor="#00FF00"
+        android:pathData="M50,20 L70,20 L70,40 L50,40 Z" />
+    
+    <!-- Cuerpo con texto SENA -->
+    <!-- Letra S -->
+    <path
+        android:fillColor="#00FF00"
+        android:pathData="M30,45 L50,45 L50,50 L35,50 L35,55 L50,55 L50,60 L30,60 Z" />
+    
+    <!-- Letra E -->
+    <path
+        android:fillColor="#00FF00"
+        android:pathData="M55,45 L75,45 L75,50 L60,50 L60,52 L70,52 L70,55 L60,55 L60,58 L70,58 L70,60 L55,60 Z" />
+    
+    <!-- Letra N -->
+    <path
+        android:fillColor="#00FF00"
+        android:pathData="M80,45 L90,45 L90,60 L85,60 L85,50 L80,50 Z" />
+    
+    <!-- Letra A -->
+    <path
+        android:fillColor="#00FF00"
+        android:pathData="M95,45 L105,45 L105,50 L100,50 L100,60 L95,60 Z" />
+    
+    <!-- Piernas -->
+    <path
+        android:fillColor="#00FF00"
+        android:pathData="M45,65 L55,75 L50,75 L40,65 Z" />
+    <path
+        android:fillColor="#00FF00"
+        android:pathData="M75,65 L85,75 L80,75 L70,65 Z" />
+        
+</vector>
+

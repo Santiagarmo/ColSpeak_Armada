@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- Cubierta izquierda -->
+    <path
+        android:fillColor="#3F51B5"
+        android:pathData="M32,8c-6,0 -12,2 -20,4v40c8,-2 14,-4 20,-4v-40z" />
+
+    <!-- Cubierta derecha -->
+    <path
+        android:fillColor="#303F9F"
+        android:pathData="M32,8c6,0 12,2 20,4v40c-8,-2 -14,-4 -20,-4v-40z" />
+
+    <!-- Línea central (división del libro) -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1"
+        android:fillColor="#00000000"
+        android:pathData="M32,8v40" />
+
+    <!-- Detalles de página izquierda -->
+    <path
+        android:fillColor="#C5CAE9"
+        android:pathData="M12,12c6,-1 11,-2 20,-2v32c-9,0 -14,1 -20,2v-32z" />
+
+    <!-- Detalles de página derecha -->
+    <path
+        android:fillColor="#9FA8DA"
+        android:pathData="M52,12c-6,-1 -11,-2 -20,-2v32c9,0 14,1 20,2v-32z" />
+</vector>

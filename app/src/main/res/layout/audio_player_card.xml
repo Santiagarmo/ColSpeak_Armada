@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardPreventCornerOverlap="false"
+    >
+
+    <!-- Audio Player Card - El componente mismo será el MaterialCardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/audioPlayerCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        app:cardCornerRadius="40dp"
+        app:cardUseCompatPadding="false"
+        app:cardPreventCornerOverlap="false"
+        app:cardBackgroundColor="#D4E5ED"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingEnd="16dp"
+            android:paddingStart="8dp">
+
+
+            <!-- Play/Pause Button -->
+            <ImageButton
+                android:id="@+id/playButton"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/reproduce"
+                android:background="@android:color/transparent"
+                android:contentDescription="Reproducir/Pausar audio"
+                android:scaleType="fitCenter"
+                android:padding="8dp"
+                android:layout_marginEnd="12dp"/>
+
+            <!-- Temporarily disabled AudioPlayerView to avoid crashes -->
+            <com.example.speak.AudioPlayerView
+                android:id="@+id/audioPlayerView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <!-- Simple progress indicator -->
+            <!--<TextView
+                android:id="@+id/progressIndicator"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="0.8"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="🎵 Audio Player"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:background="@color/help_audio_player_background"/>-->
+
+            <!-- Tiempo actual y total (compacto) -->
+
+            <!-- Speed Indicator -->
+            <TextView
+                android:id="@+id/speedIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x2"
+                android:textColor="#FF9017"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:minWidth="32dp"
+                android:gravity="center"
+                android:layout_marginStart="8dp" />
+
+            <!-- Botón de configuración -->
+            <ImageButton
+                android:id="@+id/configButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/settings"
+                android:background="@android:color/transparent"
+                android:contentDescription="Configuración de audio"
+                android:padding="6dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Panel de configuración (oculto por defecto) -->
+    <LinearLayout
+        android:id="@+id/voiceTypeCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:background="@color/help_audio_player_background"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <!-- Título del selector de voz -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de voz (solo inglés) / Voice Type (English only)"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Selector de idioma -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/languageSpanishButton"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="🇪🇸 Español (Original)"
+                android:textSize="10sp"
+                android:background="@drawable/rounded_background"
+                android:textColor="#002C4D"
+                android:padding="4dp"/>
+
+            <Button
+                android:id="@+id/languageEnglishButton"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="🇺🇸 English (TTS)"
+                android:textSize="10sp"
+                android:background="@drawable/rounded_background"
+                android:textColor="#002C4D"
+                android:padding="4dp"/>
+
+        </LinearLayout>
+
+        <!-- Grid de botones de tipos de voz -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="16dp">
+
+            <Button
+                android:id="@+id/voiceChildButton"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="👦"
+                android:textSize="32sp"
+                android:background="@android:color/transparent"
+                android:textColor="#002C4D"
+                android:padding="12dp"/>
+
+            <Button
+                android:id="@+id/voiceGirlButton"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="4dp"
+                android:text="👧"
+                android:textSize="32sp"
+                android:background="@android:color/transparent"
+                android:textColor="#002C4D"
+                android:padding="12dp"/>
+
+            <Button
+                android:id="@+id/voiceWomanButton"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="4dp"
+                android:text="👩"
+                android:textSize="32sp"
+                android:background="@android:color/transparent"
+                android:textColor="#002C4D"
+                android:padding="12dp"/>
+
+            <Button
+                android:id="@+id/voiceManButton"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="👨"
+                android:textSize="32sp"
+                android:background="@android:color/transparent"
+                android:textColor="#002C4D"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

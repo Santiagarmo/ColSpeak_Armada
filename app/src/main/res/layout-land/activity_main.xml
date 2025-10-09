@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    tools:context=".MainActivity">
+
+    <!-- Fondo optimizado para landscape -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fondo_esfera"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="false" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_xs"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:minHeight="400dp">
+
+            <!-- Logo más compacto para landscape -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_fond_white"
+                android:adjustViewBounds="true" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium">
+
+                    <!-- Welcome image centrada -->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/welcome"
+                        android:layout_gravity="center_horizontal" />
+
+                    <!-- Texto (como en vertical) -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_medium"
+                        android:text="Select one activity to start learning"
+                        android:textColor="#00487E"
+                        android:textSize="@dimen/text_size_large"
+                        android:textStyle="bold" />
+
+                    <!-- ViewPager muy compacto para imágenes más juntas -->
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_marginStart="120dp"
+                        android:layout_marginEnd="120dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp" />
+
+                    <!-- TabLayout (como en vertical) -->
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:background="@android:color/transparent"
+                        app:tabGravity="center"
+                        app:tabMode="fixed"
+                        app:tabBackground="@drawable/tab_selector"
+                        app:tabIndicatorHeight="0dp"
+                        app:tabPaddingStart="4dp"
+                        app:tabPaddingEnd="4dp"
+                        app:tabMinWidth="16dp"
+                        app:tabMaxWidth="16dp" />
+
+                    <!-- Menú inferior agrupado para landscape -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small">
+
+                        <!-- Fondo del menú -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/menu_0"
+                            android:adjustViewBounds="true" />
+
+                        <!-- Elementos del menú alineados con el fondo -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:padding="@dimen/spacing_medium">
+
+                            <!-- Home -->
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/spacing_small"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/home0" />
+
+                            <!-- Bird Menu (centro) -->
+                            <ImageView
+                                android:id="@+id/imgBirdMenu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/spacing_small"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/bird0_menu"
+                                android:background="?attr/selectableItemBackgroundBorderless" />
+
+                            <!-- Profile -->
+                            <ImageView
+                                android:id="@+id/btnProfile"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/spacing_small"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/profile"
+                                android:background="?attr/selectableItemBackgroundBorderless" />
+
+                        </LinearLayout>
+
+                        <!-- Quiz y Pronunciation agrupados alrededor del Bird -->
+                        <ImageView
+                            android:id="@+id/imgQuizMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="-40dp"
+                            android:layout_marginTop="8dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/quiz0_menu"
+                            android:visibility="gone"
+                            android:background="?attr/selectableItemBackgroundBorderless" />
+
+                        <ImageView
+                            android:id="@+id/imgPronunMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/pronun0_menu"
+                            android:visibility="gone"
+                            android:background="?attr/selectableItemBackgroundBorderless" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

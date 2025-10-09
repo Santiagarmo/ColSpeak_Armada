@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuWritingActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="800dp"
+            android:orientation="vertical"
+            android:background="#4AA497"
+            android:padding="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#008CB9"
+                android:paddingTop="@dimen/spacing_large"
+                android:paddingBottom="@dimen/spacing_medium">
+
+                <LinearLayout
+                    android:id="@+id/eBtnReturnMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="#008CB9"
+                    android:padding="@dimen/spacing_medium"
+                    android:layout_marginBottom="@dimen/spacing_medium">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_small"
+                        android:layout_height="@dimen/icon_size_small"
+                        android:src="@drawable/back"
+                        android:contentDescription="@string/return_menu"
+                        android:layout_marginEnd="@dimen/spacing_small"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/return_button"
+                        android:textSize="@dimen/text_size_large"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <!-- Badge de Modo Libre (Reading) con botón desactivar -->
+                <LinearLayout
+                    android:id="@+id/freeRoamContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/spacing_medium"
+                    android:paddingRight="@dimen/spacing_medium"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:background="#4AA497"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/freeRoamBadge"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Modo libre: Reading sin secuencia"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/btnDisableFreeRoam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Desactivar"
+                        android:textSize="12sp"
+                        android:backgroundTint="#FF5252"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Mapa principal de reading con elementos superpuestos - RESPONSIVE -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:minHeight="600dp">
+
+                <!-- Mapa de fondo (reutilizamos map_a1 pero con fondo azul) -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/marinera_map_a1"
+                    android:adjustViewBounds="true"
+                    android:alpha="0.8" />
+
+                <!-- Botón Start Reading - Posición responsive -->
+                <ImageView
+                    android:id="@+id/eButtonStartWriting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="160dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/start"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Elementos que aparecen con animación - Reading Start Group -->
+                <!-- Reading Translation - Arriba del Start -->
+                <ImageView
+                    android:id="@+id/imgWritingAlphabet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="160dp"
+                    android:layout_marginTop="180dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/abc"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Reading Comprehension - Derecha del Start -->
+                <ImageView
+                    android:id="@+id/imgWritingNumbers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="90dp"
+                    android:layout_marginTop="113dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/numbers"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Reading Vocabulary - Abajo del Start -->
+                <ImageView
+                    android:id="@+id/imgWritingColors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="180dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/colors"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Reading Grammar - Diagonal superior derecha del Start -->
+                <ImageView
+                    android:id="@+id/imgWritingPronouns"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="58dp"
+                    android:layout_marginTop="240dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/pronouns"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Reading Stories - Diagonal inferior derecha del Start -->
+                <ImageView
+                    android:id="@+id/imgWritingPossessive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="130dp"
+                    android:layout_marginTop="240dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/possesive"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <!-- Map Icon 2 - Trigger para segundo grupo -->
+                <ImageView
+                    android:id="@+id/imgIcMap2Writing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="310dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_map2"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/map_blocked_2Reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="310dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/map_blocked"
+                    android:visibility="gone" />
+
+                <!-- Elementos del segundo grupo de reading -->
+                <ImageView
+                    android:id="@+id/imgWritingPrepositions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="39dp"
+                    android:layout_marginTop="330dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/prepositions"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/imgWritingAdjectives"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="330dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/adjectives"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/imgIcMap3Reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="480dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_map3"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/map_blocked_3Reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="480dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/map_blocked"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgOrdinal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginTop="450dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ordinal"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/imgVerb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginTop="540dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/verb_to_be"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/imgIcMap4Reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="648dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_map4"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/map_blocked_4Reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="648dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/map_blocked"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgDaile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="600dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/daily_routines"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:id="@+id/imgVerbNear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="725dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/verb_near"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+
+                    android:id="@+id/imgIcMap5Reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="810dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_map5" />
+
+                <ImageView
+                    android:id="@+id/map_blocked_5Reading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="810dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/map_blocked"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="120dp"
+                    android:layout_marginTop="980dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_map6" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginEnd="120dp"
+                    android:layout_marginTop="980dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/map_blocked"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="1145dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_map7" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|top"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="1145dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/map_blocked"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/spacing_large"
+                android:paddingBottom="60dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start|top"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="125dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/menu_0" />
+
+                    <ImageView
+                        android:id="@+id/homeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|top"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="145dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/home0" />
+
+                    <ImageView
+                        android:id="@+id/imgBirdMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="50dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/bird0_menu" />
+
+                    <ImageView
+                        android:id="@+id/imgQuizMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|top"
+                        android:layout_marginStart="95dp"
+                        android:layout_marginTop="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/quiz0_menu"
+                        android:visibility="gone"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imgReadingHistoryMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|top"
+                        android:layout_marginStart="270dp"
+                        android:layout_marginTop="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/pronun0_menu"
+                        android:visibility="gone"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/btnProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|top"
+                        android:layout_marginEnd="60dp"
+                        android:layout_marginTop="145dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/profile" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

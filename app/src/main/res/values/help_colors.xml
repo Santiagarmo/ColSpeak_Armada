@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores para la vista de ayuda -->
+    <color name="help_background">#002C4D</color>
+    <color name="help_header_background">#20B2AA</color>
+    <color name="help_section_banner">#20B2AA</color>
+    <color name="help_central_circle">#FF8C00</color>
+    <color name="help_letter_background">#20B2AA</color>
+    <color name="help_audio_player_background">#FFFFFF</color>
+    <color name="help_play_button_background">#4CAF50</color>
+    <color name="help_waveform_color">#4CAF50</color>
+    <color name="help_repeat_color">#4CAF50</color>
+    <color name="help_text_white">#FFFFFF</color>
+</resources>

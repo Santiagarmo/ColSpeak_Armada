@@ -1,0 +1,1541 @@
+PLACEMENT TEST: A1 TO B1
+
+Instructions: Choose the correct answer for each question. Only one answer is correct.
+
+ALPHABET
+
+Topic: ALPHABET
+Level: A1.1
+Q: A
+A: [ei]/eɪ/
+O: [ci]/si/|[ou]/əʊ/|[ei]/eɪ/|[kei]/keɪ/
+
+Topic: ALPHABET
+Level: A1.1
+Q: B
+A: [bi]/bi/
+O: [zi]/zed/|[pi]/pi/|[ti]/ti/|[bi]/bi/
+
+Topic: ALPHABET
+Level: A1.1
+Q: C
+A: [ci]/si/
+O: [zi]/zed/|[pi]/pi/|[ci]/si/|[ti]/ti/
+
+Topic: ALPHABET
+Level: A1.1
+Q: D
+A: [di]/di/
+O: [ti]/ti/|[di]/di/|[ci]/si/|[pi]/pi/
+
+Topic: ALPHABET
+Level: A1.1
+Q: E
+A: [i]/i/
+O: [pi]/pi/|[ci]/si/|[i]/i/|[ti]/ti/
+
+Topic: ALPHABET
+Level: A1.1
+Q: F
+A: [ef]/ef/
+O: [es]/es/|[ef]/ef/|[ai]/aɪ/|[dabliu]/ˈdʌb(ə)l ju/
+
+Topic: ALPHABET
+Level: A1.1
+Q: G
+A: [yi]/dʒi/
+O: [kei]/keɪ/|[yi]/dʒi/|[ai]/aɪ/|[ex]/eks/
+
+Topic: ALPHABET
+Level: A1.1
+Q: H
+A: [eich]/eɪtʃ/
+O: [kei]/keɪ/|[eich]/eɪtʃ/|[ai]/aɪ/|[ex]/eks/
+
+Topic: ALPHABET
+Level: A1.1
+Q: I
+A: [ai]/aɪ/
+O: [kei]/keɪ/|[eich]/eɪtʃ/|[ai]/aɪ/|[ex]/eks/
+
+Topic: ALPHABET
+Level: A1.1
+Q: J
+A: [jei]/dʒeɪ/
+O: [pi]/pi/|[ci]/si/|[jei]/dʒeɪ/|[ti]/ti/
+
+Topic: ALPHABET
+Level: A1.1
+Q: K
+A: [kei]/keɪ/
+O: [eich]/eɪtʃ/|[kei]/keɪ/|[ai]/aɪ/|[ar]/ɑ(r)
+
+Topic: ALPHABET
+Level: A1.1
+Q: L
+A: [el]/el/
+O: [eich]/eɪtʃ/|[kei]/keɪ/|[el]/el/|[ar]/ɑ(r)
+
+
+NUMBERS
+
+Topic: NUMBERS
+Level: A1.1
+Q: 1
+A: (one)
+O: (one) | (two) | (ten) | (five)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 2
+A: (two)
+O: (three) | (two) | (nine) | (four)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 3
+A: (three)
+O: (five) | (three) | (six) | (one)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 4
+A: (four)
+O: (two) | (seven) | (four) | (eight)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 5
+A: (five)
+O: (five) | (one) | (six) | (three)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 6
+A: (six)
+O: (four) | (six) | (two) | (seven)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 7
+A: (seven)
+O: (nine) | (seven) | (eight) | (six)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 8
+A: (eight)
+O: (three) | (eight) | (five) | (nine)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 9
+A: (nine)
+O: (six) | (seven) | (nine) | (one)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 10
+A: (ten)
+O: (ten) | (two) | (eleven) | (twelve)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 11
+A: (eleven)
+O: (eleven) | (thirteen) | (nine) | (fifteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 12
+A: (twelve)
+O: (ten) | (twelve) | (fourteen) | (eleven)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 13
+A: (thirteen)
+O: (thirteen) | (fifteen) | (twelve) | (eighteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 14
+A: (fourteen)
+O: (seventeen) | (fourteen) | (sixteen) | (thirteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 15
+A: (fifteen)
+O: (fifteen) | (thirteen) | (twelve) | (eighteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 16
+A: (sixteen)
+O: (nineteen) | (fourteen) | (sixteen) | (twenty)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 17
+A: (seventeen)
+O: (eighteen) | (seventeen) | (sixteen) | (nineteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 18
+A: (eighteen)
+O: (twenty) | (eighteen) | (fourteen) | (nineteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 19
+A: (nineteen)
+O: (sixteen) | (seventeen) | (nineteen) | (fifteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 20
+A: (twenty)
+O: (twenty) | (eighteen) | (twenty-one) | (twenty-three)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 21
+A: (twenty-one)
+O: (twenty-one) | (twenty-five) | (twenty) | (nineteen)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 22
+A: (twenty-two)
+O: (twenty-two) | (twenty-four) | (twenty-one) | (twenty-seven)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 23
+A: (twenty-three)
+O: (twenty-six) | (twenty) | (twenty-three) | (twenty-two)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 24
+A: (twenty-four)
+O: (twenty-four) | (twenty-two) | (twenty-five) | (twenty-nine)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 25
+A: (twenty-five)
+O: (twenty-seven) | (twenty-five) | (twenty) | (thirty)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 26
+A: (twenty-six)
+O: (twenty-four) | (twenty-eight) | (twenty-six) | (twenty-nine)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 27
+A: (twenty-seven)
+O: (thirty) | (twenty-seven) | (twenty-six) | (twenty-three)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 28
+A: (twenty-eight)
+O: (twenty-eight) | (twenty-nine) | (twenty-four) | (twenty-seven)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 29
+A: (twenty-nine)
+O: (twenty-nine) | (twenty-eight) | (twenty-seven) | (thirty)
+
+Topic: NUMBERS
+Level: A1.1
+Q: 30
+A: (thirty)
+O: (thirty) | (twenty-five) | (twenty) | (twenty-eight)
+
+
+COLORS
+
+Topic: COLORS
+Level: A1.1
+Q: Blue
+A: (/bluː/)
+O: (/rɛd/) | (/bluː/) | (/ˈjɛloʊ/) | (/ɡriːn/)
+
+Topic: COLORS
+Level: A1.1
+Q: Red
+A: (/rɛd/)
+O: (/bluː/) | (/ɡriːn/) | (/ˈjɛloʊ/) | (/rɛd/)
+
+Topic: COLORS
+Level: A1.1
+Q: Green
+A: (/ɡriːn/)
+O: (/rɛd/) | (/bluː/) | (/ɡriːn/) | (/ˈjɛloʊ/)
+
+Topic: COLORS
+Level: A1.1
+Q: Yellow
+A: (/ˈjɛloʊ/)
+O: (/ˈjɛloʊ/) | (/rɛd/) | (/bluː/) | (/ɡriːn/)
+
+Topic: COLORS
+Level: A1.1
+Q: Black
+A: (/blæk/)
+O: (/rɛd/) | (/blæk/) | (/bluː/) | (/ɡriːn/)
+
+Topic: COLORS
+Level: A1.1
+Q: White
+A: (/waɪt/)
+O: (/rɛd/) | (/bluː/) | (/waɪt/) | (/ɡriːn/)
+
+Topic: COLORS
+Level: A1.1
+Q: Pink
+A: (/pɪŋk/)
+O: (/bluː/) | (/rɛd/) | (/ɡriːn/) | (/pɪŋk/)
+
+Topic: COLORS
+Level: A1.1
+Q: Purple
+A: (/ˈpɜːrpəl/)
+O: (/ɡriːn/) | (/bluː/) | (/ˈpɜːrpəl/) | (/rɛd/)
+
+Topic: COLORS
+Level: A1.1
+Q: Orange
+A: (/ˈɔːrɪndʒ/)
+O: (/ˈpɜːrpəl/) | (/ˈɔːrɪndʒ/) | (/braʊn/) | (/pɪŋk/)
+
+Topic: COLORS
+Level: A1.1
+Q: Brown
+A: (/braʊn/)
+O: (/ˈpɜːrpəl/) | (/ˈɔːrɪndʒ/) | (/braʊn/) | (/pɪŋk/)
+
+Topic: COLORS
+Level: A1.1
+Q: Gray
+A: (/ɡreɪ/)
+O: (/ˈpɜːrpəl/) | (/ˈɔːrɪndʒ/) | (/braʊn/) | (/ɡreɪ/)
+
+Topic: COLORS
+Level: A1.1
+Q: Gold
+A: (/ɡoʊld/)
+O: (/ɡoʊld/) | (/ˈɔːrɪndʒ/) | (/braʊn/) | (/ɡreɪ/)
+
+1. A1.1 (Beginner - Basic Vocabulary and Grammar)
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:Hello! How _ you?
+A:are
+O:is|are|do|be
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:My name _ John.
+A:is
+O:is|are|am|be
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:She _ from Spain.
+A:is
+O:are|is|am|be
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:I _ a teacher.
+A:am
+O:am|is|are|do
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:We _ happy.
+A:are
+O:is|are|am|be
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:How old _ you?
+A:are
+O:is|are|do|be
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:They _ in the park.
+A:are
+O:is|are|am|be
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:Where _ they live?
+A:do
+O:do|does|is|are
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q:It's _ dog.
+A:my
+O:my|I|me|mine
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q:This is my _.
+A:friend
+O:friend|friends|friend's|friendly
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: This is _ book. I read it every night.
+A: my
+O: your | her | my | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Peter is doing _ homework.
+A: his
+O: his | her | our | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: We love _ school.
+A: our
+O: my | your | our | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: She is washing _ hands.
+A: her
+O: his | her | their | our
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: The dog is eating _ food.
+A: its
+O: its | her | his | my
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: This is _ pencil. I use it every day.
+A: my
+O: her | your | my | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Laura is washing _ hands.
+A: her
+O: his | her | their | our
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: We always do _ homework after dinner.
+A: our
+O: our | their | your | her
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: John loves _ new phone.
+A: his
+O: my | her | their | his
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: The cat is eating _ food.
+A: its
+O: its | her | my | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Is this _ bag, Peter?
+A: your
+O: his | my | your | our
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: They play with _ dog every afternoon.
+A: their
+O: his | our | their | its
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: The baby drinks _ milk at 8 a.m.
+A: his
+O: its | her | his | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: I brush _ teeth in the morning.
+A: my
+O: your | my | our | his
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: The children are playing with _ toys.
+A: their
+O: their | our | his | its
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Pedro never forgets _ keys.
+A: his
+O: my | your | his | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Is this _ car, Ana?
+A: your
+O: your | her | their | our
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: We like _ English class.
+A: our
+O: my | our | their | her
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: She listens to _ music all day.
+A: her
+O: his | her | our | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: The students are doing _ project.
+A: their
+O: our | their | his | her
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Carlos always wears _ jacket.
+A: his
+O: his | her | my | your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: This is _ house. We live here.
+A: our
+O: our | their | your | his
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: I like _ shoes. They are comfortable.
+A: my
+O: my | her | their | your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: She plays the guitar with _ brother.
+A: her
+O: her | his | your | our
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q:The book is _ the bag.
+A:in
+O:in|on|at|to
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The cat is _ the box.
+A: in
+O: on | in | under | next
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The ball is _ the table.
+A: under
+O: under | between | in | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: She is walking _ the park.
+A: to
+O: to | on | behind | in
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The store is _ the school and the bank.
+A: between
+O: in | between | on | over
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The books are _ the shelf.
+A: on
+O: on | under | over | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The ball is _ the box.
+A: in
+O: in | on | under | next
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The cat is _ the table.
+A: under
+O: on | under | over | between
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The picture is _ the wall.
+A: on
+O: under | in | on | over
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: My shoes are _ the bed.
+A: under
+O: next | over | under | between
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The store is _ the library and the bank.
+A: between
+O: behind | under | between | above
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The dog is sitting _ the door.
+A: near
+O: near | in | over | between
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: I am walking _ the park.
+A: through
+O: to | through | behind | under
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The plane is flying _ the clouds.
+A: above
+O: under | beside | above | in
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The children are jumping _ the sofa.
+A: on
+O: in | on | above | next
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: We are going _ school now.
+A: to
+O: to | from | into | on
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The books are _ the shelf.
+A: on
+O: on | under | over | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: My pencil fell _ the table.
+A: off
+O: off | on | behind | at
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The chair is _ the desk.
+A: next to
+O: next to | between | in | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The flowers are _ the vase.
+A: in
+O: on | in | over | beside
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: There is a lamp _ the table.
+A: above
+O: above | under | on | behind
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The car is parked _ the garage.
+A: in
+O: at | on | in | next
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The shoes are _ the door.
+A: behind
+O: behind | between | above | at
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The dog jumped _ the fence.
+A: over
+O: over | on | beside | between
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: We walked _ the river for an hour.
+A: along
+O: along | across | through | on
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q: The phone is _ the table.
+A: on
+O: on | under | above | off
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I am very _. I didn’t sleep well.
+A: tired
+O: tired | funny | tall | short
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: He is _. He tells great jokes.
+A: funny
+O: bored | funny | sad | angry
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: She is a/an _ person. Everyone trusts her.
+A: honest
+O: honest | lazy | tall | angry
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My friend is very _. He never studies.
+A: lazy
+O: lazy | smart | helpful | happy
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: Maria is _. She helps her friends.
+A: helpful
+O: tired | helpful | shy | bored
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My sister has _ hair.
+A: long
+O: tall | long | loud | small
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: That man is _. He goes to the gym.
+A: strong
+O: strong | weak | tired | bored
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I feel _. It’s my birthday!
+A: excited
+O: sad | angry | excited | tired
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: She looks _. She got a new dress.
+A: beautiful
+O: sad | beautiful | funny | hungry
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The baby is _. He is crying.
+A: tired
+O: tired | tall | lazy | Smart
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I am very _. I didn’t sleep well.
+A: tired
+O: tired | funny | tall | short
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My sister is very _. She always smiles.
+A: happy
+O: happy | angry | small | bored
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: Peter is _. He makes everyone laugh.
+A: funny
+O: funny | tired | quiet | tall
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My dog is _. He is not big.
+A: small
+O: small | tall | angry | serious
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: He is _. He always helps people.
+A: kind
+O: kind | sad | short | loud
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The boy is _. He is not talking.
+A: quiet
+O: quiet | happy | friendly | big
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I feel _ when I watch a scary movie.
+A: scared
+O: scared | tall | friendly | short
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My father is very _. He works a lot.
+A: hardworking
+O: hardworking | lazy | small | noisy
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I’m _ because I have a test today.
+A: nervous
+O: nervous | tired | friendly | loud
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My cat is _. He sleeps all day.
+A: lazy
+O: lazy | funny | tall | kind
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: They are _. They are always together.
+A: friendly
+O: friendly | quiet | angry | tired
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The baby is _. He is not happy.
+A: sad
+O: sad | funny | strong | busy
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My brother is very _. He doesn’t like to talk.
+A: shy
+O: shy | happy | tall | kind
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The teacher is _. She explains very well.
+A: smart
+O: smart | lazy | small | angry
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: I am _ because it’s my birthday!
+A: excited
+O: excited | tired | short | nervous
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My friend is _. He likes to talk a lot.
+A: talkative
+O: talkative | quiet | shy | sad
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: She is very _. She always smiles and helps.
+A: nice
+O: nice | tired | scared | big
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: The boy is _. He never studies.
+A: lazy
+O: lazy | hardworking | quiet | friendly
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: We are _ because we are going on a trip!
+A: happy
+O: happy | shy | tired | lazy
+
+Topic: ADJECTIVES (FEELINGS, APPEARANCE, PERSONALITY)
+Level: A1.1
+Q: My grandma is very _. She tells great stories.
+A: interesting
+O: interesting | angry | tall | scared
+
+Topic: QUESTION FORMS
+Level: A2.1
+Q:What _ is it?
+A:time
+O:time|clock|hour|watch
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q:I _ TV every day.
+A:watch
+O:watch|watches|watching|is watched
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q:She _ a red dress.
+A:wears
+O:wear|wears|wearing|wored
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q:What is this? _ a pen.
+A:It's
+O:Is|Are|It's|They are
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q:He _ football.
+A:plays
+O:play|plays|playing|playd
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q:Do you _ coffee?
+A:like
+O:like|likes|liking|liked
+
+Topic: ARTICLES & BASIC STRUCTURE
+Level: A1.1
+Q:This is _ apple.
+A:an
+O:an|a|the|one
+
+Topic: ARTICLES & BASIC STRUCTURE
+Level: A1.1
+Q:I have _ orange.
+A:an
+O:a|an|one|some
+
+A1.2 (High Beginner)
+
+Topic: FREQUENCY ADVERBS
+Level: A1.2
+Q:1. She _ go to the cinema on Sundays.
+A:d) all are correct
+O:a) usually|b) never|c) always|d) all are correct
+
+Topic: FREQUENCY ADVERBS
+Level: A1.2
+Q:9. We _ go to school by bus.
+A:d) all are correct
+O:a) never|b) usually|c) sometimes|d) all are correct
+
+Topic: FREQUENCY ADVERBS
+Level: A1.2
+Q:10. _ do you go to the gym?
+A:b) How often
+O:a) Which|b) How often|c) What|d) Who
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q:2. What time do you _ up?
+A:a) wake
+O:a) wake|b) gets|c) stand|d) move
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q:7. I always _ my teeth in the morning.
+A:a) brush
+O:a) brush|b) brushes|c) brushing|d) brushed
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q:13. Can you _ me, please?
+A:a) help
+O:a) help|b) helps|c) helping|d) helped
+
+Topic: DAILY ROUTINES (SIMPLE PRESENT)
+Level: A1.1
+Q:16. _ you like orange juice?
+A:a) Do
+O:a) Do|b) Are|c) Does|d) Did
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q:3. I don't _ pizza.
+A:c) like
+O:a) likes|b) liking|c) like|d) liked
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q:12. I _ like coffee.
+A:a) don't
+O:a) don't|b) doesn't|c) not|d) no
+
+Topic: SIMPLE PRESENT
+Level: A1.2
+Q:19. He _ like chocolate.
+A:a) doesn't
+O:a) doesn't|b) don't|c) isn't|d) didn't
+
+Topic: QUANTIFIERS
+Level: A1.2
+Q:4. There _ some milk in the fridge.
+A:a) is
+O:a) is|b) are|c) wash|d) were
+
+Topic: QUANTIFIERS
+Level: A1.2
+Q:5. How _ money do you have?
+A:b) much 
+O:a) many|b) much|c) lot|d) plenty
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q:6. The children _ playing in the park.
+A:b) are
+O:a) is|b) are|c) am|d) was
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q:11. He _ watching a movie.
+A:a) is
+O:a) is|b) are|c) am|d) be
+
+Topic: NEAR FUTURE ACTIONS (PRESENT PROGRESSIVE)
+Level: A1.1
+Q:20. They _ TV now.
+A:a) are watching
+O:a) are watching|b) watch|c) watches|d) watched
+
+Topic: POSSESSIVE FORMS
+Level: A1.2
+Q:8. That is _ car.
+A:b) Sarah's
+O:a) Sarah|b) Sarah's|c) Sarahs|d) Sarahs'
+
+Topic: PREPOSITIONS OF PLACE, MOVEMENT AND LOCATION
+Level: A1.1
+Q:14. The book is _ the table.
+A:c) on
+O:a) in|b) under|c) on|d) at
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q:15. We _ at home yesterday.
+A:a) were
+O:a) were|b) was|c) are|d) be
+
+Topic: SIMPLE PAST
+Level: A1.2
+Q:18. She _ late for school today.
+A:a) was
+O:a) was|b) were|c) is to|d) be
+
+Topic: COUNTABLE AND UNCOUNTABLE NOUNS
+Level: A1.2
+Q:17. I have two _.
+A:c) children
+O:a) child|b) childs|c) children|d) childrens
+
+A2.1 (Pre-Intermediate)
+
+Topic: USED TO
+Level: A1.2
+Q:1. I _ go to the gym on Mondays, but now I don't.
+A:a) used to
+O:a) used to|b) use to|c) am used to|d) was
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q:2. Have you _ been to London?
+A:a) ever
+O:a) ever|b) never|c) just|d) already
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q:3. She's _ in this company since 2020.
+A:a) worked
+O:a) worked|b) working|c) works|d) has worked
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q:9. They _ already seen that movie.
+A:a) have
+O:a) have|b) has|c) had|d) are
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q:8. I've just _ my homework.
+A:b) finished
+O:a) finish|b) finished|c) finishing|d) finishes
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q:1. We've lived here _ five years.
+A:b) for
+O:a) since|b) for|c) ago|d) in
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q:2. I didn't go out because I _ my homework.
+A:a) haven't finished
+O:a) haven't finished|b) hadn't finished|c) didn't finish|d) wasn't finishing
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q:4. We _ dinner when she arrived.
+A:b) were having
+O:a) had|b) were having|c) have|d) has
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q:10. What _ doing when I called you?
+A:c) were you
+O:a) are you|b) did you|c) were you|d) have you been
+
+Topic: PAST SIMPLE VS. PRESENT PERFECT
+Level: A2.1
+Q:4. While I was walking home, I _ my old friend.
+A:b) met
+O:a) meet|b) met|c) was meeting|d) had met
+
+Topic: FUTURE FORMS
+Level: A2.1
+Q:5. I _ go to the dentist next Monday.
+A:a) am going to
+O:a) am going to|b) go|c) will|d) went
+
+Topic: FUTURE FORMS
+Level: A2.1
+Q:6. If it rains, I _ stay at home.
+A:a) will
+O:a) will|b) would|c) can|d) should
+
+Topic: COMPARATIVES AND SUPERLATIVES
+Level: A2.1
+Q:7. She _ than her brother.
+A:a) is taller
+O:a) is taller|b) tall|c) more tall|d) tallest
+
+Topic: COMPARATIVES AND SUPERLATIVES
+Level: A2.1
+Q:8. This is _ interesting book I've ever read.
+A:a) the most
+O:a) the most|b) more|c) most|d) very
+
+Topic: QUESTION FORMS
+Level: A2.1
+Q:10. Where _ you born?
+A:a) were
+O:a) were|b) are|c) did|d) was
+
+Topic: SECOND CONDITIONAL
+Level: A2.1
+Q:7. If I _ enough money, I would buy a new car.
+A:b) had
+O:a) have|b) had|c) will have|d) has
+
+Topic: GERUNDS AND PARTICIPLES
+Level: A2.1
+Q:5. My sister can't stand _ late.
+A:b) being
+O:a) to be|b) being|c) be|d) been
+
+Topic: GERUNDS AND PARTICIPLES
+Level: A2.1
+Q:6. That film was really _.
+A:c) boring
+O:a) bore|b) bored|c) boring|d) boredom
+
+Topic: COMPARATIVES / REPORTED SPEECH
+Level: A2.1
+Q:3. He drives _ than his brother.
+A:a) more carefully
+O:a) more carefully|b) careful|c) most carefully|d) carefully
+
+Topic: COMPARATIVES / REPORTED SPEECH
+Level: A2.1
+Q:9. He said he _ help us.
+A:c) would
+O:a) will|b) can|c) would|d) shall
+
+A2.2 (High Pre-Intermediate)
+
+(20 questions covering past tenses, comparatives, superlatives, frequency, and functional language)
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:1. She _ to the party, but she didn't feel well.
+A:c) wanted to come
+O:a) came|b) was coming|c) wanted to come|d) comes
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:2. I _ go out last night.
+A:a) didn't
+O:a) didn't|b) wasn't|c) don't|d) haven't
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:3. He runs _ than his brother.
+A:d) faster
+O:a) fastest|b) fast|c) more fast|d) faster
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:4. That was the _ film I've ever seen.
+A:c) worst
+O:a) most bad|b) worse|c) worst|d) baddest
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:5. How _ do you go shopping?
+A:b) often
+O:a) many|b) often|c) long|d) much
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:6. I'm not sure. I _ help you later.
+A:b) might
+O:a) must|b) might|c) should|d) can
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:7. She's good _ dancing.
+A:c) at
+O:a) in|b) on|c) at|d) for
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:8. I _ my phone while I was running.
+A:b) dropped
+O:a) drop|b) dropped|c) dropping|d) had dropped
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:9. Let's _ for a walk.
+A:a) go
+O:a) go|b) to go|c) going|d) went
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:10. This book is _ interesting than the last one.
+A:c) more
+O:a) most|b) very|c) more|d) much
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:11. I've never _ sushi before.
+A:c) eaten
+O:a) eat|b) ate|c) eaten|d) eating
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:12. My brother is _ person I know.
+A:b) the funniest
+O:a) the funnier|b) the funniest|c) funniest|d) most funny
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:13. Did you _ the message I sent?
+A:b) get
+O:a) got|b) get|c) getting|d) gets
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:14. I used _ play tennis every weekend.
+A:a) to
+O:a) to|b) for|c) at|d) in
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:15. We didn't have _ time to finish it.
+A:b) much
+O:a) some|b) much|c) many|d) lot
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:16. It's important _ sleep well.
+A:b) to
+O:a) for|b) to|c) at|d) that
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:17. While I _ TV, the phone rang.
+A:b) was watching
+O:a) watched|b) was watching|c) watch|d) had watched
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:18. I prefer coffee _ tea.
+A:a) to
+O:a) to|b) than|c) for|d) from
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:19. I'm looking forward to _ you soon.
+A:b) seeing
+O:a) see|b) seeing|c) saw|d) be seeing
+
+Topic: High Pre-Intermediate
+Level: A2.2
+Q:20. She was late _ the traffic.
+A:a) because
+O:a) because|b) so|c) although|d) if
+
+B1.1 (Intermediate)
+
+(20 questions covering modals, conditionals, complex sentence structure, verb patterns)
+
+Topic: Intermediate
+Level: B1.1
+Q:1. You _ finish your homework before going out.
+A:a) must
+O:a) must|b) can|c) may|d) would
+
+Topic: Intermediate
+Level: B1.1
+Q:2. If I see her, I _ her the message.
+A:b) will tell
+O:a) tell|b) will tell|c) told|d) would tell
+
+Topic: Intermediate
+Level: B1.1
+Q:3. He promised _ earlier next time.
+A:b) to be
+O:a) being|b) to be|c) be|d) been
+
+Topic: Intermediate
+Level: B1.1
+Q:4. You _ smoke here. It's not allowed.
+A:d) mustn't
+O:a) can|b) must|c) shouldn't|d) mustn't
+
+Topic: Intermediate
+Level: B1.1
+Q:5. They asked me _ I could help them.
+A:b) if
+O:a) how|b) if|c) what|d) that
+
+Topic: Intermediate
+Level: B1.1
+Q:6. She didn't mind _ late.
+A:c) arriving
+O:a) arrive|b) to arrive|c) arriving|d) arrived
+
+Topic: Intermediate
+Level: B1.1
+Q:7. We _ get up early tomorrow.
+A:a) have to
+O:a) have to|b) can|c) mustn't|d) should
+
+Topic: Intermediate
+Level: B1.1
+Q:8. I enjoy _ music in my free time.
+A:b) listening to
+O:a) to listen|b) listening to|c) listen|d) listened
+
+Topic: Intermediate
+Level: B1.1
+Q:9. He _ like pizza when he was a child.
+A:a) used to
+O:a) used to|b) use to|c) uses|d) is used to
+
+Topic: Intermediate
+Level: B1.1
+Q:10. You _ be tired after that long walk.
+A:a) must 
+O:a) must|b) may|c) should|d) would
+
+Topic: Intermediate
+Level: B1.1
+Q:11. She said she _ call me later.
+A:b) would
+O:a) will|b) would|c) can|d) may
+
+Topic: Intermediate
+Level: B1.1
+Q:12. If I were you, I _ study more.
+A:b) would
+O:a) will|b) would|c) shall|d) must
+
+Topic: Intermediate
+Level: B1.1
+Q:13. They _ in London for five years before moving.
+A:c) had lived
+O:a) live|b) lived|c) had lived|d) have lived
+
+Topic: Intermediate
+Level: B1.1
+Q:14. It's important that he _ on time.
+A:a) be
+O:a) be|b) is|c) was|d) has been
+
+Topic: Intermediate
+Level: B1.1
+Q:15. I'd rather _ at home tonight.
+A:a) stay
+O:a) stay|b) staying|c) to stay|d) stayed
+
+Topic: Intermediate
+Level: B1.1
+Q:16. The teacher made me _ the test again.
+A:c) do
+O:a) doing|b) to do|c) do|d) did
+
+Topic: Intermediate
+Level: B1.1
+Q:17. I don't know _ to start.
+A:b) where
+O:a) what|b) where|c) how|d) which
+
+Topic: Intermediate
+Level: B1.1
+Q:18. He told me _ quiet.
+A:b) to be
+O:a) be|b) to be|c) being|d) been
+
+Topic: Intermediate
+Level: B1.1
+Q:19. I managed _ the meeting on time.
+A:b) to attend
+O:a) attending|b) to attend|c) attend|d) attended
+
+Topic: Intermediate
+Level: B1.1
+Q:20. She's too young _ a car.
+A:a) to drive 
+O:a) to drive|b) drive|c) driving|d) drives
+
+B1.2 (High Intermediate)
+
+(20 questions including reported speech, passive voice, phrasal verbs, and relative clauses)
+
+Topic: High Intermediate
+Level: B1.2
+Q:1. She said she _ busy.
+A:b) was
+O:a) is|b) was|c) has been|d) will be
+
+Topic: High Intermediate
+Level: B1.2
+Q:2. The car _ yesterday.
+A:b) was repaired
+O:a) repaired|b) was repaired|c) has repaired|d) is repairing
+
+Topic: High Intermediate
+Level: B1.2
+Q:3. I was told _ wait outside.
+A:b) to
+O:a) for|b) to|c) that|d) in
+
+Topic: High Intermediate
+Level: B1.2
+Q:4. He asked me where I _ from.
+A:b) came
+O:a) come|b) came|c) coming|d) had come
+
+Topic: High Intermediate
+Level: B1.2
+Q:5. The book _ by J.K. Rowling.
+A:b) was written
+O:a) wrote|b) was written|c) written|d) had wrote
+
+Topic: High Intermediate
+Level: B1.2
+Q:6. She turned _ the invitation.
+A:b) down
+O:a) off|b) down|c) out|d) in
+
+Topic: High Intermediate
+Level: B1.2
+Q:7. That's the man _ lives next door.
+A:b) who
+O:a) which|b) who|c) whose|d) where
+
+Topic: High Intermediate
+Level: B1.2
+Q:8. I don't know what _ about it.
+A:b) to do
+O:a) do|b) to do|c) doing|d) did
+
+Topic: High Intermediate
+Level: B1.2
+Q:9. We _ the hotel by the time it started raining.
+A:a) had reached
+O:a) had reached|b) reached|c) have reached|d) were reaching
+
+Topic: High Intermediate
+Level: B1.2
+Q:10. She's someone _ opinion I trust.
+A:a) whose
+O:a) whose|b) which|c) that|d) whom
+
+Topic: High Intermediate
+Level: B1.2
+Q:11. The letters _ every day.
+A:b) are delivered
+O:a) delivers|b) are delivered|c) deliver|d) delivered
+
+Topic: High Intermediate
+Level: B1.2
+Q:12. He asked me _ I had seen his keys.
+A:c) if
+O:a) what|b) where|c) if|d) did
+
+Topic: High Intermediate
+Level: B1.2
+Q:13. They _ the old building last year.
+A:a) pulled down
+O:a) pulled down|b) turned up|c) broke out|d) put away
+
+Topic: High Intermediate
+Level: B1.2
+Q:14. That's the place _ we met.
+A:b) where
+O:a) which|b) where|c) who|d) whose
+
+Topic: High Intermediate
+Level: B1.2
+Q:15. The thief was caught _ the police.
+A:c) by
+O:a) from|b) with|c) by|d) of
+
+Topic: High Intermediate
+Level: B1.2
+Q:16. We were told _ quiet.
+A:b) to be
+O:a) be|b) to be|c) being|d) been
+
+Topic: High Intermediate
+Level: B1.2
+Q:17. He has been working here _ five years.
+A:c) for
+O:a) since|b) from|c) for|d) during
+
+Topic: High Intermediate
+Level: B1.2
+Q:18. The movie _ by millions of people.
+A:d) has been watched
+O:a) watched|b) is watching|c) has watched|d) has been watched
+
+Topic: High Intermediate
+Level: B1.2
+Q:19. That's the girl _ brother won the race.
+A:b) whose
+O:a) who|b) whose|c) whom|d) which
+
+Topic: High Intermediate
+Level: B1.2
+Q:20. They said they _ us the next day.
+A:b) would visit
+O:a) will visit|b) would visit|c) visit|d) have visited

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:layout_margin="0dp"
+    tools:context=".MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/eBtnReturnMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="@dimen/spacing_medium">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_small"
+                        android:layout_height="@dimen/icon_size_small"
+                        android:src="@drawable/back"
+                        android:contentDescription="@string/return_menu"
+                        android:layout_marginEnd="@dimen/spacing_small"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/return_button"
+                        android:textSize="@dimen/text_size_large"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/nube" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/photo_profile" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="User"
+                        android:textColor="#00487E"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal">
+
+                        <!-- Trofeos -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_width="160dp"
+                                    android:layout_height="160dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/trophies" />
+
+                                <TextView
+                                    android:id="@+id/trophyCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="0"
+                                    android:layout_marginTop="15dp"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#FF9017" />
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                        <!-- Estrellas -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_width="160dp"
+                                    android:layout_height="160dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/points" />
+
+                                <TextView
+                                    android:id="@+id/starCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="0"
+                                    android:layout_marginTop="15dp"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold"
+                                    android:textColor="#FF9017" />
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Toggle de Modo libre (sin secuencia) -->
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchFreeRoam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="Modo libre (sin secuencia)"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#00487E" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:backgroundTint="#D4E5ED"
+                        android:elevation="4dp"
+                        android:padding="12dp"
+                        android:text="Daily challenges"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#00487E"
+                        android:gravity="start|center_vertical"
+                        app:icon="@drawable/out"
+                        app:iconGravity="textStart"
+                        app:iconSize="24dp"
+                        app:iconTint="@null"
+                        app:iconPadding="12dp"
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:backgroundTint="#D4E5ED"
+                        android:elevation="4dp"
+                        android:padding="12dp"
+                        android:text="Change languaje"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#00487E"
+                        android:gravity="start|center_vertical"
+                        app:icon="@drawable/out"
+                        app:iconGravity="textStart"
+                        app:iconSize="24dp"
+                        app:iconTint="@null"
+                        app:iconPadding="12dp"
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:backgroundTint="#D4E5ED"
+                        android:elevation="4dp"
+                        android:padding="12dp"
+                        android:text="Creditos"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#00487E"
+                        android:gravity="start|center_vertical"
+                        app:icon="@drawable/credit"
+                        app:iconGravity="textStart"
+                        app:iconSize="24dp"
+                        app:iconTint="@null"
+                        app:iconPadding="12dp"
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEndSession"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:backgroundTint="#D4E5ED"
+                        android:elevation="4dp"
+                        android:padding="12dp"
+                        android:text="Log out"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#00487E"
+                        android:gravity="start|center_vertical"
+                        app:icon="@drawable/out"
+                        app:iconGravity="textStart"
+                        app:iconSize="24dp"
+                        app:iconTint="@null"
+                        app:iconPadding="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/spacing_large"
+                    android:paddingBottom="60dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                        <!-- Imagen de fondo del menú -->
+                        <ImageView
+                            android:id="@+id/menuBackgroundImageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center|bottom"
+                            android:layout_marginBottom="-7dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/menu_0" />
+
+                        <!-- Imagen del pájaro -->
+                        <ImageView
+                            android:id="@+id/imgBirdMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|top"
+                            android:layout_marginTop="20dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/bird0_menu" />
+
+                        <!-- Botón Home -->
+                        <ImageView
+                            android:id="@+id/homeButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|top"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginTop="100dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/home0" />
+
+                        <!-- Botón Quiz (inicialmente oculto) -->
+                        <ImageView
+                            android:id="@+id/imgQuizMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|top"
+                            android:layout_marginStart="80dp"
+                            android:layout_marginTop="20dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/quiz0_menu"
+                            android:visibility="gone"
+                            />
+
+                        <!-- Botón Pronunciación (inicialmente oculto) -->
+                        <ImageView
+                            android:id="@+id/imgPronunMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|top"
+                            android:layout_marginStart="235dp"
+                            android:layout_marginTop="20dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/pronun0_menu"
+                            android:visibility="gone"
+                            />
+
+                        <!-- Botón Perfil -->
+                        <ImageView
+                            android:id="@+id/btnProfile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|top"
+                            android:layout_marginEnd="40dp"
+                            android:layout_marginTop="100dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/profile" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btnModify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/orange"
+                android:elevation="4dp"
+                android:padding="12dp"
+                android:text="Actualizar"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/textViewUid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="Identidad"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Nombre"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Fecha de Inscripción"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/textViewScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Calificación"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

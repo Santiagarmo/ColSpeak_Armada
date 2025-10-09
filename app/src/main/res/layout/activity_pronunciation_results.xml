@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_dark">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:id="@+id/eBtnReturnMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start|center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="@dimen/spacing_large"
+                android:layout_marginTop="@dimen/spacing_medium">
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size_small"
+                    android:layout_height="@dimen/icon_size_small"
+                    android:src="@drawable/back"
+                    android:contentDescription="@string/return_menu"
+                    android:layout_marginEnd="@dimen/spacing_small"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/return_button"
+                    android:textSize="@dimen/text_size_large"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:id="@+id/exportButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="end"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:layout_marginEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/summary"
+                        android:contentDescription="Exportar CSV"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exportar CSV"
+                        android:textSize="18sp"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="@dimen/spacing_small"
+                >
+
+                <TextView
+                    android:id="@+id/resultTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Resultados de Pronunciación"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+            <!-- Botones de acción -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/continueButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height_standard"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Continuar"
+                    android:textColor="@color/primary_color"
+                    android:background="@drawable/button_outline"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textStyle="bold"
+                    android:drawableStart="@android:drawable/ic_media_play"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/detailsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="24dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/spacing_large"
+                android:paddingBottom="60dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start|top"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="125dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/menu_0" />
+
+                    <ImageView
+                        android:id="@+id/homeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|top"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="145dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/home0" />
+
+                    <ImageView
+                        android:id="@+id/imgBirdMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginTop="50dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/bird0_menu" />
+
+                    <ImageView
+                        android:id="@+id/imgQuizMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|top"
+                        android:layout_marginStart="95dp"
+                        android:layout_marginTop="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/quiz0_menu"
+                        android:visibility="gone"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imgPronunMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|top"
+                        android:layout_marginStart="255dp"
+                        android:layout_marginTop="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/pronun0_menu"
+                        android:visibility="gone"
+                        />
+
+                    <ImageView
+                        android:id="@+id/btnProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|top"
+                        android:layout_marginEnd="60dp"
+                        android:layout_marginTop="145dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/profile" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/birdImageView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="24dp"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/finalScoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="85%"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/summaryTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¡Excelente trabajo!\n\nTema: Days of the Week\nNivel: A1.1\n\nPreguntas aprobadas: 9 de 10\n(70% requerido para aprobar)"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"
+                android:visibility="gone"
+                />
+
+            <Button
+                android:id="@+id/btnBackToMap"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_standard"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="🗺️ Volver al Mapa"
+                android:textColor="@color/primary_color"
+                android:background="@drawable/button_outline"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:visibility="gone"
+                />
+
+            <Button
+                android:id="@+id/btnRetry"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_standard"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="🔄 Reintentar"
+                android:textColor="@color/primary_color"
+                android:background="@drawable/button_outline"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

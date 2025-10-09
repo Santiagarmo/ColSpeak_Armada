@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.speak">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" 
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" 
+        android:minSdkVersion="30" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:name=".SpeakApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Speak"
+        tools:targetApi="31">
+        <activity
+            android:name=".Level_A1"
+            android:exported="false" />
+        <activity
+            android:name=".HomePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AlphabetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NumberActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ColorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PronounsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PossessiveAdjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BeginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuA1Activity"
+            android:exported="false"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResultsOverviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:parentActivityName=".RegisterActivity" />
+        <activity
+            android:name=".SecurityActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".SecurityConfigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MajorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TermsConditions"
+            android:exported="false" />
+        <activity
+            android:name=".QuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pronunciation.PronunciationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pronunciation.PronunciationResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".level.ActivityLevel"
+            android:exported="false" />
+        <activity
+            android:name=".quiz.QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PronunciationHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TextToSpeechActivity"
+            android:exported="false"
+            android:label="Text to Speech" />
+        <activity
+            android:name=".ListeningActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WritingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity android:name=".pronunciation.TopicListActivity" />
+        <activity android:name=".pronunciation.TopicPronunciationActivity" />
+        <activity android:name=".pronunciation.PronunciationMenuActivity" />
+        <activity
+            android:name=".WordOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImageIdentificationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ImageIdentificationAudioActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuSpeakingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PronAlphabetActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PronNumberActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PronColorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PronPersProActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PronPosseAdjectActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TranslationReadingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuReadingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuWritingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReadingResultsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReadingHistoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ImageIdentificationResultsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ImageIdentificationHistoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

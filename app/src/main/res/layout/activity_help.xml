@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/help_background">
+
+    <!-- Header con icono de ayuda y título -->
+    <LinearLayout
+        android:id="@+id/eBtnReturnMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@color/help_background"
+        android:padding="@dimen/spacing_medium"
+        android:layout_marginBottom="@dimen/spacing_medium">
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/birdImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/help"
+        android:gravity="center"
+        android:layout_marginBottom="0dp"
+        />
+
+    <!-- Título principal -->
+    <TextView
+        android:id="@+id/helpTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pronunciación del alfabeto / The alphabet pronunciation"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="0dp"/>
+
+    <!-- RecyclerView para las secciones de ayuda -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/helpRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="16dp"
+        android:clipToPadding="false"/>
+
+</LinearLayout>

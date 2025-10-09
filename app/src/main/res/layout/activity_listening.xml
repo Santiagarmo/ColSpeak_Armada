@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="@dimen/spacing_medium">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Header con Level y Número de Pregunta -->
+            <LinearLayout
+                android:id="@+id/headerLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Botón de retorno -->
+                <LinearLayout
+                    android:id="@+id/returnContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    android:layout_marginEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/back"
+                        android:contentDescription="Return"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Return"
+                        android:textSize="18sp"
+                        android:textColor="#002C4D" />
+                </LinearLayout>
+
+                <!-- Texto "Level:" -->
+                <TextView
+                    android:id="@+id/levelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Level:"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#002C4D"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="center_vertical"/>
+
+                <!-- Número de la pregunta, expandido al resto del espacio -->
+                <TextView
+                    android:id="@+id/questionNumberTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#002C4D"
+                    android:layout_gravity="center_vertical"/>
+
+                <!-- Botón de comodines -->
+                <ImageView
+                    android:id="@+id/wildcardButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/wild_icon"
+                    android:contentDescription="Comodines"
+                    android:layout_marginEnd="6dp"/>
+
+                <ImageView
+                    android:id="@+id/helpButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/help_icon"
+                    android:contentDescription="Ayuda"
+                    android:layout_marginEnd="6dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/instruction_listening"
+                android:textColor="#002C4D"
+                android:textSize="15sp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headerLayout" />
+
+            <TextView
+                android:id="@+id/topicTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="THE"
+                android:textStyle="bold"
+                android:textColor="#002C4D"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="50dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+            <LinearLayout
+                android:id="@+id/questionCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/topicTextView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Bird Image -->
+                    <ImageView
+                        android:id="@+id/birdImageView"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/bird_test"
+                        android:layout_marginEnd="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="gone"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/questionTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:letterSpacing="0.08"
+                            android:layout_marginStart="16dp"
+                            android:textColor="#002C4D"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Panel de control de audio separado en su propio MaterialCardView -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/audioControlCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:layout_marginHorizontal="32dp"
+                app:cardCornerRadius="@dimen/card_radius"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/questionCard"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:strokeColor="@android:color/transparent"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:orientation="vertical">
+
+                    <!-- Reproductor de audio -->
+                    <LinearLayout
+                        android:id="@+id/audioPlayerContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/container_padding"
+                        android:visibility="gone">
+
+                        <!-- Visualización de ondas de audio -->
+                        <com.example.speak.AudioPlayerView
+                            android:id="@+id/audioPlayerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:background="#E6EBF0" />
+
+                        <!-- Tiempo de reproducción -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/currentTimeText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="3dp"
+                                android:text="0:00"
+                                android:textColor="#002C4D"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="3dp"
+                                android:text="/"
+                                android:textColor="#002C4D"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/totalTimeText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:text="0:00"
+                                android:textColor="#002C4D"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <!-- Controles de reproducción -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <!-- Botón retroceder -->
+                            <ImageButton
+                                android:id="@+id/rewindButton"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="10dp"
+                                android:backgroundTint="#E6EBF0"
+                                android:src="@drawable/left"
+                                android:textSize="14sp" />
+
+                            <!-- Botón play/pause -->
+                            <ImageButton
+                                android:id="@+id/playPauseButton"
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:layout_marginEnd="10dp"
+                                android:backgroundTint="#E6EBF0"
+                                android:src="@drawable/reproduce"
+                                android:textSize="18sp" />
+
+                            <!-- Botón adelantar -->
+                            <ImageButton
+                                android:id="@+id/forwardButton"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:backgroundTint="#E6EBF0"
+                                android:src="@drawable/right"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <!-- Control de velocidad -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:textAlignment="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Velocidad / Speed"
+                                android:textColor="#002C4D"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/speedValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:minWidth="35dp"
+                                android:text="0.1x"
+                                android:textColor="#002C4D"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Control de velocidad - REDUCIDO para ser compacto -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <SeekBar
+                                android:id="@+id/speedSeekBar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="200"
+                                android:progress="20"
+                                android:progressTint="#00AA00"
+                                android:thumbTint="#002C4D" />
+
+                        </LinearLayout>
+
+                        <!-- Control de tono -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:textAlignment="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tono / Pitch"
+                                android:textColor="#002C4D"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/pitchValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:minWidth="35dp"
+                                android:text="1.0x"
+                                android:textColor="#002C4D"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Control de tono - REDUCIDO para ser compacto -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <SeekBar
+                                android:id="@+id/pitchSeekBar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="200"
+                                android:progress="100"
+                                android:progressTint="#00AA00"
+                                android:thumbTint="#002C4D" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Componente reutilizable de audio (TTS-only en Listening) -->
+                    <com.example.speak.components.ReusableAudioPlayerCard
+                        android:id="@+id/reusableAudioCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Texto intermedio entre audio y opciones -->
+            <TextView
+                android:id="@+id/selectionInstructionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/option_listening"
+                android:textSize="18sp"
+                android:textColor="#002C4D"
+                android:gravity="center"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/audioControlCard" />
+
+            <LinearLayout
+                android:id="@+id/optionsCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/selectionInstructionText">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/container_padding">
+
+                    <!-- Contenedor para las opciones en 2x2 -->
+                    <LinearLayout
+                        android:id="@+id/optionsRadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Primera fila de opciones -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="@dimen/spacing_small"
+                            android:baselineAligned="false">
+
+                            <Button
+                                android:id="@+id/option1RadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="@dimen/spacing_xs"
+                                android:text="Option 1"
+                                android:textSize="@dimen/text_size_small"
+                                android:backgroundTint="#1A4F7C"
+                                android:textColor="@color/white"
+                                android:minHeight="@dimen/min_touch_target"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="12dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:maxLines="3"
+                                android:ellipsize="none" />
+
+                            <Button
+                                android:id="@+id/option2RadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="@dimen/spacing_xs"
+                                android:text="Option 2"
+                                android:textSize="@dimen/text_size_small"
+                                android:backgroundTint="#1A4F7C"
+                                android:textColor="@color/white"
+                                android:minHeight="@dimen/min_touch_target"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="12dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:maxLines="3"
+                                android:ellipsize="none" />
+
+                        </LinearLayout>
+
+                        <!-- Segunda fila de opciones -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:baselineAligned="false">
+
+                            <Button
+                                android:id="@+id/option3RadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="@dimen/spacing_xs"
+                                android:text="Option 3"
+                                android:textSize="@dimen/text_size_small"
+                                android:backgroundTint="#1A4F7C"
+                                android:textColor="@color/white"
+                                android:minHeight="@dimen/min_touch_target"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="12dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:maxLines="3"
+                                android:ellipsize="none" />
+
+                            <Button
+                                android:id="@+id/option4RadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="@dimen/spacing_xs"
+                                android:text="Option 4"
+                                android:textSize="@dimen/text_size_small"
+                                android:backgroundTint="#1A4F7C"
+                                android:textColor="@color/white"
+                                android:minHeight="@dimen/min_touch_target"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="12dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:maxLines="3"
+                                android:ellipsize="none" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submitButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_standard"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="Submit Answer"
+                android:textSize="@dimen/text_size_medium"
+                app:backgroundTint="#FF9017"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/optionsCard" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/nextButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_standard"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:text="Próxima-Next"
+                android:textSize="@dimen/text_size_medium"
+                app:backgroundTint="#D9D9D9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/submitButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ============================================================ -->
+    <!-- COMPONENTE REUTILIZABLE DE MODAL (REEMPLAZA LOS 2 ANTIGUOS) -->
+    <!-- ============================================================ -->
+    <com.example.speak.components.ModalAlertComponent
+        android:id="@+id/modalAlertComponent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="24dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="200dp"
+            android:height="40dp"
+            android:viewportWidth="200"
+            android:viewportHeight="40">
+            
+            <!-- Barra 1 -->
+            <path
+                android:name="bar1"
+                android:pathData="M10,20 L10,10"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 2 -->
+            <path
+                android:name="bar2"
+                android:pathData="M20,20 L20,8"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 3 -->
+            <path
+                android:name="bar3"
+                android:pathData="M30,20 L30,12"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 4 -->
+            <path
+                android:name="bar4"
+                android:pathData="M40,20 L40,6"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 5 -->
+            <path
+                android:name="bar5"
+                android:pathData="M50,20 L50,14"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 6 -->
+            <path
+                android:name="bar6"
+                android:pathData="M60,20 L60,4"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 7 -->
+            <path
+                android:name="bar7"
+                android:pathData="M70,20 L70,16"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 8 -->
+            <path
+                android:name="bar8"
+                android:pathData="M80,20 L80,2"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 9 -->
+            <path
+                android:name="bar9"
+                android:pathData="M90,20 L90,18"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 10 -->
+            <path
+                android:name="bar10"
+                android:pathData="M100,20 L100,0"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 11 -->
+            <path
+                android:name="bar11"
+                android:pathData="M110,20 L110,20"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 12 -->
+            <path
+                android:name="bar12"
+                android:pathData="M120,20 L120,2"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 13 -->
+            <path
+                android:name="bar13"
+                android:pathData="M130,20 L130,18"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 14 -->
+            <path
+                android:name="bar14"
+                android:pathData="M140,20 L140,4"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 15 -->
+            <path
+                android:name="bar15"
+                android:pathData="M150,20 L150,16"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 16 -->
+            <path
+                android:name="bar16"
+                android:pathData="M160,20 L160,6"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 17 -->
+            <path
+                android:name="bar17"
+                android:pathData="M170,20 L170,14"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 18 -->
+            <path
+                android:name="bar18"
+                android:pathData="M180,20 L180,8"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+            <!-- Barra 19 -->
+            <path
+                android:name="bar19"
+                android:pathData="M190,20 L190,12"
+                android:strokeWidth="3"
+                android:strokeColor="#4CAF50"
+                android:strokeLineCap="round"/>
+            
+        </vector>
+    </aapt:attr>
+    
+    <target android:name="bar1">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="500"
+                    android:valueFrom="M10,20 L10,10"
+                    android:valueTo="M10,20 L10,2"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="500"
+                    android:valueFrom="M10,20 L10,2"
+                    android:valueTo="M10,20 L10,10"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar2">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="600"
+                    android:valueFrom="M20,20 L20,8"
+                    android:valueTo="M20,20 L20,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="600"
+                    android:valueFrom="M20,20 L20,0"
+                    android:valueTo="M20,20 L20,8"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar3">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="700"
+                    android:valueFrom="M30,20 L30,12"
+                    android:valueTo="M30,20 L30,4"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="700"
+                    android:valueFrom="M30,20 L30,4"
+                    android:valueTo="M30,20 L30,12"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar4">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="800"
+                    android:valueFrom="M40,20 L40,6"
+                    android:valueTo="M40,20 L40,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="800"
+                    android:valueFrom="M40,20 L40,0"
+                    android:valueTo="M40,20 L40,6"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar5">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="900"
+                    android:valueFrom="M50,20 L50,14"
+                    android:valueTo="M50,20 L50,6"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="900"
+                    android:valueFrom="M50,20 L50,6"
+                    android:valueTo="M50,20 L50,14"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar6">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1000"
+                    android:valueFrom="M60,20 L60,4"
+                    android:valueTo="M60,20 L60,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1000"
+                    android:valueFrom="M60,20 L60,0"
+                    android:valueTo="M60,20 L60,4"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar7">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1100"
+                    android:valueFrom="M70,20 L70,16"
+                    android:valueTo="M70,20 L70,8"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1100"
+                    android:valueFrom="M70,20 L70,8"
+                    android:valueTo="M70,20 L70,16"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar8">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1200"
+                    android:valueFrom="M80,20 L80,2"
+                    android:valueTo="M80,20 L80,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1200"
+                    android:valueFrom="M80,20 L80,0"
+                    android:valueTo="M80,20 L80,2"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar9">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1300"
+                    android:valueFrom="M90,20 L90,18"
+                    android:valueTo="M90,20 L90,10"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1300"
+                    android:valueFrom="M90,20 L90,10"
+                    android:valueTo="M90,20 L90,18"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar10">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1400"
+                    android:valueFrom="M100,20 L100,0"
+                    android:valueTo="M100,20 L100,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1400"
+                    android:valueFrom="M100,20 L100,0"
+                    android:valueTo="M100,20 L100,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar11">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1500"
+                    android:valueFrom="M110,20 L110,20"
+                    android:valueTo="M110,20 L110,12"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1500"
+                    android:valueFrom="M110,20 L110,12"
+                    android:valueTo="M110,20 L110,20"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar12">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1600"
+                    android:valueFrom="M120,20 L120,2"
+                    android:valueTo="M120,20 L120,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1600"
+                    android:valueFrom="M120,20 L120,0"
+                    android:valueTo="M120,20 L120,2"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar13">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1700"
+                    android:valueFrom="M130,20 L130,18"
+                    android:valueTo="M130,20 L130,10"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1700"
+                    android:valueFrom="M130,20 L130,10"
+                    android:valueTo="M130,20 L130,18"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar14">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1800"
+                    android:valueFrom="M140,20 L140,4"
+                    android:valueTo="M140,20 L140,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1800"
+                    android:valueFrom="M140,20 L140,0"
+                    android:valueTo="M140,20 L140,4"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar15">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1900"
+                    android:valueFrom="M150,20 L150,16"
+                    android:valueTo="M150,20 L150,8"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="1900"
+                    android:valueFrom="M150,20 L150,8"
+                    android:valueTo="M150,20 L150,16"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar16">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="2000"
+                    android:valueFrom="M160,20 L160,6"
+                    android:valueTo="M160,20 L160,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="2000"
+                    android:valueFrom="M160,20 L160,0"
+                    android:valueTo="M160,20 L160,6"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar17">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="2100"
+                    android:valueFrom="M170,20 L170,14"
+                    android:valueTo="M170,20 L170,6"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="2100"
+                    android:valueFrom="M170,20 L170,6"
+                    android:valueTo="M170,20 L170,14"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar18">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="2200"
+                    android:valueFrom="M180,20 L180,8"
+                    android:valueTo="M180,20 L180,0"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="2200"
+                    android:valueFrom="M180,20 L180,0"
+                    android:valueTo="M180,20 L180,8"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+    <target android:name="bar19">
+        <aapt:attr name="android:animation">
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="2300"
+                    android:valueFrom="M190,20 L190,12"
+                    android:valueTo="M190,20 L190,4"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="2300"
+                    android:valueFrom="M190,20 L190,4"
+                    android:valueTo="M190,20 L190,12"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/accelerate_decelerate"/>
+            </set>
+        </aapt:attr>
+    </target>
+    
+</animated-vector> 

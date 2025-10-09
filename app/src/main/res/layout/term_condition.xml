@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_medium">
+
+        <!-- Botón Return -->
+        <LinearLayout
+            android:id="@+id/btnEndSession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/back"
+                android:contentDescription="@string/return_button"
+                android:layout_marginEnd="6dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/return_button"
+                android:textSize="18sp"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="120dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_colspeak_front"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Título principal -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Políticas de seguridad\ny privacidad"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Card con contenido scrolleable y botón -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- Área scrolleable -->
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <!-- Título de términos -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Términos y condiciones del portal web"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#002C4D"
+                            android:gravity="center"
+                            android:layout_marginBottom="16dp"/>
+
+                        <!-- Contenido de términos -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="4dp"
+                            android:text="Alcances y limites en el uso:\n\nApreciado usuario, el sitio web institucional del Servicio Nacional de Aprendizaje – SENA - tiene como función principal proveer, divulgar y gestionar información sobre los productos, programas, trámites y servicios de la institución. Por medio de su sitio www.sena.edu.co el Servicio Nacional de Aprendizaje – SENA - publica los temas y actividades que tienen que ver con su misión, su visión, objetivos y las funciones que corresponden a su objeto social. Al igual que los productos, servicios, programas y en general información relacionada con la gestión que adelanta.\n\nEl Servicio Nacional de Aprendizaje – SENA - no persigue ningún lucro, ganancia o interés comercial con los contenidos y enlaces que se publican en su sitio web institucional y en los sitios web de los diferentes productos y servicios que son parte de la entidad y a los cuales se accede a través de www.sena.edu.co.\n\nTodos los productos y servicios que ofrece el Servicio Nacional de Aprendizaje – SENA -, son gratuitos y no utiliza ningún tipo de intermediarios para acceder a ellos, por favor denuncie este tipo de irregularidades en nuestros canales de atención."
+                            android:textAlignment="textStart"
+                            android:textColor="#000000"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+                <!-- Botón Aceptar SIEMPRE VISIBLE -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAccept"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Aceptar"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#FF9017"
+                    android:textColor="@android:color/white"
+                    android:layout_margin="20dp"
+                    app:cornerRadius="28dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <!-- Olas decorativas en la parte inferior (opcional) -->
+    <!-- Si tienes el drawable de waves, descomenta esto:
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_gravity="bottom"
+        android:src="@drawable/waves"
+        android:scaleType="fitXY"
+        android:contentDescription="Decoración de olas" />
+    -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

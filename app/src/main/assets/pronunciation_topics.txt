@@ -1,0 +1,24 @@
+Topic: Greetings and Introductions
+Level: A1.1
+Description: Practice basic greetings and introductions in English
+Questions: Hello, how are you?,My name is John,Nice to meet you,Good morning everyone,How do you do?
+
+Topic: Numbers and Counting
+Level: A1.1
+Description: Learn to pronounce numbers from 1 to 20
+Questions: One, two, three,Four, five, six,Seven, eight, nine,Ten, eleven, twelve,Thirteen, fourteen, fifteen,Sixteen, seventeen, eighteen,Nineteen, twenty
+
+Topic: Days of the Week
+Level: A1.1
+Description: Practice pronouncing the days of the week
+Questions: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
+
+Topic: Colors
+Level: A1.1
+Description: Learn to pronounce basic colors in English
+Questions: Red,Blue,Green,Yellow,Black,White,Purple,Orange,Brown,Pink
+
+Topic: Family Members
+Level: A1.1
+Description: Practice pronouncing family member names
+Questions: Mother,Father,Sister,Brother,Grandmother,Grandfather,Aunt,Uncle,Cousin,Family 

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/quizScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Header con Level y Número de Pregunta -->
+            <LinearLayout
+                android:id="@+id/headerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <!-- Botón de retorno -->
+                <LinearLayout
+                    android:id="@+id/returnContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    android:layout_marginEnd="16dp">
+
+                    <ImageView
+                        android:id="@+id/eBtnReturnMenu"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/back"
+                        android:contentDescription="Return"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Return"
+                        android:textSize="18sp"
+                        android:textColor="#002C4D" />
+                </LinearLayout>
+
+                <!-- Texto "Level:" -->
+                <TextView
+                    android:id="@+id/levelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nivel/Level:"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#002C4D"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="center_vertical"/>
+
+                <!-- Número de la pregunta, expandido al resto del espacio -->
+                <TextView
+                    android:id="@+id/questionNumberTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#002C4D"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/scoreTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0%"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#002C4D"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_quiz"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#002C4D"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/topicTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Tema/Topic:"
+                android:textStyle="bold"
+                android:textColor="#002C4D"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_quiz"
+                android:textSize="16sp"
+                android:textColor="#002C4D"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="2dp"
+                android:padding="8dp"
+                android:gravity="start"
+                android:justificationMode="inter_word"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/questionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:background="@color/cardSena">
+
+                    <ImageView
+                        android:id="@+id/birdImageView"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/crab_test"
+                        android:visibility="gone"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@color/cardSena">
+
+                        <TextView
+                            android:id="@+id/questionTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#002C4D"
+                            android:textSize="20sp"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="16dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- CardView separado para las opciones -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/optionsCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Texto intermedio entre audio y opciones -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/option_listening"
+                        android:textSize="18sp"
+                        android:textColor="#002C4D"
+                        android:gravity="center"
+                        android:textAlignment="center" />
+
+                    <!-- Contenedor para las opciones en 2x2 -->
+                    <LinearLayout
+                        android:id="@+id/optionsRadioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Primera fila de opciones -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="8dp"
+                            android:baselineAligned="false">
+
+                            <Button
+                                android:id="@+id/option1RadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="8dp"
+                                android:text="Option 1"
+                                android:textSize="14sp"
+                                android:background="@drawable/button_rounded"
+                                android:textColor="@color/white"
+                                android:minHeight="48dp"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="12dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:maxLines="3"
+                                android:ellipsize="none" />
+
+                            <Button
+                                android:id="@+id/option2RadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="8dp"
+                                android:text="Option 2"
+                                android:textSize="14sp"
+                                android:background="@drawable/button_rounded"
+                                android:textColor="@color/white"
+                                android:minHeight="48dp"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="12dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:maxLines="3"
+                                android:ellipsize="none" />
+
+                        </LinearLayout>
+
+                        <!-- Segunda fila de opciones -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:baselineAligned="false">
+
+                            <Button
+                                android:id="@+id/option3RadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="8dp"
+                                android:text="Option 3"
+                                android:textSize="14sp"
+                                android:background="@drawable/button_rounded"
+                                android:textColor="@color/white"
+                                android:minHeight="48dp"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="12dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:maxLines="3"
+                                android:ellipsize="none" />
+
+                            <Button
+                                android:id="@+id/option4RadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="8dp"
+                                android:text="Option 4"
+                                android:textSize="14sp"
+                                android:background="@drawable/button_rounded"
+                                android:textColor="@color/white"
+                                android:minHeight="48dp"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="12dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:maxLines="3"
+                                android:ellipsize="none" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp">
+
+                <Button
+                    android:id="@+id/submitButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Verify"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#00AA00"
+                    android:drawablePadding="8dp"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp">
+
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Próxima-Next"
+                    android:textSize="16sp"
+                    android:backgroundTint="#D9D9D9"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Componente reutilizable de modal de alerta -->
+    <com.example.speak.components.ModalAlertComponent
+        android:id="@+id/modalAlertComponent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="24dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

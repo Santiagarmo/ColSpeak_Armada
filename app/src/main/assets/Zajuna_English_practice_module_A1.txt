@@ -1,0 +1,166 @@
+Zajuna English practice module
+
+Objective: The module objective is that any person can have the possibility to practice English from the very basic beginning through different types of activities, designed according to the Common European Framework of Reference and some methodologies which will lead apprentices and general public to learn and interact with a second language using the four skills..
+
+Approaches: Communicative Language with a Focus on Interaction and real-life communication. Task-Based Language with a Focus on Completing real-world tasks in English. The Audio-Lingual with a Focus on learning through repetition and drills. The Grammar-Translation with the Focus on Learning grammar rules and translating of texts according to the level.
+
+Level A1: 
+Listening- Topics: Basic personal information, familiar everyday expressions, simple phrases, numbers, prices, time, and directions.
+- Skills: Understands very basic phrases and expressions related to immediate needs.
+- Examples: Greetings, introducing oneself, asking for directions, numbers and prices.
+
+ Speaking
+- Topics: Introducing oneself, talking about everyday activities, expressing likes and dislikes, ordering food and drinks.
+- Skills: Uses simple phrases and sentences, can interact in a simple way provided the other person talks slowly and clearly.
+- Grammar Structures:
+  - Present simple tense (e.g., I am, you are, he/she/it is)
+  - Basic question forms (e.g., What is your name? Where are you from?)
+  - Articles (a, an, the)
+  - Pronouns (I, you, he, she, it, we, they)
+  - Basic prepositions (in, on, at, to, from)
+
+ Reading
+- Topics: Simple texts, signs, notices, and posters, short and simple descriptions.
+- Skills: Can read and understand familiar names, words, and very simple sentences.
+- Examples: Reading menus, timetables, short emails.
+
+ Writing
+- Topics: Filling in forms with personal details, writing short simple postcards, writing notes and messages.
+- Skills: Writes simple isolated phrases and sentences.
+- Grammar Structures:
+  - Basic sentence structure (subject + verb + object)
+  - Simple present tense
+- Basic conjunctions (and, but)
+
+Types of activities
+
+Communicative Language
+Activity: Find Someone Who…
+A matching game where students tap on a question and drag it to the correct response.
+
+Activity: Role-Play Scenarios 
+Students record their voices acting out dialogues and get feedback on pronunciation from an AI voice analyzer.
+Activity: Picture Storytelling
+Show a series of images and have students record or type a short story based on them.
+
+Activity: Speed Dating Conversations
+A timer-based chat simulator where students respond to conversation prompts in 30 seconds.
+
+Activity: Survival English
+Interactive choose-the-correct-response scenarios, like a store simulation
+
+Task-Based Language
+
+Activity: Planning a Weekend Trip
+Drag-and-drop a digital planner with options for "Hotel," "Transportation," and "Activities.
+
+Activity: Shopping Challenge
+A virtual shop where students "buy" items by selecting and typing sentences
+
+Activity: Making a Social Media Post
+A template-based post generator where students describe their day using predefined sentence structures.
+
+Activity: Cooking a Simple Dish
+A step-by-step task simulation where students order recipe steps correctly 
+
+Activity: Create a Personal Schedule
+Drag-and-drop activity where students organize a daily schedule and record themselves reading it.
+
+
+The Audio-Lingual
+
+Activity: Sentence Drilling
+Repeat-after-me feature with an AI-generated native speaker voice.
+
+Activity: Chain Drills
+A fill-in-the-next-word game
+
+Activity: Dialog Memorization
+An interactive role-play where students record lines of a dialogue and listen to their progress.
+
+Activity: Transformation Exercises
+Drag-and-drop grammar correction for sentence transformations
+
+Activity: Listen and Repeat
+A speech analysis tool to check pronunciation accuracy.
+
+The Grammar-Translation
+Activity: Translate Sentences
+A side-by-side translation game where students compare their responses to correct translations.
+
+Activity: Fill in the Blank (Grammar Focus)
+Interactive fill-in-the-gap grammar quizzes.
+
+Activity: Reading Comprehension
+Text-based reading activities with multiple-choice comprehension questions.
+
+Activity: Compare and Contrast
+A sentence-matching activity where students pair English sentences with translations.
+
+Activity: Writing a Short Story
+Students write a short passage and receive feedback on grammar errors.
+
+
+Filling then gaps or multiple choice
+numbers, prices, time, colors
+
+1. Numbers (Multiple Choice)
+🔹 Choose the correct answer.
+    1. How many fingers do you have?
+    2. What number comes after 3?
+    3. What number is missing? 1, 2, __, 4, 5
+    4. How many wheels does a car have?
+    5. What number is this? Seven
+
+2. Prices (Multiple Choice)
+🔹 Choose the correct price.
+    1. How much is the bread?
+    2. The milk costs ___.
+    3. A T-shirt is ___.
+    4. My water bottle is ___.
+    5. The movie ticket is ___.
+
+3. Time (Multiple Choice)
+🔹 Choose the correct answer.
+    1. What time is noon?
+    2. What time is midnight?
+    3. If it's 3:30 PM, what time is it in the morning?
+    4. When do people usually wake up?
+    5. When do we eat dinner?
+
+4. Colors (Multiple Choice)
+🔹 Choose the correct color.
+    1. What color is the ocean?
+    2. What color is a banana?
+    3. What color is an apple?
+    4. What color is a tree trunk?
+    5. What color is a tomato?
+
+5. Mixed Exercise (Multiple Choice)
+🔹 Choose the correct answer.
+    1. How much is the ticket?
+    2. The clock says 8:00 PM. What time is it?
+    3. The car is ___.
+    4. The train leaves at ___.
+    5. The apple costs ___.
+
+Hello, my name is John and I am from London.
+I like to play football and watch movies in my free time.
+The weather is beautiful today, let's go to the park.
+My favorite food is pizza with extra cheese.
+I have two brothers and one sister in my family.
+The supermarket is open from 8 AM to 10 PM.
+Please help me carry these heavy bags.
+I need to buy some milk and bread from the store.
+The movie starts at 7:30 PM, don't be late.
+My birthday is on the 15th of March.
+The bus arrives every 15 minutes at this stop.
+I want to learn how to play the guitar.
+The restaurant serves delicious Italian food.
+My apartment is on the third floor of this building.
+The library is closed on Sundays and holidays.
+I usually wake up at 6 AM to go to work.
+The museum has a special exhibition this week.
+My phone number is 555-123-4567.
+The train to New York leaves at 9:45 AM.
+I need to finish this report by tomorrow morning.

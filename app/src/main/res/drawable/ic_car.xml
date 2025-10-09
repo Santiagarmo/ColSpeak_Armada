@@ -1,0 +1,56 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="100dp"
+    android:viewportWidth="400"
+    android:viewportHeight="200">
+
+    <!-- Carrocería base -->
+    <path
+        android:fillColor="#1E90FF"
+        android:pathData="M60,130 Q50,120 60,110 H340 Q350,120 340,130 Z" />
+
+    <!-- Parte superior del carro -->
+    <path
+        android:fillColor="#00BFFF"
+        android:pathData="M100,110 Q110,80 150,80 H250 Q290,80 300,110 Z" />
+
+    <!-- Ventana izquierda -->
+    <path
+        android:fillColor="#B0E0E6"
+        android:pathData="M160,85 H185 Q190,85 192,90 L195,105 H165 L160,90 Q158,85 160,85 Z" />
+
+    <!-- Ventana derecha -->
+    <path
+        android:fillColor="#B0E0E6"
+        android:pathData="M205,85 H230 Q235,85 237,90 L240,105 H210 L205,90 Q203,85 205,85 Z" />
+
+    <!-- Rueda izquierda -->
+    <group android:translateX="120" android:translateY="140">
+        <path
+            android:fillColor="#333333"
+            android:pathData="M0,-20 A20,20 0 1,1 -0.1,-20 Z"/>
+        <path
+            android:fillColor="#DDDDDD"
+            android:pathData="M0,-10 A10,10 0 1,1 -0.1,-10 Z"/>
+    </group>
+
+    <!-- Rueda derecha -->
+    <group android:translateX="280" android:translateY="140">
+        <path
+            android:fillColor="#333333"
+            android:pathData="M0,-20 A20,20 0 1,1 -0.1,-20 Z"/>
+        <path
+            android:fillColor="#DDDDDD"
+            android:pathData="M0,-10 A10,10 0 1,1 -0.1,-10 Z"/>
+    </group>
+
+    <!-- Luz delantera -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M60,120 A5,5 0 1,1 59.9,120 Z" />
+
+    <!-- Luz trasera -->
+    <path
+        android:fillColor="#FF4500"
+        android:pathData="M340,120 A5,5 0 1,1 339.9,120 Z" />
+</vector>

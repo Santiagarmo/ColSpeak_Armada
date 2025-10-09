@@ -1,0 +1,960 @@
+Topic: ALPHABET
+Level: A1.1
+Q: Ricardo
+A: Richard
+O: Maicol | Owen | Richard | Peter | Michael
+
+Topic: ALPHABET
+Level: A1.1
+Q: Jorge
+A: George
+O: Edisson | Jordan | William | Peter | George
+
+Topic: ALPHABET
+Level: A1.1
+Q: Michael
+A: Miguel
+O: Edwin | Fabio | Rosa | Oscar | Miguel | Felipe | Fredy
+
+Topic: ALPHABET
+Level: A1.1
+Q: Philip
+A: Felipe
+O: Fabian | Andres | Rosa | Florentino | Faver | Felipe | Fredy
+
+Topic: ALPHABET
+Level: A1.1
+Q: Henry
+A: Enrique
+O: Florentino | Andres | Enrique | Carlos | Oscar | Felipe | Santiago
+
+Topic: ALPHABET
+Level: A1.1
+Q: Charles
+A: Carlos
+O: Florentino | Andres | Carlos | Rosa | Oscar | Felipe | Santiago
+
+Topic: ALPHABET
+Level: A1.1
+Q: Louis
+A: Luis
+O: Luis | Andres | Fredy | Rosa | Oscar | Felipe | Lautaro
+
+Topic: ALPHABET
+Level: A1.1
+Q: Edward
+A: Eduardo
+O: Edwin | Fabio | Ana | Eduardo | kilian | Elkin | Pablo
+
+Topic: NUMBERS
+Level: A1.1
+Q: One
+A: Uno
+O: Una | Dos | Tres | Uno | Cero | Un
+
+Topic: NUMBERS
+Level: A1.1
+Q: Two
+A: Dos
+O: Tres | Cuatro | Uno | Cero | Dos | Diez
+
+Topic: NUMBERS
+Level: A1.1
+Q: Three
+A: Tres
+O: Dos | Cuatro | Tres | Cinco | Uno | Diez
+
+Topic: NUMBERS
+Level: A1.1
+Q: Four
+A: Cuatro
+O: Cuatro | Tres | Cinco | Seis | Dos | Uno
+
+Topic: NUMBERS
+Level: A1.1
+Q: Five
+A: Cinco
+O: Cuatro | Seis | Cinco | Tres | Siete | Dos
+
+Topic: NUMBERS
+Level: A1.1
+Q: Six
+A: Seis
+O: Seis | Cinco | Siete | Ocho | Tres | Uno
+
+Topic: NUMBERS
+Level: A1.1
+Q: Seven
+A: Siete
+O: Seis | Ocho | Siete | Nueve | Cinco | Diez
+
+Topic: NUMBERS
+Level: A1.1
+Q: Eight
+A: Ocho
+O: Siete | Nueve | Diez | Seis | Cinco | Ocho
+
+Topic: NUMBERS
+Level: A1.1
+Q: Nine
+A: Nueve
+O: Ocho | Diez | Once | Siete | Seis | Nueve
+
+Topic: NUMBERS
+Level: A1.1
+Q: Ten
+A: Diez
+O: Once | Diez | Doce | Nueve | Ocho | Cero
+
+Topic: NUMBERS
+Level: A1.1
+Q: Eleven
+A: Once
+O: Diez | Doce | Trece | Once | Nueve | Catorce
+
+Topic: NUMBERS
+Level: A1.1
+Q: Twelve
+A: Doce
+O: Once | Trece | Catorce | Doce | Quince | Diez
+
+Topic: NUMBERS
+Level: A1.1
+Q: Thirteen
+A: Trece
+O: Doce | Catorce | Quince | Trece | Once | Diez
+
+Topic: NUMBERS
+Level: A1.1
+Q: Fourteen
+A: Catorce
+O: Trece | Catorce | Quince | Dieciséis | Doce | Once
+
+Topic: NUMBERS
+Level: A1.1
+Q: Fifteen
+A: Quince
+O: Catorce | Dieciséis | Doce | Quince | Once | Diecisiete
+
+Topic: NUMBERS
+Level: A1.1
+Q: Sixteen
+A: Dieciséis
+O: Quince | Diecisiete | Dieciséis | Catorce | Trece | Doce
+
+Topic: NUMBERS
+Level: A1.1
+Q: Seventeen
+A: Diecisiete
+O: Dieciséis | Dieciocho | Quince | Catorce | Once | Diecisiete
+
+Topic: NUMBERS
+Level: A1.1
+Q: Eighteen
+A: Dieciocho
+O: Diecisiete | Dieciocho | Diecinueve | Quince | Catorce | Doce
+
+Topic: NUMBERS
+Level: A1.1
+Q: Nineteen
+A: Diecinueve
+O: Dieciocho | Veinte | Diecisiete | Diecinueve | Doce | Quince
+
+Topic: NUMBERS
+Level: A1.1
+Q: Twenty
+A: Veinte
+O: Diecinueve | Dieciocho | Treinta | Veinte | Quince | Catorce
+
+Topic: NUMBERS
+Level: A1.1
+Q: Uno
+A: One
+O: One | Two | Three | Ten | Zero | Eleven
+
+Topic: NUMBERS
+Level: A1.1
+Q: Dos
+A: Two
+O: Two | Three | Four | One | Five | Ten
+
+Topic: NUMBERS
+Level: A1.1
+Q: Tres
+A: Three
+O: Three | Two | Four | Five | Ten | One
+
+Topic: NUMBERS
+Level: A1.1
+Q: Cuatro
+A: Four
+O: Four | Three | Five | Six | Two | One
+
+Topic: NUMBERS
+Level: A1.1
+Q: Cinco
+A: Five
+O: Five | Four | Six | Seven | Three | Ten
+
+Topic: NUMBERS
+Level: A1.1
+Q: Seis
+A: Six
+O: Six | Five | Seven | Eight | Nine | Three
+
+Topic: NUMBERS
+Level: A1.1
+Q: Siete
+A: Seven
+O: Seven | Six | Eight | Nine | Five | Ten
+
+Topic: NUMBERS
+Level: A1.1
+Q: Ocho
+A: Eight
+O: Eight | Seven | Nine | Ten | Eleven | Six
+
+Topic: NUMBERS
+Level: A1.1
+Q: Nueve
+A: Nine
+O: Nine | Eight | Ten | Eleven | Twelve | Seven
+
+Topic: NUMBERS
+Level: A1.1
+Q: Diez
+A: Ten
+O: Ten | Eleven | Nine | Twelve | Thirteen | Eight
+
+Topic: NUMBERS
+Level: A1.1
+Q: Once
+A: Eleven
+O: Eleven | Ten | Twelve | Thirteen | Nine | Fourteen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Doce
+A: Twelve
+O: Twelve | Eleven | Thirteen | Fourteen | Fifteen | Ten
+
+Topic: NUMBERS
+Level: A1.1
+Q: Trece
+A: Thirteen
+O: Thirteen | Twelve | Fourteen | Fifteen | Eleven | Ten
+
+Topic: NUMBERS
+Level: A1.1
+Q: Catorce
+A: Fourteen
+O: Fourteen | Thirteen | Fifteen | Sixteen | Twelve | Eleven
+
+Topic: NUMBERS
+Level: A1.1
+Q: Quince
+A: Fifteen
+O: Fifteen | Fourteen | Sixteen | Thirteen | Eleven | Seventeen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Dieciséis
+A: Sixteen
+O: Sixteen | Fifteen | Seventeen | Eighteen | Fourteen | Twelve
+
+Topic: NUMBERS
+Level: A1.1
+Q: Diecisiete
+A: Seventeen
+O: Seventeen | Sixteen | Eighteen | Fifteen | Fourteen | Nineteen
+
+Topic: NUMBERS
+Level: A1.1
+Q: Dieciocho
+A: Eighteen
+O: Eighteen | Seventeen | Nineteen | Twenty | Fourteen | Twelve
+
+Topic: NUMBERS
+Level: A1.1
+Q: Diecinueve
+A: Nineteen
+O: Nineteen | Eighteen | Twenty | Seventeen | Thirteen | Ten
+
+Topic: NUMBERS
+Level: A1.1
+Q: Veinte
+A: Twenty
+O: Twenty | Nineteen | Eighteen | Thirty | Fifteen | Ten
+
+Topic: COLORS
+Level: A1.1
+Q: Red
+A: /rɛd/
+O: /rɛd/ | /bluː/ | /ɡriːn/ | /ˈjɛloʊ/
+
+Topic: COLORS
+Level: A1.1
+Q: Blue
+A: /bluː/
+O: /rɛd/ | /bluː/ | /ɡriːn/ | /ˈjɛloʊ/
+
+Topic: COLORS
+Level: A1.1
+Q: Green
+A: /ɡriːn/
+O: /rɛd/ | /bluː/ | /ɡriːn/ | /ˈjɛloʊ/
+
+Topic: COLORS
+Level: A1.1
+Q: Yellow
+A: /ˈjɛloʊ/
+O: /rɛd/ | /bluː/ | /ɡriːn/ | /ˈjɛloʊ/
+
+Topic: COLORS
+Level: A1.1
+Q: Black
+A: /blæk/
+O: /rɛd/ | /blæk/ | /ɡriːn/ | /ˈjɛloʊ/
+
+Topic: COLORS
+Level: A1.1
+Q: White
+A: /waɪt/
+O: /rɛd/ | /blæk/ | /waɪt/ | /ˈjɛloʊ/
+
+Topic: COLORS
+Level: A1.1
+Q: Pink
+A: /pɪŋk/
+O: /rɛd/ | /blæk/ | /waɪt/ | /pɪŋk/
+
+Topic: COLORS
+Level: A1.1
+Q: Purple
+A: /ˈpɜːrpəl/
+O: /ˈpɜːrpəl/ | /blæk/ | /waɪt/ | /pɪŋk/
+
+Topic: COLORS
+Level: A1.1
+Q: Orange
+A: /ˈɔːrɪndʒ/
+O: /ˈpɜːrpəl/ | /ˈɔːrɪndʒ/ | /waɪt/ | /pɪŋk/
+
+Topic: COLORS
+Level: A1.1
+Q: Brown
+A: /braʊn/
+O: /ˈpɜːrpəl/ | /ˈɔːrɪndʒ/ | /braʊn/ | /pɪŋk/
+
+Topic: COLORS
+Level: A1.1
+Q: Gray
+A: /ɡreɪ/
+O: /ɡreɪ/ | /ˈɔːrɪndʒ/ | /braʊn/ | /pɪŋk/
+
+Topic: COLORS
+Level: A1.1
+Q: Gold
+A: /ɡoʊld/
+O: /ɡreɪ/ | /ˈɔːrɪndʒ/ | /ɡoʊld/ | /pɪŋk/
+
+Topic: COLORS
+Level: A1.1
+Q: Red
+A: Rojo
+O: Rojo | Azul | Verde | Amarillo | Blanco | Negro
+
+Topic: COLORS
+Level: A1.1
+Q: Blue
+A: Azul
+O: Azul | Rojo | Verde | Blanco | Gris | Marrón
+
+Topic: COLORS
+Level: A1.1
+Q: Green
+A: Verde
+O: Verde | Azul | Marrón | Naranja | Negro | Rosa
+
+Topic: COLORS
+Level: A1.1
+Q: Yellow
+A: Amarillo
+O: Amarillo | Verde | Azul | Blanco | Naranja | Rojo
+
+Topic: COLORS
+Level: A1.1
+Q: Black
+A: Negro
+O: Negro | Gris | Azul | Blanco | Rojo | Verde
+
+Topic: COLORS
+Level: A1.1
+Q: White
+A: Blanco
+O: Blanco | Negro | Gris | Azul | Marrón | Verde
+
+Topic: COLORS
+Level: A1.1
+Q: Pink
+A: Rosa
+O: Rosa | Rojo | Azul | Verde | Blanco | Marrón
+
+Topic: COLORS
+Level: A1.1
+Q: Orange
+A: Naranja
+O: Naranja | Amarillo | Rojo | Verde | Azul | Marrón
+
+Topic: COLORS
+Level: A1.1
+Q: Brown
+A: Marrón
+O: Marrón | Gris | Verde | Rojo | Naranja | Azul
+
+Topic: COLORS
+Level: A1.1
+Q: Gray
+A: Gris
+O: Gris | Negro | Marrón | Blanco | Azul | Verde
+
+Topic: COLORS
+Level: A1.1
+Q: Rojo
+A: Red
+O: Red | Blue | Green | Black | White | Yellow
+
+Topic: COLORS
+Level: A1.1
+Q: Azul
+A: Blue
+O: Blue | Red | Green | White | Gray | Pink
+
+Topic: COLORS
+Level: A1.1
+Q: Verde
+A: Green
+O: Green | Blue | Brown | Orange | Black | Red
+
+Topic: COLORS
+Level: A1.1
+Q: Amarillo
+A: Yellow
+O: Yellow | Green | Blue | White | Orange | Red
+
+Topic: COLORS
+Level: A1.1
+Q: Negro
+A: Black
+O: Black | White | Red | Blue | Green | Gray
+
+Topic: COLORS
+Level: A1.1
+Q: Blanco
+A: White
+O: White | Black | Blue | Gray | Red | Brown
+
+Topic: COLORS
+Level: A1.1
+Q: Rosa
+A: Pink
+O: Pink | Red | Blue | White | Green | Orange
+
+Topic: COLORS
+Level: A1.1
+Q: Naranja
+A: Orange
+O: Orange | Yellow | Red | Brown | Blue | Green
+
+Topic: COLORS
+Level: A1.1
+Q: Marrón
+A: Brown
+O: Brown | Green | Gray | Red | Orange | Blue
+
+Topic: COLORS
+Level: A1.1
+Q: Gris
+A: Gray
+O: Gray | White | Black | Brown | Blue | Green
+
+1. PERSONAL PRONOUNS
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Daniel is my brother. __ _____ ________.
+A: He likes football.
+O: Me am a student. | He likes | Us like pizza. | football. | She are my friend. | I
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Lee y elige el pronombre sujeto: "Daniel is my brother. He likes football".
+A: He
+O: is | He | friend | She | my | your
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Lee y elige los pronombres posesivos en la historia: "Maria is my friend. She is from Spain. I like her very much."
+A: her
+O: We | are | her | students | am | they | our
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Selecciona los pronombres en el orden del texto: "I have two cats. They are black and white. He is my neighbor. She is a doctor."
+A: I They He She
+O: He | She | you | students | I | They | our
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Identificar el nombre propio correcto de la lista: "This is John. He is a student."
+A: John
+O: John | They | Maria | playing | he | is | games
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Identificar el pronombre sujeto : "Lisa and I go to school. ___ are best friends."
+A: I
+O: Are | from | you | Colombia | is | I | am
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Selecciona los pronombres de objeto en el orden del texto: "I see them every day. He knows her very well. Give it to me."
+A: them her me
+O: is | her | my | me | brother | your | them
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Seleccionar nombres propios: Form: Name: Peter / Country: Canada / Gender: Male - Sentence: "He is Peter. He is from Canada."
+A: Peter Canada
+O: Name | Peter | Gender: Male | Canada | your | them
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Relaciona personas con pronombres en orden al texto: "My name is Tom. This is Mary. That is John and Sarah."
+A: Tom → I Mary → She John and Sarah → They
+O: John and Sarah → They | This is Mary | John and Sarah → She | Tom → I | Mary → You | Tom → We | Mary → She
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Complete el  texto en orden: "My family is small. ___ live in a flat. My dad is a teacher. ___ loves books. I like to help __."
+A: We He him
+O: He | her | my | me | We | him | them
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Lea y elija el pronombre correcto: "____ is my brother. He likes football."
+A: He
+O: He | her | my | me | We | him | them
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Complete los espacios en blanco en orden con pronombres en la historia : "Maria is my friend. ___ is from Spain. I like ___ very much."
+A: She her
+O: book | She | This | my | your | her | his
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: Rellene los espacios en blanco de un formulario: Form: Name: Peter / Country: Canada / Gender: Male - Sentence: "__ is Peter. ___ is from Canada."
+A: He He
+O: He | She | He | She | They | Your | Them
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Complete los espacios en blanco: Tom and I have a dog. ___ dog is very playful.
+A: His
+O: Our | is | This | My | Your | Her | His
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Complete los espacios en blanco: Samantha is a student. ___ backpack is heavy.
+A: Her
+O: Our | doing | His | is | Her | My | Your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Complete los espacios en blanco: Mark has a blue bike. ___ bike is fast.
+A: His
+O: We | Her | Our | their | His | My
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Complete los espacios en blanco: This is my sister and me. ___ room is upstairs.
+A: Our
+O: We | Her | Our | their | His | My
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Complete los espacios en blanco: Look at that dog. ___ ears are so big!
+A: Its
+O: Its | Her | Our | their | His | My
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Complete los espacios en blanco: Lina and Jose are in class. ___ books are on the table.
+A: Their
+O: Its | Her | Our | Their | His | My | Your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Complete los espacios en blanco: You and I are teammates. ___ coach is very strict.
+A: Our
+O: Its | Her | Our | Their | His | My | Your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Complete los espacios en blanco: David has a cat. ___ name is Whiskers.
+A: Its
+O: Its | Her | Our | Their | His | My | Your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Complete los espacios en blanco: Excuse me, is this ___ phone on the desk?
+A: Your
+O: Its | Her | Our | Their | His | My | Your
+
+READING TRANSLATION MODULE - Level A1.1
+
+Topic: READING TRANSLATION
+Level: A1.1
+
+Activity: Translation Reading
+Objective: Students select Spanish words to form the correct translation of English sentences
+Instructions: Read the English text and select the Spanish words in the correct order to form the translation
+
+BASIC GREETINGS AND INTRODUCTIONS
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: Hello, my name is John
+A: Hola, mi nombre es Juan
+O: Hola | mi | nombre | es | Juan | soy | llamo | me | como
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: Good morning, teacher
+A: Buenos días, profesor
+O: Buenos | días | profesor | buenas | noches | tarde | maestro
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: How are you today?
+A: ¿Cómo estás hoy?
+O: Cómo | estás | hoy | está | están | ayer | mañana | bien
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: Nice to meet you
+A: Mucho gusto
+O: Mucho | gusto | poco | disguto | conocerte | verte
+
+PERSONAL INFORMATION
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I am a student
+A: Yo soy un estudiante
+O: Yo | soy | un | estudiante | profesor | una | es | somos
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: She is my friend
+A: Ella es mi amiga
+O: Ella | es | mi | amiga | él | su | amigo | hermana
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: We are from Colombia
+A: Nosotros somos de Colombia
+O: Nosotros | somos | de | Colombia | ustedes | son | en | México
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: They live in Bogotá
+A: Ellos viven en Bogotá
+O: Ellos | viven | en | Bogotá | nosotros | vivimos | con | Medellín
+
+FAMILY AND RELATIONSHIPS
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: This is my family
+A: Esta es mi familia
+O: Esta | es | mi | familia | este | son | su | casa
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: My father works every day
+A: Mi padre trabaja todos los días
+O: Mi | padre | trabaja | todos | los | días | madre | algunas | semanas
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I have two brothers
+A: Yo tengo dos hermanos
+O: Yo | tengo | dos | hermanos | tiene | tres | hermanas | cuatro
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: My sister is very smart
+A: Mi hermana es muy inteligente
+O: Mi | hermana | es | muy | inteligente | hermano | son | poco | tonta
+
+DAILY ACTIVITIES
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I go to school
+A: Yo voy a la escuela
+O: Yo | voy | a | la | escuela | vas | el | universidad | trabajo
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: We study English
+A: Nosotros estudiamos inglés
+O: Nosotros | estudiamos | inglés | ustedes | estudian | español | francés
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: She reads a book
+A: Ella lee un libro
+O: Ella | lee | un | libro | él | lees | una | revista | periódico
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: They play soccer
+A: Ellos juegan fútbol
+O: Ellos | juegan | fútbol | nosotros | jugamos | básquet | tenis
+
+DESCRIPTIONS AND CHARACTERISTICS
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The house is big
+A: La casa es grande
+O: La | casa | es | grande | el | son | pequeña | bonita
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: My car is red
+A: Mi carro es rojo
+O: Mi | carro | es | rojo | su | auto | son | azul | verde
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The weather is nice
+A: El clima está agradable
+O: El | clima | está | agradable | la | tiempo | es | malo | frío
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: She is very happy
+A: Ella está muy feliz
+O: Ella | está | muy | feliz | él | es | poco | triste | contenta
+
+FOOD AND PREFERENCES
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I like pizza
+A: Me gusta la pizza
+O: Me | gusta | la | pizza | te | gustan | el | hamburguesa
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: We eat breakfast
+A: Nosotros desayunamos
+O: Nosotros | desayunamos | ustedes | desayunan | almorzamos | cenamos
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The coffee is hot
+A: El café está caliente
+O: El | café | está | caliente | la | es | frío | té | agua
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I drink water every day
+A: Yo bebo agua todos los días
+O: Yo | bebo | agua | todos | los | días | bebes | leche | algunas
+
+LOCATIONS AND PLACES
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The school is near
+A: La escuela está cerca
+O: La | escuela | está | cerca | el | colegio | es | lejos
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: We live in the city
+A: Nosotros vivimos en la ciudad
+O: Nosotros | vivimos | en | la | ciudad | ustedes | viven | el | campo
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The park is beautiful
+A: El parque es hermoso
+O: El | parque | es | hermoso | la | son | feo | bonito
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: My house has three rooms
+A: Mi casa tiene tres cuartos
+O: Mi | casa | tiene | tres | cuartos | su | hogar | dos | habitaciones
+
+COLORS AND OBJECTS
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The book is blue
+A: El libro es azul
+O: El | libro | es | azul | la | son | rojo | verde | cuaderno
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I have a black pen
+A: Yo tengo un bolígrafo negro
+O: Yo | tengo | un | bolígrafo | negro | tiene | una | lápiz | rojo
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The flowers are yellow
+A: Las flores son amarillas
+O: Las | flores | son | amarillas | los | es | rojas | blancas
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: My bag is green
+A: Mi bolsa es verde
+O: Mi | bolsa | es | verde | su | maleta | son | azul | negra
+
+TIME AND ACTIVITIES
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: Today is Monday
+A: Hoy es lunes
+O: Hoy | es | lunes | ayer | son | martes | miércoles
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I work in the morning
+A: Yo trabajo en la mañana
+O: Yo | trabajo | en | la | mañana | trabajas | el | tarde | noche
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: We sleep at night
+A: Nosotros dormimos en la noche
+O: Nosotros | dormimos | en | la | noche | ustedes | duermen | el | día
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The class starts at eight
+A: La clase empieza a las ocho
+O: La | clase | empieza | a | las | ocho | el | termina | nueve
+
+ANIMALS AND PETS
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I have a dog
+A: Yo tengo un perro
+O: Yo | tengo | un | perro | tiene | una | gato | pájaro
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The cat is sleeping
+A: El gato está durmiendo
+O: El | gato | está | durmiendo | la | es | corriendo | perro
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: Birds can fly
+A: Los pájaros pueden volar
+O: Los | pájaros | pueden | volar | las | puede | caminar | nadar
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: My pet is friendly
+A: Mi mascota es amigable
+O: Mi | mascota | es | amigable | su | son | agresiva | bonita
+
+EMOTIONS AND FEELINGS
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I am happy today
+A: Yo estoy feliz hoy
+O: Yo | estoy | feliz | hoy | está | triste | ayer | contento
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: She feels tired
+A: Ella se siente cansada
+O: Ella | se | siente | cansada | él | me | sientes | descansada
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: We are excited
+A: Nosotros estamos emocionados
+O: Nosotros | estamos | emocionados | ustedes | están | aburridos | tranquilos
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The movie is interesting
+A: La película es interesante
+O: La | película | es | interesante | el | son | aburrida | divertida
+
+WEATHER AND SEASONS
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: It is sunny today
+A: Está soleado hoy
+O: Está | soleado | hoy | es | nublado | ayer | lluvioso
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I like summer
+A: Me gusta el verano
+O: Me | gusta | el | verano | te | gustan | la | invierno
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: It rains in winter
+A: Llueve en invierno
+O: Llueve | en | invierno | nieva | el | verano | primavera
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The wind is strong
+A: El viento está fuerte
+O: El | viento | está | fuerte | la | es | débil | suave
+
+TRANSPORTATION
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: I travel by bus
+A: Yo viajo en autobús
+O: Yo | viajo | en | autobús | viajas | el | carro | avión
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: The train is fast
+A: El tren es rápido
+O: El | tren | es | rápido | la | son | lento | veloz
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: We walk to school
+A: Nosotros caminamos a la escuela
+O: Nosotros | caminamos | a | la | escuela | ustedes | corren | el | trabajo
+
+Topic: READING TRANSLATION
+Level: A1.1
+Q: My bicycle is new
+A: Mi bicicleta es nueva
+O: Mi | bicicleta | es | nueva | su | son | vieja | motocicleta 

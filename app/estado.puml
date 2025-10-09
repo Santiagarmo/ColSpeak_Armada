@@ -1,0 +1,54 @@
+@startuml
+skinparam backgroundColor white
+skinparam state {
+    BackgroundColor white
+    BorderColor black
+    ArrowColor black
+}
+
+[*] --> Inicio
+
+state Inicio {
+    [*] --> NoAutenticado
+    NoAutenticado --> Login : Usuario intenta iniciar sesión
+    NoAutenticado --> Registro : Usuario intenta registrarse
+    Login --> Autenticado : Credenciales válidas
+    Registro --> Autenticado : Registro exitoso
+    Login --> NoAutenticado : Credenciales inválidas
+    Registro --> NoAutenticado : Registro fallido
+}
+
+state Autenticado {
+    [*] --> MenuPrincipal
+    MenuPrincipal --> NivelA1 : Selecciona nivel
+    MenuPrincipal --> Pronunciacion : Accede a pronunciación
+    MenuPrincipal --> Quiz : Accede a quiz
+    MenuPrincipal --> NoAutenticado : Cierra sesión
+    
+    state NivelA1 {
+        [*] --> Preguntas
+        Preguntas --> Resultado : Completa preguntas
+        Resultado --> MenuPrincipal : Regresa al menú
+    }
+    
+    state Pronunciacion {
+        [*] --> Ejercicios
+        Ejercicios --> MenuPrincipal : Regresa al menú
+    }
+    
+    state Quiz {
+        [*] --> PreguntasQuiz
+        PreguntasQuiz --> ResultadoQuiz : Completa quiz
+        ResultadoQuiz --> MenuPrincipal : Regresa al menú
+    }
+}
+
+state "Modificación de Datos" as ModDatos {
+    [*] --> EdicionNombre
+    EdicionNombre --> MenuPrincipal : Guarda cambios
+    EdicionNombre --> MenuPrincipal : Cancela cambios
+}
+
+Autenticado --> ModDatos : Modifica perfil
+
+@enduml
