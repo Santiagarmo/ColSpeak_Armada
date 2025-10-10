@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -120,120 +121,50 @@
                 android:textColor="#002C4D" />
         </LinearLayout>
 
-        <!-- Controles de audio -->
-        <LinearLayout
+        <!-- Instrucción -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginBottom="24dp">
+            android:text="Escucha y selecciona la imagen correcta"
+            android:textSize="20sp"
+            android:textColor="#002C4D"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Escucha y selecciona la imagen correcta"
-                android:textSize="20sp"
-                android:textColor="#002C4D"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="16dp" />
+        <!-- Palabra oculta -->
+        <TextView
+            android:id="@+id/hiddenWordTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¿Cuál es?"
+            android:textSize="24sp"
+            android:textColor="#002C4D"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:padding="8dp" />
 
-            <!-- Palabra oculta -->
-            <TextView
-                android:id="@+id/hiddenWordTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="¿Cuál es?"
-                android:textSize="24sp"
-                android:textColor="#002C4D"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"
-                android:padding="8dp" />
+        <!-- Imagen feedback -->
+        <ImageView
+            android:id="@+id/birdImageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/bird_test"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Bird feedback"
+            android:visibility="gone" />
 
-            <!-- Imagen feedback -->
-            <ImageView
-                android:id="@+id/birdImageView"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/bird_test"
-                android:layout_gravity="center"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="Bird feedback"
-                android:visibility="gone" />
-
-            <!-- Botón de audio -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/playButton"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/button_height_large"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Reproducir Audio"
-                android:textSize="@dimen/text_size_medium"
-                app:icon="@android:drawable/ic_media_play"
-                app:backgroundTint="@color/verdeSena" />
-
-            <!-- Controles de velocidad -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Velocidad:"
-                    android:textColor="#002C4D"
-                    android:layout_marginEnd="8dp" />
-
-                <SeekBar
-                    android:id="@+id/speedSeekBar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:max="200"
-                    android:progress="100" />
-
-                <TextView
-                    android:id="@+id/speedValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1.0x"
-                    android:textColor="#002C4D"
-                    android:layout_marginStart="8dp" />
-            </LinearLayout>
-
-            <!-- Controles de tono -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tono:"
-                    android:textColor="#002C4D"
-                    android:layout_marginEnd="8dp" />
-
-                <SeekBar
-                    android:id="@+id/pitchSeekBar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:max="200"
-                    android:progress="100" />
-
-                <TextView
-                    android:id="@+id/pitchValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1.0x"
-                    android:textColor="#002C4D"
-                    android:layout_marginStart="8dp" />
-            </LinearLayout>
-        </LinearLayout>
+        <!-- ============================================================ -->
+        <!-- COMPONENTE REUTILIZABLE DE AUDIO (Reemplaza controles antiguos) -->
+        <!-- ============================================================ -->
+        <com.example.speak.components.ReusableAudioPlayerCard
+            android:id="@+id/reusableAudioCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            tools:ignore="MissingClass"/>
 
         <!-- Opciones de imágenes -->
         <LinearLayout
@@ -312,7 +243,7 @@
             android:layout_height="wrap_content"
             android:text="Siguiente"
             android:textSize="18sp"
-            android:background="@drawable/button_rounded"
+            android:backgroundTint="#FF9017"
             android:textColor="@android:color/white"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="32dp"
