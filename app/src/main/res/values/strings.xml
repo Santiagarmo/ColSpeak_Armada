@@ -24,4 +24,14 @@
     <string name="help_alphabet_title">Pronunciación del alfabeto / The alphabet pronunciation</string>
     <string name="help_audio_playing">Reproduciendo audio</string>
     <string name="help_audio_error">Error reproduciendo audio</string>
+
+    <string name="text_pronunciation">¡Pronuncia el siguiente contenido, una vez se oprima el botón comenzar! <b>/ Pronounce the following content, once the start button is pressed!</b></string>
+    <string name="text_pronun_answer">Aquí puedes ver tus resultados, una vez se oprima el boton detener <b>/ Here you can see your results, once you press the stop button</b></string>
+    <string name="text_pronun_title">Prueba de expresión oral <b>/ Speaking Test</b></string>
+    <string name="text_pronun_topic">Tema <b>/ Topic:</b></string>
+
+    Tema / Topic:
+
+    Prueba de expresión oral /\nSpeaking Test
+
 </resources>

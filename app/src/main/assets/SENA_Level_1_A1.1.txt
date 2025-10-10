@@ -417,15 +417,57 @@ O: She | I | You | They
 
 Topic: PERSONAL PRONOUNS
 Level: A1.1
+Q: I
+A: I
+O: She | I | You | They
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: You
+A: You
+O: She | I | You | They
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
 Q: she
 A: she
 O: she | they | we | he
 
 Topic: PERSONAL PRONOUNS
 Level: A1.1
+Q: He
+A: He
+O: she | they | we | He
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
 Q: Carlos is very tall.
 A: he
 O: she | he | I | you
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: I am happy.
+A: I
+O: she | he | I | you
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: You are tall.
+A: You
+O: she | he | I | You
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: He is blue.
+A: He
+O: she | He | I | You
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q: She is red.
+A: She
+O: She | He | I | You
 
 Topic: PERSONAL PRONOUNS
 Level: A1.1
@@ -579,7 +621,41 @@ Q: Your
 A: Your
 O: his | My | our | Your
 
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: His
+A: His
+O: his | My | His | Your
 
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Her
+A: Her
+O: Her | My | His | Your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: My car is red
+A: My
+O: Her | My | His | Your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Your book is blue
+A: Your
+O: Her | My | His | Your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: His dog is big
+A: His
+O: Her | My | His | Your
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Her cat is small
+A: Her
+O: Her | My | His | Your
 
 Topic: POSSESSIVE ADJECTIVES
 Level: A1.1

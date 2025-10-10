@@ -338,6 +338,30 @@ O: (/ɡoʊld/) | (/ˈɔːrɪndʒ/) | (/braʊn/) | (/ɡreɪ/)
 
 Topic: PERSONAL PRONOUNS
 Level: A1.1
+Q:_____ am happy
+A:I
+O:Is|Are|I|Be
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:_____ is tall
+A:He
+O:Is|Are|I|He
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:_____ are students
+A:They
+O:Is|They|I|He
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
+Q:_____ are friends
+A:We
+O:Is|We|I|He
+
+Topic: PERSONAL PRONOUNS
+Level: A1.1
 Q:Hello! How _ you?
 A:are
 O:is|are|do|be
@@ -389,6 +413,30 @@ Level: A1.1
 Q:It's _ dog.
 A:my
 O:my|I|me|mine
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q:_____ car is red.
+A:His
+O:My|I|Me|His
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q:_____ book is blue.
+A:Her
+O:My|Her|Me|His
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q:_____ house is big.
+A:Our
+O:My|Her|Our|His
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q:_____ cats are white.
+A:Their
+O:Their|Her|Our|His
 
 Topic: POSSESSIVE ADJECTIVES
 Level: A1.1

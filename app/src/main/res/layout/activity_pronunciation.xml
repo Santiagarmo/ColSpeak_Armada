@@ -16,7 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="24dp"
+            android:layout_marginTop="16dp"
+            >
 
             <!-- Header con Return, Level y botones -->
             <LinearLayout
@@ -105,9 +107,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Prueba de expresión oral /\nSpeaking Test"
+                android:text="@string/text_pronun_title"
                 android:textSize="24sp"
-                android:textStyle="bold"
                 android:textColor="#002C4D"
                 android:gravity="center"
                 android:layout_marginBottom="24dp"/>
@@ -118,8 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="Tema / Topic:"
-                android:textStyle="bold"
+                android:text="@string/text_pronun_topic"
                 android:textColor="#002C4D"
                 android:layout_marginBottom="12dp" />
 
@@ -153,9 +153,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="¡Pronuncia el siguiente contenido, una vez se oprima el botón comenzar! /\nPronounce the following content, once the start button is pressed!"
+                            android:text="@string/text_pronunciation"
                             android:textSize="18sp"
-                            android:textStyle="bold"
                             android:textColor="#002C4D"
                             android:layout_marginBottom="16dp"/>
 
@@ -246,9 +245,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Aquí puedes ver tus resultados, una vez se oprima el boton detener /\nHere you can see your results, once you press the stop button"
+                        android:text="@string/text_pronun_answer"
                         android:textSize="18sp"
-                        android:textStyle="bold"
                         android:textColor="#002C4D"
                         android:gravity="center"
                         android:layout_marginBottom="16dp"/>

@@ -23,7 +23,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="28dp"
                 android:layout_marginBottom="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -109,6 +109,7 @@
                 android:textColor="#002C4D"
                 android:textSize="15sp"
                 android:gravity="center"
+                android:layout_marginTop="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/headerLayout" />
@@ -121,12 +122,11 @@
                 android:text="THE"
                 android:textStyle="bold"
                 android:textColor="#002C4D"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginStart="50dp"
-
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
             <LinearLayout
@@ -165,7 +165,7 @@
                             android:letterSpacing="0.08"
                             android:layout_marginStart="16dp"
                             android:textColor="#002C4D"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             android:gravity="center"
                             android:textAlignment="center"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -415,7 +415,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="16dp"
                 android:text="@string/option_listening"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textColor="#002C4D"
                 android:gravity="center"
                 android:textAlignment="center"
