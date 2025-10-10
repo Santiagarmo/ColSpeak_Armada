@@ -569,9 +569,17 @@ O: You | we | you | It
 
 Topic: POSSESSIVE ADJECTIVES
 Level: A1.1
-Q: Peter is doing     homework.
-A: his
-O: his | her | our | their
+Q: My
+A: My
+O: his | My | our | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
+Q: Your
+A: Your
+O: his | My | our | Your
+
+
 
 Topic: POSSESSIVE ADJECTIVES
 Level: A1.1
