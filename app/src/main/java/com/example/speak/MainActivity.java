@@ -65,10 +65,6 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
 
     //Instantiate
-    //TextView eTextUid;
-    //TextView eTextName;
-    //TextView eTextEmail;
-    //TextView eTextDate;
     TextView eTextScore;
 
     private ImageView pronunciationCard;
@@ -104,39 +100,53 @@ public class MainActivity extends AppCompatActivity {
         eUser = eAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("ColSpeak");
-        
+
         // Inicializar DatabaseHelper
         dbHelper = new DatabaseHelper(this);
-
-        //TextView
-        //eTextUid = findViewById(R.id.textViewUid);
-        //eTextName = findViewById(R.id.textViewName);
-        //eTextEmail = findViewById(R.id.textViewEmail);
-        //eTextDate = findViewById(R.id.textViewDate);
 
         // Inicializar ViewPager2 y TabLayout
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
-        
+
         sliderAdapter = new SliderAdapter(this);
         viewPager.setAdapter(sliderAdapter);
+
+        // ==========================================
+        // CONFIGURACIÓN DEL PAGETRANSFORMER
+        // ==========================================
+
+        // Configurar offscreenPageLimit para mostrar páginas adyacentes
+        viewPager.setOffscreenPageLimit(1);
+
+        // Agregar el PageTransformer para acercar las tarjetas
+        viewPager.setPageTransformer(new ViewPager2.PageTransformer() {
+            @Override
+            public void transformPage(@NonNull View page, float position) {
+                // Ajusta este valor para controlar la separación
+                // -30 = más juntas, -20 = más separadas, -40 = muy juntas
+                page.setTranslationX(-22 * position);
+
+                // Opcional: agregar efecto de escala para destacar la tarjeta central
+                // Puedes comentar estas líneas si no quieres el efecto de escala
+//                float scaleFactor = Math.max(0.85f, 1 - Math.abs(position) * 0.15f);
+//                page.setScaleY(scaleFactor);
+            }
+        });
+
+        // ==========================================
+        // FIN DE LA CONFIGURACIÓN
+        // ==========================================
 
         birdMenu = findViewById(R.id.imgBirdMenu);
         quizMenu = findViewById(R.id.imgQuizMenu);
         pronunMenu = findViewById(R.id.imgPronunMenu);
-        
+
         // Conectar TabLayout con ViewPager2
         new TabLayoutMediator(tabLayout, viewPager,
-            (tab, position) -> {
-                // Opcional: personalizar las tabs si lo deseas
-            }
+                (tab, position) -> {
+                    // Opcional: personalizar las tabs si lo deseas
+                }
         ).attach();
-
-        // Eliminar las inicializaciones antiguas de las tarjetas
-        // pronunciationCard = findViewById(R.id.pronunciationCard);
-        // quizCard = findViewById(R.id.quizCard);
-        // textToSpeechCard = findViewById(R.id.textToSpeechCard);
-        // setupClickListeners();
 
         eButtonProfile = findViewById(R.id.btnProfile);
         eButtonProfile.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 // Verificar si es usuario invitado
                 SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
                 boolean isGuest = prefs.getBoolean("is_guest", false);
-                
+
                 if (isGuest) {
                     // Si es invitado, ir directamente al perfil
                     Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
@@ -170,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 // Verificar si es usuario invitado
                 SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
                 boolean isGuest = prefs.getBoolean("is_guest", false);
-                
+
                 if (isGuest) {
                     // Si es invitado, ir directamente al quiz history
                     Intent intent = new Intent(MainActivity.this, QuizHistoryActivity.class);
@@ -195,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
                 // Verificar si es usuario invitado
                 SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
                 boolean isGuest = prefs.getBoolean("is_guest", false);
-                
+
                 if (isGuest) {
                     // Si es invitado, ir directamente al historial
                     Intent intent = new Intent(MainActivity.this, PronunciationHistoryActivity.class);
@@ -301,14 +311,6 @@ public class MainActivity extends AppCompatActivity {
         if (cursor.moveToFirst()) {
             String email = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_EMAIL));
             String password = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSWORD));
-
-            //eTextEmail.setText("Email: " + email);
-            //eTextName.setText("Usuario: Invitado");
-            //eTextUid.setText("Contraseña: " + password);
-            //eTextDate.setText("Modo: Offline");
-
-            // Ocultar botones que no son necesarios para usuarios invitados
-            //eButtonModify.setVisibility(View.GONE);
         }
         cursor.close();
     }
@@ -322,18 +324,12 @@ public class MainActivity extends AppCompatActivity {
             String uid = eUser.getUid();
             String email = eUser.getEmail();
 
-            //eTextUid.setText("UID: " + uid);
-            //eTextEmail.setText("Email: " + email);
-
             databaseReference.child("Users").child(uid).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
                         String name = dataSnapshot.child("name").getValue(String.class);
                         String date = dataSnapshot.child("date").getValue(String.class);
-
-                        //eTextName.setText("Nombre: " + name);
-                        //eTextDate.setText("Fecha de registro: " + date);
                     }
                 }
 
@@ -345,34 +341,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Method to be executed when our game opens
     @Override
     protected void onStart() {
         LoggedUser();
         super.onStart();
     }
 
-    // Method to check if a user is logged in
     private void LoggedUser() {
         SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
         boolean isGuest = prefs.getBoolean("is_guest", false);
         long userId = prefs.getLong("user_id", -1);
 
         if (isGuest && userId != -1) {
-            // Usuario invitado, permitir acceso
             Toast.makeText(MainActivity.this, "Modo Invitado", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Si no hay usuario invitado, crear uno nuevo
         String deviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         if (deviceId != null) {
-            // Verificar si existe un usuario invitado para este dispositivo
             if (dbHelper.isGuestUserExists(deviceId)) {
-                // Obtener el ID del usuario invitado existente
                 userId = dbHelper.getGuestUserId(deviceId);
                 if (userId != -1) {
-                    // Guardar la información del usuario invitado
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putBoolean("is_guest", true);
                     editor.putLong("user_id", userId);
@@ -381,10 +370,8 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
             } else {
-                // Crear nuevo usuario invitado
                 userId = dbHelper.createGuestUser(deviceId);
                 if (userId != -1) {
-                    // Guardar la información del nuevo usuario invitado
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putBoolean("is_guest", true);
                     editor.putLong("user_id", userId);
@@ -395,7 +382,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // Si no es invitado, verificar autenticación normal
         prefs = getSharedPreferences("SpeakApp", MODE_PRIVATE);
         boolean isLoggedIn = prefs.getBoolean("is_logged_in", false);
         boolean isOffline = prefs.getBoolean("is_offline", false);
@@ -403,11 +389,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (isLoggedIn) {
             if (isOffline && userEmail != null) {
-                // Verificar si la sesión offline sigue siendo válida
                 if (dbHelper.checkOfflineSession(userEmail)) {
                     Toast.makeText(MainActivity.this, "Modo Offline", Toast.LENGTH_SHORT).show();
                 } else {
-                    // La sesión offline ha expirado
                     clearLoginState();
                     startActivity(new Intent(MainActivity.this, RegisterActivity.class));
                     finish();
@@ -422,10 +406,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clearLoginState() {
-        // Limpiar Firebase Auth
         eAuth.signOut();
 
-        // Limpiar SharedPreferences
         SharedPreferences prefs = getSharedPreferences("SpeakApp", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.remove("user_id");
@@ -433,9 +415,6 @@ public class MainActivity extends AppCompatActivity {
         editor.remove("is_logged_in");
         editor.remove("is_offline");
         editor.apply();
-
-        // No limpiar los datos del usuario invitado
-        // Los datos en "user_prefs" se mantienen para el modo invitado
     }
 
     @Override
@@ -445,5 +424,4 @@ public class MainActivity extends AppCompatActivity {
             dbHelper.close();
         }
     }
-
 }
