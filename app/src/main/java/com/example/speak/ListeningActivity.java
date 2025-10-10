@@ -5,8 +5,6 @@ import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.media.MediaPlayer;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,20 +17,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.AlertDialog;
 import android.widget.ImageView;
-import android.widget.ImageButton;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.speak.database.DatabaseHelper;
 import com.example.speak.helpers.WildcardHelper;
-import com.example.speak.helpers.TrophyHelper;
 import com.example.speak.helpers.StarEarnedDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -256,7 +249,7 @@ public class ListeningActivity extends AppCompatActivity {
                     Log.d(TAG, "Guest user exists for device: " + deviceId);
                     Cursor guestCursor = dbHelper.getGuestUser(deviceId);
                     if (guestCursor != null && guestCursor.moveToFirst()) {
-                        userId = guestCursor.getLong(guestCursor.getColumnIndex(DatabaseHelper.COLUMN_ID));
+                        //userId = guestCursor.getLong(guestCursor.getColumnIndex(DatabaseHelper.COLUMN_ID));
                         guestCursor.close();
                         Log.d(TAG, "Retrieved guest user ID: " + userId);
                     }

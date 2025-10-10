@@ -88,5 +88,6 @@
     <color name="splash_progress_color">#FFD700</color>
 
     <color name="header_blue">#1A4F7C</color>
+    <color name="header_blue_table">#037FAC</color>
 
 </resources>

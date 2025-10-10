@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/gradient_background"
+    android:clipToOutline="true"
+    android:background="@drawable/gradient_background_round"
     android:padding="0dp"
     android:gravity="center">
 
@@ -37,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="See_summary"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -75,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Score: "
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#173446"
             android:gravity="center"
@@ -87,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4/5"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:background="@drawable/rounded_marinablue"
@@ -111,95 +112,96 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Try again"
-            android:textSize="12sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
             android:gravity="center"
             android:padding="10dp"
             android:textColor="@color/white"/>
 
-        <LinearLayout
-            android:id="@+id/eBtnReturnMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="@dimen/spacing_large"
-            android:layout_marginTop="@dimen/spacing_medium"
-            android:visibility="gone"/>
-
-        <TextView
-            android:id="@+id/resultTitleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Resultados de Identificación de Imágenes"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:layout_marginBottom="8dp"
-            android:visibility="gone"
-            />
-
-        <TextView
-            android:id="@+id/summaryTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="¡Excelente identificación!\n\nTema: Identificación de Imágenes\nNivel: A1.1\n\nRespuestas correctas: 8 de 10\n(70% requerido para aprobar)"
-            android:textSize="24sp"
-            android:textColor="@android:color/white"
-            android:gravity="center"
-            android:layout_marginBottom="24dp"
-            android:padding="16dp"
-            android:visibility="gone"/>
-
-        <!-- Container para los resultados detallados -->
-        <LinearLayout
-            android:id="@+id/detailsContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="24dp"
-            android:visibility="gone"/>
-
-        <Button
-            android:id="@+id/btnBackToMap"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:text="Volver al Mapa"
-            android:textColor="@android:color/white"
-            android:background="@drawable/button_rounded"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:visibility="gone"/>
-
-        <Button
-            android:id="@+id/btnRetry"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="Reintentar"
-            android:textColor="@android:color/white"
-            android:background="@drawable/button_rounded"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:visibility="gone"/>
-
-        <!-- Olas al final, fuera del padding -->
-        <ImageView
-            android:id="@+id/waves_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:contentDescription="Decoración de olas"
-            android:scaleType="fitXY"
-            android:src="@drawable/olas" />
-
     </LinearLayout>
 
+    <!-- Olas al final, fuera del padding -->
+    <ImageView
+        android:id="@+id/waves_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:contentDescription="Decoración de olas"
+        android:scaleType="fitXY"
+        android:src="@drawable/olas" />
+
+    <LinearLayout
+        android:id="@+id/eBtnReturnMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_medium"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/resultTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resultados de Identificación de Imágenes"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/summaryTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡Excelente identificación!\n\nTema: Identificación de Imágenes\nNivel: A1.1\n\nRespuestas correctas: 8 de 10\n(70% requerido para aprobar)"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        android:padding="16dp"
+        android:visibility="gone"/>
+
+    <!-- Container para los resultados detallados -->
+    <LinearLayout
+        android:id="@+id/detailsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnBackToMap"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        android:text="Volver al Mapa"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_rounded"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnRetry"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:layout_marginStart="8dp"
+        android:text="Reintentar"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_rounded"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:visibility="gone"/>
+
 </LinearLayout>
+
+

@@ -1,0 +1,7 @@
+<!-- res/drawable/custom_scroll_thumb.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <size android:width="10dp" />
+    <solid android:color="#173446" /> <!-- color naranja del tema -->
+    <corners android:radius="8dp" />
+</shape>
