@@ -355,6 +355,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
         }
     }
 
+
     private void addTableHeader(TableLayout table) {
         TableRow headerRow = new TableRow(this);
         headerRow.setBackgroundColor(getResources().getColor(R.color.header_blue_table));
