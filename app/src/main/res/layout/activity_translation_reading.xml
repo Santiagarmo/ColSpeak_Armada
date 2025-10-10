@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    android:fillViewport="true">
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:paddingBottom="80dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <!-- Header con botón retornar, Level, Topic, número de pregunta y puntuación -->
         <LinearLayout
@@ -20,8 +22,8 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:padding="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp">
 
             <!-- Botón de retorno -->
             <LinearLayout
@@ -80,7 +82,7 @@
                 android:id="@+id/scoreTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Score: 0"
+                android:text=" Score: 0"
                 android:textSize="18sp"
                 android:textColor="#002C4D"
                 android:textStyle="bold" />
@@ -111,10 +113,10 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:text="Topic:"
+            android:layout_gravity="center"
             android:textStyle="bold"
             android:textColor="#002C4D"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="15dp" />
 
         <!-- Instrucciones -->
         <TextView
@@ -212,7 +214,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                android:fadeScrollbars="false"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+                android:scrollbarTrackVertical="@drawable/scrollbar_track"
+                android:requiresFadingEdge="vertical"
+                android:fadingEdgeLength="32dp" />
         </LinearLayout>
 
         <!-- Botones de acción -->
@@ -220,7 +229,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="35dp">
+            android:layout_marginBottom="16dp">
 
             <!-- Botones Limpiar y Evaluar en horizontal -->
             <LinearLayout
@@ -267,4 +276,4 @@
         </LinearLayout>
 
     </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

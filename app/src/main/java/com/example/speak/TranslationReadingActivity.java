@@ -297,7 +297,7 @@ public class TranslationReadingActivity extends AppCompatActivity {
         selectedWordsRecyclerView.setAdapter(selectedWordsAdapter);
         
         // Setup Spanish words RecyclerView (grid)
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
         spanishWordsRecyclerView.setLayoutManager(gridLayoutManager);
         spanishWordsAdapter = new SpanishWordsAdapter();
         spanishWordsRecyclerView.setAdapter(spanishWordsAdapter);
@@ -452,11 +452,11 @@ public class TranslationReadingActivity extends AppCompatActivity {
             showResults();
             return;
         }
-        
+
         TranslationQuestion currentQuestion = currentQuestions.get(currentQuestionIndex);
-        
+
         // Update UI
-        questionNumberTextView.setText((currentQuestionIndex + 1) + "/" + currentQuestions.size());
+        questionNumberTextView.setVisibility(View.GONE); // Ocultar el contador
         scoreTextView.setText("Score: " + score);
         englishTextView.setText(currentQuestion.getEnglishText());
         
