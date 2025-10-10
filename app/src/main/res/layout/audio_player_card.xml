@@ -154,59 +154,83 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="12dp"
-            android:paddingHorizontal="16dp">
+            android:layout_marginTop="16dp"
+            android:padding="12dp"
+            android:background="#E6F0FA"
+            android:elevation="4dp"
+            android:clipToPadding="false"
+            android:layout_marginHorizontal="12dp"
+            android:dividerPadding="4dp"
+            android:showDividers="middle"
+            android:divider="?android:attr/listDivider">
 
-            <Button
-                android:id="@+id/voiceChildButton"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:text="👦"
-                android:textSize="32sp"
-                android:background="@android:color/transparent"
-                android:textColor="#002C4D"
-                android:padding="12dp"/>
+        <Button
+            android:id="@+id/voiceChildButton"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:text="👦"
+            android:textSize="32sp"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#002C4D"
+            android:elevation="2dp"
+            android:padding="8dp"
+            android:stateListAnimator="@null"
+            android:translationZ="2dp"
+            android:clipToOutline="true"
+            android:foreground="?attr/selectableItemBackground"/>
 
-            <Button
-                android:id="@+id/voiceGirlButton"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="4dp"
-                android:text="👧"
-                android:textSize="32sp"
-                android:background="@android:color/transparent"
-                android:textColor="#002C4D"
-                android:padding="12dp"/>
+        <Button
+            android:id="@+id/voiceGirlButton"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="👧"
+            android:textSize="32sp"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#002C4D"
+            android:elevation="2dp"
+            android:padding="8dp"
+            android:stateListAnimator="@null"
+            android:translationZ="2dp"
+            android:clipToOutline="true"
+            android:foreground="?attr/selectableItemBackground"/>
 
-            <Button
-                android:id="@+id/voiceWomanButton"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="4dp"
-                android:text="👩"
-                android:textSize="32sp"
-                android:background="@android:color/transparent"
-                android:textColor="#002C4D"
-                android:padding="12dp"/>
+        <Button
+            android:id="@+id/voiceWomanButton"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="👩"
+            android:textSize="32sp"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#002C4D"
+            android:elevation="2dp"
+            android:padding="8dp"
+            android:stateListAnimator="@null"
+            android:translationZ="2dp"
+            android:clipToOutline="true"
+            android:foreground="?attr/selectableItemBackground"/>
 
-            <Button
-                android:id="@+id/voiceManButton"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:text="👨"
-                android:textSize="32sp"
-                android:background="@android:color/transparent"
-                android:textColor="#002C4D"
-                android:padding="12dp"/>
-
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/voiceManButton"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="👨"
+            android:textSize="32sp"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#002C4D"
+            android:elevation="2dp"
+            android:padding="8dp"
+            android:stateListAnimator="@null"
+            android:translationZ="2dp"
+            android:clipToOutline="true"
+            android:foreground="?attr/selectableItemBackground"/>
     </LinearLayout>
+
+
+</LinearLayout>
 
 </LinearLayout>
