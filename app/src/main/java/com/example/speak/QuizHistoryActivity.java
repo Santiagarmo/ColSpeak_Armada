@@ -54,7 +54,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
     private long currentUserId;
     private Button continueButton;
 
-    private LinearLayout eBtnReturnMenu;
+    private androidx.constraintlayout.widget.ConstraintLayout eBtnReturnMenu;
 
     private boolean birdExpanded = false;
     private ImageView birdMenu;
@@ -254,17 +254,17 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
     private void showCurrentActivityResults(TableLayout tableLayout, ArrayList<ListeningQuestion> questions, int score, int totalQuestions) {
         Log.d("QuizHistory", "Showing current activity results");
-        
+
         // Crear encabezado de la tabla
         addTableHeader(tableLayout);
 
         // Obtener el timestamp de sesión
         long sessionTimestamp = getIntent().getLongExtra("SESSION_TIMESTAMP", -1);
         String quizType = getIntent().getStringExtra("QUIZ_TYPE");
-        
+
         Log.d("QuizHistory", "Session Timestamp: " + sessionTimestamp);
         Log.d("QuizHistory", "Quiz Type: " + quizType);
-        
+
         if (sessionTimestamp == -1) {
             Log.e("QuizHistory", "No session timestamp found");
             return;
@@ -296,9 +296,9 @@ public class QuizHistoryActivity extends AppCompatActivity {
             int quizTypeIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_QUIZ_TYPE);
 
             // Verificar que todos los índices sean válidos
-            if (userIdIndex == -1 || questionIndex == -1 || userAnswerIndex == -1 || 
-                correctAnswerIndex == -1 || isCorrectIndex == -1 || topicIndex == -1 || 
-                levelIndex == -1 || timestampIndex == -1 || quizTypeIndex == -1) {
+            if (userIdIndex == -1 || questionIndex == -1 || userAnswerIndex == -1 ||
+                    correctAnswerIndex == -1 || isCorrectIndex == -1 || topicIndex == -1 ||
+                    levelIndex == -1 || timestampIndex == -1 || quizTypeIndex == -1) {
                 Log.e("QuizHistory", "Invalid column index");
                 return;
             }
@@ -308,11 +308,11 @@ public class QuizHistoryActivity extends AppCompatActivity {
                 long recordUserId = cursor.getLong(userIdIndex);
                 String recordQuizType = cursor.getString(quizTypeIndex);
                 long recordTimestamp = cursor.getLong(timestampIndex);
-                
-                if (recordUserId == currentUserId && 
-                    quizType.equals(recordQuizType) && 
-                    recordTimestamp == sessionTimestamp) {  // Comparación exacta del timestamp
-                    
+
+                if (recordUserId == currentUserId &&
+                        quizType.equals(recordQuizType) &&
+                        recordTimestamp == sessionTimestamp) {  // Comparación exacta del timestamp
+
                     String question = cursor.getString(questionIndex);
                     String userAnswer = cursor.getString(userAnswerIndex);
                     String correctAnswer = cursor.getString(correctAnswerIndex);
@@ -345,7 +345,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
                 if (recordUserId == currentUserId && quizType.equals(recordQuizType)) {
                     addTableRow(tableLayout, cursor);
                     count++;
-                
+
                     if (showOnlyLast10 && count >= 10) {
                         break;
                     }
@@ -357,7 +357,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
     private void addTableHeader(TableLayout table) {
         TableRow headerRow = new TableRow(this);
-        headerRow.setBackgroundColor(getResources().getColor(R.color.header_blue));
+        headerRow.setBackgroundColor(getResources().getColor(R.color.header_blue_table));
 
         String[] headers = {"Date", "Question", "Correct Answer", "Your Answer", "Result", "Topic", "Level"};
         for (String header : headers) {
@@ -378,14 +378,14 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
     private void addTableRow(TableLayout table, Cursor cursor) {
         TableRow row = new TableRow(this);
-        row.setBackgroundColor(cursor.getPosition() % 2 == 0 ? 
-            getResources().getColor(R.color.white) : 
-            getResources().getColor(R.color.light_gray));
+        row.setBackgroundColor(cursor.getPosition() % 2 == 0 ?
+                getResources().getColor(R.color.white) :
+                getResources().getColor(R.color.light_gray));
 
         // Formatear la fecha
         long timestamp = cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP));
         String date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-            .format(new Date(timestamp));
+                .format(new Date(timestamp));
 
         // Obtener los datos
         String question = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION));
@@ -397,19 +397,19 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
         // Crear las celdas
         String[] cellContents = {
-            date,
-            question,
-            correctAnswer,
-            selectedAnswer,
-            isCorrect ? "✓" : "✗",
-            topic,
-            level
+                date,
+                question,
+                correctAnswer,
+                selectedAnswer,
+                isCorrect ? "✓" : "✗",
+                topic,
+                level
         };
 
         for (int i = 0; i < cellContents.length; i++) {
-        TextView textView = new TextView(this);
+            TextView textView = new TextView(this);
             textView.setText(cellContents[i]);
-        textView.setTextSize(14);
+            textView.setTextSize(14);
             textView.setPadding(16, 12, 16, 12);
             textView.setMinWidth(200); // Ancho mínimo para cada columna
             textView.setMaxWidth(400); // Ancho máximo para cada columna
@@ -420,11 +420,11 @@ public class QuizHistoryActivity extends AppCompatActivity {
             if (i == 4) { // La columna del resultado
                 textView.setTextColor(isCorrect ? Color.GREEN : Color.RED);
                 textView.setTextSize(18); // Hacer el símbolo más grande
-        textView.setTypeface(null, Typeface.BOLD);
+                textView.setTypeface(null, Typeface.BOLD);
             }
 
-        row.addView(textView);
-    }
+            row.addView(textView);
+        }
 
         table.addView(row);
     }
@@ -449,27 +449,27 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
         // Calcular el porcentaje del score
         int finalScore = (totalQuestions > 0) ? (int) ((score / (double) totalQuestions) * 100) : 0;
-        
+
         Log.d(TAG, "Setting up continue button - Topic: " + currentTopic + ", Score: " + finalScore + "%");
 
         // Solo mostrar el botón si hay un tema válido y el usuario aprobó
         if (currentTopic != null && !currentTopic.isEmpty() && finalScore >= 70) {
             String nextTopic = ProgressionHelper.getNextTopic(this, currentTopic);
-            
+
             if (nextTopic != null) {
                 // Hay un siguiente tema disponible
                 continueButton.setText(ProgressionHelper.getContinueButtonText(nextTopic));
                 continueButton.setVisibility(View.VISIBLE);
-                
+
                 // Crear copia final de las variables para usar en la lambda
                 final String finalCurrentTopic = currentTopic;
                 final int finalScoreForLambda = finalScore;
-                
+
                 // Configurar el click listener
                 continueButton.setOnClickListener(v -> {
                     // Marcar tema actual como completado
                     ProgressionHelper.markTopicCompleted(this, finalCurrentTopic, finalScoreForLambda);
-                    
+
                     // Crear intent para continuar con el siguiente tema
                     Intent continueIntent = ProgressionHelper.createContinueIntent(this, finalCurrentTopic, "");
                     if (continueIntent != null) {
@@ -479,7 +479,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
                         Toast.makeText(this, "No hay más temas disponibles", Toast.LENGTH_SHORT).show();
                     }
                 });
-                
+
                 Log.d(TAG, "Continue button configured for next topic: " + nextTopic);
             } else {
                 // Es el último tema
@@ -491,7 +491,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 });
-                
+
                 Log.d(TAG, "Continue button configured as level completed");
             }
         } else {
@@ -508,22 +508,22 @@ public class QuizHistoryActivity extends AppCompatActivity {
         try {
             long sessionTimestamp = getIntent().getLongExtra("SESSION_TIMESTAMP", -1);
             String quizType = getIntent().getStringExtra("QUIZ_TYPE");
-            
+
             if (sessionTimestamp == -1 || quizType == null) {
                 Log.d(TAG, "No session timestamp or quiz type available");
                 return null;
             }
 
-            String query = "SELECT DISTINCT " + DatabaseHelper.COLUMN_TOPIC + 
-                          " FROM quiz_results WHERE " + 
-                          DatabaseHelper.COLUMN_USER_ID + " = ? AND " +
-                          DatabaseHelper.COLUMN_QUIZ_TYPE + " = ? AND " +
-                          DatabaseHelper.COLUMN_TIMESTAMP + " = ? LIMIT 1";
-            
+            String query = "SELECT DISTINCT " + DatabaseHelper.COLUMN_TOPIC +
+                    " FROM quiz_results WHERE " +
+                    DatabaseHelper.COLUMN_USER_ID + " = ? AND " +
+                    DatabaseHelper.COLUMN_QUIZ_TYPE + " = ? AND " +
+                    DatabaseHelper.COLUMN_TIMESTAMP + " = ? LIMIT 1";
+
             Cursor cursor = dbHelper.getReadableDatabase().rawQuery(query, new String[]{
-                String.valueOf(currentUserId), quizType, String.valueOf(sessionTimestamp)
+                    String.valueOf(currentUserId), quizType, String.valueOf(sessionTimestamp)
             });
-            
+
             if (cursor != null && cursor.moveToFirst()) {
                 int topicIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC);
                 if (topicIndex != -1) {
@@ -537,7 +537,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e(TAG, "Error getting topic from database: " + e.getMessage());
         }
-        
+
         return null;
     }
 
@@ -565,8 +565,8 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
             if (quizType != null && quizType.equals("Writing")) {
                 Log.d(TAG, "Loading Writing results");
-                String writingQuery = "SELECT * FROM " + DatabaseHelper.TABLE_WRITING + " WHERE " + 
-                                    DatabaseHelper.COLUMN_WRITING_USER_ID + " = ?";
+                String writingQuery = "SELECT * FROM " + DatabaseHelper.TABLE_WRITING + " WHERE " +
+                        DatabaseHelper.COLUMN_WRITING_USER_ID + " = ?";
                 String[] writingSelectionArgs = new String[]{String.valueOf(currentUserId)};
 
                 if (showCurrentActivityOnly && sessionTimestamp != -1) {
@@ -578,7 +578,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
                 Log.d(TAG, "Writing query: " + writingQuery);
 
                 Cursor writingCursor = dbHelper.getReadableDatabase().rawQuery(writingQuery, writingSelectionArgs);
-                
+
                 // Verificar si el cursor tiene datos
                 if (writingCursor == null) {
                     Log.e(TAG, "Writing cursor is null");
@@ -601,8 +601,8 @@ public class QuizHistoryActivity extends AppCompatActivity {
                 int isCorrectIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_IS_CORRECT);
 
                 // Verificar que todos los índices sean válidos
-                if (timestampIndex == -1 || questionIndex == -1 || userAnswerIndex == -1 || 
-                    topicIndex == -1 || levelIndex == -1 || similarityIndex == -1 || isCorrectIndex == -1) {
+                if (timestampIndex == -1 || questionIndex == -1 || userAnswerIndex == -1 ||
+                        topicIndex == -1 || levelIndex == -1 || similarityIndex == -1 || isCorrectIndex == -1) {
                     Log.e(TAG, "Invalid column index in writing table");
                     writingCursor.close();
                     return;
@@ -611,13 +611,13 @@ public class QuizHistoryActivity extends AppCompatActivity {
                 do {
                     try {
                         TableRow row = new TableRow(this);
-                        row.setBackgroundColor(writingCursor.getPosition() % 2 == 0 ? 
-                            getResources().getColor(R.color.white) : 
-                            getResources().getColor(R.color.light_gray));
+                        row.setBackgroundColor(writingCursor.getPosition() % 2 == 0 ?
+                                getResources().getColor(R.color.white) :
+                                getResources().getColor(R.color.light_gray));
 
                         long timestamp = writingCursor.getLong(timestampIndex);
                         String date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-                            .format(new Date(timestamp));
+                                .format(new Date(timestamp));
 
                         String question = writingCursor.getString(questionIndex);
                         String userAnswer = writingCursor.getString(userAnswerIndex);
@@ -628,13 +628,13 @@ public class QuizHistoryActivity extends AppCompatActivity {
                         boolean isCorrect = writingCursor.getInt(isCorrectIndex) == 1;
 
                         String[] cellContents = {
-                            date,
-                            question,
-                            isCorrect ? "✓" : "✗",
-                            userAnswer,
-                            similarityText,
-                            topic,
-                            level
+                                date,
+                                question,
+                                isCorrect ? "✓" : "✗",
+                                userAnswer,
+                                similarityText,
+                                topic,
+                                level
                         };
 
                         for (int i = 0; i < cellContents.length; i++) {
@@ -645,7 +645,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
                             textView.setMinWidth(220);
                             textView.setMaxLines(3);
                             textView.setEllipsize(TextUtils.TruncateAt.END);
-                            
+
                             // Aplicar color al símbolo de correcto/incorrecto
                             if (i == 2) { // La columna del símbolo ✓/✗
                                 textView.setTextColor(isCorrect ? Color.GREEN : Color.RED);
@@ -654,13 +654,13 @@ public class QuizHistoryActivity extends AppCompatActivity {
                             }
                             // Aplicar color al porcentaje de similitud
                             else if (i == 4) { // La columna del porcentaje
-                                textView.setTextColor(similarity >= 0.7 ? Color.GREEN : 
-                                                    similarity >= 0.5 ? Color.rgb(255, 165, 0) : // Naranja
-                                                    Color.RED);
+                                textView.setTextColor(similarity >= 0.7 ? Color.GREEN :
+                                        similarity >= 0.5 ? Color.rgb(255, 165, 0) : // Naranja
+                                                Color.RED);
                                 textView.setTextSize(16);
                                 textView.setTypeface(null, Typeface.BOLD);
                             }
-                            
+
                             row.addView(textView);
                         }
 
@@ -717,13 +717,13 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
             // Obtener los datos de la base de datos
             Cursor cursor = dbHelper.getReadableDatabase().query(
-                DatabaseHelper.TABLE_QUIZ,
-                null,
-                DatabaseHelper.COLUMN_USER_ID + " = ?",
-                new String[]{String.valueOf(currentUserId)},
-                null,
-                null,
-                DatabaseHelper.COLUMN_TIMESTAMP + " DESC"
+                    DatabaseHelper.TABLE_QUIZ,
+                    null,
+                    DatabaseHelper.COLUMN_USER_ID + " = ?",
+                    new String[]{String.valueOf(currentUserId)},
+                    null,
+                    null,
+                    DatabaseHelper.COLUMN_TIMESTAMP + " DESC"
             );
 
             if (cursor != null && cursor.moveToFirst()) {
@@ -731,7 +731,7 @@ public class QuizHistoryActivity extends AppCompatActivity {
                     // Obtener los valores de cada columna
                     long recordTimestamp = cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP));
                     String date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-                        .format(new Date(recordTimestamp));
+                            .format(new Date(recordTimestamp));
                     String question = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION));
                     String correctAnswer = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_CORRECT_ANSWER));
                     String userAnswer = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ANSWER));
@@ -748,13 +748,13 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
                     // Escribir la línea en el CSV
                     writer.append(String.format("%s,%s,%s,%s,%s,%s,%s\n",
-                        date,
-                        question,
-                        correctAnswer,
-                        userAnswer,
-                        isCorrect ? "Correct" : "Incorrect",
-                        topic,
-                        level
+                            date,
+                            question,
+                            correctAnswer,
+                            userAnswer,
+                            isCorrect ? "Correct" : "Incorrect",
+                            topic,
+                            level
                     ));
                 } while (cursor.moveToNext());
                 cursor.close();
@@ -771,8 +771,8 @@ public class QuizHistoryActivity extends AppCompatActivity {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/csv");
             Uri csvUri = FileProvider.getUriForFile(this,
-                getApplicationContext().getPackageName() + ".provider",
-                csvFile);
+                    getApplicationContext().getPackageName() + ".provider",
+                    csvFile);
             shareIntent.putExtra(Intent.EXTRA_STREAM, csvUri);
             shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(Intent.createChooser(shareIntent, "Compartir archivo CSV"));
@@ -789,4 +789,4 @@ public class QuizHistoryActivity extends AppCompatActivity {
         Toast.makeText(QuizHistoryActivity.this, "Has retornado al menú correctamente.", Toast.LENGTH_SHORT).show();
     }
 
-} 
+}

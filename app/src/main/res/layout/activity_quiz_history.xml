@@ -12,45 +12,57 @@
         android:padding="8dp">
 
         <!-- Botón volver y exportar -->
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/eBtnReturnMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="start|center_vertical"
             android:padding="@dimen/spacing_large"
             android:layout_marginTop="@dimen/spacing_medium">
 
-            <ImageView
-                android:layout_width="@dimen/icon_size_small"
-                android:layout_height="@dimen/icon_size_small"
-                android:src="@drawable/back"
-                android:contentDescription="@string/return_menu"
-                android:layout_marginEnd="@dimen/spacing_small" />
-
-            <TextView
+            <!-- Botón volver (izquierda) -->
+            <LinearLayout
+                android:id="@+id/returnContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/return_button"
-                android:textSize="@dimen/text_size_large"
-                android:textColor="@color/white" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
+                <ImageView
+                    android:layout_width="@dimen/icon_size_small"
+                    android:layout_height="@dimen/icon_size_small"
+                    android:src="@drawable/back"
+                    android:contentDescription="@string/return_menu"
+                    android:layout_marginEnd="@dimen/spacing_small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/return_button"
+                    android:textSize="@dimen/text_size_large"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- Botón Exportar CSV (derecha, alineado perfectamente) -->
             <LinearLayout
                 android:id="@+id/exportButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_gravity="end"
                 android:gravity="center_vertical"
                 android:clickable="true"
                 android:focusable="true"
                 android:padding="8dp"
-                android:layout_marginEnd="16dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:src="@drawable/summary"
+                    android:src="@drawable/export_csv"
                     android:layout_marginEnd="6dp"
                     android:contentDescription="Exportar CSV" />
 
@@ -61,7 +73,7 @@
                     android:textSize="18sp"
                     android:textColor="@color/white" />
             </LinearLayout>
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Título -->
         <TextView
@@ -96,103 +108,112 @@
 
         </LinearLayout>
 
-        <!-- 📋 Tabla con scroll horizontal y vertical -->
+        <!-- 📋 Tabla con bordes redondeados y scroll fijo -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_height="440dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/table_background"
+            android:clipToOutline="true"
+            android:outlineProvider="background"
+            android:elevation="6dp"
+            android:padding="6dp">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@drawable/custom_scroll_thumb"
+            android:scrollbarSize="10dp"
+            android:fadeScrollbars="false">
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="horizontal">
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal"
+                android:scrollbarThumbHorizontal="@drawable/custom_scroll_thumb"
+                android:scrollbarSize="10dp"
+                android:fadeScrollbars="false">
 
-                <ScrollView
+                <TableLayout
+                    android:id="@+id/quizHistoryTable"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:scrollbars="vertical">
-
-                    <TableLayout
-                        android:id="@+id/quizHistoryTable"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:stretchColumns="*"
-                        android:padding="4dp"
-                        android:background="@android:color/transparent" />
-                </ScrollView>
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*"
+                    android:padding="2dp"
+                    android:background="@android:color/transparent" />
             </HorizontalScrollView>
-        </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
 
-        <!-- Menú inferior -->
         <!-- Menú inferior -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="40dp"
-        android:paddingBottom="20dp">
+            android:paddingBottom="20dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="100dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/menu_0" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="100dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/menu_0" />
 
-        <ImageView
-            android:id="@+id/homeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="120dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/home0" />
+            <ImageView
+                android:id="@+id/homeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="120dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/home0" />
 
-        <ImageView
-            android:id="@+id/imgBirdMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|top"
-            android:layout_marginTop="25dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/bird0_menu" />
+            <ImageView
+                android:id="@+id/imgBirdMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="25dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bird0_menu" />
 
-        <ImageView
-            android:id="@+id/imgQuizMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="95dp"
-            android:layout_marginTop="35dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/quiz0_menu"
-            android:visibility="gone" />
+            <ImageView
+                android:id="@+id/imgQuizMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="35dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/quiz0_menu"
+                android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/imgPronunMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|top"
-            android:layout_marginStart="255dp"
-            android:layout_marginTop="35dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/pronun0_menu"
-            android:visibility="gone" />
+            <ImageView
+                android:id="@+id/imgPronunMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="255dp"
+                android:layout_marginTop="35dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/pronun0_menu"
+                android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/btnProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|top"
-            android:layout_marginEnd="60dp"
-            android:layout_marginTop="120dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/profile" />
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/btnProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|top"
+                android:layout_marginEnd="60dp"
+                android:layout_marginTop="120dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/profile" />
+        </FrameLayout>
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

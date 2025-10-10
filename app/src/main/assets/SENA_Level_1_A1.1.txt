@@ -575,6 +575,12 @@ O: his | her | our | their
 
 Topic: POSSESSIVE ADJECTIVES
 Level: A1.1
+Q: Peter is doing     homework.
+A: his
+O: his | her | our | their
+
+Topic: POSSESSIVE ADJECTIVES
+Level: A1.1
 Q: We love     school.
 A: our
 O: my | your | our | their
