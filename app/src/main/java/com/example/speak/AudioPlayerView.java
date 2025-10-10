@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.speech.tts.TextToSpeech;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,9 +17,13 @@ public class AudioPlayerView extends View {
     private Paint unplayedWavePaint;
 
     private float progress = 0f;
-    private float duration = 100f;
+    private float duration = 1f; // Cambiado de 100f a 1f - será actualizado con la duración real
     private boolean isPlaying = false;
     OnProgressChangeListener listener;
+
+    // TextToSpeech instance (optional, for calculating duration)
+    private TextToSpeech textToSpeech;
+    private String currentText = "";
 
     // Variables para las ondas de audio
     private float[] waveHeights = new float[40]; // Más ondas para mejor visualización
@@ -83,13 +88,26 @@ public class AudioPlayerView extends View {
         // Validaciones para evitar crashes
         if (waveHeights == null || waveHeights.length == 0) return;
         if (width <= 40) return;
-        if (duration <= 0) duration = 100f;
+
+        // Validar que la duración sea válida y mayor que cero
+        if (duration <= 0 || Float.isNaN(duration) || Float.isInfinite(duration)) {
+            duration = 1f; // Valor por defecto seguro
+        }
 
         int waveWidth = (width - 40) / waveHeights.length;
         int startX = 20;
 
         // Calcular el índice de la onda que corresponde al progreso actual
-        float progressRatio = Math.max(0, Math.min(1, progress / duration));
+        // Asegurar que progress esté dentro del rango válido
+        float safeProgress = Math.max(0, Math.min(duration, progress));
+        float progressRatio = safeProgress / duration;
+
+        // Validar que progressRatio sea un número válido
+        if (Float.isNaN(progressRatio) || Float.isInfinite(progressRatio)) {
+            progressRatio = 0f;
+        }
+
+        progressRatio = Math.max(0f, Math.min(1f, progressRatio));
         int progressIndex = (int) (progressRatio * waveHeights.length);
         progressIndex = Math.max(0, Math.min(waveHeights.length - 1, progressIndex));
 
@@ -149,8 +167,14 @@ public class AudioPlayerView extends View {
                 float x = event.getX();
                 int width = getWidth();
 
-                // Calcular nueva posición
-                float newProgress = (x - 20) / (width - 40) * duration;
+                // Validar que la duración sea válida antes de calcular
+                if (duration <= 0 || Float.isNaN(duration) || Float.isInfinite(duration)) {
+                    return true;
+                }
+
+                // Calcular nueva posición proporcional a la duración real
+                float touchRatio = Math.max(0f, Math.min(1f, (x - 20) / (width - 40)));
+                float newProgress = touchRatio * duration;
                 newProgress = Math.max(0, Math.min(duration, newProgress));
 
                 setProgress(newProgress);
@@ -164,16 +188,32 @@ public class AudioPlayerView extends View {
     }
 
     public void setProgress(float progress) {
-        this.progress = progress;
+        // Validar que progress sea un valor válido
+        if (Float.isNaN(progress) || Float.isInfinite(progress)) {
+            progress = 0f;
+        }
+
+        this.progress = Math.max(0f, progress);
         invalidate();
 
         if (listener != null) {
-            listener.onProgressChanged(progress);
+            listener.onProgressChanged(this.progress);
         }
     }
 
     public void setDuration(float duration) {
-        this.duration = duration;
+        // Validar que duration sea un valor válido y positivo
+        if (Float.isNaN(duration) || Float.isInfinite(duration) || duration <= 0) {
+            this.duration = 1f; // Valor por defecto seguro
+        } else {
+            this.duration = duration;
+        }
+
+        // Ajustar el progreso si excede la nueva duración
+        if (progress > this.duration) {
+            progress = this.duration;
+        }
+
         invalidate();
     }
 
@@ -224,5 +264,67 @@ public class AudioPlayerView extends View {
 
     public boolean isPlaying() {
         return isPlaying;
+    }
+
+    /**
+     * Reinicia el progreso y la duración a sus valores iniciales
+     */
+    public void reset() {
+        this.progress = 0f;
+        this.duration = 1f;
+        this.isPlaying = false;
+        invalidate();
+    }
+
+    /**
+     * Establece la instancia de TextToSpeech para calcular duraciones
+     */
+    public void setTextToSpeech(TextToSpeech tts) {
+        this.textToSpeech = tts;
+    }
+
+    /**
+     * Establece el texto actual y actualiza la duración estimada automáticamente
+     */
+    public void setTextForTTS(String text) {
+        this.currentText = text;
+        if (text != null && !text.isEmpty()) {
+            float estimatedDuration = estimateTextDurationMs(text);
+            setDuration(estimatedDuration);
+        }
+    }
+
+    /**
+     * Estima la duración del audio en milisegundos basándose en el texto
+     * Fórmula: ~150 palabras por minuto promedio en inglés
+     */
+    private float estimateTextDurationMs(String text) {
+        if (text == null || text.isEmpty()) {
+            return 1000f; // 1 segundo por defecto
+        }
+
+        // Contar palabras (aproximadamente)
+        String[] words = text.trim().split("\\s+");
+        int wordCount = words.length;
+
+        // Velocidad promedio: 150 palabras por minuto
+        // Tiempo = (palabras / 150) * 60 * 1000 ms
+        float durationMs = (wordCount / 150.0f) * 60.0f * 1000.0f;
+
+        // Agregar un pequeño margen de error (+20%)
+        durationMs *= 1.2f;
+
+        // Asegurar un mínimo de 2 segundos
+        return Math.max(durationMs, 2000f);
+    }
+
+    /**
+     * Actualiza la duración basándose en el texto actual
+     */
+    public void updateDurationFromText() {
+        if (currentText != null && !currentText.isEmpty()) {
+            float estimatedDuration = estimateTextDurationMs(currentText);
+            setDuration(estimatedDuration);
+        }
     }
 }

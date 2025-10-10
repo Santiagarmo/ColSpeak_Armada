@@ -156,7 +156,7 @@
             android:gravity="center"
             android:layout_marginTop="16dp"
             android:padding="12dp"
-            android:background="#E6F0FA"
+            android:background="@drawable/rounded_background"
             android:elevation="4dp"
             android:clipToPadding="false"
             android:layout_marginHorizontal="12dp"

@@ -47,6 +47,9 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
     // Audio helper
     private ReusableAudioHelper audioHelper;
 
+    // TextToSpeech instance from Activity
+    private TextToSpeech textToSpeech;
+
     // Configuration
     private String assetsFolder;
     private String currentText;
@@ -274,11 +277,31 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
 
     public void setText(String text) {
         this.currentText = text;
+
+        // Update AudioPlayerView with the new text
+        if (audioPlayerView != null && text != null && !text.isEmpty()) {
+            audioPlayerView.setTextForTTS(text);
+            Log.d(TAG, "AudioPlayerView updated with text: " + text);
+        }
     }
 
     public void setAssetsFolder(String folder) {
         this.assetsFolder = folder;
         audioHelper.configure(folder);
+    }
+
+    /**
+     * Establece la instancia de TextToSpeech desde la Activity
+     * Esto permite al AudioPlayerView calcular la duración del audio
+     */
+    public void setTextToSpeech(TextToSpeech tts) {
+        this.textToSpeech = tts;
+
+        // Pass TTS to AudioPlayerView
+        if (audioPlayerView != null && tts != null) {
+            audioPlayerView.setTextToSpeech(tts);
+            Log.d(TAG, "TextToSpeech set in AudioPlayerView");
+        }
     }
 
     // Audio control methods
@@ -342,12 +365,14 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
                         playButton.setImageResource(R.drawable.pause);
                     }
 
-                    // Estimate duration for TTS
+                    // Get duration from AudioPlayerView (already calculated there)
                     int estimatedDuration = estimateTextDuration(currentText);
-                    // Temporarily disable AudioPlayerView
                     if (audioPlayerView != null) {
-                        audioPlayerView.setDuration(estimatedDuration);
+                        // AudioPlayerView ya calculó la duración al llamar setTextForTTS
                         audioPlayerView.setPlaying(true);
+                        // Obtener la duración que ya fue calculada
+                        estimatedDuration = (int) audioPlayerView.getDuration();
+                        Log.d(TAG, "Using duration from AudioPlayerView: " + estimatedDuration + "ms");
                     }
 
                     totalDuration = estimatedDuration;
@@ -649,21 +674,36 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
 
     private void startTimeUpdate() {
         try {
-            Log.d(TAG, "Starting time update");
+            Log.d(TAG, "Starting time update - totalDuration: " + totalDuration + "ms, isSpanishMode: " + isSpanishMode);
             if (timeUpdateHandler != null) {
                 timeUpdateRunnable = new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            if (audioHelper != null && audioHelper.isPlaying()) {
-                                int currentPos = audioHelper.getCurrentPosition();
-                                // Progreso sintético para TTS (no hay posición real)
+                            // Para TTS, usar isPlaying (estado interno) en lugar de audioHelper.isPlaying()
+
+                            boolean shouldContinue = isPlaying && !isPaused;
+
+                            if (!isSpanishMode) {
+                                // Para TTS: usar progreso sintético basado en tiempo transcurrido
+                                shouldContinue = isPlaying && !isPaused;
+                            } else {
+                                // Para MediaPlayer: verificar si realmente está reproduciendo
+                                shouldContinue = audioHelper != null && audioHelper.isPlaying();
+                            }
+
+                            if (shouldContinue) {
+                                int currentPos;
+
                                 if (!isSpanishMode) {
+                                    // Progreso sintético para TTS (basado en tiempo transcurrido)
                                     int elapsed = (int) (System.currentTimeMillis() - startTime);
                                     currentPos = Math.min(elapsed, totalDuration);
+                                    Log.d(TAG, "TTS Progress: " + currentPos + "/" + totalDuration + "ms");
+                                } else {
+                                    // Progreso real para MediaPlayer
+                                    currentPos = audioHelper.getCurrentPosition();
                                 }
-
-
 
                                 if (audioPlayerView != null && totalDuration > 0) {
                                     audioPlayerView.setProgress(currentPos);
@@ -672,6 +712,7 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
 
                                 // Si alcanzó o superó la duración total, finalizar visualización
                                 if (currentPos >= totalDuration) {
+                                    Log.d(TAG, "Audio completed - stopping time update");
                                     isPlaying = false;
                                     isPaused = false;
                                     if (audioPlayerView != null) {
@@ -683,9 +724,11 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
                                     }
                                     stopTimeUpdate();
                                 } else {
+                                    // Continuar actualizando cada 100ms
                                     timeUpdateHandler.postDelayed(this, 100);
                                 }
                             } else {
+                                Log.d(TAG, "Stopping time update - not playing or paused");
                                 if (audioPlayerView != null) {
                                     audioPlayerView.setPlaying(false);
                                 }
@@ -766,9 +809,16 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
             isPlaying = false;
             isPaused = false;
             currentPosition = 0;
+            totalDuration = 0;
+
             if (audioPlayerView != null) {
                 audioPlayerView.setPlaying(false);
                 audioPlayerView.setProgress(0);
+                // Si hay texto actual, actualizar la duración para la nueva pregunta
+                if (currentText != null && !currentText.isEmpty()) {
+                    audioPlayerView.setTextForTTS(currentText);
+                    Log.d(TAG, "AudioPlayerView duration updated for new question");
+                }
             }
             if (playButton != null) {
                 playButton.setImageResource(R.drawable.reproduce);
