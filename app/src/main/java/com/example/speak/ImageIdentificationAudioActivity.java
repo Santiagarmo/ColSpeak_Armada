@@ -7,6 +7,8 @@ import android.content.res.AssetManager;
 import android.graphics.drawable.PictureDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGParseException;
 import com.example.speak.database.DatabaseHelper;
+import com.example.speak.helpers.HelpModalHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,12 +50,7 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
     private TextView topicTextView;
     private TextView scoreTextView;
     private TextView hiddenWordTextView;
-    private Button playButton;
     private Button nextButton;
-    private SeekBar speedSeekBar;
-    private SeekBar pitchSeekBar;
-    private TextView speedValue;
-    private TextView pitchValue;
 
     // Option buttons (ImageButtons instead of regular Buttons)
     private ImageButton option1Button;
@@ -63,8 +61,13 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
     // Bird image for feedback
     private ImageView birdImageView;
 
-    // TextToSpeech
-    private TextToSpeech textToSpeech;
+    // ============================================================
+    // NUEVO: Componente reutilizable de audio
+    // ============================================================
+    private com.example.speak.components.ReusableAudioPlayerCard reusableAudioCard;
+    private boolean lastReusablePlaying = false;
+    private Handler reusableMonitorHandler = new Handler(Looper.getMainLooper());
+    private Runnable reusableMonitorRunnable;
 
     // MediaPlayer para sonidos de feedback
     private MediaPlayer correctSoundPlayer;
@@ -75,10 +78,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
     private List<ImageQuestion> currentQuestions;
     private int currentQuestionIndex = 0;
     private int score = 0;
-
-    // Audio controls
-    private float currentSpeed = 1.0f;
-    private float currentPitch = 1.0f;
 
     // Database and Firebase
     private DatabaseHelper dbHelper;
@@ -97,6 +96,10 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
     private ImageView wildcardButton;
     private ImageView helpButton;
 
+    // Variable para evitar repetir las mismas imágenes en preguntas consecutivas
+    private List<String> recentlyUsedImages = new ArrayList<>();
+    private static final int MAX_RECENT_IMAGES = 8;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,16 +109,8 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
         // Get intent data FIRST
         Intent intent = getIntent();
-        Log.d(TAG, "Intent received: " + intent);
-        Log.d(TAG, "Intent extras: " + intent.getExtras());
-
         selectedTopic = intent.getStringExtra("TOPIC");
         selectedLevel = intent.getStringExtra("LEVEL");
-
-        Log.d(TAG, "Raw topic value: '" + selectedTopic + "'");
-        Log.d(TAG, "Raw level value: '" + selectedLevel + "'");
-        Log.d(TAG, "Topic is null: " + (selectedTopic == null));
-        Log.d(TAG, "Level is null: " + (selectedLevel == null));
 
         Log.d(TAG, "Intent data - Topic: " + selectedTopic + ", Level: " + selectedLevel);
 
@@ -149,11 +144,11 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         // Initialize Firebase and Database
         initializeFirebaseAndDatabase();
 
-        // Initialize TextToSpeech
-        initializeTextToSpeech();
-
-        // Setup speed and pitch controls
-        setupSpeedAndPitchControls();
+        // ============================================================
+        // NUEVO: Configurar componente reutilizable de audio
+        // ============================================================
+        setupReusableAudioCard();
+        startReusablePlaybackMonitor();
 
         // Setup button listeners
         setupButtonListeners();
@@ -161,18 +156,12 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         // Setup option button listeners
         setupOptionButtonListeners();
 
-        // Validate previous topic completion (temporarily disabled for testing)
-        Log.d(TAG, "Previous topic validation passed");
-
         // Load questions
         loadQuestionsFromFile(selectedTopic, selectedLevel);
 
         // Initialize session timestamp
         sessionTimestamp = System.currentTimeMillis();
         Log.d(TAG, "Session timestamp initialized: " + sessionTimestamp);
-
-        // Test module
-        testModule();
     }
 
     private void initializeViews() {
@@ -181,12 +170,7 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         topicTextView = findViewById(R.id.topicTextView);
         scoreTextView = findViewById(R.id.scoreTextView);
         hiddenWordTextView = findViewById(R.id.hiddenWordTextView);
-        playButton = findViewById(R.id.playButton);
         nextButton = findViewById(R.id.nextButton);
-        speedSeekBar = findViewById(R.id.speedSeekBar);
-        pitchSeekBar = findViewById(R.id.pitchSeekBar);
-        speedValue = findViewById(R.id.speedValue);
-        pitchValue = findViewById(R.id.pitchValue);
 
         option1Button = findViewById(R.id.option1Button);
         option2Button = findViewById(R.id.option2Button);
@@ -195,6 +179,11 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
         // Initialize bird image
         birdImageView = findViewById(R.id.birdImageView);
+
+        // ============================================================
+        // NUEVO: Inicializar componente reutilizable de audio
+        // ============================================================
+        reusableAudioCard = findViewById(R.id.reusableAudioCard);
 
         returnContainer = findViewById(R.id.returnContainer);
         helpButton = findViewById(R.id.helpButton);
@@ -215,7 +204,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
                     wildcardHelper.setCallbacks(new com.example.speak.helpers.WildcardHelper.WildcardCallbacks() {
                         @Override
                         public void onChangeQuestion() {
-                            // Cambiar a la siguiente pregunta segura
                             currentQuestionIndex = Math.min(currentQuestionIndex + 1, currentQuestions.size());
                             displayQuestion();
                         }
@@ -227,7 +215,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
                         @Override
                         public void onShowInstructorVideo() {
-                            // Reproducir video del instructor según el tema actual
                             try {
                                 new com.example.speak.helpers.VideoHelper(ImageIdentificationAudioActivity.this)
                                         .showInstructorVideo(selectedTopic);
@@ -259,16 +246,13 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
             });
         }
 
-        // Help modal integration: abrir HelpActivity con el tema y nivel actuales
+        // Help modal integration
         if (helpButton != null) {
             helpButton.setOnClickListener(v -> {
                 try {
-                    Intent helpIntent = new Intent(ImageIdentificationAudioActivity.this, HelpActivity.class);
-                    helpIntent.putExtra("topic", selectedTopic);
-                    helpIntent.putExtra("level", selectedLevel);
-                    startActivity(helpIntent);
+                    HelpModalHelper.show(ImageIdentificationAudioActivity.this, selectedTopic, selectedLevel);
                 } catch (Exception e) {
-                    Log.e(TAG, "Error abriendo HelpActivity: " + e.getMessage());
+                    Log.e(TAG, "Error abriendo modal de ayuda: " + e.getMessage());
                     Toast.makeText(ImageIdentificationAudioActivity.this, "No se pudo abrir la ayuda", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -277,14 +261,72 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         Log.d(TAG, "Views initialized");
     }
 
-    private void initializeFirebaseAndDatabase() {
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+    // ============================================================
+    // NUEVO: Configuración del componente reutilizable de audio
+    // ============================================================
+    private void setupReusableAudioCard() {
+        try {
+            if (reusableAudioCard != null) {
+                // Obtener el texto de la pregunta actual
+                String audioText = "";
+                if (currentQuestions != null && !currentQuestions.isEmpty() && currentQuestionIndex < currentQuestions.size()) {
+                    ImageQuestion q = currentQuestions.get(currentQuestionIndex);
+                    audioText = q.getCorrectAnswer();
+                }
 
-        // Initialize Database Helper
+                // ⚠️ IMPORTANTE: Este activity usa TTS, NO archivos MP3
+                // Configurar con carpeta vacía para indicar que se usará TTS
+                reusableAudioCard.configure("", audioText);
+
+                // Forzar modo INGLÉS (TTS) - No hay archivos MP3 disponibles
+                reusableAudioCard.setEnglishMode();
+
+                Log.d(TAG, "ReusableAudioCard configurado en modo TTS con texto: " + audioText);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error setting up reusable audio card: " + e.getMessage(), e);
+        }
+    }
+
+    // ============================================================
+    // NUEVO: Monitor de reproducción para habilitar botones
+    // ============================================================
+    private void startReusablePlaybackMonitor() {
+        if (reusableAudioCard == null) return;
+        reusableMonitorRunnable = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    boolean isPlayingReusable = reusableAudioCard.isPlaying();
+                    if (isPlayingReusable != lastReusablePlaying) {
+                        lastReusablePlaying = isPlayingReusable;
+                        if (isPlayingReusable) {
+                            // Habilitar botones de opciones cuando comienza la reproducción
+                            enableOptionButtons();
+                        }
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Error monitoring reusable playback: " + e.getMessage());
+                } finally {
+                    reusableMonitorHandler.postDelayed(this, 200);
+                }
+            }
+        };
+        reusableMonitorHandler.post(reusableMonitorRunnable);
+    }
+
+    private void enableOptionButtons() {
+        option1Button.setEnabled(true);
+        option2Button.setEnabled(true);
+        option3Button.setEnabled(true);
+        option4Button.setEnabled(true);
+        Log.d(TAG, "Botones de opciones habilitados después de reproducir audio");
+    }
+
+    private void initializeFirebaseAndDatabase() {
+        mAuth = FirebaseAuth.getInstance();
         dbHelper = new DatabaseHelper(this);
 
-        // Get user ID from SharedPreferences
         SharedPreferences prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         long initialUserId = prefs.getLong("userId", 1);
         String userEmail = prefs.getString("userEmail", null);
@@ -295,12 +337,11 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         if (isOfflineMode || mAuth.getCurrentUser() == null) {
             userId = initialUserId;
         } else {
-            userId = initialUserId; // Use the same logic as other activities
+            userId = initialUserId;
         }
 
         Log.d(TAG, "Final user ID: " + userId + ", Offline mode: " + isOfflineMode);
 
-        // Initialize Firebase Database
         if (!isOfflineMode) {
             mDatabase = FirebaseDatabase.getInstance().getReference();
         }
@@ -308,74 +349,7 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         Log.d(TAG, "Firebase and Database initialized");
     }
 
-    private void initializeTextToSpeech() {
-        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status == TextToSpeech.SUCCESS) {
-                    int result = textToSpeech.setLanguage(Locale.US);
-                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                        Log.e(TAG, "Language not supported");
-                    } else {
-                        textToSpeech.setSpeechRate(currentSpeed);
-                        textToSpeech.setPitch(currentPitch);
-                        Log.d(TAG, "TextToSpeech initialized");
-                    }
-                } else {
-                    Log.e(TAG, "TextToSpeech initialization failed");
-                }
-            }
-        });
-
-        Log.d(TAG, "TextToSpeech initialized");
-    }
-
-    private void setupSpeedAndPitchControls() {
-        speedSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                currentSpeed = progress / 100.0f;
-                speedValue.setText(String.format("%.1fx", currentSpeed));
-                if (textToSpeech != null) {
-                    textToSpeech.setSpeechRate(currentSpeed);
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
-
-        pitchSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                currentPitch = progress / 100.0f;
-                pitchValue.setText(String.format("%.1fx", currentPitch));
-                if (textToSpeech != null) {
-                    textToSpeech.setPitch(currentPitch);
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
-
-        Log.d(TAG, "Speed and pitch controls setup");
-    }
-
     private void setupButtonListeners() {
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playCurrentQuestion();
-            }
-        });
-
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -422,7 +396,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
     }
 
     private void loadQuestionsFromFile(String topic, String level) {
-        // Validate input parameters
         if (topic == null || level == null) {
             Log.e(TAG, "Topic or level is null - Topic: " + topic + ", Level: " + level);
             Toast.makeText(this, "Error: Tema o nivel no especificado.", Toast.LENGTH_LONG).show();
@@ -438,33 +411,22 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
             String fileName = "image_questions_" + level.toLowerCase() + ".txt";
 
             Log.d(TAG, "Loading questions from file: " + fileName);
-            Log.d(TAG, "Looking for topic: '" + topic + "' and level: '" + level + "'");
 
             InputStream inputStream = assetManager.open(fileName);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
 
             String line;
             int lineNumber = 0;
-            int totalLines = 0;
-            int skippedLines = 0;
-            int processedLines = 0;
 
             while ((line = reader.readLine()) != null) {
                 lineNumber++;
-                totalLines++;
                 line = line.trim();
 
                 if (line.isEmpty() || line.startsWith("#")) {
-                    skippedLines++;
                     continue;
                 }
 
-                Log.d(TAG, "Processing line " + lineNumber + ": " + line);
-                processedLines++;
-
-                // Parse question format: question|correct_answer|option1|option2|option3|option4|topic|level|image_resource
                 String[] parts = line.split("\\|");
-                Log.d(TAG, "Line has " + parts.length + " parts");
 
                 if (parts.length >= 9) {
                     String questionText = parts[0];
@@ -474,32 +436,19 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
                     String questionLevel = parts[7];
                     String imageResource = parts[8];
 
-                    Log.d(TAG, "Parsed question - Topic: '" + questionTopic + "', Level: '" + questionLevel + "'");
-                    Log.d(TAG, "Comparing with - Topic: '" + topic + "', Level: '" + level + "'");
-                    Log.d(TAG, "Topic match: " + questionTopic.equals(topic) + ", Level match: " + questionLevel.equals(level));
-
-                    // Only add questions for the current topic and level
                     if (questionTopic.equals(topic) && questionLevel.equals(level)) {
                         ImageQuestion question = new ImageQuestion(
                                 questionText, correctAnswer, options, questionTopic, questionLevel, imageResource
                         );
                         allQuestions.add(question);
                         Log.d(TAG, "Added question: " + questionText + " for topic: " + topic);
-                    } else {
-                        Log.d(TAG, "Question skipped - topic or level mismatch");
                     }
-                } else {
-                    Log.w(TAG, "Invalid line format at line " + lineNumber + ": " + line);
                 }
             }
 
             reader.close();
             inputStream.close();
 
-            Log.d(TAG, "File processing summary:");
-            Log.d(TAG, "Total lines: " + totalLines);
-            Log.d(TAG, "Skipped lines: " + skippedLines);
-            Log.d(TAG, "Processed lines: " + processedLines);
             Log.d(TAG, "Loaded " + allQuestions.size() + " questions for topic: " + topic);
 
             if (allQuestions.isEmpty()) {
@@ -509,11 +458,9 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
                 return;
             }
 
-            // Shuffle questions and take first 10
             Collections.shuffle(allQuestions);
             currentQuestions = new ArrayList<>(allQuestions.subList(0, Math.min(10, allQuestions.size())));
 
-            // Display first question
             displayQuestion();
 
         } catch (IOException e) {
@@ -525,7 +472,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
     private void displayQuestion() {
         if (currentQuestionIndex >= currentQuestions.size()) {
-            // Quiz completed
             showQuizResults();
             return;
         }
@@ -541,11 +487,29 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         // Hide the word initially
         hiddenWordTextView.setText("?????");
 
+        // ============================================================
+        // NUEVO: Actualizar el componente de audio con la nueva pregunta
+        // ============================================================
+        if (reusableAudioCard != null) {
+            try {
+                reusableAudioCard.resetForNewQuestion();
+                reusableAudioCard.setText(question.getCorrectAnswer());
+                // Asegurarse de que esté en modo TTS (inglés)
+                reusableAudioCard.setEnglishMode();
+                Log.d(TAG, "Audio card actualizado con texto TTS: " + question.getCorrectAnswer());
+            } catch (Exception e) {
+                Log.e(TAG, "Error syncing reusable audio card text: " + e.getMessage());
+            }
+        }
+
         // Load images for options
         loadOptionImages(question);
 
         // Reset button states
         resetButtonStates();
+
+        // Deshabilitar botones hasta que se reproduzca el audio
+        disableOptionButtons();
 
         // Hide next button initially
         nextButton.setVisibility(View.GONE);
@@ -553,16 +517,20 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         Log.d(TAG, "Displaying question " + (currentQuestionIndex + 1) + ": " + question.getQuestion());
     }
 
+    private void disableOptionButtons() {
+        option1Button.setEnabled(false);
+        option2Button.setEnabled(false);
+        option3Button.setEnabled(false);
+        option4Button.setEnabled(false);
+    }
+
     private void loadOptionImages(ImageQuestion question) {
         try {
-            // Obtener todas las imágenes disponibles desde assets
             List<String> availableImages = getAvailableImagesFromAssets();
 
-            // Asegurar que la imagen correcta esté incluida
             List<String> optionImages = new ArrayList<>();
-            optionImages.add(question.getImageResourceName()); // Imagen correcta
+            optionImages.add(question.getImageResourceName());
 
-            // Agregar 3 imágenes aleatorias diferentes, evitando las recientemente usadas
             List<String> remainingImages = new ArrayList<>();
             for (String img : availableImages) {
                 if (!img.equals(question.getImageResourceName()) &&
@@ -571,7 +539,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
                 }
             }
 
-            // Si no hay suficientes imágenes sin usar recientemente, usar todas las disponibles
             if (remainingImages.size() < 3) {
                 remainingImages.clear();
                 for (String img : availableImages) {
@@ -581,25 +548,20 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
                 }
             }
 
-            // Mezclar y tomar 3 imágenes aleatorias
             Collections.shuffle(remainingImages);
             for (int i = 0; i < Math.min(3, remainingImages.size()); i++) {
                 optionImages.add(remainingImages.get(i));
             }
 
-            // Mezclar todas las opciones para que la respuesta correcta no esté siempre en la misma posición
             Collections.shuffle(optionImages);
 
-            // Set images for each option
             setImageButton(option1Button, optionImages.get(0));
             setImageButton(option2Button, optionImages.get(1));
             setImageButton(option3Button, optionImages.get(2));
             setImageButton(option4Button, optionImages.get(3));
 
-            // Store the correct answer for this question
             question.setCorrectImageResource(question.getImageResourceName());
 
-            // Actualizar la lista de imágenes recientemente usadas
             updateRecentlyUsedImages(optionImages);
 
             Log.d(TAG, "Loaded option images: " + optionImages.toString());
@@ -610,14 +572,12 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
     }
 
     private void updateRecentlyUsedImages(List<String> usedImages) {
-        // Agregar las imágenes usadas al inicio de la lista
         for (String img : usedImages) {
             if (!recentlyUsedImages.contains(img)) {
                 recentlyUsedImages.add(0, img);
             }
         }
 
-        // Mantener solo las últimas MAX_RECENT_IMAGES
         while (recentlyUsedImages.size() > MAX_RECENT_IMAGES) {
             recentlyUsedImages.remove(recentlyUsedImages.size() - 1);
         }
@@ -631,30 +591,23 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
             if (files != null) {
                 for (String file : files) {
-                    // Incluir archivos SVG
                     if (file.toLowerCase().endsWith(".svg")) {
                         availableImages.add(file);
                     }
                 }
             }
 
-            // Agregar imágenes drawable como respaldo para mayor variedad
-            String[] drawableImages = {
-                    "ic_cat"
-            };
+            String[] drawableImages = {"ic_cat"};
 
             for (String img : drawableImages) {
                 availableImages.add(img);
             }
 
-            Log.d(TAG, "Found " + availableImages.size() + " available images (SVG + Drawable)");
+            Log.d(TAG, "Found " + availableImages.size() + " available images");
 
         } catch (IOException e) {
             Log.e(TAG, "Error reading assets directory", e);
-            // Fallback a imágenes hardcodeadas si hay error
-            String[] fallbackImages = {
-                    "ic_cat"
-            };
+            String[] fallbackImages = {"ic_cat"};
             for (String img : fallbackImages) {
                 availableImages.add(img);
             }
@@ -663,25 +616,18 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         return availableImages;
     }
 
-    // Variable para evitar repetir las mismas imágenes en preguntas consecutivas
-    private List<String> recentlyUsedImages = new ArrayList<>();
-    private static final int MAX_RECENT_IMAGES = 8; // Evitar usar las últimas 8 imágenes usadas
-
     private void setImageButton(ImageButton button, String imageResourceName) {
         try {
-            // Check if it's an SVG file
             if (imageResourceName.toLowerCase().endsWith(".svg")) {
                 if (setSVGImageButtonFromAssets(button, imageResourceName)) {
                     return;
                 }
             }
 
-            // Try to load as regular drawable
             if (setRegularImageButton(button, imageResourceName)) {
                 return;
             }
 
-            // If all else fails, set default image
             button.setImageResource(R.drawable.ic_quiz);
 
         } catch (Exception e) {
@@ -692,14 +638,13 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
     private boolean setSVGImageButtonFromAssets(ImageButton button, String svgFileName) {
         try {
-            // Load SVG from assets
             AssetManager assetManager = getAssets();
             InputStream inputStream = assetManager.open(svgFileName);
 
             SVG svg = SVG.getFromInputStream(inputStream);
             PictureDrawable drawable = new PictureDrawable(svg.renderToPicture());
             button.setImageDrawable(drawable);
-            button.setTag(svgFileName); // Store the full filename for answer checking
+            button.setTag(svgFileName);
 
             inputStream.close();
             Log.d(TAG, "Set SVG from assets: " + svgFileName);
@@ -714,30 +659,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         }
     }
 
-    private void setSVGImageButton(ImageButton button, String svgFileName) {
-        try {
-            // Try to load from assets first
-            AssetManager assetManager = getAssets();
-            InputStream inputStream = assetManager.open(svgFileName);
-
-            SVG svg = SVG.getFromInputStream(inputStream);
-            PictureDrawable drawable = new PictureDrawable(svg.renderToPicture());
-            button.setImageDrawable(drawable);
-            button.setTag(svgFileName); // Store the resource name for answer checking
-
-            inputStream.close();
-            Log.d(TAG, "Set SVG from assets: " + svgFileName);
-
-        } catch (IOException e) {
-            Log.w(TAG, "SVG not found in assets, trying drawable: " + svgFileName);
-            // If not found in assets, try drawable folder
-            setRegularImageButton(button, svgFileName);
-        } catch (SVGParseException e) {
-            Log.e(TAG, "Error parsing SVG: " + svgFileName, e);
-            button.setImageResource(R.drawable.ic_quiz);
-        }
-    }
-
     private boolean setRegularImageButton(ImageButton button, String imageResourceName) {
         try {
             int resourceId = getResources().getIdentifier(
@@ -746,8 +667,8 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
             if (resourceId != 0) {
                 button.setImageResource(resourceId);
-                button.setTag(imageResourceName); // Store the resource name for answer checking
-                Log.d(TAG, "Set regular image: " + imageResourceName + " (ID: " + resourceId + ")");
+                button.setTag(imageResourceName);
+                Log.d(TAG, "Set regular image: " + imageResourceName);
                 return true;
             } else {
                 Log.w(TAG, "Image resource not found: " + imageResourceName);
@@ -760,7 +681,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
     }
 
     private void resetButtonStates() {
-        // Reset button states
         option1Button.setEnabled(true);
         option2Button.setEnabled(true);
         option3Button.setEnabled(true);
@@ -771,23 +691,8 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         option3Button.setBackgroundTintList(getColorStateList(R.color.white));
         option4Button.setBackgroundTintList(getColorStateList(R.color.white));
 
-        // Reset bird image to default
         if (birdImageView != null) {
             birdImageView.setImageResource(R.drawable.crab_test);
-        }
-    }
-
-    private void playCurrentQuestion() {
-        if (currentQuestionIndex >= currentQuestions.size()) {
-            return;
-        }
-
-        ImageQuestion question = currentQuestions.get(currentQuestionIndex);
-        String textToSpeak = question.getCorrectAnswer();
-
-        if (textToSpeech != null) {
-            textToSpeech.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null, "question_utterance");
-            Log.d(TAG, "Playing audio: " + textToSpeak);
         }
     }
 
@@ -818,50 +723,39 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
         Log.d(TAG, "Answer check - Selected: '" + selectedImageResource + "', Correct: '" + question.getCorrectImageResource() + "', Result: " + isCorrect);
 
-        // Save individual answer to database
         saveIndividualAnswer(question, selectedImageResource, isCorrect);
 
         if (isCorrect) {
             score++;
             scoreTextView.setText("Score: " + score);
-            // Cambiar la imagen del pájaro a la imagen de correcto
             if (birdImageView != null) {
                 birdImageView.setImageResource(R.drawable.crab_ok);
             }
-            // Reproducir sonido de éxito
             playCorrectSound();
         } else {
-            // Cambiar la imagen del pájaro a la imagen de incorrecto
             if (birdImageView != null) {
                 birdImageView.setImageResource(R.drawable.crab_bad);
             }
-            // Reproducir sonido de error
             playIncorrectSound();
         }
 
-        // Show the correct answer
         hiddenWordTextView.setText(question.getCorrectAnswer());
 
-        // Highlight buttons
         highlightButtons(selectedOption, isCorrect, question.getCorrectImageResource());
 
-        // Disable all buttons
         option1Button.setEnabled(false);
         option2Button.setEnabled(false);
         option3Button.setEnabled(false);
         option4Button.setEnabled(false);
 
-        // Show next button
         nextButton.setVisibility(View.VISIBLE);
 
-        // Show feedback
         String feedback = isCorrect ? "¡Correcto!" : "Incorrecto. La respuesta correcta es: " + question.getCorrectAnswer();
         Toast.makeText(this, feedback, Toast.LENGTH_SHORT).show();
     }
 
     private void saveIndividualAnswer(ImageQuestion question, String selectedAnswer, boolean isCorrect) {
         try {
-            // Save to local database
             dbHelper.saveQuizResult(
                     userId,
                     question.getQuestion(),
@@ -875,7 +769,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
             );
             Log.d(TAG, "Individual answer saved to database");
 
-            // Save to Firebase if online
             if (!isOfflineMode && mAuth.getCurrentUser() != null) {
                 String questionId = String.valueOf(currentQuestionIndex);
                 Map<String, Object> answerData = new HashMap<>();
@@ -900,22 +793,18 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
     }
 
     private void highlightButtons(int selectedOption, boolean isCorrect, String correctImageResource) {
-        // Reset all buttons first
         resetButtonStates();
 
-        // Find the correct button
         ImageButton correctButton = null;
         if (option1Button.getTag().equals(correctImageResource)) correctButton = option1Button;
         else if (option2Button.getTag().equals(correctImageResource)) correctButton = option2Button;
         else if (option3Button.getTag().equals(correctImageResource)) correctButton = option3Button;
         else if (option4Button.getTag().equals(correctImageResource)) correctButton = option4Button;
 
-        // Highlight correct button in green
         if (correctButton != null) {
             correctButton.setBackgroundTintList(getColorStateList(R.color.verdeSena));
         }
 
-        // Highlight selected button
         ImageButton selectedButton = getButtonByIndex(selectedOption);
         if (selectedButton != null && !isCorrect) {
             selectedButton.setBackgroundTintList(getColorStateList(android.R.color.holo_red_light));
@@ -936,30 +825,24 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         double percentage = (double) score / currentQuestions.size() * 100;
         int finalScore = (int) Math.round(percentage);
 
-        // Save results
         saveQuizResults(percentage);
 
-        // Mark topic as passed if score >= 70%
         if (percentage >= 70) {
             markTopicAsPassed(selectedTopic);
         }
 
-        // Create array of question results
         boolean[] questionResults = new boolean[currentQuestions.size()];
         for (int i = 0; i < currentQuestions.size(); i++) {
-            questionResults[i] = i < score; // Simplified - you might want to track individual results
+            questionResults[i] = i < score;
         }
 
-        // Create array of question texts
         String[] questions = new String[currentQuestions.size()];
         for (int i = 0; i < currentQuestions.size(); i++) {
             questions[i] = currentQuestions.get(i).getQuestion();
         }
 
-        // Get source map from intent
         String sourceMap = getIntent().getStringExtra("SOURCE_MAP");
 
-        // Launch results activity
         Intent intent = new Intent(this, ImageIdentificationResultsActivity.class);
         intent.putExtra("FINAL_SCORE", finalScore);
         intent.putExtra("TOTAL_QUESTIONS", currentQuestions.size());
@@ -969,14 +852,13 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         intent.putExtra("QUESTION_RESULTS", questionResults);
         intent.putExtra("QUESTIONS", questions);
         intent.putExtra("SESSION_TIMESTAMP", sessionTimestamp);
-        intent.putExtra("SOURCE_MAP", sourceMap); // Pass source map information
+        intent.putExtra("SOURCE_MAP", sourceMap);
         startActivity(intent);
         finish();
     }
 
     private void saveQuizResults(double percentage) {
         try {
-            // Save to local database using the original method with adapted parameters
             dbHelper.saveQuizResult(
                     userId,
                     "Image Identification Audio Quiz",
@@ -990,7 +872,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
             );
             Log.d(TAG, "Quiz result saved to local database");
 
-            // Save to Firebase if online
             if (!isOfflineMode && mAuth.getCurrentUser() != null) {
                 Map<String, Object> quizData = new HashMap<>();
                 quizData.put("userId", userId);
@@ -1014,11 +895,9 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
     private void markTopicAsPassed(String topic) {
         try {
-            // Save to database
             dbHelper.markTopicAsPassed(userId, topic, selectedLevel);
             Log.d(TAG, "Topic marked as passed in database: " + topic);
 
-            // Save to SharedPreferences (like ImageIdentificationActivity)
             SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             String key = "PASSED_" + topic.replace(" ", "_");
@@ -1033,12 +912,21 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-            textToSpeech.shutdown();
+        // ============================================================
+        // NUEVO: Detener monitor y limpiar componente de audio
+        // ============================================================
+        if (reusableMonitorHandler != null && reusableMonitorRunnable != null) {
+            reusableMonitorHandler.removeCallbacks(reusableMonitorRunnable);
         }
 
-        // Release MediaPlayer resources
+        try {
+            if (reusableAudioCard != null) {
+                reusableAudioCard.cleanup();
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error cleaning up reusableAudioCard: " + e.getMessage());
+        }
+
         if (correctSoundPlayer != null) {
             correctSoundPlayer.release();
             correctSoundPlayer = null;
@@ -1051,14 +939,11 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    // Método para inicializar los MediaPlayer de sonidos
     private void initializeSoundPlayers() {
         try {
-            // Inicializar sonido de respuesta correcta
             correctSoundPlayer = MediaPlayer.create(this, getResources().getIdentifier(
                     "mario_bros_vida", "raw", getPackageName()));
 
-            // Inicializar sonido de respuesta incorrecta
             incorrectSoundPlayer = MediaPlayer.create(this, getResources().getIdentifier(
                     "pacman_dies", "raw", getPackageName()));
 
@@ -1068,7 +953,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         }
     }
 
-    // Método para reproducir sonido de respuesta correcta
     private void playCorrectSound() {
         try {
             if (correctSoundPlayer != null) {
@@ -1084,7 +968,6 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         }
     }
 
-    // Método para reproducir sonido de respuesta incorrecta
     private void playIncorrectSound() {
         try {
             if (incorrectSoundPlayer != null) {
@@ -1100,22 +983,7 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         }
     }
 
-    private void testModule() {
-        Log.d(TAG, "=== TESTING IMAGE IDENTIFICATION AUDIO MODULE ===");
-        Log.d(TAG, "Selected Topic: " + selectedTopic);
-        Log.d(TAG, "Selected Level: " + selectedLevel);
-        Log.d(TAG, "User ID: " + userId);
-        Log.d(TAG, "Offline Mode: " + isOfflineMode);
-        Log.d(TAG, "All Questions Count: " + allQuestions.size());
-        Log.d(TAG, "Current Questions Count: " + currentQuestions.size());
-        Log.d(TAG, "Current Question Index: " + currentQuestionIndex);
-        Log.d(TAG, "Score: " + score);
-        Log.d(TAG, "TextToSpeech: " + (textToSpeech != null ? "initialized" : "not initialized"));
-        Log.d(TAG, "=== END TEST ===");
-    }
-
     private void returnToMenu() {
-        // Return to MenuReadingActivity
         Intent intent = new Intent(this, MenuReadingActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

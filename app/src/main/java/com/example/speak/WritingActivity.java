@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.speak.database.DatabaseHelper;
 import com.example.speak.helpers.WildcardHelper;
+import com.example.speak.helpers.HelpModalHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -120,7 +121,21 @@ public class WritingActivity extends AppCompatActivity {
         // Inicializar botón de ayuda
         helpButton = findViewById(R.id.helpButton);
         if (helpButton != null) {
-            helpButton.setOnClickListener(v -> showHelp());
+            helpButton.setOnClickListener(v -> {
+                try {
+                    String topicForHelp = selectedTopic;
+                    if (currentQuestions != null && currentQuestionIndex >= 0 && currentQuestionIndex < currentQuestions.size()) {
+                        WritingQuestion q = currentQuestions.get(currentQuestionIndex);
+                        if (q != null && q.getTopic() != null && !q.getTopic().isEmpty()) {
+                            topicForHelp = q.getTopic();
+                        }
+                    }
+                    HelpModalHelper.show(WritingActivity.this, topicForHelp, selectedLevel);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error abriendo modal de ayuda: " + e.getMessage());
+                    Toast.makeText(WritingActivity.this, "No se pudo abrir la ayuda", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         // Initialize Firebase
@@ -841,22 +856,5 @@ public class WritingActivity extends AppCompatActivity {
     /**
      * Abre la ayuda contextual para el tema y nivel actuales
      */
-    private void showHelp() {
-        try {
-            String topicForHelp = selectedTopic;
-            if (currentQuestions != null && currentQuestionIndex >= 0 && currentQuestionIndex < currentQuestions.size()) {
-                WritingQuestion q = currentQuestions.get(currentQuestionIndex);
-                if (q != null && q.getTopic() != null && !q.getTopic().isEmpty()) {
-                    topicForHelp = q.getTopic();
-                }
-            }
-            Intent helpIntent = new Intent(this, HelpActivity.class);
-            helpIntent.putExtra("topic", topicForHelp);
-            helpIntent.putExtra("level", selectedLevel);
-            startActivity(helpIntent);
-        } catch (Exception e) {
-            Log.e(TAG, "Error abriendo HelpActivity: " + e.getMessage());
-            Toast.makeText(this, "No se pudo abrir la ayuda", Toast.LENGTH_SHORT).show();
-        }
-    }
+    
 }

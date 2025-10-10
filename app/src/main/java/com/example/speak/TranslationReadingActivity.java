@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.speak.database.DatabaseHelper;
+import com.example.speak.helpers.HelpModalHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -252,12 +253,9 @@ public class TranslationReadingActivity extends AppCompatActivity {
                             topicForHelp = q.getTopic();
                         }
                     }
-                    Intent helpIntent = new Intent(TranslationReadingActivity.this, HelpActivity.class);
-                    helpIntent.putExtra("topic", topicForHelp);
-                    helpIntent.putExtra("level", selectedLevel);
-                    startActivity(helpIntent);
+                    HelpModalHelper.show(TranslationReadingActivity.this, topicForHelp, selectedLevel);
                 } catch (Exception e) {
-                    android.util.Log.e(TAG, "Error abriendo HelpActivity: " + e.getMessage());
+                    android.util.Log.e(TAG, "Error abriendo modal de ayuda: " + e.getMessage());
                     android.widget.Toast.makeText(TranslationReadingActivity.this, "No se pudo abrir la ayuda", android.widget.Toast.LENGTH_SHORT).show();
                 }
             });

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.speak.database.DatabaseHelper;
 import com.example.speak.helpers.WildcardHelper;
+import com.example.speak.helpers.HelpModalHelper;
 import com.example.speak.helpers.StarEarnedDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -167,7 +170,14 @@ public class ListeningActivity extends AppCompatActivity {
         // Inicializar botón de ayuda
         ImageView helpButton = findViewById(R.id.helpButton);
         if (helpButton != null) {
-            helpButton.setOnClickListener(v -> showHelp());
+            helpButton.setOnClickListener(v -> {
+                try {
+                    HelpModalHelper.show(ListeningActivity.this, selectedTopic, selectedLevel);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error abriendo modal de ayuda: " + e.getMessage());
+                    Toast.makeText(ListeningActivity.this, "No se pudo abrir la ayuda", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         // Inicializar reproductor de audio
@@ -1221,8 +1231,22 @@ public class ListeningActivity extends AppCompatActivity {
             Log.d(TAG, "ORDINAL AND CARDINAL NUMBERS passed with score: " + finalScore);
         }
 
+        // Crear el diálogo
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_quiz_result, null);
+        builder.setView(dialogView);
+
+        builder.setView(dialogView);
+        builder.setCancelable(false); // Evitar que se cierre sin seleccionar una opción
+
+        // Crear y mostrar el diálogo
+        AlertDialog dialog = builder.create();
+        dialog.show(); // 👈 Primero se muestra
+
+        // Eliminar el fondo blanco del contenedor
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
 
         ImageView birdImageView = dialogView.findViewById(R.id.birdImageView);
         TextView messageTextView = dialogView.findViewById(R.id.messageTextView);
@@ -1343,12 +1367,6 @@ public class ListeningActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
-
-        builder.setView(dialogView);
-        builder.setCancelable(false);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
 
         final int finalScoreCaptured = finalScore;
         if (finalScoreCaptured >= 70) {

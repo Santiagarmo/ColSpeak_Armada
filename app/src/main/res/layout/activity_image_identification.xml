@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="24dp">
 
             <!-- Encabezado -->
             <LinearLayout
@@ -26,7 +26,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp">
 
                 <!-- Botón de retorno -->
@@ -120,7 +120,9 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#002C4D"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginBottom="12dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center" />
 
             <!-- Pregunta -->
             <TextView

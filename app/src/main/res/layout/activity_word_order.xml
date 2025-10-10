@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="50dp">
 
         <!-- Badge de Modo Libre (Word Order) con botón desactivar -->
         <LinearLayout
@@ -22,7 +22,7 @@
             android:layout_marginTop="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="10dp"
+            android:paddingTop="20dp"
             android:paddingBottom="10dp"
             android:background="#CC004D6D"
             android:visibility="gone">
