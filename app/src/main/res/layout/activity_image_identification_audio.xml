@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="8dp">
 
         <!-- Header con botón retornar, Level, Topic, número de pregunta y puntuación -->
         <LinearLayout
@@ -19,7 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:padding="8dp"
+            android:padding="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
@@ -83,7 +84,8 @@
                 android:text="Score: 0"
                 android:textSize="18sp"
                 android:textColor="#002C4D"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone"/>
 
             <!-- Botones adicionales -->
             <ImageView
@@ -108,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:layout_marginBottom="16dp">
 
             <TextView
@@ -125,7 +127,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Escucha y selecciona la imagen correcta"
+            android:text="Escucha y selecciona \nla imagen correcta"
             android:textSize="20sp"
             android:textColor="#002C4D"
             android:textStyle="bold"

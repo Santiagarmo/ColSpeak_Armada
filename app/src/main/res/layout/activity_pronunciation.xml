@@ -122,7 +122,9 @@
                 android:text="Tema / Topic:"
                 android:textStyle="bold"
                 android:textColor="#002C4D"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="12dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center" />
 
             <!-- Card de instrucciones -->
             <androidx.cardview.widget.CardView
