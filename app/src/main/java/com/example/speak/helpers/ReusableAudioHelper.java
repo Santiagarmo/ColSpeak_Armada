@@ -19,16 +19,17 @@ public class ReusableAudioHelper {
     private Context context;
     private MediaPlayer mediaPlayer;
     private TextToSpeech textToSpeech;
+    private TextToSpeech externalTTS; // TTS desde la Activity
     private String assetsFolder;
-    
+
     // State
     private boolean isPlaying = false;
     private boolean isPaused = false;
     private int totalDuration = 0;
-    
+
     // Voice type mapping
     private Map<String, String> voiceTypeMap;
-    
+
     public ReusableAudioHelper(Context context) {
         try {
             this.context = context;
@@ -38,6 +39,17 @@ public class ReusableAudioHelper {
             Log.d(TAG, "ReusableAudioHelper initialized successfully");
         } catch (Exception e) {
             Log.e(TAG, "Error initializing ReusableAudioHelper: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Establece un TextToSpeech externo (desde la Activity)
+     * Si se proporciona, se usará este en lugar del interno
+     */
+    public void setExternalTextToSpeech(TextToSpeech tts) {
+        this.externalTTS = tts;
+        if (tts != null) {
+            Log.d(TAG, "External TTS set successfully");
         }
     }
     
@@ -202,34 +214,42 @@ public class ReusableAudioHelper {
      * Speak text with specific voice type using TTS
      */
     public void speakTextWithVoice(String text, String voiceType) {
-        if (textToSpeech == null) {
+        // Usar el TTS externo si está disponible, de lo contrario usar el interno
+        TextToSpeech ttsToUse = (externalTTS != null) ? externalTTS : textToSpeech;
+
+        if (ttsToUse == null) {
             Log.e(TAG, "TextToSpeech is null");
             return;
         }
-        
+
+        // Guardar los parámetros actuales del TTS
+        float currentPitch = 1.0f;
+        float currentRate = 1.0f;
+
         // Set voice parameters based on type
-        setVoiceParameters(voiceType);
-        
+        setVoiceParameters(voiceType, ttsToUse);
+
         // Speak the text
-        int result = textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "ReusableAudio");
+        int result = ttsToUse.speak(text, TextToSpeech.QUEUE_FLUSH, null, "ReusableAudio");
         if (result == TextToSpeech.ERROR) {
             Log.e(TAG, "Error speaking text");
             Toast.makeText(context, "Error reproduciendo texto", Toast.LENGTH_SHORT).show();
         } else {
             isPlaying = true;
-            Log.d(TAG, "Speaking text with voice type: " + voiceType);
+            Log.d(TAG, "Speaking text with voice type: " + voiceType + " using " +
+                  (externalTTS != null ? "external" : "internal") + " TTS");
         }
     }
     
     /**
      * Set voice parameters based on voice type
      */
-    private void setVoiceParameters(String voiceType) {
-        if (textToSpeech == null) return;
-        
+    private void setVoiceParameters(String voiceType, TextToSpeech tts) {
+        if (tts == null) return;
+
         float pitch = 1.0f;
         float rate = 1.0f;
-        
+
         switch (voiceType) {
             case "child":
                 pitch = 1.3f;  // Higher pitch for child
@@ -252,10 +272,10 @@ public class ReusableAudioHelper {
                 rate = 1.0f;
                 break;
         }
-        
-        textToSpeech.setPitch(pitch);
-        textToSpeech.setSpeechRate(rate);
-        
+
+        tts.setPitch(pitch);
+        tts.setSpeechRate(rate);
+
         Log.d(TAG, "Set voice parameters - Type: " + voiceType + ", Pitch: " + pitch + ", Rate: " + rate);
     }
     
@@ -267,13 +287,16 @@ public class ReusableAudioHelper {
             mediaPlayer.pause();
             isPaused = true;
             Log.d(TAG, "Audio paused");
-        } else if (textToSpeech != null && isPlaying && !isPaused) {
-            textToSpeech.stop();
-            isPaused = true;
-            Log.d(TAG, "TTS paused");
+        } else {
+            TextToSpeech ttsToUse = (externalTTS != null) ? externalTTS : textToSpeech;
+            if (ttsToUse != null && isPlaying && !isPaused) {
+                ttsToUse.stop();
+                isPaused = true;
+                Log.d(TAG, "TTS paused using " + (externalTTS != null ? "external" : "internal") + " TTS");
+            }
         }
     }
-    
+
     /**
      * Resume audio playback
      */
@@ -282,9 +305,12 @@ public class ReusableAudioHelper {
             mediaPlayer.start();
             isPaused = false;
             Log.d(TAG, "Audio resumed");
-        } else if (textToSpeech != null && isPaused) {
-            // TTS doesn't support resume, so we need to restart
-            Log.d(TAG, "TTS doesn't support resume");
+        } else {
+            TextToSpeech ttsToUse = (externalTTS != null) ? externalTTS : textToSpeech;
+            if (ttsToUse != null && isPaused) {
+                // TTS doesn't support resume, so we need to restart
+                Log.d(TAG, "TTS doesn't support resume (using " + (externalTTS != null ? "external" : "internal") + " TTS)");
+            }
         }
     }
 
@@ -308,12 +334,14 @@ public class ReusableAudioHelper {
             isPaused = false;
             Log.d(TAG, "Audio stopped");
         }
-        
-        if (textToSpeech != null) {
-            textToSpeech.stop();
+
+        // Detener el TTS apropiado
+        TextToSpeech ttsToUse = (externalTTS != null) ? externalTTS : textToSpeech;
+        if (ttsToUse != null) {
+            ttsToUse.stop();
             isPlaying = false;
             isPaused = false;
-            Log.d(TAG, "TTS stopped");
+            Log.d(TAG, "TTS stopped using " + (externalTTS != null ? "external" : "internal") + " TTS");
         }
     }
     
@@ -321,11 +349,15 @@ public class ReusableAudioHelper {
      * Set playback speed
      */
     public void setPlaybackSpeed(float speed) {
-        if (textToSpeech != null) {
-            textToSpeech.setSpeechRate(speed);
-            Log.d(TAG, "TTS speed set to: " + speed);
+        // Usar el TTS externo si está disponible
+        TextToSpeech ttsToUse = (externalTTS != null) ? externalTTS : textToSpeech;
+
+        if (ttsToUse != null) {
+            ttsToUse.setSpeechRate(speed);
+            Log.d(TAG, "TTS speed set to: " + speed + " using " +
+                  (externalTTS != null ? "external" : "internal") + " TTS");
         }
-        
+
         // MediaPlayer speed adjustment would require API 23+
         if (mediaPlayer != null && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             try {

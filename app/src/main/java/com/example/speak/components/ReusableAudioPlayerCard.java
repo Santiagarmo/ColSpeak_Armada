@@ -302,6 +302,12 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
             audioPlayerView.setTextToSpeech(tts);
             Log.d(TAG, "TextToSpeech set in AudioPlayerView");
         }
+
+        // Pass TTS to AudioHelper so it uses the same instance
+        if (audioHelper != null && tts != null) {
+            audioHelper.setExternalTextToSpeech(tts);
+            Log.d(TAG, "TextToSpeech set in AudioHelper");
+        }
     }
 
     // Audio control methods
