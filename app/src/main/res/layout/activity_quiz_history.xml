@@ -106,6 +106,7 @@
                 android:visibility="gone"
                 />
 
+
         </LinearLayout>
 
         <!-- 📋 Tabla con bordes redondeados y scroll fijo -->
