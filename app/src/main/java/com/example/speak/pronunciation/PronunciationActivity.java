@@ -5,6 +5,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -751,8 +752,25 @@ public class PronunciationActivity extends AppCompatActivity {
         savePronunciationProgress(averageScore);
 
         // Create a dialog to show the result with bird image (como en ListeningActivity)
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-        android.view.View dialogView = getLayoutInflater().inflate(R.layout.dialog_quiz_result, null);
+        //android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        //android.view.View dialogView = getLayoutInflater().inflate(R.layout.dialog_quiz_result, null);
+
+        // Crear el diálogo
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_quiz_result, null);
+        builder.setView(dialogView);
+
+        builder.setView(dialogView);
+        builder.setCancelable(false); // Evitar que se cierre sin seleccionar una opción
+
+        // Crear y mostrar el diálogo
+        AlertDialog dialog = builder.create();
+        dialog.show(); // 👈 Primero se muestra
+
+        // Eliminar el fondo blanco del contenedor
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
 
         android.widget.ImageView birdImageView = dialogView.findViewById(R.id.birdImageView);
         TextView messageTextView = dialogView.findViewById(R.id.messageTextView);
@@ -881,11 +899,6 @@ public class PronunciationActivity extends AppCompatActivity {
             finish();
         });
 
-        builder.setView(dialogView);
-        builder.setCancelable(false); // Evitar que se cierre sin seleccionar una opción
-
-        android.app.AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
     // Carga la siguiente pregunta

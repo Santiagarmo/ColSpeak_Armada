@@ -27,7 +27,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginBottom="8dp">
 
                 <!-- Botón de retorno -->
@@ -105,7 +105,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_quiz"
                 android:textSize="18sp"
-                android:textStyle="bold"
                 android:textColor="#002C4D"
                 android:gravity="center"
                 android:layout_marginBottom="16dp"/>
@@ -115,24 +114,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
-                android:text="Tema/Topic:"
+                android:text="Tema / Topic:"
                 android:textStyle="bold"
                 android:textColor="#002C4D"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_quiz"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textColor="#002C4D"
                 android:layout_marginBottom="16dp"
                 android:lineSpacingExtra="2dp"
                 android:padding="8dp"
                 android:gravity="start"
                 android:justificationMode="inter_word"/>
+
+            <ImageView
+                android:id="@+id/birdImageView"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/crab_test"
+                android:visibility="gone"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/questionCard"
@@ -148,13 +155,6 @@
                     android:orientation="horizontal"
                     android:padding="8dp"
                     android:background="@color/cardSena">
-
-                    <ImageView
-                        android:id="@+id/birdImageView"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:src="@drawable/crab_test"
-                        android:visibility="gone"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
