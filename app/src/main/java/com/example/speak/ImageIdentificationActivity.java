@@ -28,6 +28,7 @@ import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGParseException;
 import com.example.speak.database.DatabaseHelper;
 import com.example.speak.helpers.WildcardHelper;
+import com.example.speak.helpers.HelpModalHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -258,12 +259,9 @@ public class ImageIdentificationActivity extends AppCompatActivity {
                         }
                     }
 
-                    Intent helpIntent = new Intent(ImageIdentificationActivity.this, HelpActivity.class);
-                    helpIntent.putExtra("topic", topicForHelp);
-                    helpIntent.putExtra("level", selectedLevel);
-                    startActivity(helpIntent);
+                    HelpModalHelper.show(ImageIdentificationActivity.this, topicForHelp, selectedLevel);
                 } catch (Exception e) {
-                    Log.e(TAG, "Error abriendo HelpActivity: " + e.getMessage());
+                    Log.e(TAG, "Error abriendo modal de ayuda: " + e.getMessage());
                     Toast.makeText(ImageIdentificationActivity.this, "No se pudo abrir la ayuda", Toast.LENGTH_SHORT).show();
                 }
             });

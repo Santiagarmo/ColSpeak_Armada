@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGParseException;
 import com.example.speak.database.DatabaseHelper;
+import com.example.speak.helpers.HelpModalHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -249,12 +250,9 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
         if (helpButton != null) {
             helpButton.setOnClickListener(v -> {
                 try {
-                    Intent helpIntent = new Intent(ImageIdentificationAudioActivity.this, HelpActivity.class);
-                    helpIntent.putExtra("topic", selectedTopic);
-                    helpIntent.putExtra("level", selectedLevel);
-                    startActivity(helpIntent);
+                    HelpModalHelper.show(ImageIdentificationAudioActivity.this, selectedTopic, selectedLevel);
                 } catch (Exception e) {
-                    Log.e(TAG, "Error abriendo HelpActivity: " + e.getMessage());
+                    Log.e(TAG, "Error abriendo modal de ayuda: " + e.getMessage());
                     Toast.makeText(ImageIdentificationAudioActivity.this, "No se pudo abrir la ayuda", Toast.LENGTH_SHORT).show();
                 }
             });
