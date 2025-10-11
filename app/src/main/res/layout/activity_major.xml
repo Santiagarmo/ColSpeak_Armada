@@ -27,9 +27,8 @@
                 android:src="@drawable/logo_colspeak_front" />
 
             <ImageView
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_marginTop="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:src="@drawable/human" />
 
             <TextView
@@ -64,12 +63,12 @@
                 android:id="@+id/textRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No tengo una cuenta, Registrarse"
+                android:text="@string/text_register"
                 android:textSize="12sp"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:padding="10dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
+
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -92,6 +91,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:scaleType="fitCenter"
+                        android:layout_marginTop="80dp"
                         android:src="@drawable/mico_chiva" />
 
                     <TextView
@@ -121,14 +121,26 @@
                         android:padding="10dp"
                         android:textColor="#008CB9"/>
 
+                    <Button
+                        android:id="@+id/eButtonLogin2"
+                        android:layout_width="300sp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Iniciar Sesión"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:backgroundTint="#FF9017"/>
+
                     <TextView
+                        android:id="@+id/textRegister2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="ColSpeak v1.0.5"
+                        android:text="@string/text_register"
                         android:textSize="12sp"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:textColor="@color/black"/>
+                        android:textColor="#008CB9" />
+
 
                 </LinearLayout>
 
