@@ -1,154 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:background="@drawable/gradient_background_round">
+    android:layout_height="wrap_content">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@drawable/gradient_background_round">
+
+        <ImageView
+            android:id="@+id/birdImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bufon"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Título -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Usa tus comodines para ganar! 🎮 Puedes cambiar la pregunta, ver el video del instructor, jugar el 50/50 eliminando dos opciones o activar la ayuda creativa."
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Título -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/wildcardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comodines"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" / Trump card"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Contador de comodines -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/wildcardCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disponibles"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" / Avaliable"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Botón Ayuda 1: Cambiar pregunta -->
+        <Button
+            android:id="@+id/help1Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/button_rounded"
+            android:textColor="@color/white" />
+
+        <!-- Botón Ayuda 2: Mostrar imagen -->
+        <Button
+            android:id="@+id/help2Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/button_rounded"
+            android:textColor="@color/white"
+            android:visibility="gone"/>
+
+        <!-- Botón Ayuda 3: Ver video -->
+        <Button
+            android:id="@+id/help3Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/button_rounded"
+            android:textColor="@color/white" />
+
+        <!-- Botón Ayuda 4: 50/50 -->
+        <Button
+            android:id="@+id/help4Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/button_rounded"
+            android:textColor="@color/white" />
+
+        <!-- Botón Ayuda 5: Ayuda creativa -->
+        <Button
+            android:id="@+id/help5Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/button_rounded"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <!-- Botón de cerrar flotando encima -->
     <ImageView
         android:id="@+id/btnCloseWildcardModal"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/close_modal"
         android:contentDescription="Close"
-        android:layout_gravity="end"/>
+        android:layout_gravity="top|end"
+        android:layout_margin="15dp"
+        android:elevation="10dp"/>
 
-    <ImageView
-        android:id="@+id/birdImageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bufon"
-        android:gravity="center"
-        android:layout_marginBottom="16dp"
-        />
-
-    <!-- Título -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="¡Usa tus comodines para ganar! 🎮 Puedes cambiar la pregunta, ver el video del instructor, jugar el 50/50 eliminando dos opciones o activar la ayuda creativa."
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:gravity="center" />
-
-    </LinearLayout>
-
-    <!-- Título -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:id="@+id/wildcardTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Comodines"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" / Trump card"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:gravity="center" />
-    </LinearLayout>
-
-    <!-- Contador de comodines -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:id="@+id/wildcardCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Disponibles"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:gravity="center" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" / Avaliable"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:gravity="center" />
-    </LinearLayout>
-
-    <!-- Botón Ayuda 1: Cambiar pregunta -->
-    <Button
-        android:id="@+id/help1Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="16dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/button_rounded"
-        android:textColor="@color/white" />
-
-    <!-- Botón Ayuda 2: Mostrar imagen -->
-    <Button
-        android:id="@+id/help2Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="16dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/button_rounded"
-        android:textColor="@color/white"
-        android:visibility="gone"/>
-
-    <!-- Botón Ayuda 3: Ver video -->
-    <Button
-        android:id="@+id/help3Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="16dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/button_rounded"
-        android:textColor="@color/white" />
-
-    <!-- Botón Ayuda 4: 50/50 -->
-    <Button
-        android:id="@+id/help4Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="16dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/button_rounded"
-        android:textColor="@color/white" />
-
-    <!-- Botón Ayuda 5: Ayuda creativa -->
-    <Button
-        android:id="@+id/help5Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:padding="16dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/button_rounded"
-        android:textColor="@color/white" />
-
-</LinearLayout>
+</FrameLayout>
