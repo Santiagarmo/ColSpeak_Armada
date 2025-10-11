@@ -7,6 +7,14 @@
     android:background="@drawable/gradient_background_round">
 
     <ImageView
+        android:id="@+id/btnCloseWildcardModal"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/close_modal"
+        android:contentDescription="Close"
+        android:layout_gravity="end"/>
+
+    <ImageView
         android:id="@+id/birdImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

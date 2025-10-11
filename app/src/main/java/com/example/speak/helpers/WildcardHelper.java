@@ -76,7 +76,9 @@ public class WildcardHelper {
         
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_wildcard_menu, null);
-        
+
+        ImageView btnClose = dialogView.findViewById(R.id.btnCloseWildcardModal);
+
         // Configurar título y contador
         TextView titleText = dialogView.findViewById(R.id.wildcardTitle);
         TextView countText = dialogView.findViewById(R.id.wildcardCount);
@@ -91,8 +93,10 @@ public class WildcardHelper {
         builder.setCancelable(true);
 
         AlertDialog dialog = builder.create();
-
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         dialog.show();
+
+        if (btnClose != null) btnClose.setOnClickListener(v -> dialog.dismiss());
     }
     
     /**
