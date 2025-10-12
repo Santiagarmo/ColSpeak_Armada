@@ -297,6 +297,12 @@ public class ListeningActivity extends AppCompatActivity {
                     isTextToSpeechReady = true;
                     Log.d(TAG, "TextToSpeech initialized successfully");
 
+                    // Pasar el TextToSpeech al componente de audio
+                    if (reusableAudioCard != null) {
+                        reusableAudioCard.setTextToSpeech(textToSpeech);
+                        Log.d(TAG, "TextToSpeech passed to ReusableAudioPlayerCard");
+                    }
+
                     textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener() {
                         @Override
                         public void onStart(String utteranceId) {
@@ -698,9 +704,13 @@ public class ListeningActivity extends AppCompatActivity {
 
             if (reusableAudioCard != null) {
                 try {
-                    reusableAudioCard.resetForNewQuestion();
+                    // Primero establecer el texto (actualiza duración en AudioPlayerView)
                     reusableAudioCard.setText(question.getQuestion());
+                    // Asegurar que esté en modo inglés (TTS)
                     reusableAudioCard.setEnglishMode();
+                    // Luego resetear el estado de reproducción (sin cambiar el texto)
+                    reusableAudioCard.resetForNewQuestion();
+                    Log.d(TAG, "Audio card configured for new question: " + question.getQuestion());
                 } catch (Exception e) {
                     Log.e(TAG, "Error syncing reusable audio card text: " + e.getMessage());
                 }

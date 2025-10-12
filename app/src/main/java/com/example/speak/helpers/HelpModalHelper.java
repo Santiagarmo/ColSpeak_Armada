@@ -48,6 +48,7 @@ public class HelpModalHelper {
 
             builder.setView(dialogView);
             AlertDialog dialog = builder.create();
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             dialog.show();
             if (btnClose != null) btnClose.setOnClickListener(v -> dialog.dismiss());
         } catch (Exception ignored) {}

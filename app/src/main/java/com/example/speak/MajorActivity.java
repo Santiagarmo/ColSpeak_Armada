@@ -17,8 +17,10 @@ public class MajorActivity extends AppCompatActivity {
 
     //Declaramos las variables
     private Button eButtonLogin;
+    private Button eButtonLogin2;
     private Button buttonGuestLogin;
     private TextView textRegister;
+    private TextView textRegister2;
     private DatabaseHelper dbHelper;
 
     @Override
@@ -37,8 +39,10 @@ public class MajorActivity extends AppCompatActivity {
     private void initializeViews() {
         try {
             eButtonLogin = findViewById(R.id.eButtonLogin);
+            eButtonLogin2 = findViewById(R.id.eButtonLogin2);
             buttonGuestLogin = findViewById(R.id.button_guest_login);
             textRegister = findViewById(R.id.textRegister);
+            textRegister2 = findViewById(R.id.textRegister2);
         } catch (Exception e) {
             Toast.makeText(this, "Error al inicializar las vistas", Toast.LENGTH_SHORT).show();
             finish();
@@ -65,6 +69,24 @@ public class MajorActivity extends AppCompatActivity {
 
         //Configuramos el texto de registro
         textRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MajorActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Configuramos el segundo botón de inicio de sesión (misma funcionalidad)
+        eButtonLogin2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MajorActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Configuramos el segundo texto de registro (misma funcionalidad)
+        textRegister2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MajorActivity.this, RegisterActivity.class);

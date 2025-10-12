@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Speak</string>
+    <string name="text_register">No tengo una cuenta, <b>Registrarse</b></string>
     <string name="start_listening">Iniciar</string>
     <string name="stop_listening">Detener</string>
     <string name="speech_permission_required">Se requiere permiso de reconocimiento de voz</string>
@@ -29,9 +30,5 @@
     <string name="text_pronun_answer">Aquí puedes ver tus resultados, una vez se oprima el boton detener <b>/ Here you can see your results, once you press the stop button</b></string>
     <string name="text_pronun_title">Prueba de expresión oral <b>/ Speaking Test</b></string>
     <string name="text_pronun_topic">Tema <b>/ Topic:</b></string>
-
-    Tema / Topic:
-
-    Prueba de expresión oral /\nSpeaking Test
 
 </resources>
