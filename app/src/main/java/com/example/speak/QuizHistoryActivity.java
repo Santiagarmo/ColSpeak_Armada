@@ -51,6 +51,9 @@ public class QuizHistoryActivity extends AppCompatActivity {
     // Referencias a la base de datos y al diseño (tabla)
     private DatabaseHelper dbHelper;
     private TableLayout tableLayout;
+    private TableLayout tableLayoutHeader;
+    private android.widget.HorizontalScrollView headerScrollView;
+    private android.widget.HorizontalScrollView contentScrollView;
     private long currentUserId;
     private Button continueButton;
 
@@ -75,9 +78,15 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
         tableLayout = findViewById(R.id.quizHistoryTable);
+        tableLayoutHeader = findViewById(R.id.quizHistoryTableHeader);
+        headerScrollView = findViewById(R.id.headerScrollView);
+        contentScrollView = findViewById(R.id.contentScrollView);
         TextView historyTitle = findViewById(R.id.historyTitle);
         LinearLayout exportButton = findViewById(R.id.exportButton);
         continueButton = findViewById(R.id.continueButton);
+
+        // Sincronizar el scroll horizontal entre header y contenido
+        setupScrollSync();
 
         //Declaramos las variables Menu
         birdMenu = findViewById(R.id.imgBirdMenu);
@@ -192,6 +201,32 @@ public class QuizHistoryActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sincroniza el scroll horizontal entre el header y el contenido
+     */
+    private void setupScrollSync() {
+        if (headerScrollView != null && contentScrollView != null) {
+            // Variable para evitar bucles infinitos de sincronización
+            final boolean[] isSyncing = {false};
+
+            headerScrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+                if (!isSyncing[0]) {
+                    isSyncing[0] = true;
+                    contentScrollView.scrollTo(scrollX, scrollY);
+                    isSyncing[0] = false;
+                }
+            });
+
+            contentScrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+                if (!isSyncing[0]) {
+                    isSyncing[0] = true;
+                    headerScrollView.scrollTo(scrollX, scrollY);
+                    isSyncing[0] = false;
+                }
+            });
+        }
+    }
+
     private void fadeOutView(final View view) {
         if (view == null) return;
 
@@ -223,7 +258,8 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
     private void showFullHistory(TableLayout tableLayout, long currentUserId) {
         // Crear encabezado de la tabla
-        addTableHeader(tableLayout);
+        tableLayoutHeader.removeAllViews();
+        addTableHeader(tableLayoutHeader);
 
         Cursor cursor = dbHelper.getQuizHistory();
         if (cursor != null && cursor.moveToFirst()) {
@@ -256,7 +292,8 @@ public class QuizHistoryActivity extends AppCompatActivity {
         Log.d("QuizHistory", "Showing current activity results");
 
         // Crear encabezado de la tabla
-        addTableHeader(tableLayout);
+        tableLayoutHeader.removeAllViews();
+        addTableHeader(tableLayoutHeader);
 
         // Obtener el timestamp de sesión
         long sessionTimestamp = getIntent().getLongExtra("SESSION_TIMESTAMP", -1);
@@ -333,7 +370,8 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
     private void showFilteredHistory(TableLayout tableLayout, long currentUserId, String quizType, boolean showOnlyLast10) {
         // Crear encabezado de la tabla
-        addTableHeader(tableLayout);
+        tableLayoutHeader.removeAllViews();
+        addTableHeader(tableLayoutHeader);
 
         Cursor cursor = dbHelper.getQuizHistory();
         if (cursor != null && cursor.moveToFirst()) {
@@ -562,7 +600,8 @@ public class QuizHistoryActivity extends AppCompatActivity {
             Log.d(TAG, "Loading quiz results - Type: " + quizType + ", ShowCurrentOnly: " + showCurrentActivityOnly + ", Timestamp: " + sessionTimestamp);
 
             tableLayout.removeAllViews();
-            addTableHeader(tableLayout);
+            tableLayoutHeader.removeAllViews();
+            addTableHeader(tableLayoutHeader);
 
             if (quizType != null && quizType.equals("Writing")) {
                 Log.d(TAG, "Loading Writing results");
