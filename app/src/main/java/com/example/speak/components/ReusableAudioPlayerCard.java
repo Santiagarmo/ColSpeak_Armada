@@ -570,11 +570,33 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
         try {
             if (languageSpanishButton != null && languageEnglishButton != null) {
                 if (isSpanishMode) {
+                    // Botón "Original" (español) seleccionado
+                    languageSpanishButton.setScaleX(1.15f);
+                    languageSpanishButton.setScaleY(1.15f);
+                    languageSpanishButton.setTextColor(getResources().getColor(R.color.naranjaSena));
                     languageSpanishButton.setBackgroundResource(R.drawable.rounded_background);
+                    languageSpanishButton.setElevation(8f);
+
+                    // Botón "English" no seleccionado
+                    languageEnglishButton.setScaleX(1.0f);
+                    languageEnglishButton.setScaleY(1.0f);
+                    languageEnglishButton.setTextColor(getResources().getColor(android.R.color.darker_gray));
                     languageEnglishButton.setBackgroundResource(android.R.color.transparent);
+                    languageEnglishButton.setElevation(0f);
                 } else {
-                    languageSpanishButton.setBackgroundResource(android.R.color.transparent);
+                    // Botón "English" seleccionado
+                    languageEnglishButton.setScaleX(1.15f);
+                    languageEnglishButton.setScaleY(1.15f);
+                    languageEnglishButton.setTextColor(getResources().getColor(R.color.naranjaSena));
                     languageEnglishButton.setBackgroundResource(R.drawable.rounded_background);
+                    languageEnglishButton.setElevation(8f);
+
+                    // Botón "Original" no seleccionado
+                    languageSpanishButton.setScaleX(1.0f);
+                    languageSpanishButton.setScaleY(1.0f);
+                    languageSpanishButton.setTextColor(getResources().getColor(android.R.color.darker_gray));
+                    languageSpanishButton.setBackgroundResource(android.R.color.transparent);
+                    languageSpanishButton.setElevation(0f);
                 }
             }
         } catch (Exception e) {
