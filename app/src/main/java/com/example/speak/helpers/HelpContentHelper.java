@@ -255,6 +255,7 @@ public class HelpContentHelper {
         List<String> group4 = new ArrayList<>();
         List<String> group5 = new ArrayList<>();
         List<String> group6 = new ArrayList<>();
+        List<String> group7 = new ArrayList<>();
 
         for (int i = 0; i < questions.size(); i++) {
             String question = questions.get(i);
@@ -292,7 +293,7 @@ public class HelpContentHelper {
                 }
                 // Cuarta parte: resto de letras
                 else if (question.contains("I [ai]") ||
-                        question.contains("Y [wai")
+                        question.contains("Y [wai]")
                        ) {
                     group4.add(question);
                 }
@@ -301,13 +302,13 @@ public class HelpContentHelper {
                     group5.add(question);
                 }
                 else if (question.contains("Q [kiu]") ||
-                        question.contains("U [iu") ||
-                        question.contains("W [dabliu")
+                        question.contains("U [iu]") ||
+                        question.contains("W [dabliu]")
                 ) {
                     group6.add(question);
                 }
-                else {
-                    //group7.add(question);
+                else if (question.contains("R [ar]")) {
+                    group7.add(question);
                 }
             }
         }
@@ -407,17 +408,34 @@ public class HelpContentHelper {
         // Sección 6: Quinta parte de letras
         HelpActivity.HelpSection section6 = new HelpActivity.HelpSection();
         section6.title = "Alfabeto - Parte 6 /\n Alphabet - Part 6";
-        section6.centralSound = "O";
+        section6.centralSound = "Q-U-W";
         section6.audioResource = "alphabet_help_ju";
         section6.hasSequentialImages = true;
         section6.imageResources = new String[]{
                 "grammar_rule_6",
+                "mouth_qw",
+                "mouth_u",
         };
         section6.imageDisplayOrder = 6;
         section6.imageDescription = "Regla gramatical 6 - Pronunciación fonética";
         section6.currentImageIndex = 0;
         section6.letters = group6.toArray(new String[0]);
         sections.add(section6);
+
+        // Sección 7: Quinta parte de letras
+        HelpActivity.HelpSection section7 = new HelpActivity.HelpSection();
+        section7.title = "Alfabeto - Parte 7 /\n Alphabet - Part 7";
+        section7.centralSound = "R";
+        section7.audioResource = "alphabet_help_ar";
+        section7.hasSequentialImages = true;
+        section7.imageResources = new String[]{
+                "grammar_rule_7",
+        };
+        section7.imageDisplayOrder = 7;
+        section7.imageDescription = "Regla gramatical 7 - Pronunciación fonética";
+        section7.currentImageIndex = 0;
+        section7.letters = group7.toArray(new String[0]);
+        sections.add(section7);
 
         Log.d(TAG, "Created " + sections.size() + " alphabet sections");
         return sections;

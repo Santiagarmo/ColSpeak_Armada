@@ -51,6 +51,9 @@ public class SequentialImageHelper {
         drawableResourceMap.put("grammar_rule_4", "grammar_rule_4");
         drawableResourceMap.put("grammar_rule_5", "grammar_rule_5");
         drawableResourceMap.put("grammar_rule_6", "grammar_rule_6");
+        drawableResourceMap.put("mouth_qw", "mouth_qw");
+        drawableResourceMap.put("mouth_u", "mouth_u");
+        drawableResourceMap.put("grammar_rule_7", "grammar_rule_7");
         drawableResourceMap.put("grammar_example_1", "help_icon");
         drawableResourceMap.put("grammar_example_2", "help_icon");
         
@@ -102,6 +105,8 @@ public class SequentialImageHelper {
         assetImageMap.put("grammar_rule_4", "grammar/rule_4.png");
         assetImageMap.put("grammar_rule_5", "grammar/rule_5.png");
         assetImageMap.put("grammar_rule_6", "grammar/rule_6.png");
+        assetImageMap.put("mouth_fv", "pronunciation/mouth_fv.png");
+        assetImageMap.put("mouth_l", "pronunciation/mouth_l.png");
         assetImageMap.put("vocab_category_1", "vocabulary/category_1.png");
         assetImageMap.put("vocab_category_2", "vocabulary/category_2.png");
         assetImageMap.put("pron_mouth_1", "pronunciation/mouth_1.png");
@@ -204,12 +209,22 @@ public class SequentialImageHelper {
         descriptions.put("mouth_cdgknstxyz", "Posición de la boca para sonidos C D G K N S T X Y Z");
         descriptions.put("grammar_rule_2", "Pronunciación E [i:], es similar a las pronunciaciones de las letras B [bi:], C [si:], D [di:], G [dʒi:], P [pi:], T [ti:], V [vi:], Z [zi:]/[zed]");
         descriptions.put("mouth_bmp", "Posición de la boca para sonidos B M P");
+        descriptions.put("mouth_cdgknstxyz", "Posición de la boca para sonidos C D G K N S T X Y Z");
+        descriptions.put("mouth_aei", "Posición de la boca para sonidos A E I");
         descriptions.put("mouth_fv", "Posición de la boca para sonidos F V");
         descriptions.put("grammar_rule_3", "Pronunciación [e], es similar a las pronunciaciones de las letras F [ef], L [el], M [em], N [en], S [es], X [eks]");
+        descriptions.put("mouth_fv", "Posición de la boca para sonidos F V");
+        descriptions.put("mouth_cdgknstxyz", "Posición de la boca para sonidos C D G K N S T X Y Z");
         descriptions.put("mouth_l", "Posición de la boca para sonidos L");
+        descriptions.put("mouth_bmp", "Posición de la boca para sonidos B M P");
         descriptions.put("grammar_rule_4", "Pronunciación [ai], es similar a las pronunciaciones de las letras I [ai], Y [wai]");
+        descriptions.put("mouth_aei", "Posición de la boca para sonidos A E I");
+        descriptions.put("mouth_cdgknstxyz", "Posición de la boca para sonidos C D G K N S T X Y Z");
         descriptions.put("grammar_rule_5", "Pronunciación [ou], es similar a las pronunciaciones de las letras O [ou]");
         descriptions.put("grammar_rule_6", "Pronunciación [ju], es similar a las pronunciaciones de las letras Q [kju:], U [ju:], W ['dʌbəl.ju:]");
+        descriptions.put("mouth_qw", "Posición de la boca para sonidos Q W");
+        descriptions.put("mouth_u", "Posición de la boca para sonidos U");
+        descriptions.put("grammar_rule_7", "Pronunciación [ar], es similar a las pronunciaciones de las letras R [ar]");
         descriptions.put("vocab_category_1", "Business Terms - Professional vocabulary");
         descriptions.put("vocab_category_2", "Academic Words - Formal language");
         descriptions.put("pron_mouth_1", "Mouth Position 1 - /θ/ sound (think)");

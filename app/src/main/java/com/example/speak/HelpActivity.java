@@ -218,14 +218,42 @@ public class HelpActivity extends AppCompatActivity {
         if (s == null || key == null) return false;
         String k = normalize(key);
         String title = normalize(s.title);
+        String rawTitle = s.title == null ? "" : s.title.toLowerCase();
         String sound = normalize(s.centralSound);
         // Coincidencia por igualdad o inclusión
         if (k.equals(sound) || k.equals(title)) return true;
-        if (!title.isEmpty() && title.contains(k)) return true;
-        // Coincidencias comunes de alfabeto: /ei/, /i/, /e/ en títulos
-        if (k.equals("ei") && title.contains("/ei/")) return true;
-        if (k.equals("i") && title.contains("/i/")) return true;
-        if (k.equals("e") && title.contains("/e/")) return true;
+        // No usar contains(k) en títulos normalizados para claves cortas como "e" (causa falsos positivos)
+        // Mapeos robustos para ALPHABET por parte o sonido central
+        if (k.equals("ei")) {
+            if (title.contains("parte 1") || title.contains("part 1")) return true;
+            if (sound.contains("a-h-j-k")) return true;
+            if (rawTitle.contains("/ei/")) return true;
+        }
+        if (k.equals("i")) {
+            if (title.contains("parte 2") || title.contains("part 2")) return true;
+            if (sound.contains("b-c-d-e-g-p-t-v-z")) return true;
+            if (rawTitle.contains("/i/")) return true;
+        }
+        if (k.equals("e")) {
+            if (title.contains("parte 3") || title.contains("part 3")) return true;
+            if (sound.contains("f-l-m-n-s-x")) return true;
+            if (rawTitle.contains("/e/")) return true;
+        }
+        if (k.equals("ai")) {
+            if (title.contains("parte 4") || title.contains("part 4")) return true;
+            if (sound.contains("i-y")) return true;
+            if (rawTitle.contains("/ai/")) return true;
+        }
+        if (k.equals("ou")) {
+            if (title.contains("parte 5") || title.contains("part 5")) return true;
+            if (sound.equals("o")) return true;
+            if (rawTitle.contains("/ou/")) return true;
+        }
+        if (k.equals("ju")) {
+            if (title.contains("parte 6") || title.contains("part 6")) return true;
+            if (sound.contains("ju") || sound.contains("q-u-w")) return true;
+            if (rawTitle.contains("/ju/")) return true;
+        }
         return false;
     }
 
@@ -1067,20 +1095,36 @@ public class HelpActivity extends AppCompatActivity {
             private String generateEnglishTextFromSection(HelpSection section) {
                 StringBuilder text = new StringBuilder();
                 text.append("Letters with sound ").append(section.centralSound).append(": ");
-                
+
                 for (int i = 0; i < section.letters.length; i++) {
-                    text.append(section.letters[i]);
-                    if (i < section.letters.length - 1) {
-                        text.append(", ");
+                    String cleaned = cleanForTTS(section.letters[i]);
+                    if (!cleaned.isEmpty()) {
+                        text.append(cleaned);
+                        if (i < section.letters.length - 1) {
+                            text.append(", ");
+                        }
                     }
                 }
-                
+
                 text.append(". Repeat after me: ");
                 for (String letter : section.letters) {
-                    text.append(letter).append(" ");
+                    String cleaned = cleanForTTS(letter);
+                    if (!cleaned.isEmpty()) {
+                        text.append(cleaned).append(". ");
+                    }
                 }
-                
-                return text.toString();
+
+                return text.toString().trim();
+            }
+
+            private String cleanForTTS(String s) {
+                if (s == null) return "";
+                // Eliminar contenido IPA entre corchetes, barras y caracteres no verbales que pueden cortar TTS
+                String withoutIPA = s.replaceAll("\\s*\\[[^\\]]*\\]", "");
+                withoutIPA = withoutIPA.replace("/", " ");
+                // Normalizar espacios
+                withoutIPA = withoutIPA.replaceAll("\\s+", " ").trim();
+                return withoutIPA;
             }
             
             private int estimateTextDuration(String text) {

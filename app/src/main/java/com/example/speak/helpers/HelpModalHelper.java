@@ -39,6 +39,10 @@ public class HelpModalHelper {
                 addSectionCard(context, grid, "Alfabeto parte 1", "ei", level);
                 addSectionCard(context, grid, "Alfabeto parte 2", "i", level);
                 addSectionCard(context, grid, "Alfabeto parte 3", "e", level);
+                addSectionCard(context, grid, "Alfabeto parte 4", "ai", level);
+                addSectionCard(context, grid, "Alfabeto parte 5", "ou", level);
+                addSectionCard(context, grid, "Alfabeto parte 6", "ju", level);
+                addSectionCard(context, grid, "Alfabeto parte 7", "ar", level);
             } else {
                 List<String> topics = defaultTopics();
                 for (String t : topics) {

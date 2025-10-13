@@ -16,8 +16,8 @@
         android:clickable="true"
         android:focusable="true"
         android:background="@color/help_background"
-        android:padding="@dimen/spacing_medium"
-        android:layout_marginBottom="@dimen/spacing_medium">
+        android:padding="@dimen/spacing_large"
+        android:layout_marginBottom="@dimen/spacing_large">
 
     </LinearLayout>
 

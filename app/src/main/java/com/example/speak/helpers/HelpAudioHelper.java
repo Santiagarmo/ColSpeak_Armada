@@ -3,6 +3,7 @@ package com.example.speak.helpers;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -45,9 +46,9 @@ public class HelpAudioHelper {
         audioResourceMap.put("alphabet_help_i", "alphabet_help_i.mp3");
         audioResourceMap.put("alphabet_help_e", "alphabet_help_e.mp3");
         audioResourceMap.put("alphabet_help_ai", "alphabet_help_ai.mp3");
-        audioResourceMap.put("alphabet_help_ou", "alphabet_ou.mp3");
-        audioResourceMap.put("alphabet_help_ju", "alphabet_ju.mp3");
-        audioResourceMap.put("alphabet_help_ar", "alphabet_ar.mp3");
+        audioResourceMap.put("alphabet_help_ou", "alphabet_help_ou.mp3");
+        audioResourceMap.put("alphabet_help_ju", "alphabet_help_ju.mp3");
+        audioResourceMap.put("alphabet_help_ar", "alphabet_help_ar.mp3");
         
         // Mapeo para números
         audioResourceMap.put("numbers_help_1_10", "numbers_1_10.mp3");
@@ -89,6 +90,23 @@ public class HelpAudioHelper {
                     textToSpeech.setPitch(currentVoiceType.getPitch());
                     isTextToSpeechReady = true;
                     Log.d(TAG, "TextToSpeech initialized successfully for help audio");
+                    // Listener para saber cuando termina y evitar cortes
+                    textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                        @Override
+                        public void onStart(String utteranceId) {
+                            isPlaying = true;
+                            isPaused = false;
+                        }
+                        @Override
+                        public void onDone(String utteranceId) {
+                            isPlaying = false;
+                        }
+                        @Override
+                        public void onError(String utteranceId) {
+                            isPlaying = false;
+                            Log.e(TAG, "TTS error on utterance: " + utteranceId);
+                        }
+                    });
                 }
             } else {
                 Log.e(TAG, "TextToSpeech initialization failed with status: " + status);
@@ -333,9 +351,19 @@ public class HelpAudioHelper {
             // Detener cualquier reproducción anterior
             stopAudio();
             
-            // Reproducir el texto en inglés con efectos de tono
-            int result = textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "HelpAudioEnglish");
-            if (result == TextToSpeech.ERROR) {
+            // Fragmentar texto largo para evitar truncamiento interno de TTS
+            String[] chunks = splitForTTS(text, 200);
+            boolean errorOccurred = false;
+            for (int i = 0; i < chunks.length; i++) {
+                String chunk = chunks[i];
+                int queueMode = (i == 0) ? TextToSpeech.QUEUE_FLUSH : TextToSpeech.QUEUE_ADD;
+                int speakResult = textToSpeech.speak(chunk, queueMode, null, "HelpAudioEnglish_" + i);
+                if (speakResult == TextToSpeech.ERROR) {
+                    errorOccurred = true;
+                    Log.e(TAG, "Error speaking text chunk: " + i);
+                }
+            }
+            if (errorOccurred) {
                 Log.e(TAG, "Error speaking text: " + text);
                 Toast.makeText(context, "Error reproduciendo texto", Toast.LENGTH_SHORT).show();
             } else {
@@ -348,6 +376,25 @@ public class HelpAudioHelper {
             // Fallback a archivos de audio si TTS no está disponible
             playAudio(text);
         }
+    }
+
+    private String[] splitForTTS(String text, int maxLen) {
+        if (text == null) return new String[]{""};
+        if (text.length() <= maxLen) return new String[]{text};
+        java.util.List<String> parts = new java.util.ArrayList<>();
+        int start = 0;
+        while (start < text.length()) {
+            int end = Math.min(text.length(), start + maxLen);
+            // Intentar cortar en un punto natural
+            int lastDot = text.lastIndexOf('.', end);
+            int lastComma = text.lastIndexOf(',', end);
+            int cut = Math.max(lastDot, lastComma);
+            if (cut <= start) cut = end;
+            parts.add(text.substring(start, cut).trim());
+            start = cut;
+            while (start < text.length() && text.charAt(start) == ' ') start++;
+        }
+        return parts.toArray(new String[0]);
     }
     
     /**
