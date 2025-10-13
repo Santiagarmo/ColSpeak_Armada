@@ -253,6 +253,8 @@ public class HelpContentHelper {
         List<String> group2 = new ArrayList<>();
         List<String> group3 = new ArrayList<>();
         List<String> group4 = new ArrayList<>();
+        List<String> group5 = new ArrayList<>();
+        List<String> group6 = new ArrayList<>();
 
         for (int i = 0; i < questions.size(); i++) {
             String question = questions.get(i);
@@ -294,8 +296,18 @@ public class HelpContentHelper {
                        ) {
                     group4.add(question);
                 }
+                else if (question.contains("O [ou]")
+                ) {
+                    group5.add(question);
+                }
+                else if (question.contains("Q [kiu]") ||
+                        question.contains("U [iu") ||
+                        question.contains("W [dabliu")
+                ) {
+                    group6.add(question);
+                }
                 else {
-                    //group5.add(question);
+                    //group7.add(question);
                 }
             }
         }
@@ -331,9 +343,9 @@ public class HelpContentHelper {
         section2.imageResources = new String[]{
                 "grammar_rule_2",
                 "mouth_bmp",
-                "alphabet_part2_2", 
-                "alphabet_part2_3",
-                "alphabet_part2_4",
+                "mouth_cdgknstxyz",
+                "mouth_aei",
+                "mouth_fv",
         };
         section2.imageDisplayOrder = 2;
         section2.imageDescription = "Regla gramatical 2 - Pronunciación fonética";
@@ -349,6 +361,10 @@ public class HelpContentHelper {
     section3.hasSequentialImages = true;
     section3.imageResources = new String[]{
         "grammar_rule_3",
+            "mouth_fv",
+            "mouth_cdgknstxyz",
+            "mouth_l",
+            "mouth_bmp",
     };
     section3.imageDisplayOrder = 3;
     section3.imageDescription = "Regla gramatical 3 - Pronunciación fonética";
@@ -364,6 +380,8 @@ public class HelpContentHelper {
         section4.hasSequentialImages = true;
         section4.imageResources = new String[]{
                 "grammar_rule_4",
+                "mouth_aei",
+                "mouth_cdgknstxyz",
         };
         section4.imageDisplayOrder = 4;
         section4.imageDescription = "Regla gramatical 4 - Pronunciación fonética";
@@ -371,6 +389,36 @@ public class HelpContentHelper {
         section4.letters = group4.toArray(new String[0]);
         sections.add(section4);
         
+        // Sección 5: Quinta parte de letras
+        HelpActivity.HelpSection section5 = new HelpActivity.HelpSection();
+        section5.title = "Alfabeto - Parte 5 /\n Alphabet - Part 5";
+        section5.centralSound = "O";
+        section5.audioResource = "alphabet_help_ou";
+        section5.hasSequentialImages = true;
+        section5.imageResources = new String[]{
+                "grammar_rule_5",
+        };
+        section5.imageDisplayOrder = 5;
+        section5.imageDescription = "Regla gramatical 5 - Pronunciación fonética";
+        section5.currentImageIndex = 0;
+        section5.letters = group5.toArray(new String[0]);
+        sections.add(section5);
+
+        // Sección 6: Quinta parte de letras
+        HelpActivity.HelpSection section6 = new HelpActivity.HelpSection();
+        section6.title = "Alfabeto - Parte 6 /\n Alphabet - Part 6";
+        section6.centralSound = "O";
+        section6.audioResource = "alphabet_help_ju";
+        section6.hasSequentialImages = true;
+        section6.imageResources = new String[]{
+                "grammar_rule_6",
+        };
+        section6.imageDisplayOrder = 6;
+        section6.imageDescription = "Regla gramatical 6 - Pronunciación fonética";
+        section6.currentImageIndex = 0;
+        section6.letters = group6.toArray(new String[0]);
+        sections.add(section6);
+
         Log.d(TAG, "Created " + sections.size() + " alphabet sections");
         return sections;
     }
@@ -525,8 +573,11 @@ public class HelpContentHelper {
                 "mouth_ch_j_sh",       // mouth_ch_j_sh
                 "mouth_cdgknstxyz",    // mouth_cdgknstxyz
             "grammar_rule_2",      // Imagen de la regla 2
+                "mouth_fv",    // mouth_fv
             "grammar_rule_3",      // Imagen de la regla 3
-                "grammar_rule_4",      // Imagen de la regla 4
+                "grammar_rule_4",
+                "mouth_l",    // mouth_l
+                "grammar_rule_5",
             "grammar_example_1",   // Ejemplo visual 1
             "grammar_example_2"    // Ejemplo visual 2
         };
