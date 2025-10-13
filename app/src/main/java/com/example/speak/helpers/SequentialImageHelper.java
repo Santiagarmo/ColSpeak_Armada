@@ -45,8 +45,12 @@ public class SequentialImageHelper {
         drawableResourceMap.put("mouth_cdgknstxyz", "mouth_cdgknstxyz");
         drawableResourceMap.put("grammar_rule_2", "grammar_rule_2");
         drawableResourceMap.put("mouth_bmp", "mouth_bmp");
+        drawableResourceMap.put("mouth_fv", "mouth_fv");
         drawableResourceMap.put("grammar_rule_3", "grammar_rule_3");
+        drawableResourceMap.put("mouth_l", "mouth_l");
         drawableResourceMap.put("grammar_rule_4", "grammar_rule_4");
+        drawableResourceMap.put("grammar_rule_5", "grammar_rule_5");
+        drawableResourceMap.put("grammar_rule_6", "grammar_rule_6");
         drawableResourceMap.put("grammar_example_1", "help_icon");
         drawableResourceMap.put("grammar_example_2", "help_icon");
         
@@ -96,6 +100,8 @@ public class SequentialImageHelper {
         assetImageMap.put("grammar_rule_2", "grammar/rule_2.png");
         assetImageMap.put("grammar_rule_3", "grammar/rule_3.png");
         assetImageMap.put("grammar_rule_4", "grammar/rule_4.png");
+        assetImageMap.put("grammar_rule_5", "grammar/rule_5.png");
+        assetImageMap.put("grammar_rule_6", "grammar/rule_6.png");
         assetImageMap.put("vocab_category_1", "vocabulary/category_1.png");
         assetImageMap.put("vocab_category_2", "vocabulary/category_2.png");
         assetImageMap.put("pron_mouth_1", "pronunciation/mouth_1.png");
@@ -198,8 +204,12 @@ public class SequentialImageHelper {
         descriptions.put("mouth_cdgknstxyz", "Posición de la boca para sonidos C D G K N S T X Y Z");
         descriptions.put("grammar_rule_2", "Pronunciación E [i:], es similar a las pronunciaciones de las letras B [bi:], C [si:], D [di:], G [dʒi:], P [pi:], T [ti:], V [vi:], Z [zi:]/[zed]");
         descriptions.put("mouth_bmp", "Posición de la boca para sonidos B M P");
+        descriptions.put("mouth_fv", "Posición de la boca para sonidos F V");
         descriptions.put("grammar_rule_3", "Pronunciación [e], es similar a las pronunciaciones de las letras F [ef], L [el], M [em], N [en], S [es], X [eks]");
+        descriptions.put("mouth_l", "Posición de la boca para sonidos L");
         descriptions.put("grammar_rule_4", "Pronunciación [ai], es similar a las pronunciaciones de las letras I [ai], Y [wai]");
+        descriptions.put("grammar_rule_5", "Pronunciación [ou], es similar a las pronunciaciones de las letras O [ou]");
+        descriptions.put("grammar_rule_6", "Pronunciación [ju], es similar a las pronunciaciones de las letras Q [kju:], U [ju:], W ['dʌbəl.ju:]");
         descriptions.put("vocab_category_1", "Business Terms - Professional vocabulary");
         descriptions.put("vocab_category_2", "Academic Words - Formal language");
         descriptions.put("pron_mouth_1", "Mouth Position 1 - /θ/ sound (think)");
@@ -235,6 +245,8 @@ public class SequentialImageHelper {
         displayOrder.put("grammar_rule_2", 2);
         displayOrder.put("grammar_rule_3", 3);
         displayOrder.put("grammar_rule_4", 4);
+        displayOrder.put("grammar_rule_5", 5);
+        displayOrder.put("grammar_rule_6", 6);
         displayOrder.put("grammar_example_1", 4);
         displayOrder.put("grammar_example_2", 5);
         
@@ -302,7 +314,7 @@ public class SequentialImageHelper {
         switch (topic.toUpperCase()) {
             case "GRAMMAR":
                 return new String[]{
-                    "grammar_rule_1", "grammar_rule_2", "grammar_rule_3", "grammar_rule_4",
+                    "grammar_rule_1", "grammar_rule_2", "grammar_rule_3", "grammar_rule_4", "grammar_rule_5","grammar_rule_6",
                     "grammar_example_1", "grammar_example_2"
                 };
             case "VOCABULARY":

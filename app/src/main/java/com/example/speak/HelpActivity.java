@@ -198,7 +198,7 @@ public class HelpActivity extends AppCompatActivity {
         list.add(section5);
 
         HelpSection section6 = new HelpSection();
-        section6.title = "Letras con sonido /ju/ / Letters with /ju/ sound";
+        section6.title = "Letras con sonido /ju/ /\n Letters with /ju/ sound";
         section6.letters = new String[]{"Q [kju:]", "U [ju:]", "W ['dʌbəl.ju:]"};
         section6.centralSound = "ju";
         section6.audioResource = "alphabet_help_ju";
