@@ -305,7 +305,7 @@ public class HelpContentHelper {
         
         // Sección 1: Primera mitad de letras
         HelpActivity.HelpSection section1 = new HelpActivity.HelpSection();
-        section1.title = "Alphabet - Part 1";
+        section1.title = "Alfabeto - Parte 1 /\n Alphabet - Part 1";
         section1.centralSound = "A-H-J-K";
         section1.audioResource = "alphabet_help_ei";
         section1.hasSequentialImages = true;
@@ -324,7 +324,7 @@ public class HelpContentHelper {
         
         // Sección 2: Segunda mitad de letras
         HelpActivity.HelpSection section2 = new HelpActivity.HelpSection();
-        section2.title = "Alphabet - Part 2";
+        section2.title = "Alfabeto - Parte 2 /\n Alphabet - Part 2";
         section2.centralSound = "B-C-D-E-G-P-T-V-Z";
         section2.audioResource = "alphabet_help_i";
         section2.hasSequentialImages = true;
@@ -343,7 +343,7 @@ public class HelpContentHelper {
 
     // Sección 3: Segunda mitad de letras
     HelpActivity.HelpSection section3 = new HelpActivity.HelpSection();
-    section3.title = "Alphabet - Part 3";
+    section3.title = "Alfabeto - Parte 3 /\n Alphabet - Part 3";
     section3.centralSound = "F-L-M-N-S-X";
     section3.audioResource = "alphabet_help_e";
     section3.hasSequentialImages = true;
@@ -358,7 +358,7 @@ public class HelpContentHelper {
 
         // Sección 4: Cuarte parte de letras
         HelpActivity.HelpSection section4 = new HelpActivity.HelpSection();
-        section4.title = "Alphabet - Part 4";
+        section4.title = "Alfabeto - Parte 4 /\n Alphabet - Part 4";
         section4.centralSound = "I-Y";
         section4.audioResource = "alphabet_help_ai";
         section4.hasSequentialImages = true;

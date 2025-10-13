@@ -163,35 +163,35 @@ public class HelpActivity extends AppCompatActivity {
     private List<HelpSection> createDefaultAlphabetSections() {
         List<HelpSection> list = new ArrayList<>();
         HelpSection section1 = new HelpSection();
-        section1.title = "Letras con sonido /ei/ / Letters with /ei/ sound";
+        section1.title = "Letras con sonido /ei/ /\n Letters with /ei/ sound";
         section1.letters = new String[]{"H [eitʃ]", "J [dʒei]", "A [ei]", "K [kei]"};
         section1.centralSound = "ei";
         section1.audioResource = "alphabet_help_ei";
         list.add(section1);
 
         HelpSection section2 = new HelpSection();
-        section2.title = "Letras con sonido /i/ / Letters with /i/ sound";
+        section2.title = "Letras con sonido /i/ /\n Letters with /i/ sound";
         section2.letters = new String[]{"B [bi:]", "C [si:]", "D [di:]", "E [i:]", "G [dʒi:]", "P [pi:]", "T [ti:]", "V [vi:]", "Z [zi:]/[zed]"};
         section2.centralSound = "i";
         section2.audioResource = "alphabet_help_i";
         list.add(section2);
 
         HelpSection section3 = new HelpSection();
-        section3.title = "Letras con sonido /e/ / Letters with /e/ sound";
+        section3.title = "Letras con sonido /e/ /\n Letters with /e/ sound";
         section3.letters = new String[]{"F [ef]", "L [el]", "M [em]", "N [en]", "S [es]", "X [eks]"};
         section3.centralSound = "e";
         section3.audioResource = "alphabet_help_e";
         list.add(section3);
 
         HelpSection section4 = new HelpSection();
-        section4.title = "Letras con sonido /ai/ / Letters with /ai/ sound";
+        section4.title = "Letras con sonido /ai/ /\n Letters with /ai/ sound";
         section4.letters = new String[]{"I [ai]", "Y [wai]"};
         section4.centralSound = "ai";
         section4.audioResource = "alphabet_help_ai";
         list.add(section4);
 
         HelpSection section5 = new HelpSection();
-        section5.title = "Letras con sonido /ou/ / Letters with /ou/ sound";
+        section5.title = "Letras con sonido /ou/ /\n Letters with /ou/ sound";
         section5.letters = new String[]{"O [ou]"};
         section5.centralSound = "ou";
         section5.audioResource = "alphabet_help_ou";
@@ -205,7 +205,7 @@ public class HelpActivity extends AppCompatActivity {
         list.add(section6);
 
         HelpSection section7 = new HelpSection();
-        section7.title = "Letras con sonido /ar/ / Letters with /ar/ sound";
+        section7.title = "Letras con sonido /ar/ /\n Letters with /ar/ sound";
         section7.letters = new String[]{"R [ar]"};
         section7.centralSound = "ar";
         section7.audioResource = "alphabet_help_ar";
