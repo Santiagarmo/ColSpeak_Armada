@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginBottom="24dp">
+    android:layout_marginBottom="1dp">
 
     <!-- Banner del título de la sección con imagen de fondo -->
     <FrameLayout
@@ -119,11 +119,13 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/audioPlayerCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginHorizontal="16dp"
-        app:cardCornerRadius="48dp"
-        app:cardElevation="2dp"
-        app:cardBackgroundColor="@color/help_audio_player_background">
+        app:cardCornerRadius="40dp"
+        app:cardUseCompatPadding="false"
+        app:cardPreventCornerOverlap="false"
+        app:cardBackgroundColor="#D4E5ED"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -138,7 +140,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/reproduce"
-                android:background="@color/white"
+                android:background="@android:color/transparent"
                 android:contentDescription="Reproducir/Pausar audio"
                 android:scaleType="centerInside"
                 android:padding="8dp"
@@ -202,7 +204,7 @@
                 android:layout_height="32dp"
                 android:layout_marginStart="8dp"
                 android:src="@drawable/settings"
-                android:background="@drawable/rounded_white"
+                android:background="@android:color/transparent"
                 android:contentDescription="Configuración de audio"
                 android:padding="6dp"/>
 
@@ -336,5 +338,22 @@
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+        <!-- Imagen de olas de fondo -->
+        <ImageView
+            android:id="@+id/waves_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Decoración de olas"
+            android:scaleType="fitXY"
+            android:src="@drawable/olas"
+            />
+
+    </FrameLayout>
 
 </LinearLayout>

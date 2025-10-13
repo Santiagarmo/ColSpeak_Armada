@@ -381,7 +381,7 @@ Topic: COLORS
 Level: A1.1
 Q: White
 A: White (/waɪt/)
-O: Yellow (/ˈjɛloʊ/) | Pink (/pɪŋk/) | White (/waɪt/)e | Black (/blæk/)
+O: Yellow (/ˈjɛloʊ/) | Pink (/pɪŋk/) | White (/waɪt/) | Black (/blæk/)
 
 Topic: COLORS
 Level: A1.1
