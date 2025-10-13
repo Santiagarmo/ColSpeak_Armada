@@ -86,7 +86,6 @@ public class WritingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_writing);
 
         // Initialize views
-        questionNumberTextView = findViewById(R.id.questionNumberTextView);
         scoreTextView = findViewById(R.id.scoreTextView);
         instructionsTextView = findViewById(R.id.instructionsTextView);
         reusableAudioCard = findViewById(R.id.reusableAudioCard);
@@ -170,6 +169,12 @@ public class WritingActivity extends AppCompatActivity {
                         textToSpeech.setSpeechRate(currentSpeed);
                         textToSpeech.setPitch(currentPitch);
                         Log.d(TAG, "TextToSpeech initialized successfully");
+
+                        // Pasar el TTS al componente de audio reutilizable
+                        if (reusableAudioCard != null) {
+                            reusableAudioCard.setTextToSpeech(textToSpeech);
+                            Log.d(TAG, "TextToSpeech passed to ReusableAudioPlayerCard");
+                        }
                     }
                 } else {
                     Log.e(TAG, "TextToSpeech initialization failed");
@@ -328,8 +333,13 @@ public class WritingActivity extends AppCompatActivity {
     private void displayQuestion() {
         if (currentQuestionIndex < currentQuestions.size()) {
             WritingQuestion question = currentQuestions.get(currentQuestionIndex);
-            questionNumberTextView.setText(String.format("%d/%d",
-                    currentQuestionIndex + 1, currentQuestions.size()));
+
+            // Solo actualizar el número de pregunta si el TextView existe
+            if (questionNumberTextView != null) {
+                questionNumberTextView.setText(String.format("%d/%d",
+                        currentQuestionIndex + 1, currentQuestions.size()));
+            }
+
             scoreTextView.setText("Score: " + score);
             instructionsTextView.setText("Escucha atentamente y escribe lo que oyes /\nListen carefully and write what you hear:");
             originalTextTextView.setVisibility(View.GONE);
@@ -337,8 +347,38 @@ public class WritingActivity extends AppCompatActivity {
             answerEditText.setEnabled(false);
             submitButton.setVisibility(View.VISIBLE);
             nextButton.setVisibility(View.GONE);
+
+            // Actualizar el texto del reproductor de audio para la pregunta actual
+            updateAudioPlayerForCurrentQuestion();
         } else {
             showResults();
+        }
+    }
+
+    /**
+     * Actualiza el componente de audio con el texto de la pregunta actual
+     */
+    private void updateAudioPlayerForCurrentQuestion() {
+        if (currentQuestionIndex >= currentQuestions.size()) return;
+
+        WritingQuestion question = currentQuestions.get(currentQuestionIndex);
+        String textToSpeak = question.getText();
+
+        try {
+            if (reusableAudioCard != null) {
+                // Resetear el estado del reproductor
+                reusableAudioCard.resetForNewQuestion();
+
+                // Actualizar el texto para TTS
+                reusableAudioCard.setText(textToSpeak);
+
+                // Asegurarse de que está en modo inglés
+                reusableAudioCard.setEnglishMode();
+
+                Log.d(TAG, "Audio player updated with text: " + textToSpeak);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error updating audio player: " + e.getMessage());
         }
     }
 
