@@ -186,7 +186,7 @@
         android:visibility="gone"
         app:cardCornerRadius="8dp"
         app:cardElevation="2dp"
-        app:cardBackgroundColor="@color/help_audio_player_background">
+        app:cardBackgroundColor="#D4E5ED">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -199,7 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tipo de voz (solo inglés) / Voice Type (English only)"
-                android:textColor="@android:color/white"
+                android:textColor="#002C4D"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -219,7 +219,7 @@
                     android:layout_height="28dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="4dp"
-                    android:text="🇪🇸 Español (Original)"
+                    android:text="Original"
                     android:textSize="10sp"
                     android:background="@drawable/rounded_background"
                     android:textColor="#002C4D"
