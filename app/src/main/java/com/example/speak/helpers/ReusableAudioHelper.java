@@ -222,9 +222,31 @@ public class ReusableAudioHelper {
             return;
         }
 
-        // Guardar los parámetros actuales del TTS
-        float currentPitch = 1.0f;
-        float currentRate = 1.0f;
+        // Configurar listener para el TTS externo
+        if (externalTTS != null) {
+            externalTTS.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                @Override
+                public void onStart(String utteranceId) {
+                    isPlaying = true;
+                    isPaused = false;
+                    Log.d(TAG, "External TTS onStart: " + utteranceId);
+                }
+
+                @Override
+                public void onDone(String utteranceId) {
+                    isPlaying = false;
+                    isPaused = false;
+                    Log.d(TAG, "External TTS onDone: " + utteranceId);
+                }
+
+                @Override
+                public void onError(String utteranceId) {
+                    isPlaying = false;
+                    isPaused = false;
+                    Log.e(TAG, "External TTS onError: " + utteranceId);
+                }
+            });
+        }
 
         // Set voice parameters based on type
         setVoiceParameters(voiceType, ttsToUse);
@@ -234,8 +256,11 @@ public class ReusableAudioHelper {
         if (result == TextToSpeech.ERROR) {
             Log.e(TAG, "Error speaking text");
             Toast.makeText(context, "Error reproduciendo texto", Toast.LENGTH_SHORT).show();
+            isPlaying = false;
+            isPaused = false;
         } else {
             isPlaying = true;
+            isPaused = false;
             Log.d(TAG, "Speaking text with voice type: " + voiceType + " using " +
                   (externalTTS != null ? "external" : "internal") + " TTS");
         }
@@ -283,16 +308,20 @@ public class ReusableAudioHelper {
      * Pause audio playback
      */
     public void pauseAudio() {
-        if (mediaPlayer != null && isPlaying && !isPaused) {
+        // Primero verificar si MediaPlayer está realmente reproduciendo
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
             isPaused = true;
-            Log.d(TAG, "Audio paused");
+            isPlaying = true; // Mantener isPlaying para poder resumir
+            Log.d(TAG, "MediaPlayer paused");
         } else {
+            // Si MediaPlayer no está reproduciendo, intentar pausar TTS
             TextToSpeech ttsToUse = (externalTTS != null) ? externalTTS : textToSpeech;
-            if (ttsToUse != null && isPlaying && !isPaused) {
+            if (ttsToUse != null && ttsToUse.isSpeaking()) {
                 ttsToUse.stop();
                 isPaused = true;
-                Log.d(TAG, "TTS paused using " + (externalTTS != null ? "external" : "internal") + " TTS");
+                isPlaying = false; // TTS no puede resumir, solo reiniciar
+                Log.d(TAG, "TTS stopped (paused) using " + (externalTTS != null ? "external" : "internal") + " TTS");
             }
         }
     }
@@ -328,21 +357,26 @@ public class ReusableAudioHelper {
      * Stop audio playback
      */
     public void stopAudio() {
-        if (mediaPlayer != null && isPlaying) {
-            mediaPlayer.stop();
-            isPlaying = false;
-            isPaused = false;
-            Log.d(TAG, "Audio stopped");
+        // Detener MediaPlayer si está reproduciendo
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            try {
+                mediaPlayer.stop();
+                Log.d(TAG, "MediaPlayer stopped");
+            } catch (Exception e) {
+                Log.e(TAG, "Error stopping MediaPlayer", e);
+            }
         }
 
-        // Detener el TTS apropiado
+        // Detener el TTS apropiado si está hablando
         TextToSpeech ttsToUse = (externalTTS != null) ? externalTTS : textToSpeech;
-        if (ttsToUse != null) {
+        if (ttsToUse != null && ttsToUse.isSpeaking()) {
             ttsToUse.stop();
-            isPlaying = false;
-            isPaused = false;
             Log.d(TAG, "TTS stopped using " + (externalTTS != null ? "external" : "internal") + " TTS");
         }
+
+        // Actualizar estados
+        isPlaying = false;
+        isPaused = false;
     }
     
     /**
@@ -391,19 +425,30 @@ public class ReusableAudioHelper {
     
     // State getters
     public boolean isPlaying() {
+        // Verificar estado real de MediaPlayer y TTS
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            return true;
+        }
+
+        TextToSpeech ttsToUse = (externalTTS != null) ? externalTTS : textToSpeech;
+        if (ttsToUse != null && ttsToUse.isSpeaking()) {
+            return true;
+        }
+
         return isPlaying;
     }
-    
+
     public boolean isPaused() {
         return isPaused;
     }
-    
+
     public boolean isMediaPlayerPlaying() {
         return mediaPlayer != null && mediaPlayer.isPlaying();
     }
-    
+
     public boolean isTTSPlaying() {
-        return textToSpeech != null && textToSpeech.isSpeaking();
+        TextToSpeech ttsToUse = (externalTTS != null) ? externalTTS : textToSpeech;
+        return ttsToUse != null && ttsToUse.isSpeaking();
     }
     
     /**
