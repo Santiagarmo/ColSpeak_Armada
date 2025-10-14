@@ -5,11 +5,14 @@ import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.graphics.drawable.PictureDrawable;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.media.MediaPlayer;
+import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
@@ -29,6 +32,8 @@ import com.caverock.androidsvg.SVGParseException;
 import com.example.speak.database.DatabaseHelper;
 import com.example.speak.helpers.WildcardHelper;
 import com.example.speak.helpers.HelpModalHelper;
+import com.example.speak.helpers.StarProgressHelper;
+import com.example.speak.helpers.StarEarnedDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -923,36 +928,109 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         // Mark topic as passed if score >= 70%
         if (percentage >= 70) {
             markTopicAsPassed(selectedTopic);
+            // Sumar puntos de estrella (10) y mostrar modal de estrella, igual que Speaking
+            StarProgressHelper.addSessionPoints(this, 10);
+            new Handler().postDelayed(() -> {
+                try {
+                    StarEarnedDialog.show(ImageIdentificationActivity.this);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error mostrando StarEarnedDialog: " + e.getMessage());
+                }
+            }, 200);
         }
         
-        // Create array of question results
+        // Preparar datos para posible navegación a detalles
         boolean[] questionResults = new boolean[currentQuestions.size()];
         for (int i = 0; i < currentQuestions.size(); i++) {
-            questionResults[i] = i < score; // Simplified - you might want to track individual results
+            questionResults[i] = i < score; // simplificado
         }
-        
-        // Create array of question texts
         String[] questions = new String[currentQuestions.size()];
         for (int i = 0; i < currentQuestions.size(); i++) {
             questions[i] = currentQuestions.get(i).getQuestion();
         }
-        
-        // Get source map from intent
         String sourceMap = getIntent().getStringExtra("SOURCE_MAP");
         
-        // Launch results activity
-        Intent intent = new Intent(this, ImageIdentificationResultsActivity.class);
-        intent.putExtra("FINAL_SCORE", finalScore);
+        // Mostrar diálogo de resultados (mismo estilo que dialog_quiz_result)
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_quiz_result, null);
+        builder.setView(dialogView);
+        builder.setCancelable(false);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+
+        ImageView birdImg = dialogView.findViewById(R.id.birdImageView);
+        TextView messageTextView = dialogView.findViewById(R.id.messageTextView);
+        TextView counterTextView = dialogView.findViewById(R.id.counterTextView);
+        TextView scoreTextView = dialogView.findViewById(R.id.scoreTextView);
+        Button btnContinue = dialogView.findViewById(R.id.btnContinue);
+        TextView btnReintentar = dialogView.findViewById(R.id.btnReintentar);
+        LinearLayout btnViewDetails = dialogView.findViewById(R.id.btnViewDetails);
+
+        // Imagen y mensaje según puntaje (criterio similar a Listening)
+        if (finalScore >= 90) {
+            messageTextView.setText("Excellent your English is getting better!");
+            birdImg.setImageResource(R.drawable.crab_ok);
+        } else if (finalScore >= 70) {
+            messageTextView.setText("Good, but you can do it better!");
+            birdImg.setImageResource(R.drawable.crab_test);
+        } else if (finalScore >= 50) {
+            messageTextView.setText("You should practice more!");
+            birdImg.setImageResource(R.drawable.crab_test);
+        } else {
+            messageTextView.setText("You should practice more!");
+            birdImg.setImageResource(R.drawable.crab_bad);
+        }
+
+        counterTextView.setText(score + "/" + currentQuestions.size());
+        scoreTextView.setText("Score: " + finalScore + "%");
+
+        // Continuar: ir al siguiente tema según progresión y mapa de origen
+        btnContinue.setOnClickListener(v -> {
+            String nextTopic = ProgressionHelper.getNextImageIdentificationTopicBySource(selectedTopic, sourceMap);
+            if (nextTopic != null) {
+                Class<?> nextActivity = ProgressionHelper.getReadingActivityClass(nextTopic);
+                Intent next = new Intent(this, nextActivity);
+                next.putExtra("TOPIC", nextTopic);
+                next.putExtra("LEVEL", selectedLevel);
+                next.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(next);
+                finish();
+            } else {
+                // Si no hay siguiente tema, volver al mapa correspondiente
+                Class<?> destMap = ProgressionHelper.getDestinationMapClass(sourceMap);
+                Intent back = new Intent(this, destMap);
+                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(back);
+                finish();
+            }
+        });
+
+        // Reintentar: reiniciar esta actividad mismo tema/nivel
+        btnReintentar.setText("Try again");
+        btnReintentar.setOnClickListener(v -> {
+            Intent retry = new Intent(this, ImageIdentificationActivity.class);
+            retry.putExtra("TOPIC", selectedTopic);
+            retry.putExtra("LEVEL", selectedLevel);
+            startActivity(retry);
+            finish();
+        });
+
+        // Ver detalles: abrir tabla de historial (QuizHistoryActivity) filtrada por la sesión actual
+        btnViewDetails.setOnClickListener(v -> {
+            Intent intent = new Intent(this, QuizHistoryActivity.class);
+            intent.putExtra("SCORE", score);
         intent.putExtra("TOTAL_QUESTIONS", currentQuestions.size());
-        intent.putExtra("CORRECT_ANSWERS", score);
+            intent.putExtra("QUIZ_TYPE", "Identificación Imagen");
         intent.putExtra("TOPIC", selectedTopic);
-        intent.putExtra("LEVEL", selectedLevel);
-        intent.putExtra("QUESTION_RESULTS", questionResults);
-        intent.putExtra("QUESTIONS", questions);
+            intent.putExtra("SHOW_CURRENT_ACTIVITY_ONLY", true);
         intent.putExtra("SESSION_TIMESTAMP", sessionTimestamp);
-        intent.putExtra("SOURCE_MAP", sourceMap); // Pass source map information
         startActivity(intent);
         finish();
+        });
     }
 
     private void saveQuizResults(double percentage) {
@@ -966,7 +1044,7 @@ public class ImageIdentificationActivity extends AppCompatActivity {
                 question.getCorrectAnswer(), 
                 "Quiz completed", 
                 percentage >= 70, 
-                "IMAGE_IDENTIFICATION",
+                "Identificación Imagen",
                 selectedTopic, 
                 selectedLevel, 
                 sessionTimestamp

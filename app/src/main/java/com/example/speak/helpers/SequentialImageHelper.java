@@ -45,10 +45,17 @@ public class SequentialImageHelper {
         drawableResourceMap.put("mouth_cdgknstxyz", "mouth_cdgknstxyz");
         drawableResourceMap.put("grammar_rule_2", "grammar_rule_2");
         drawableResourceMap.put("mouth_bmp", "mouth_bmp");
+        drawableResourceMap.put("mouth_cdgknstxyz", "mouth_cdgknstxyz");
+        drawableResourceMap.put("mouth_aei", "mouth_aei");
         drawableResourceMap.put("mouth_fv", "mouth_fv");
         drawableResourceMap.put("grammar_rule_3", "grammar_rule_3");
+        drawableResourceMap.put("mouth_fv", "mouth_fv");
+        drawableResourceMap.put("mouth_cdgknstxyz", "mouth_cdgknstxyz");
         drawableResourceMap.put("mouth_l", "mouth_l");
+        drawableResourceMap.put("mouth_bmp", "mouth_bmp");
         drawableResourceMap.put("grammar_rule_4", "grammar_rule_4");
+        drawableResourceMap.put("mouth_aei", "mouth_aei");
+        drawableResourceMap.put("mouth_cdgknstxyz", "mouth_cdgknstxyz");
         drawableResourceMap.put("grammar_rule_5", "grammar_rule_5");
         drawableResourceMap.put("grammar_rule_6", "grammar_rule_6");
         drawableResourceMap.put("mouth_qw", "mouth_qw");
@@ -87,13 +94,17 @@ public class SequentialImageHelper {
         drawableResourceMap.put("alphabet_part2_3", "alphabet_part2_3");
         drawableResourceMap.put("alphabet_part2_4", "alphabet_part2_4");
         
-        // Imágenes de números
-        drawableResourceMap.put("numbers_help_1", "numbers");
-        drawableResourceMap.put("numbers_help_2", "ordinal");
+        // Imágenes de números (usar nombres válidos con guiones bajos)
+        drawableResourceMap.put("numbers_help_1", "number_1_10");
+        drawableResourceMap.put("numbers_help_2", "number_11_19");
         
         // Imágenes de colores
-        drawableResourceMap.put("colors_help_1", "colors");
-        drawableResourceMap.put("colors_help_2", "table_color");
+        drawableResourceMap.put("colors_help_1", "help_colors");
+
+        // Imágenes de pronombres personales
+        drawableResourceMap.put("help_personal_pronouns", "help_personal_pronouns");
+        // Imágenes de adjetivos posesivos
+        drawableResourceMap.put("help_possessive_adjectives", "help_possessive_adjectives");
         
         // Mapeo para assets
         assetImageMap = new HashMap<>();
@@ -105,8 +116,7 @@ public class SequentialImageHelper {
         assetImageMap.put("grammar_rule_4", "grammar/rule_4.png");
         assetImageMap.put("grammar_rule_5", "grammar/rule_5.png");
         assetImageMap.put("grammar_rule_6", "grammar/rule_6.png");
-        assetImageMap.put("mouth_fv", "pronunciation/mouth_fv.png");
-        assetImageMap.put("mouth_l", "pronunciation/mouth_l.png");
+        assetImageMap.put("grammar_rule_7", "grammar/rule_7.png");
         assetImageMap.put("vocab_category_1", "vocabulary/category_1.png");
         assetImageMap.put("vocab_category_2", "vocabulary/category_2.png");
         assetImageMap.put("pron_mouth_1", "pronunciation/mouth_1.png");
@@ -240,11 +250,24 @@ public class SequentialImageHelper {
         descriptions.put("alphabet_part2_2", "Letras Q-T - Sonidos oclusivos y fricativos");
         descriptions.put("alphabet_part2_3", "Letras U-W - Sonidos vocálicos y semivocálicos");
         descriptions.put("alphabet_part2_4", "Letras X-Z - Sonidos fricativos y africados");
-        descriptions.put("numbers_help_1", "Números del 1 al 10 en inglés");
-        descriptions.put("numbers_help_2", "Números del 11 al 20 en inglés");
+        // Numbers: admite claves estándar y alias
+        descriptions.put("numbers_help_1", "Números del 0 al 10 en inglés");
+        descriptions.put("numbers_help_2", "Números del 11 al 19 en inglés");
+        descriptions.put("number_1_10", "Números del 1 al 10 en inglés");
+        descriptions.put("number_11_19", "Números del 11 al 20 en inglés");
+        // Personal pronouns
+        descriptions.put("help_personal_pronouns", "Los Personal Pronouns (Pronombres Personales) son palabras que usamos para reemplazar los nombres de personas, animales o cosas cuando son el sujeto de la oración.");
+        // Possessive adjectives
+        descriptions.put("help_possessive_adjectives", "Los Possessive Adjectives (Adjetivos Posesivos) indican pertenencia: my, your, his, her, its, our, their.");
         descriptions.put("colors_help_1", "Colores básicos en inglés");
-        descriptions.put("colors_help_2", "Colores adicionales en inglés");
         
+        // Fallback: si no hay descripción directa, intenta con el nombre mapeado a drawable
+        if (!descriptions.containsKey(imageName)) {
+            String mapped = drawableResourceMap != null ? drawableResourceMap.get(imageName) : null;
+            if (mapped != null && descriptions.containsKey(mapped)) {
+                return descriptions.get(mapped);
+            }
+        }
         return descriptions.getOrDefault(imageName, "Image description not available");
     }
     
@@ -262,6 +285,7 @@ public class SequentialImageHelper {
         displayOrder.put("grammar_rule_4", 4);
         displayOrder.put("grammar_rule_5", 5);
         displayOrder.put("grammar_rule_6", 6);
+        displayOrder.put("grammar_rule_7", 7);
         displayOrder.put("grammar_example_1", 4);
         displayOrder.put("grammar_example_2", 5);
         
@@ -293,7 +317,6 @@ public class SequentialImageHelper {
         displayOrder.put("numbers_help_1", 4);
         displayOrder.put("numbers_help_2", 5);
         displayOrder.put("colors_help_1", 6);
-        displayOrder.put("colors_help_2", 7);
         
         return displayOrder.getOrDefault(imageName, 0);
     }
@@ -316,7 +339,7 @@ public class SequentialImageHelper {
             case "NUMBERS":
                 return 2; // 2 imágenes de números
             case "COLORS":
-                return 2; // 2 imágenes de colores
+                return 1; // 2 imágenes de colores
             default:
                 return 0;
         }
@@ -329,7 +352,7 @@ public class SequentialImageHelper {
         switch (topic.toUpperCase()) {
             case "GRAMMAR":
                 return new String[]{
-                    "grammar_rule_1", "grammar_rule_2", "grammar_rule_3", "grammar_rule_4", "grammar_rule_5","grammar_rule_6",
+                    "grammar_rule_1", "grammar_rule_2", "grammar_rule_3", "grammar_rule_4", "grammar_rule_5","grammar_rule_6","grammar_rule_7",
                     "grammar_example_1", "grammar_example_2"
                 };
             case "VOCABULARY":
@@ -357,7 +380,7 @@ public class SequentialImageHelper {
                 };
             case "COLORS":
                 return new String[]{
-                    "colors_help_1", "colors_help_2"
+                    "colors_help_1"
                 };
             default:
                 return new String[0];

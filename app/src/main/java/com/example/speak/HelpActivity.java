@@ -223,6 +223,10 @@ public class HelpActivity extends AppCompatActivity {
         // Coincidencia por igualdad o inclusión
         if (k.equals(sound) || k.equals(title)) return true;
         // No usar contains(k) en títulos normalizados para claves cortas como "e" (causa falsos positivos)
+        // Coincidencia para secciones de NUMBERS por rango
+        if (k.equals("1-10") && (title.contains("1-10") || sound.equals("1-10") || normalize(s.title).contains("numbers 1-10"))) return true;
+        if (k.equals("11-20") && (title.contains("11-20") || sound.equals("11-20") || normalize(s.title).contains("numbers 11-20"))) return true;
+
         // Mapeos robustos para ALPHABET por parte o sonido central
         if (k.equals("ei")) {
             if (title.contains("parte 1") || title.contains("part 1")) return true;
@@ -251,8 +255,13 @@ public class HelpActivity extends AppCompatActivity {
         }
         if (k.equals("ju")) {
             if (title.contains("parte 6") || title.contains("part 6")) return true;
-            if (sound.contains("ju") || sound.contains("q-u-w")) return true;
+            if (sound.contains("q-u-w")) return true;
             if (rawTitle.contains("/ju/")) return true;
+        }
+        if (k.equals("ar")) {
+            if (title.contains("parte 7") || title.contains("part 7")) return true;
+            if (sound.equals("ar") || sound.contains("r")) return true;
+            if (rawTitle.contains("/ar/")) return true;
         }
         return false;
     }
@@ -339,7 +348,7 @@ public class HelpActivity extends AppCompatActivity {
         // Sección para números del 1-10
         HelpSection section1 = new HelpSection();
         section1.title = "Números del 1 al 10 / Numbers 1 to 10";
-        section1.letters = new String[]{"One [wʌn]", "Two [tu:]", "Three [θri:]", "Four [fɔ:]", "Five [faiv]"};
+        section1.letters = new String[]{"One [wʌn]", "Two [tu:]", "Three [θri:]", "Four [fɔ:]", "Five [faiv]","Six [sɪks]","Seven [ˈsevən]","Eight [eɪt]","Nine [naɪn]","Ten [ten]"};
         section1.centralSound = "1-10";
         section1.audioResource = "numbers_help_1_10";
         helpSections.add(section1);
@@ -347,7 +356,7 @@ public class HelpActivity extends AppCompatActivity {
         // Sección para números del 11-20
         HelpSection section2 = new HelpSection();
         section2.title = "Números del 11 al 20 / Numbers 11 to 20";
-        section2.letters = new String[]{"Eleven [ɪˈlevən]", "Twelve [twelv]", "Thirteen [θɜːˈtiːn]", "Fourteen [fɔːˈtiːn]", "Fifteen [fɪfˈtiːn]"};
+        section2.letters = new String[]{"Eleven [ɪˈlevən]", "Twelve [twelv]", "Thirteen [θɜːˈtiːn]", "Fourteen [fɔːˈtiːn]", "Fifteen [fɪfˈtiːn]", "Sixteen [sɪksˈtiːn]", "Seventeen [sevənˈtiːn]","Eighteen [eɪˈtiːn]","Nineteen [naɪnˈtiːn]","Twenty [ˈtwenti]"};
         section2.centralSound = "11-20";
         section2.audioResource = "numbers_help_11_20";
         helpSections.add(section2);
@@ -1095,17 +1104,17 @@ public class HelpActivity extends AppCompatActivity {
             private String generateEnglishTextFromSection(HelpSection section) {
                 StringBuilder text = new StringBuilder();
                 text.append("Letters with sound ").append(section.centralSound).append(": ");
-
+                
                 for (int i = 0; i < section.letters.length; i++) {
                     String cleaned = cleanForTTS(section.letters[i]);
                     if (!cleaned.isEmpty()) {
                         text.append(cleaned);
-                        if (i < section.letters.length - 1) {
-                            text.append(", ");
+                    if (i < section.letters.length - 1) {
+                        text.append(", ");
                         }
                     }
                 }
-
+                
                 text.append(". Repeat after me: ");
                 for (String letter : section.letters) {
                     String cleaned = cleanForTTS(letter);

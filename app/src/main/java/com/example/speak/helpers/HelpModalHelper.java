@@ -43,7 +43,23 @@ public class HelpModalHelper {
                 addSectionCard(context, grid, "Alfabeto parte 5", "ou", level);
                 addSectionCard(context, grid, "Alfabeto parte 6", "ju", level);
                 addSectionCard(context, grid, "Alfabeto parte 7", "ar", level);
-            } else {
+            } else if ("NUMBERS".equalsIgnoreCase(currentTopic)) {
+                // Solo tarjetas de números (dos secciones)
+                addSectionCardForTopic(context, grid, "Números 1-10", "NUMBERS", "1-10", level);
+                addSectionCardForTopic(context, grid, "Números 11-20", "NUMBERS", "11-20", level);
+        } else if ("COLORS".equalsIgnoreCase(currentTopic)) {
+            // Solo tarjetas de números
+            addSectionCardForTopic(context, grid, "Colores Básicos", "COLORS", "colors", level);
+
+        } else if ("PERSONAL PRONOUNS".equalsIgnoreCase(currentTopic)) {
+            // Solo tarjetas de números
+            addSectionCardForTopic(context, grid, "Pronombres Singulares", "PERSONAL PRONOUNS", "PRN", level);
+        }
+            else if ("POSSESSIVE ADJECTIVES".equalsIgnoreCase(currentTopic)) {
+                // Solo tarjetas de números
+                addSectionCardForTopic(context, grid, "Adjetivos Posesivos", "POSSESSIVE ADJECTIVES", "POS", level);
+            }
+            else {
                 List<String> topics = defaultTopics();
                 for (String t : topics) {
                     addTopicCard(context, grid, getReadableTopicTitle(context, t), t, level);
@@ -67,6 +83,13 @@ public class HelpModalHelper {
     private static void addSectionCard(Context context, GridLayout grid, String titleText, String sectionKey, String level) {
         LinearLayout card = buildCard(context, titleText);
         card.setOnClickListener(v -> HelpActivity.startFilteredSection(context, "ALPHABET", level, sectionKey));
+        grid.addView(card);
+    }
+
+    // Abre una sección por tema explícito (para NUMBERS)
+    private static void addSectionCardForTopic(Context context, GridLayout grid, String titleText, String topic, String sectionKey, String level) {
+        LinearLayout card = buildCard(context, titleText);
+        card.setOnClickListener(v -> HelpActivity.startFilteredSection(context, topic, level, sectionKey));
         grid.addView(card);
     }
 

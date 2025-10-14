@@ -84,7 +84,7 @@ public class WildcardHelper {
         TextView countText = dialogView.findViewById(R.id.wildcardCount);
         
         titleText.setText("Comodines");
-        countText.setText("Disponibles: " + remainingWildcards);
+        countText.setText(remainingWildcards+"/5");
         
         // Configurar botones de ayuda
         setupHelpButtons(dialogView);

@@ -7,158 +7,158 @@ ALPHABET
 Topic: ALPHABET
 Level: A1.1
 Q: A
-A: A (/eɪ/)
-O: B (/biː/) | H (/eɪtʃ/) | A (/eɪ/) | K (/keɪ/)
+A: (/eɪ/)
+O: (/biː/) | (/eɪtʃ/) | (/eɪ/) | (/keɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: B
-A: B (/biː/)
-O: B (/biː/) | O (/oʊ/) | X (/ɛks/) | K (/keɪ/)
+A: (/biː/)
+O: (/biː/) | (/oʊ/) | (/ɛks/) | (/keɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: C
-A: C (/siː/)
-O: B (/biː/) | O (/oʊ/) | X (/ɛks/) | C (/siː/)
+A: (/siː/)
+O: (/biː/) | (/oʊ/) | (/ɛks/) | (/siː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: D
-A: D (/diː/)
-O: B (/biː/) | D (/diː/) | X (/ɛks/) | C (/siː/)
+A: (/diː/)
+O: (/biː/) | (/diː/) | (/ɛks/) | (/siː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: E
-A: E (/iː/)
-O: B (/biː/) | D (/diː/) | E (/iː/) | C (/siː/)
+A: (/iː/)
+O: (/biː/) | (/diː/) | (/iː/) | (/siː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: F
-A: F (/ɛf/)
-O: F (/ɛf/) | Q (/kjuː/) | E (/iː/) | Z (/ziː/)
+A: (/ɛf/)
+O: (/ɛf/) | (/kjuː/) | (/iː/) | (/ziː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: G
-A: G (/dʒiː/)
-O: J (/dʒeɪ/) | Q (/kjuː/) | W (/ˈdʌbl.juː/) | G (/dʒiː/)
+A: (/dʒiː/)
+O: (/dʒeɪ/) | (/kjuː/) | (/ˈdʌbl.juː/) | (/dʒiː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: H
-A: H (/eɪtʃ/)
-O: B (/biː/) | H (/eɪtʃ/) | A (/eɪ/) | K (/keɪ/)
+A: (/eɪtʃ/)
+O: (/biː/) | (/eɪtʃ/) | (/eɪ/) | (/keɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: I
-A: I (/aɪ/)
-O: P (/piː/) | I (/aɪ/) | A (/eɪ/) | K (/keɪ/)
+A: (/aɪ/)
+O: (/piː/) | (/aɪ/) | (/eɪ/) | (/keɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: J
-A: J (/dʒeɪ/)
-O: B (/biː/) | O (/oʊ/) | X (/ɛks/) | J (/dʒeɪ/)
+A: (/dʒeɪ/)
+O: (/biː/) | (/oʊ/) | (/ɛks/) | (/dʒeɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: K
-A: K (/keɪ/)
-O: B (/biː/) | O (/oʊ/) | K (/keɪ/) | C (/siː/)
+A: (/keɪ/)
+O: (/biː/) | (/oʊ/) | (/keɪ/) | (/siː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: L
-A: L (/ɛl/)
-O: L (/ɛl/) | D (/diː/) | X (/ɛks/) | C (/siː/)
+A: (/ɛl/)
+O: (/ɛl/) | (/diː/) | (/ɛks/) | (/siː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: V
-A: V (/viː/)
-O: L (/ɛl/) | D (/diː/) | V (/viː/) | C (/siː/)
+A: (/viː/)
+O: (/ɛl/) | (/diː/) | (/viː/) | (/siː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: P
-A: P (/piː/)
-O: B (/biː/) | O (/oʊ/) | K (/keɪ/) | P (/piː/)
+A: (/piː/)
+O: (/biː/) | (/oʊ/) | (/keɪ/) | (/piː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: S
-A: S (/ɛs/)
-O: B (/biː/) | O (/oʊ/) | S (/ɛs/) | J (/dʒeɪ/)
+A: (/ɛs/)
+O: (/biː/) | (/oʊ/) | (/ɛs/) | (/dʒeɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: Z
-A: Z (/ziː/)
-O: P (/piː/) | I (/aɪ/) | A (/eɪ/) | Z (/ziː/)
+A: (/ziː/)
+O: (/piː/) | (/aɪ/) | (/eɪ/) | (/ziː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: T
-A: T (/tiː/)
-O: T (/tiː/) | Q (/kjuː/) | W (/ˈdʌbl.juː/) | G (/dʒiː/)
+A: (/tiː/)
+O: (/tiː/) | (/kjuː/) | (/ˈdʌbl.juː/) | (/dʒiː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: U
-A: U (/juː/)
-O: B (/biː/) | U (/juː/) | A (/eɪ/) | K (/keɪ/)
+A: (/juː/)
+O: (/biː/) | (/juː/) | (/eɪ/) | (/keɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: X
-A: X (/ɛks/)
-O: B (/biː/) | U (/juː/) | A (/eɪ/) | X (/ɛks/)
+A: (/ɛks/)
+O: (/biː/) | (/juː/) | (/eɪ/) | (/ɛks/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: Y
-A: Y (/waɪ/)
-O: B (/biː/) | H (/eɪtʃ/) | Y (/waɪ/) | K (/keɪ/)
+A: (/waɪ/)
+O: (/biː/) | (/eɪtʃ/) | (/waɪ/) | (/keɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: Q
-A: Q (/kjuː/)
-O: B (/biː/) | Q (/kjuː/) | Y (/waɪ/) | K (/keɪ/)
+A: (/kjuː/)
+O: (/biː/) | (/kjuː/) | (/waɪ/) | (/keɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: R
-A: R (/ɑːr/)
-O: R (/ɑːr/) | O (/oʊ/) | X (/ɛks/) | K (/keɪ/)
+A: (/ɑːr/)
+O: (/ɑːr/) | (/oʊ/) | (/ɛks/) | (/keɪ/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: N
-A: N (/ɛn/)
-O: B (/biː/) | N (/ɛn/) | X (/ɛks/) | C (/siː/)
+A: (/ɛn/)
+O: (/biː/) | (/ɛn/) | (/ɛks/) | (/siː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: M
-A: M (/ɛm/)
-O: B (/biː/) | N (/ɛn/) | M (/ɛm/) | C (/siː/)
+A: (/ɛm/)
+O: (/biː/) | (/ɛn/) | (/ɛm/) | (/siː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: W
-A: W (/ˈdʌbl.juː/)
-O: B (/biː/) | W (/ˈdʌbl.juː/) | K (/keɪ/) | P (/piː/)
+A: (/ˈdʌbl.juː/)
+O: (/biː/) | (/ˈdʌbl.juː/) | (/keɪ/) | (/piː/)
 
 Topic: ALPHABET
 Level: A1.1
 Q: O
-A: O (/oʊ/)
-O: B (/biː/) | W (/ˈdʌbl.juː/) | O (/oʊ/) | P (/piː/)
+A: (/oʊ/)
+O: (/biː/) | (/ˈdʌbl.juː/) | (/oʊ/) | (/piː/)
 
 NUMBERS
 

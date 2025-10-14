@@ -16,49 +16,60 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-            <LinearLayout
+            <!-- Botón volver y exportar -->
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/eBtnReturnMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="start|center_vertical"
-                android:clickable="true"
-                android:focusable="true"
                 android:padding="@dimen/spacing_large"
                 android:layout_marginTop="@dimen/spacing_medium">
 
-                <ImageView
-                    android:layout_width="@dimen/icon_size_small"
-                    android:layout_height="@dimen/icon_size_small"
-                    android:src="@drawable/back"
-                    android:contentDescription="@string/return_menu"
-                    android:layout_marginEnd="@dimen/spacing_small"/>
-
-                <TextView
+                <!-- Botón volver (izquierda) -->
+                <LinearLayout
+                    android:id="@+id/returnContainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/return_button"
-                    android:textSize="@dimen/text_size_large"
-                    android:textColor="@color/white" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
 
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_small"
+                        android:layout_height="@dimen/icon_size_small"
+                        android:src="@drawable/back"
+                        android:contentDescription="@string/return_menu"
+                        android:layout_marginEnd="@dimen/spacing_small" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/return_button"
+                        android:textSize="@dimen/text_size_large"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <!-- Botón Exportar CSV (derecha, alineado perfectamente) -->
                 <LinearLayout
                     android:id="@+id/exportButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_gravity="end"
                     android:gravity="center_vertical"
                     android:clickable="true"
                     android:focusable="true"
                     android:padding="8dp"
-                    android:layout_marginEnd="16dp">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
 
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/summary"
-                        android:contentDescription="Exportar CSV"
-                        android:layout_marginEnd="6dp"/>
+                        android:src="@drawable/export_csv"
+                        android:layout_marginEnd="6dp"
+                        android:contentDescription="Exportar CSV" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -66,10 +77,8 @@
                         android:text="Exportar CSV"
                         android:textSize="18sp"
                         android:textColor="@color/white" />
-
                 </LinearLayout>
-
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -119,12 +128,79 @@
 
             </LinearLayout>
 
+            <!-- Tabla de resultados (estructura similar a activity_quiz_history) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/table_background"
+                android:clipToOutline="true"
+                android:outlineProvider="background"
+                android:elevation="6dp"
+                android:padding="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!-- Header fijo (primera fila) -->
+                    <HorizontalScrollView
+                        android:id="@+id/pronunciationHeaderScrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal"
+                        android:scrollbarThumbHorizontal="@drawable/custom_scroll_thumb"
+                        android:scrollbarSize="5dp"
+                        android:fadeScrollbars="false">
+
+                        <TableLayout
+                            android:id="@+id/pronunciationResultsTableHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:stretchColumns="*"
+                            android:padding="2dp"
+                            android:background="@android:color/transparent" />
+                    </HorizontalScrollView>
+
+                    <!-- Contenido con scroll vertical -->
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical"
+                        android:scrollbarThumbVertical="@drawable/custom_scroll_thumb"
+                        android:scrollbarSize="3dp"
+                        android:fadeScrollbars="false">
+
+                        <HorizontalScrollView
+                            android:id="@+id/pronunciationContentScrollView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="none"
+                            android:scrollbarThumbHorizontal="@drawable/custom_scroll_thumb"
+                            android:scrollbarSize="3dp"
+                            android:fadeScrollbars="false">
+
+                            <TableLayout
+                                android:id="@+id/pronunciationResultsTable"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:stretchColumns="*"
+                                android:padding="2dp"
+                                android:background="@android:color/transparent" />
+                        </HorizontalScrollView>
+                    </androidx.core.widget.NestedScrollView>
+                </LinearLayout>
+            </FrameLayout>
+
                 <LinearLayout
                     android:id="@+id/detailsContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginBottom="24dp"/>
+                    android:layout_marginBottom="24dp"
+                    android:visibility="gone"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -5,8 +5,9 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="32dp"
-    android:background="@drawable/gradient_background">
+    android:clipToOutline="true"
+    android:background="@drawable/gradient_background_round"
+    android:padding="32dp">
 
     <!-- Icono de estrella más grande -->
     <ImageView

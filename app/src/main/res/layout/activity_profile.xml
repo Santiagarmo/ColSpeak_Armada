@@ -82,7 +82,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="center_horizontal">
+                        android:gravity="center_horizontal"
+                        android:padding="24dp">
 
                         <!-- Trofeos -->
                         <LinearLayout
@@ -156,104 +157,114 @@
 
                     <!-- Toggle de Modo libre (sin secuencia) -->
                     <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/switchFreeRoam"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:text="Modo libre (sin secuencia)"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#00487E" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:backgroundTint="#D4E5ED"
-                        android:elevation="4dp"
-                        android:padding="12dp"
-                        android:text="Daily challenges"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#00487E"
-                        android:gravity="start|center_vertical"
-                        app:icon="@drawable/out"
-                        app:iconGravity="textStart"
-                        app:iconSize="24dp"
-                        app:iconTint="@null"
-                        app:iconPadding="12dp"
-                        />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:backgroundTint="#D4E5ED"
-                        android:elevation="4dp"
-                        android:padding="12dp"
-                        android:text="Change languaje"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#00487E"
-                        android:gravity="start|center_vertical"
-                        app:icon="@drawable/out"
-                        app:iconGravity="textStart"
-                        app:iconSize="24dp"
-                        app:iconTint="@null"
-                        app:iconPadding="12dp"
-                        />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:backgroundTint="#D4E5ED"
-                        android:elevation="4dp"
-                        android:padding="12dp"
-                        android:text="Creditos"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#00487E"
-                        android:gravity="start|center_vertical"
-                        app:icon="@drawable/credit"
-                        app:iconGravity="textStart"
-                        app:iconSize="24dp"
-                        app:iconTint="@null"
-                        app:iconPadding="12dp"
-                        />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnEndSession"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:backgroundTint="#D4E5ED"
-                        android:elevation="4dp"
-                        android:padding="12dp"
-                        android:text="Log out"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#00487E"
-                        android:gravity="start|center_vertical"
-                        app:icon="@drawable/out"
-                        app:iconGravity="textStart"
-                        app:iconSize="24dp"
-                        app:iconTint="@null"
-                        app:iconPadding="12dp"/>
-
-                <LinearLayout
+                    android:id="@+id/switchFreeRoam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingTop="@dimen/spacing_large"
-                    android:paddingBottom="60dp">
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="#D4E5ED"
+                    android:elevation="4dp"
+                    android:padding="12dp"
+                    android:text="Modo libre (sin secuencia)"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#00487E"
+                    android:gravity="start|center_vertical"
+                    app:icon="@drawable/out"
+                    app:iconGravity="textStart"
+                    app:iconSize="24dp"
+                    app:iconTint="@null"
+                    app:iconPadding="24dp"
+                    />
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="#D4E5ED"
+                    android:elevation="4dp"
+                    android:padding="12dp"
+                    android:text="Daily challenges"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#00487E"
+                    android:gravity="start|center_vertical"
+                    app:icon="@drawable/out"
+                    app:iconGravity="textStart"
+                    app:iconSize="24dp"
+                    app:iconTint="@null"
+                    app:iconPadding="12dp"
+                    />
 
-                        <!-- Imagen de fondo del menú -->
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="#D4E5ED"
+                    android:elevation="4dp"
+                    android:padding="12dp"
+                    android:text="Change languaje"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#00487E"
+                    android:gravity="start|center_vertical"
+                    app:icon="@drawable/out"
+                    app:iconGravity="textStart"
+                    app:iconSize="24dp"
+                    app:iconTint="@null"
+                    app:iconPadding="12dp"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="#D4E5ED"
+                    android:elevation="4dp"
+                    android:padding="12dp"
+                    android:text="Creditos"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#00487E"
+                    android:gravity="start|center_vertical"
+                    app:icon="@drawable/credit"
+                    app:iconGravity="textStart"
+                    app:iconSize="24dp"
+                    app:iconTint="@null"
+                    app:iconPadding="12dp"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEndSession"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="#D4E5ED"
+                    android:elevation="4dp"
+                    android:padding="12dp"
+                    android:text="Log out"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#00487E"
+                    android:gravity="start|center_vertical"
+                    app:icon="@drawable/out"
+                    app:iconGravity="textStart"
+                    app:iconSize="24dp"
+                    app:iconTint="@null"
+                    app:iconPadding="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/spacing_large"
+                android:paddingBottom="60dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <!-- Imagen de fondo del menú -->
                         <ImageView
                             android:id="@+id/menuBackgroundImageView"
                             android:layout_width="match_parent"

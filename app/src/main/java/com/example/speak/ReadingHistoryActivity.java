@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import com.example.speak.database.DatabaseHelper;
 import com.example.speak.ProgressionHelper;
@@ -27,6 +29,8 @@ import com.example.speak.ProgressionHelper;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.io.File;
+import java.io.FileWriter;
 
 public class ReadingHistoryActivity extends AppCompatActivity {
 
@@ -36,10 +40,11 @@ public class ReadingHistoryActivity extends AppCompatActivity {
     private TableLayout tableLayout;
     private long currentUserId;
     private Button continueButton;
+    private LinearLayout exportButton;
     private String currentTopic;
     private int currentScore;
 
-    private LinearLayout eBtnReturnMenu;
+    private View eBtnReturnMenu;
 
     private boolean birdExpanded = false;
     private ImageView birdMenu;
@@ -62,6 +67,7 @@ public class ReadingHistoryActivity extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
         tableLayout = findViewById(R.id.quizHistoryTable);
+        exportButton = findViewById(R.id.exportButton);
 
         // Obtener el ID del usuario actual
         SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
@@ -91,6 +97,10 @@ public class ReadingHistoryActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e(TAG, "Error loading reading history: " + e.getMessage());
             Toast.makeText(this, "Error al cargar el historial", Toast.LENGTH_SHORT).show();
+        }
+
+        if (exportButton != null) {
+            exportButton.setOnClickListener(v -> exportToCSV());
         }
 
         if (eButtonProfile != null) {
@@ -320,6 +330,86 @@ public class ReadingHistoryActivity extends AppCompatActivity {
         }
 
         tableLayout.addView(row);
+    }
+
+    private void exportToCSV() {
+        try {
+            // Crear directorio de exportación
+            File exportDir = new File(getExternalFilesDir(null), "SpeakExports");
+            if (!exportDir.exists()) {
+                exportDir.mkdirs();
+            }
+
+            // Archivo CSV con timestamp
+            String fileNameTimestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+            File csvFile = new File(exportDir, "reading_history_" + fileNameTimestamp + ".csv");
+            FileWriter writer = new FileWriter(csvFile);
+
+            // Encabezados
+            writer.append("Date,Question,Correct Answer,User Answer,Result,Topic,Level\n");
+
+            // Consultar la tabla de reading para el usuario actual
+            Cursor cursor = dbHelper.getReadableDatabase().query(
+                    DatabaseHelper.TABLE_READING,
+                    null,
+                    DatabaseHelper.COLUMN_READING_USER_ID + " = ?",
+                    new String[]{String.valueOf(currentUserId)},
+                    null,
+                    null,
+                    DatabaseHelper.COLUMN_READING_TIMESTAMP + " DESC"
+            );
+
+            if (cursor != null && cursor.moveToFirst()) {
+                do {
+                    long ts = cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_READING_TIMESTAMP));
+                    String date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date(ts));
+                    String question = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_READING_QUESTION));
+                    String correctAnswer = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_READING_CORRECT_ANSWER));
+                    String userAnswer = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_READING_USER_ANSWER));
+                    boolean isCorrect = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_READING_IS_CORRECT)) == 1;
+                    String topic = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_READING_TOPIC));
+                    String level = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_READING_LEVEL));
+
+                    // Escapar comillas y comas
+                    question = "\"" + (question == null ? "" : question.replace("\"", "\"\"")) + "\"";
+                    correctAnswer = "\"" + (correctAnswer == null ? "" : correctAnswer.replace("\"", "\"\"")) + "\"";
+                    userAnswer = "\"" + (userAnswer == null ? "" : userAnswer.replace("\"", "\"\"")) + "\"";
+                    topic = "\"" + (topic == null ? "" : topic.replace("\"", "\"\"")) + "\"";
+                    level = "\"" + (level == null ? "" : level.replace("\"", "\"\"")) + "\"";
+
+                    writer.append(String.format("%s,%s,%s,%s,%s,%s,%s\n",
+                            date,
+                            question,
+                            correctAnswer,
+                            userAnswer,
+                            isCorrect ? "Correct" : "Incorrect",
+                            topic,
+                            level
+                    ));
+                } while (cursor.moveToNext());
+                cursor.close();
+            }
+
+            writer.flush();
+            writer.close();
+
+            // Avisar y compartir
+            String message = "Archivo CSV exportado exitosamente a:\n" + csvFile.getAbsolutePath();
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/csv");
+            Uri csvUri = FileProvider.getUriForFile(this,
+                    getApplicationContext().getPackageName() + ".provider",
+                    csvFile);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, csvUri);
+            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(Intent.createChooser(shareIntent, "Compartir archivo CSV"));
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error exporting reading CSV: " + e.getMessage());
+            Toast.makeText(this, "Error al exportar el archivo CSV", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setupContinueButton() {

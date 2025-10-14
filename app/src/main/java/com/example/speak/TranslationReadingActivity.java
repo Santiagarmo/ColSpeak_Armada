@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.speak.database.DatabaseHelper;
 import com.example.speak.helpers.HelpModalHelper;
+import com.example.speak.helpers.StarEarnedDialog;
+import com.example.speak.helpers.StarProgressHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -569,22 +574,96 @@ public class TranslationReadingActivity extends AppCompatActivity {
         // Mark topic as passed if score >= 70%
         if (finalScore >= 70) {
             markTopicAsPassed();
+            // Sumar 10 puntos de estrella y mostrar modal de estrella (consistente con otras actividades)
+            StarProgressHelper.addSessionPoints(this, 10);
+            new Handler().postDelayed(() -> {
+                try {
+                    StarEarnedDialog.show(TranslationReadingActivity.this);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error mostrando StarEarnedDialog: " + e.getMessage());
+                }
+            }, 200);
         }
         
-        // Launch ReadingResultsActivity
-        Intent intent = new Intent(this, ReadingResultsActivity.class);
-        intent.putExtra("FINAL_SCORE", finalScore);
-        intent.putExtra("TOTAL_QUESTIONS", currentQuestions.size());
-        intent.putExtra("CORRECT_ANSWERS", score);
-        intent.putExtra("TOPIC", selectedTopic);
-        intent.putExtra("LEVEL", "A1.1");
-        intent.putExtra("QUESTION_RESULTS", questionResults);
-        intent.putExtra("QUESTIONS", questions);
-        intent.putExtra("SESSION_TIMESTAMP", sessionTimestamp);
-        
-        Log.d(TAG, "Launching ReadingResultsActivity with session timestamp: " + sessionTimestamp);
-        startActivity(intent);
-        finish();
+        // Mostrar resultados en diálogo con diseño dialog_quiz_result
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_quiz_result, null);
+        builder.setView(dialogView);
+        builder.setCancelable(false);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+
+        android.widget.ImageView birdImageViewDialog = dialogView.findViewById(R.id.birdImageView);
+        android.widget.TextView messageTextView = dialogView.findViewById(R.id.messageTextView);
+        android.widget.TextView counterTextView = dialogView.findViewById(R.id.counterTextView);
+        android.widget.TextView scoreTextView = dialogView.findViewById(R.id.scoreTextView);
+        android.widget.Button btnContinue = dialogView.findViewById(R.id.btnContinue);
+        android.widget.TextView btnReintentar = dialogView.findViewById(R.id.btnReintentar);
+        android.widget.LinearLayout btnViewDetails = dialogView.findViewById(R.id.btnViewDetails);
+
+        // Imagen y mensaje según puntaje
+        if (finalScore >= 90) {
+            messageTextView.setText("Excellent your English is getting better!");
+            birdImageViewDialog.setImageResource(R.drawable.crab_ok);
+        } else if (finalScore >= 70) {
+            messageTextView.setText("Good, but you can do it better!");
+            birdImageViewDialog.setImageResource(R.drawable.crab_test);
+        } else if (finalScore >= 50) {
+            messageTextView.setText("You should practice more!");
+            birdImageViewDialog.setImageResource(R.drawable.crab_test);
+        } else {
+            messageTextView.setText("You should practice more!");
+            birdImageViewDialog.setImageResource(R.drawable.crab_bad);
+        }
+
+        counterTextView.setText(score + "/" + currentQuestions.size());
+        scoreTextView.setText("Score: " + finalScore + "%");
+
+        // Continuar: progresión de Reading
+        btnContinue.setOnClickListener(v -> {
+            String nextReadingTopic = com.example.speak.ProgressionHelper.getNextReadingTopic(selectedTopic);
+            if (nextReadingTopic != null) {
+                Class<?> nextActivityClass = com.example.speak.ProgressionHelper.getReadingActivityClass(nextReadingTopic);
+                Intent next = new Intent(this, nextActivityClass);
+                next.putExtra("TOPIC", nextReadingTopic);
+                next.putExtra("LEVEL", selectedLevel);
+                startActivity(next);
+                finish();
+            } else {
+                Intent back = new Intent(this, MenuReadingActivity.class);
+                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(back);
+                finish();
+            }
+        });
+
+        // Reintentar: reiniciar esta actividad
+        btnReintentar.setText("Try again");
+        btnReintentar.setOnClickListener(v -> {
+            Intent retry = new Intent(this, TranslationReadingActivity.class);
+            retry.putExtra("TOPIC", selectedTopic);
+            retry.putExtra("LEVEL", selectedLevel);
+            startActivity(retry);
+            finish();
+        });
+
+        // Ver resumen: abrir directamente la tabla de resultados (historial) de esta sesión
+        btnViewDetails.setOnClickListener(v -> {
+            Intent details = new Intent(this, ReadingHistoryActivity.class);
+            details.putExtra("TOPIC", selectedTopic);
+            details.putExtra("LEVEL", selectedLevel);
+            details.putExtra("FINAL_SCORE", finalScore);
+            details.putExtra("TOTAL_QUESTIONS", currentQuestions.size());
+            details.putExtra("CORRECT_ANSWERS", score);
+            details.putExtra("SCORE", score);
+            details.putExtra("SHOW_CURRENT_ACTIVITY_ONLY", true);
+            details.putExtra("SESSION_TIMESTAMP", sessionTimestamp);
+            startActivity(details);
+        });
     }
 
     private void saveAnswerToDatabase(TranslationQuestion question, String userAnswer, boolean isCorrect, double accuracy) {

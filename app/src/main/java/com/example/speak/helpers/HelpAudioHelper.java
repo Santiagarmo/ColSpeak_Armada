@@ -51,12 +51,18 @@ public class HelpAudioHelper {
         audioResourceMap.put("alphabet_help_ar", "alphabet_help_ar.mp3");
         
         // Mapeo para números
-        audioResourceMap.put("numbers_help_1_10", "numbers_1_10.mp3");
-        audioResourceMap.put("numbers_help_11_20", "numbers_11_20.mp3");
+        audioResourceMap.put("numbers_help_1_10", "numbers_help_1_10.mp3");
+        audioResourceMap.put("numbers_help_11_20", "numbers_help_11_20.mp3");
         
         // Mapeo para colores
         audioResourceMap.put("colors_help_basic", "colors_basic.mp3");
-        audioResourceMap.put("colors_help_additional", "colors_additional.mp3");
+
+        // Mapeo para personal pronouns
+        audioResourceMap.put("personal_pronouns_help", "personal_pronouns.mp3");
+
+        // Mapeo para possessive adjectives
+        audioResourceMap.put("possessive_adjectives_help", "possessive_adjectives_help.mp3");
+
     }
     
     /**

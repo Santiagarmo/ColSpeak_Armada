@@ -21,6 +21,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import com.example.speak.helpers.StarProgressHelper;
+import com.example.speak.helpers.StarEarnedDialog;
 
 import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGParseException;
@@ -829,32 +834,95 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
 
         if (percentage >= 70) {
             markTopicAsPassed(selectedTopic);
+            // Sumar puntos de estrella y mostrar modal de estrella (igual que en otras actividades)
+            StarProgressHelper.addSessionPoints(this, 10);
+            new Handler().postDelayed(() -> {
+                try {
+                    StarEarnedDialog.show(ImageIdentificationAudioActivity.this);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error mostrando StarEarnedDialog: " + e.getMessage());
+                }
+            }, 200);
         }
 
-        boolean[] questionResults = new boolean[currentQuestions.size()];
-        for (int i = 0; i < currentQuestions.size(); i++) {
-            questionResults[i] = i < score;
+        // Mostrar resultados en diálogo estilo dialog_quiz_result
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_quiz_result, null);
+        builder.setView(dialogView);
+        builder.setCancelable(false);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
 
-        String[] questions = new String[currentQuestions.size()];
-        for (int i = 0; i < currentQuestions.size(); i++) {
-            questions[i] = currentQuestions.get(i).getQuestion();
+        ImageView birdImageViewDialog = dialogView.findViewById(R.id.birdImageView);
+        TextView messageTextView = dialogView.findViewById(R.id.messageTextView);
+        TextView counterTextView = dialogView.findViewById(R.id.counterTextView);
+        TextView scoreTextView = dialogView.findViewById(R.id.scoreTextView);
+        Button btnContinue = dialogView.findViewById(R.id.btnContinue);
+        TextView btnReintentar = dialogView.findViewById(R.id.btnReintentar);
+        LinearLayout btnViewDetails = dialogView.findViewById(R.id.btnViewDetails);
+
+        // Imagen y mensaje según puntaje
+        if (finalScore >= 90) {
+            messageTextView.setText("Excellent your English is getting better!");
+            birdImageViewDialog.setImageResource(R.drawable.crab_ok);
+        } else if (finalScore >= 70) {
+            messageTextView.setText("Good, but you can do it better!");
+            birdImageViewDialog.setImageResource(R.drawable.crab_test);
+        } else if (finalScore >= 50) {
+            messageTextView.setText("You should practice more!");
+            birdImageViewDialog.setImageResource(R.drawable.crab_test);
+        } else {
+            messageTextView.setText("You should practice more!");
+            birdImageViewDialog.setImageResource(R.drawable.crab_bad);
         }
 
-        String sourceMap = getIntent().getStringExtra("SOURCE_MAP");
+        counterTextView.setText(score + "/" + currentQuestions.size());
+        scoreTextView.setText("Score: " + finalScore + "%");
 
-        Intent intent = new Intent(this, ImageIdentificationResultsActivity.class);
-        intent.putExtra("FINAL_SCORE", finalScore);
+        // Continuar: usar progresión de Reading para la variante Audio
+        btnContinue.setOnClickListener(v -> {
+            String nextReadingTopic = ProgressionHelper.getNextImageIdentificationTopicBySource(selectedTopic, "READING");
+            if (nextReadingTopic != null) {
+                Class<?> nextActivityClass = ProgressionHelper.getReadingActivityClass(nextReadingTopic);
+                Intent next = new Intent(this, nextActivityClass);
+                next.putExtra("TOPIC", nextReadingTopic);
+                next.putExtra("LEVEL", selectedLevel);
+                startActivity(next);
+                finish();
+            } else {
+                Intent back = new Intent(this, MenuReadingActivity.class);
+                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(back);
+                finish();
+            }
+        });
+
+        // Reintentar: reiniciar esta actividad
+        btnReintentar.setText("Try again");
+        btnReintentar.setOnClickListener(v -> {
+            Intent retry = new Intent(this, ImageIdentificationAudioActivity.class);
+            retry.putExtra("TOPIC", selectedTopic);
+            retry.putExtra("LEVEL", selectedLevel);
+            startActivity(retry);
+            finish();
+        });
+
+        // Ver resumen (tabla): abrir QuizHistoryActivity filtrado por esta sesión
+        btnViewDetails.setOnClickListener(v -> {
+            Intent intent = new Intent(this, QuizHistoryActivity.class);
+            intent.putExtra("SCORE", score);
         intent.putExtra("TOTAL_QUESTIONS", currentQuestions.size());
-        intent.putExtra("CORRECT_ANSWERS", score);
+            intent.putExtra("QUIZ_TYPE", "Image Identification Audio");
         intent.putExtra("TOPIC", selectedTopic);
-        intent.putExtra("LEVEL", selectedLevel);
-        intent.putExtra("QUESTION_RESULTS", questionResults);
-        intent.putExtra("QUESTIONS", questions);
+            intent.putExtra("SHOW_CURRENT_ACTIVITY_ONLY", true);
         intent.putExtra("SESSION_TIMESTAMP", sessionTimestamp);
-        intent.putExtra("SOURCE_MAP", sourceMap);
         startActivity(intent);
         finish();
+        });
     }
 
     private void saveQuizResults(double percentage) {

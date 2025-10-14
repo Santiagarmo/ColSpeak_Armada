@@ -34,6 +34,10 @@ public class StarEarnedDialog extends Dialog {
         // Configurar el diálogo
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.star_earned_dialog);
+        // Fondo transparente para respetar esquinas redondeadas del layout
+        if (getWindow() != null) {
+            getWindow().setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
+        }
         
         // Hacer el diálogo no cancelable
         setCancelable(false);

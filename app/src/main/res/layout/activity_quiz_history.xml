@@ -112,7 +112,7 @@
         <!-- 📋 Tabla con bordes redondeados y scroll fijo -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="350dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/table_background"

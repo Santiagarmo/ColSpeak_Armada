@@ -17,11 +17,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.speak.database.DatabaseHelper;
 import com.example.speak.helpers.WildcardHelper;
 import com.example.speak.helpers.HelpModalHelper;
+import com.example.speak.helpers.StarProgressHelper;
+import com.example.speak.helpers.StarEarnedDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -685,6 +690,16 @@ public class WritingActivity extends AppCompatActivity {
             String key = "PASSED_WRITING_" + selectedTopic.toUpperCase().replace(" ", "_");
             editor.putBoolean(key, true);
             editor.apply();
+
+            // Sumar puntos de estrella y mostrar modal (consistente con otras actividades)
+            StarProgressHelper.addSessionPoints(this, 10);
+            new Handler().postDelayed(() -> {
+                try {
+                    StarEarnedDialog.show(WritingActivity.this);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error mostrando StarEarnedDialog: " + e.getMessage());
+                }
+            }, 200);
         }
 
         builder.setView(dialogView);
@@ -692,6 +707,9 @@ public class WritingActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
     }
 
     private boolean isNetworkAvailable() {

@@ -31,4 +31,9 @@
     <string name="text_pronun_title">Prueba de expresión oral <b>/ Speaking Test</b></string>
     <string name="text_pronun_topic">Tema <b>/ Topic:</b></string>
 
+    //Comodines
+    <string name="text_comodin"><b>¡Usa tus comodines para ganar!,</b>\n puedes cambiar la pregunta, ver el video del instructor, jugar el 50/50 eliminando dos opciones o activar la ayuda creativa.</string>
+
+    <string name="text_count">Disponibles <b>/ Avaliable</b></string>
+
 </resources>

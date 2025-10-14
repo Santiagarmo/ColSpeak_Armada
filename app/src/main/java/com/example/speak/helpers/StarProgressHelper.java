@@ -22,8 +22,15 @@ public class StarProgressHelper {
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         int current = prefs.getInt(KEY_STAR_POINTS, 0);
         int updated = current + points;
-        prefs.edit().putInt(KEY_STAR_POINTS, updated).apply();
-        Log.d(TAG, "Star points updated: " + current + " -> " + updated);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(KEY_STAR_POINTS, updated);
+
+        // Mantener sincronizado el contador legacy de estrellas (TrophyHelper.getStarCount)
+        int starsFromPoints = updated / 10; // 10 puntos = 1 estrella
+        editor.putInt("star_count", starsFromPoints);
+
+        editor.apply();
+        Log.d(TAG, "Star points updated: " + current + " -> " + updated + ", star_count set to: " + starsFromPoints);
     }
 
     // Estrellas contando sesiones (1 estrella = 10 puntos)

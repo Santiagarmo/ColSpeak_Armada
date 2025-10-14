@@ -1,6 +1,7 @@
 package com.example.speak.pronunciation;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -10,9 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.HorizontalScrollView;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.text.TextUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.core.content.FileProvider;
 
 import com.example.speak.MainActivity;
 import com.example.speak.ProfileActivity;
@@ -20,6 +27,13 @@ import com.example.speak.PronunciationHistoryActivity;
 import com.example.speak.QuizHistoryActivity;
 import com.example.speak.R;
 import com.example.speak.MenuSpeakingActivity;
+import com.example.speak.database.DatabaseHelper;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class PronunciationResultsActivity extends AppCompatActivity {
     
@@ -38,7 +52,7 @@ public class PronunciationResultsActivity extends AppCompatActivity {
     private String level;
     private double[] individualScores;
 
-    private LinearLayout eBtnReturnMenu;
+    private View eBtnReturnMenu;
 
     private boolean birdExpanded = false;
     private ImageView birdMenu;
@@ -47,6 +61,15 @@ public class PronunciationResultsActivity extends AppCompatActivity {
 
     private ImageView eButtonProfile;
     private ImageView homeButton;
+    private LinearLayout exportButton;
+
+    private DatabaseHelper dbHelper;
+
+    // Tabla de resultados (header + contenido) y scroll sincronizado
+    private TableLayout pronunciationResultsTable;
+    private TableLayout pronunciationResultsTableHeader;
+    private HorizontalScrollView pronunciationHeaderScrollView;
+    private HorizontalScrollView pronunciationContentScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,12 +85,14 @@ public class PronunciationResultsActivity extends AppCompatActivity {
         level = intent.getStringExtra("LEVEL");
         individualScores = intent.getDoubleArrayExtra("INDIVIDUAL_SCORES");
 
-        //Declaramos las variables Menu
+        // Declaramos las variables Menu
         birdMenu = findViewById(R.id.imgBirdMenu);
         quizMenu = findViewById(R.id.imgQuizMenu);
         pronunMenu = findViewById(R.id.imgPronunMenu);
         eButtonProfile = findViewById(R.id.btnProfile);
         homeButton = findViewById(R.id.homeButton);
+        exportButton = findViewById(R.id.exportButton);
+        dbHelper = new DatabaseHelper(this);
         
         // Inicializar vistas
         initViews();
@@ -75,8 +100,17 @@ public class PronunciationResultsActivity extends AppCompatActivity {
         // Configurar interfaz
         setupBirdImage();
         setupTexts();
-        setupDetailedResults();
         setupButtons();
+
+        // Inicializar y poblar tabla (estructura tipo historial)
+        initResultsTableViews();
+        setupScrollSync();
+        populatePronunciationResultsTable();
+
+        // Exportar CSV (igual estilo que historial)
+        if (exportButton != null) {
+            exportButton.setOnClickListener(v -> exportPronunciationToCSV());
+        }
 
         if (eButtonProfile != null) {
             eButtonProfile.setOnClickListener(v -> {
@@ -144,6 +178,63 @@ public class PronunciationResultsActivity extends AppCompatActivity {
                     fadeOutView(pronunMenu);
                 }
             });
+        }
+    }
+
+    private void exportPronunciationToCSV() {
+        try {
+            // Crear directorio propio
+            File exportDir = new File(getExternalFilesDir(null), "SpeakExports");
+            if (!exportDir.exists()) exportDir.mkdirs();
+
+            String ts = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+            File csvFile = new File(exportDir, "pronunciation_history_" + ts + ".csv");
+            FileWriter writer = new FileWriter(csvFile);
+
+            // Encabezados
+            writer.append("Date,Reference Text,Spoken Text,Score,Topic,Level\n");
+
+            android.database.Cursor cursor = dbHelper.getPronunciationHistory();
+            if (cursor != null && cursor.moveToFirst()) {
+                do {
+                    long timestamp = cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP));
+                    String date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date(timestamp));
+                    String refText = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REFERENCE_TEXT));
+                    String spoken = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_SPOKEN_TEXT));
+                    double score = cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.COLUMN_SCORE));
+                    String topicVal = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC));
+                    String levelVal = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL));
+
+                    // Escapar comillas
+                    refText = "\"" + (refText == null ? "" : refText.replace("\"", "\"\"")) + "\"";
+                    spoken = "\"" + (spoken == null ? "" : spoken.replace("\"", "\"\"")) + "\"";
+                    topicVal = "\"" + (topicVal == null ? "" : topicVal.replace("\"", "\"\"")) + "\"";
+                    levelVal = "\"" + (levelVal == null ? "" : levelVal.replace("\"", "\"\"")) + "\"";
+
+                    writer.append(String.format(Locale.US, "%s,%s,%s,%.1f%%,%s,%s\n",
+                            date, refText, spoken, score * 100.0, topicVal, levelVal));
+                } while (cursor.moveToNext());
+                cursor.close();
+            }
+
+            writer.flush();
+            writer.close();
+
+            // Avisar y compartir
+            String message = "Archivo CSV exportado exitosamente a:\n" + csvFile.getAbsolutePath();
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/csv");
+            Uri csvUri = FileProvider.getUriForFile(this,
+                    getApplicationContext().getPackageName() + ".provider",
+                    csvFile);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, csvUri);
+            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(Intent.createChooser(shareIntent, "Compartir archivo CSV"));
+
+        } catch (Exception e) {
+            Toast.makeText(this, "Error al exportar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -220,72 +311,7 @@ public class PronunciationResultsActivity extends AppCompatActivity {
         ));
     }
     
-    private void setupDetailedResults() {
-        if (individualScores != null) {
-            for (int i = 0; i < individualScores.length; i++) {
-                addQuestionResult(i + 1, individualScores[i]);
-            }
-        }
-    }
     
-    private void addQuestionResult(int questionNumber, double score) {
-        // Crear card para cada pregunta
-        CardView cardView = new CardView(this);
-        LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        cardParams.setMargins(0, 8, 0, 8);
-        cardView.setLayoutParams(cardParams);
-        cardView.setRadius(8f);
-        cardView.setCardElevation(4f);
-        
-        // Layout interno de la card
-        LinearLayout cardContent = new LinearLayout(this);
-        cardContent.setOrientation(LinearLayout.HORIZONTAL);
-        cardContent.setPadding(16, 12, 16, 12);
-        cardContent.setGravity(android.view.Gravity.CENTER_VERTICAL);
-        
-        // Número de pregunta
-        TextView questionNumberText = new TextView(this);
-        questionNumberText.setText("Pregunta " + questionNumber);
-        questionNumberText.setTextSize(16);
-        questionNumberText.setTextColor(getResources().getColor(android.R.color.black));
-        
-        // Espacio
-        View spacer = new View(this);
-        LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(0, 0);
-        spacerParams.weight = 1;
-        spacer.setLayoutParams(spacerParams);
-        
-        // Puntaje
-        TextView scoreText = new TextView(this);
-        scoreText.setText(String.format("%.1f%%", score));
-        scoreText.setTextSize(16);
-        scoreText.setTypeface(null, android.graphics.Typeface.BOLD);
-        
-        // Estado (aprobado/reprobado)
-        TextView statusText = new TextView(this);
-        if (score >= 70) {
-            statusText.setText("✅ Aprobada");
-            statusText.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-            scoreText.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-        } else {
-            statusText.setText("❌ Reprobada");
-            statusText.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
-            scoreText.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
-        }
-        statusText.setTextSize(14);
-        
-        // Agregar vistas al layout
-        cardContent.addView(questionNumberText);
-        cardContent.addView(spacer);
-        cardContent.addView(scoreText);
-        cardContent.addView(statusText);
-        
-        cardView.addView(cardContent);
-        detailsContainer.addView(cardView);
-    }
     
     private void setupButtons() {
         // Botón volver al mapa
@@ -309,6 +335,134 @@ public class PronunciationResultsActivity extends AppCompatActivity {
         } else {
             btnRetry.setVisibility(View.GONE);
         }
+    }
+
+    // Cards de resultados eliminadas a petición: la vista usa solo la tabla superior
+
+    private void initResultsTableViews() {
+        pronunciationResultsTableHeader = findViewById(R.id.pronunciationResultsTableHeader);
+        pronunciationResultsTable = findViewById(R.id.pronunciationResultsTable);
+        pronunciationHeaderScrollView = findViewById(R.id.pronunciationHeaderScrollView);
+        pronunciationContentScrollView = findViewById(R.id.pronunciationContentScrollView);
+    }
+
+    private void setupScrollSync() {
+        if (pronunciationHeaderScrollView != null && pronunciationContentScrollView != null) {
+            final boolean[] isSyncing = {false};
+
+            pronunciationHeaderScrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+                if (!isSyncing[0]) {
+                    isSyncing[0] = true;
+                    pronunciationContentScrollView.scrollTo(scrollX, scrollY);
+                    isSyncing[0] = false;
+                }
+            });
+
+            pronunciationContentScrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+                if (!isSyncing[0]) {
+                    isSyncing[0] = true;
+                    pronunciationHeaderScrollView.scrollTo(scrollX, scrollY);
+                    isSyncing[0] = false;
+                }
+            });
+        }
+    }
+
+    private void populatePronunciationResultsTable() {
+        if (pronunciationResultsTableHeader == null || pronunciationResultsTable == null) return;
+
+        // Encabezado
+        pronunciationResultsTableHeader.removeAllViews();
+        addTableHeader(pronunciationResultsTableHeader);
+
+        // Datos (mostrar todo el historial del usuario)
+        android.database.Cursor cursor = null;
+        try {
+            cursor = dbHelper.getPronunciationHistory();
+            if (cursor != null && cursor.moveToFirst()) {
+                pronunciationResultsTable.removeAllViews();
+                do {
+                    addTableRow(pronunciationResultsTable, cursor);
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "Error al cargar resultados: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        } finally {
+            if (cursor != null) cursor.close();
+        }
+    }
+
+    private void addTableHeader(TableLayout table) {
+        TableRow headerRow = new TableRow(this);
+        headerRow.setBackgroundColor(getResources().getColor(R.color.header_blue_table));
+
+        String[] headers = {"Date", "Reference Text", "Spoken Text", "Score", "Topic", "Level"};
+        for (String header : headers) {
+            TextView textView = new TextView(this);
+            textView.setText(header);
+            textView.setTextColor(Color.WHITE);
+            textView.setTextSize(16);
+            textView.setPadding(16, 12, 16, 12);
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setMinWidth(220);
+            textView.setSingleLine(true);
+            textView.setEllipsize(TextUtils.TruncateAt.END);
+            headerRow.addView(textView);
+        }
+        table.addView(headerRow);
+    }
+
+    private void addTableRow(TableLayout table, android.database.Cursor cursor) {
+        TableRow row = new TableRow(this);
+        row.setBackgroundColor(cursor.getPosition() % 2 == 0 ?
+                getResources().getColor(R.color.white) :
+                getResources().getColor(R.color.light_gray));
+
+        long timestamp = cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP));
+        String date = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault())
+                .format(new java.util.Date(timestamp));
+
+        String refText = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REFERENCE_TEXT));
+        String spoken = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_SPOKEN_TEXT));
+        double score = cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.COLUMN_SCORE));
+        String topicVal = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC));
+        String levelVal = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL));
+
+        String[] cellContents = {
+                date,
+                refText != null ? refText : "",
+                spoken != null ? spoken : "",
+                String.format(java.util.Locale.US, "%.1f%%", score * 100.0),
+                topicVal != null ? topicVal : "",
+                levelVal != null ? levelVal : ""
+        };
+
+        for (int i = 0; i < cellContents.length; i++) {
+            TextView textView = new TextView(this);
+            textView.setText(cellContents[i]);
+            textView.setTextSize(14);
+            textView.setPadding(16, 12, 16, 12);
+            textView.setMinWidth(200);
+            textView.setMaxWidth(600);
+            textView.setEllipsize(TextUtils.TruncateAt.END);
+            textView.setMaxLines(3);
+
+            // Color de la columna Score
+            if (i == 3) {
+                if (score >= 0.7) {
+                    textView.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                } else if (score >= 0.5) {
+                    textView.setTextColor(Color.rgb(255, 165, 0));
+                } else {
+                    textView.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+                }
+                textView.setTypeface(null, Typeface.BOLD);
+            }
+
+            row.addView(textView);
+        }
+
+        table.addView(row);
     }
 
     //Return Menú

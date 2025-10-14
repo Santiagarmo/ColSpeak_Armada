@@ -173,7 +173,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp">
 
             <!-- Primera fila -->
             <LinearLayout
@@ -181,6 +189,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="16dp">
 
                 <ImageButton
@@ -212,6 +222,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginTop="16dp">
 
                 <ImageButton
@@ -241,14 +253,18 @@
         <!-- Botón siguiente -->
         <Button
             android:id="@+id/nextButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Siguiente"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:backgroundTint="#FF9017"
             android:textColor="@android:color/white"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="32dp"
+            android:layout_gravity="center"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:minWidth="0dp"
             android:visibility="gone" />
     </LinearLayout>
 </ScrollView>

@@ -336,6 +336,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.insert(TABLE_PRONUNCIATION, null, values);
     }
 
+    // Sobrecarga: guardar resultado de pronunciación con timestamp de sesión
+    public long savePronunciationResult(long userId, String referenceText, String spokenText,
+                                       double score, String topic, String level, long timestamp) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USER_ID, userId);
+        values.put(COLUMN_REFERENCE_TEXT, referenceText);
+        values.put(COLUMN_SPOKEN_TEXT, spokenText);
+        values.put(COLUMN_SCORE, score);
+        values.put(COLUMN_SYNC_STATUS, 0);
+        values.put(COLUMN_TOPIC, topic);
+        values.put(COLUMN_LEVEL, level);
+        values.put(COLUMN_TIMESTAMP, timestamp);
+        return db.insert(TABLE_PRONUNCIATION, null, values);
+    }
+
     // Método para obtener el historial de pronunciación por tema
     public Cursor getPronunciationHistoryByTopic(String topic, String level) {
         SQLiteDatabase db = this.getReadableDatabase();

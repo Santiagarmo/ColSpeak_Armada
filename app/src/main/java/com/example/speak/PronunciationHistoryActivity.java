@@ -1,10 +1,15 @@
 package com.example.speak;
 
 // Importaciones necesarias para trabajar con UI, base de datos y diseño
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TableLayout;
@@ -33,6 +38,15 @@ public class PronunciationHistoryActivity extends AppCompatActivity{
     private DatabaseHelper dbHelper;
     private TableLayout tableLayout;
 
+    // Menú inferior
+    private ImageView birdMenu;
+    private ImageView quizMenu;
+    private ImageView pronunMenu;
+    private ImageView eButtonProfile;
+    private ImageView homeButton;
+    private androidx.constraintlayout.widget.ConstraintLayout eBtnReturnMenu;
+    private boolean birdExpanded = false;
+
     /**
      * Método que se ejecuta al crear la actividad.
      * Inicializa el layout, la base de datos y carga el historial.
@@ -52,11 +66,78 @@ public class PronunciationHistoryActivity extends AppCompatActivity{
             dbHelper = new DatabaseHelper(this);
             tableLayout = findViewById(R.id.quizHistoryTable);
 
+            // Referencias de menú inferior
+            birdMenu = findViewById(R.id.imgBirdMenu);
+            quizMenu = findViewById(R.id.imgQuizMenu);
+            pronunMenu = findViewById(R.id.imgPronunMenu);
+            eButtonProfile = findViewById(R.id.btnProfile);
+            homeButton = findViewById(R.id.homeButton);
+            eBtnReturnMenu = findViewById(R.id.eBtnReturnMenu);
+
             if (tableLayout != null) {
                 loadPronunciationHistory(); // Carga los datos en la tabla
             } else {
                 Log.e(TAG, "TableLayout not found");
                 Toast.makeText(this, "Error al cargar la tabla", Toast.LENGTH_SHORT).show();
+            }
+
+            // Listeners de menú inferior (igual que en QuizHistoryActivity)
+            if (eButtonProfile != null) {
+                eButtonProfile.setOnClickListener(v -> {
+                    try {
+                        startActivity(new android.content.Intent(PronunciationHistoryActivity.this, ProfileActivity.class));
+                    } catch (Exception e) {
+                        Toast.makeText(PronunciationHistoryActivity.this, "Error opening activity: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            if (homeButton != null) {
+                homeButton.setOnClickListener(v -> {
+                    try {
+                        startActivity(new android.content.Intent(PronunciationHistoryActivity.this, MainActivity.class));
+                    } catch (Exception e) {
+                        Toast.makeText(PronunciationHistoryActivity.this, "Error opening activity: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            if (quizMenu != null) {
+                quizMenu.setOnClickListener(v -> {
+                    try {
+                        startActivity(new android.content.Intent(PronunciationHistoryActivity.this, QuizHistoryActivity.class));
+                    } catch (Exception e) {
+                        Toast.makeText(PronunciationHistoryActivity.this, "Error opening activity: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            if (pronunMenu != null) {
+                pronunMenu.setOnClickListener(v -> {
+                    // ya estamos en PronunciationHistoryActivity; opcionalmente refrescar
+                    try {
+                        loadPronunciationHistory();
+                    } catch (Exception ignored) {}
+                });
+            }
+
+            if (birdMenu != null) {
+                birdMenu.setOnClickListener(v -> {
+                    birdExpanded = !birdExpanded;
+                    if (birdExpanded) {
+                        birdMenu.setImageResource(R.drawable.bird1_menu);
+                        fadeInView(quizMenu);
+                        fadeInView(pronunMenu);
+                    } else {
+                        birdMenu.setImageResource(R.drawable.bird0_menu);
+                        fadeOutView(quizMenu);
+                        fadeOutView(pronunMenu);
+                    }
+                });
+            }
+
+            if (eBtnReturnMenu != null) {
+                eBtnReturnMenu.setOnClickListener(v -> ReturnMenu());
             }
         } catch (Exception e) {
             Log.e(TAG, "Error in onCreate: " + e.getMessage());
@@ -174,5 +255,32 @@ public class PronunciationHistoryActivity extends AppCompatActivity{
         if (dbHelper != null) {
             dbHelper.close();
         }
+    }
+
+    // Animaciones de menú (mismo comportamiento que en QuizHistoryActivity)
+    private void fadeOutView(final View view) {
+        if (view == null) return;
+        Animation fadeOut = new AlphaAnimation(1, 0);
+        fadeOut.setDuration(500);
+        fadeOut.setAnimationListener(new Animation.AnimationListener() {
+            @Override public void onAnimationStart(Animation animation) {}
+            @Override public void onAnimationEnd(Animation animation) { view.setVisibility(View.GONE); }
+            @Override public void onAnimationRepeat(Animation animation) {}
+        });
+        view.startAnimation(fadeOut);
+    }
+
+    private void fadeInView(final View view) {
+        if (view == null) return;
+        view.setVisibility(View.VISIBLE);
+        Animation fadeIn = new AlphaAnimation(0, 1);
+        fadeIn.setDuration(500);
+        view.startAnimation(fadeIn);
+    }
+
+    //Return Menú
+    private void ReturnMenu() {
+        startActivity(new Intent(PronunciationHistoryActivity.this, MainActivity.class));
+        Toast.makeText(PronunciationHistoryActivity.this, "Has retornado al menú correctamente.", Toast.LENGTH_SHORT).show();
     }
 }

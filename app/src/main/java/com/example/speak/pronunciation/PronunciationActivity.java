@@ -60,6 +60,8 @@ import com.example.speak.ProgressionHelper;
 import com.example.speak.pronunciation.PronunciationResultsActivity;
 import com.example.speak.helpers.WildcardHelper;
 import com.example.speak.helpers.HelpModalHelper;
+import com.example.speak.helpers.StarProgressHelper;
+import com.example.speak.helpers.StarEarnedDialog;
 
 // Actividad principal de pronunciación
 public class PronunciationActivity extends AppCompatActivity {
@@ -110,6 +112,7 @@ public class PronunciationActivity extends AppCompatActivity {
     private ImageView wildcardButton;
     private List<Double> questionScores; // Puntuaciones reales de cada pregunta
     private int totalCorrectAnswers = 0; // Contador de respuestas correctas
+    private long sessionTimestamp; // Timestamp de sesión para agrupar resultados
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +121,10 @@ public class PronunciationActivity extends AppCompatActivity {
 
         // Inicializar DatabaseHelper
         dbHelper = new DatabaseHelper(this);
+
+        // Inicializar timestamp de sesión
+        sessionTimestamp = System.currentTimeMillis();
+        Log.d(TAG, "Session timestamp (Pronunciation) initialized: " + sessionTimestamp);
 
         // Recibir los parámetros enviados desde el menú
         Intent intent = getIntent();
@@ -784,47 +791,44 @@ public class PronunciationActivity extends AppCompatActivity {
         if (finalScore >= 100) {
             messageTextView.setText("Excellent your English is getting better!");
             birdImageView.setImageResource(R.drawable.crab_ok);
-            playVictorySound();
         } else if (finalScore >= 90) {
             messageTextView.setText("Good, but you can do it better!");
             birdImageView.setImageResource(R.drawable.crab_ok);
-            playVictorySound();
         } else if (finalScore >= 80) {
             messageTextView.setText("Good, but you can do it better!");
             birdImageView.setImageResource(R.drawable.crab_ok);
-            playVictorySound();
         } else if (finalScore >= 69) {
             messageTextView.setText("You should practice more!");
             birdImageView.setImageResource(R.drawable.crab_test);
-            playVictorySound();
         } else if (finalScore >= 60) {
             messageTextView.setText("You should practice more!");
             birdImageView.setImageResource(R.drawable.crab_test);
-            playVictorySound();
         } else if (finalScore >= 50) {
             messageTextView.setText("You should practice more!");
             birdImageView.setImageResource(R.drawable.crab_bad);
-            playVictorySound();
         } else if (finalScore >= 40) {
             messageTextView.setText("You should practice more!");
             birdImageView.setImageResource(R.drawable.crab_bad);
-            playVictorySound();
         } else if (finalScore >= 30) {
             messageTextView.setText("You should practice more!");
             birdImageView.setImageResource(R.drawable.crab_bad);
-            playVictorySound();
         } else if (finalScore >= 20) {
             messageTextView.setText("You should practice more!");
             birdImageView.setImageResource(R.drawable.crab_bad);
-            playVictorySound();
-        }else {
+        } else {
             messageTextView.setText("You should practice more!");
             birdImageView.setImageResource(R.drawable.crab_bad);
-            playVictorySound();
         }
 
         scoreTextView.setText("Score: " + finalScore + "%");
         counterTextView.setText(passedQuestions + "/" + totalQuestions);
+
+        // Sonido final: victoria si aprueba (>=70), derrota si no
+        if (finalScore >= 70) {
+            playVictorySound();
+        } else {
+            playDefeatSound();
+        }
 
         // Crear copias final para usar en lambdas (CORREGIDO: Variables effectively final)
         final String finalSelectedTopic = selectedTopic;
@@ -886,7 +890,7 @@ public class PronunciationActivity extends AppCompatActivity {
             Intent intent = new Intent(this, PronunciationResultsActivity.class);
             intent.putExtra("FINAL_SCORE", finalScoreForLambda);
             intent.putExtra("TOTAL_QUESTIONS", finalTotalQuestions);
-            intent.putExtra("PASSED_QUESTIONS", finalPassedQuestions); // CORREGIDO: Usar variable final
+            intent.putExtra("PASSED_QUESTIONS", finalPassedQuestions);
             intent.putExtra("TOPIC", finalSelectedTopic);
             intent.putExtra("LEVEL", finalSelectedLevel);
             // Pasar las puntuaciones individuales
@@ -895,9 +899,23 @@ public class PronunciationActivity extends AppCompatActivity {
                 scoresArray[i] = questionScores.get(i);
             }
             intent.putExtra("INDIVIDUAL_SCORES", scoresArray);
+            // Pasar el mismo timestamp de sesión para filtrar resultados de pronunciación
+            intent.putExtra("SESSION_TIMESTAMP", sessionTimestamp);
             startActivity(intent);
             finish();
         });
+
+        // Mostrar modal de estrella ganada si aprobó (igual a ListeningActivity)
+        final int finalScoreCaptured = finalScore;
+        if (finalScoreCaptured >= 70) {
+            new Handler().postDelayed(() -> {
+                try {
+                    StarEarnedDialog.show(PronunciationActivity.this);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error mostrando StarEarnedDialog: " + e.getMessage());
+                }
+            }, 200);
+        }
 
     }
 
@@ -1089,7 +1107,8 @@ public class PronunciationActivity extends AppCompatActivity {
                         recognizedText,
                         score,
                         currentQuestion.getTopic(),
-                        currentQuestion.getLevel()
+                        currentQuestion.getLevel(),
+                        sessionTimestamp
                     );
                     if (resultId != -1) {
                         Log.d(TAG, "Pronunciation result saved locally with ID: " + resultId);
@@ -1160,7 +1179,8 @@ public class PronunciationActivity extends AppCompatActivity {
                                 recognizedText,
                                 score,
                                 currentQuestion.getTopic(),
-                                currentQuestion.getLevel()
+                                currentQuestion.getLevel(),
+                                sessionTimestamp
                             );
                             if (resultId != -1) {
                                 Log.d(TAG, "Pronunciation result saved locally (online stop) ID: " + resultId);
@@ -1547,6 +1567,22 @@ public class PronunciationActivity extends AppCompatActivity {
                 editor.putBoolean(progressKey, true);
                 Log.d(TAG, "✅ PRONUNCIACIÓN APROBADA - Clave: " + progressKey + " = true");
                 Log.d(TAG, "✅ Puntaje guardado - Clave: " + scoreKey + " = " + averageScore + "%");
+
+                // También actualizar las claves genéricas usadas para trofeos (como en Listening)
+                if ("ALPHABET".equals(selectedTopic)) {
+                    editor.putBoolean("PASSED_ALPHABET", true);
+                } else if ("NUMBERS".equals(selectedTopic)) {
+                    editor.putBoolean("PASSED_NUMBERS", true);
+                } else if ("COLORS".equals(selectedTopic)) {
+                    editor.putBoolean("PASSED_COLORS", true);
+                } else if ("PERSONAL PRONOUNS".equals(selectedTopic)) {
+                    editor.putBoolean("PASSED_PERSONAL_PRONOUNS", true);
+                } else if ("POSSESSIVE ADJECTIVES".equals(selectedTopic)) {
+                    editor.putBoolean("PASSED_POSSESSIVE_ADJECTIVES", true);
+                }
+
+                // Sumar estrellas por sesión aprobada (10 puntos)
+                StarProgressHelper.addSessionPoints(this, 10);
                 
                 Toast.makeText(this, "¡Felicidades! Has completado " + selectedTopic + " con " + 
                     String.format("%.1f%%", averageScore), Toast.LENGTH_LONG).show();

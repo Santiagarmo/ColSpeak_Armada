@@ -124,6 +124,11 @@ public class HelpContentHelper {
                         List<HelpActivity.HelpSection> alphabetSections = createAlphabetHelpSection(currentQuestions);
                         helpSections.addAll(alphabetSections);
                         Log.d(TAG, "Added " + alphabetSections.size() + " alphabet sections");
+                    } else if (currentTopic.equalsIgnoreCase("NUMBERS")) {
+                        // Para números, crear 2 secciones (1-10 y 11-20)
+                        List<HelpActivity.HelpSection> numberSections = createNumbersHelpSections(currentQuestions);
+                        helpSections.addAll(numberSections);
+                        Log.d(TAG, "Added " + numberSections.size() + " number sections");
                     } else {
                         // Para otros temas, crear una sola sección
                         helpSections.add(createHelpSection(currentTopic, currentQuestions));
@@ -157,6 +162,11 @@ public class HelpContentHelper {
                 List<HelpActivity.HelpSection> alphabetSections = createAlphabetHelpSection(currentQuestions);
                 helpSections.addAll(alphabetSections);
                 Log.d(TAG, "Added " + alphabetSections.size() + " alphabet sections");
+            } else if (currentTopic.equalsIgnoreCase("NUMBERS")) {
+                // Para números, crear 2 secciones (1-10 y 11-20)
+                List<HelpActivity.HelpSection> numberSections = createNumbersHelpSections(currentQuestions);
+                helpSections.addAll(numberSections);
+                Log.d(TAG, "Added " + numberSections.size() + " number sections");
             } else {
                 // Para otros temas, crear una sola sección
                 helpSections.add(createHelpSection(currentTopic, currentQuestions));
@@ -198,11 +208,11 @@ public class HelpContentHelper {
                 break;
             case "PERSONAL PRONOUNS":
                 Log.d(TAG, "Creating PERSONAL PRONOUNS help section");
-                section = createGenericHelpSection(topic, questions);
+                section = createPersonalPronounsHelpSection(questions);
                 break;
             case "POSSESSIVE ADJECTIVES":
                 Log.d(TAG, "Creating POSSESSIVE ADJECTIVES help section");
-                section = createGenericHelpSection(topic, questions);
+                section = createPossessiveAdjectivesHelpSection(questions);
                 break;
             case "DAYS OF THE WEEK":
                 Log.d(TAG, "Creating DAYS OF THE WEEK help section");
@@ -389,7 +399,7 @@ public class HelpContentHelper {
         section4.currentImageIndex = 0;
         section4.letters = group4.toArray(new String[0]);
         sections.add(section4);
-        
+
         // Sección 5: Quinta parte de letras
         HelpActivity.HelpSection section5 = new HelpActivity.HelpSection();
         section5.title = "Alfabeto - Parte 5 /\n Alphabet - Part 5";
@@ -445,29 +455,57 @@ public class HelpContentHelper {
      * Crea sección de ayuda para números
      */
     private HelpActivity.HelpSection createNumbersHelpSection(List<String> questions) {
-        HelpActivity.HelpSection section = new HelpActivity.HelpSection();
-        section.title = "Números / Numbers";
-        section.centralSound = "1-20";
-        section.audioResource = "numbers_help_1_10"; // Usar un audio específico del mapeo
-        
-        // Configurar imágenes secuenciales para números
-        section.hasSequentialImages = true;
-        section.imageResources = new String[]{"numbers_help_1", "numbers_help_2"};
-        section.imageDisplayOrder = 2;
-        section.imageDescription = "Números del 1 al 20 en inglés";
-        section.currentImageIndex = 0;
-        
-        // Convertir preguntas a formato de números
-        List<String> numbers = new ArrayList<>();
-        for (String question : questions) {
-            if (question.toLowerCase().matches(".*\\d+.*") || 
-                question.toLowerCase().matches(".*(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty).*")) {
-                numbers.add(question);
+        // Retrocompatibilidad: devuelve la sección 1-10 si se invoca este método
+        List<HelpActivity.HelpSection> sections = createNumbersHelpSections(questions);
+        return sections.isEmpty() ? new HelpActivity.HelpSection() : sections.get(0);
+    }
+
+    private List<HelpActivity.HelpSection> createNumbersHelpSections(List<String> questions) {
+        List<HelpActivity.HelpSection> sections = new ArrayList<>();
+
+        // Sección A: 1-10
+        HelpActivity.HelpSection s1 = new HelpActivity.HelpSection();
+        s1.title = "Números 1-10 /\n Numbers 1-10";
+        s1.centralSound = "1-10";
+        s1.audioResource = "numbers_help_1_10";
+        s1.hasSequentialImages = true;
+        // Una sola imagen para evitar paginación
+        s1.imageResources = new String[]{"numbers_help_1"};
+        s1.imageDisplayOrder = 1;
+        s1.imageDescription = "Números del 0 al 10 en inglés";
+        s1.currentImageIndex = 0;
+        List<String> list1 = new ArrayList<>();
+        for (String q : questions) {
+            String x = q.toLowerCase();
+            if (x.matches(".*(one|two|three|four|five|six|seven|eight|nine|ten).*") || x.matches(".*\\b([1-9]|10)\\b.*")) {
+                list1.add(q);
             }
         }
-        
-        section.letters = numbers.toArray(new String[0]);
-        return section;
+        s1.letters = list1.toArray(new String[0]);
+        sections.add(s1);
+
+        // Sección B: 11-20
+        HelpActivity.HelpSection s2 = new HelpActivity.HelpSection();
+        s2.title = "Números 11-20 /\n Numbers 11-20";
+        s2.centralSound = "11-20";
+        s2.audioResource = "numbers_help_11_20";
+        s2.hasSequentialImages = true;
+        // Una sola imagen para evitar paginación
+        s2.imageResources = new String[]{"numbers_help_2"};
+        s2.imageDisplayOrder = 2;
+        s2.imageDescription = "Números del 11 al 19 en inglés";
+        s2.currentImageIndex = 0;
+        List<String> list2 = new ArrayList<>();
+        for (String q : questions) {
+            String x = q.toLowerCase();
+            if (x.matches(".*(eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty).*") || x.matches(".*\\b(1[1-9]|20)\\b.*")) {
+                list2.add(q);
+            }
+        }
+        s2.letters = list2.toArray(new String[0]);
+        sections.add(s2);
+
+        return sections;
     }
     
     /**
@@ -481,8 +519,8 @@ public class HelpContentHelper {
         
         // Configurar imágenes secuenciales para colores
         section.hasSequentialImages = true;
-        section.imageResources = new String[]{"colors_help_1", "colors_help_2"};
-        section.imageDisplayOrder = 3;
+        section.imageResources = new String[]{"colors_help_1"};
+        section.imageDisplayOrder = 1;
         section.imageDescription = "Colores básicos en inglés";
         section.currentImageIndex = 0;
         
@@ -495,6 +533,64 @@ public class HelpContentHelper {
         }
         
         section.letters = colors.toArray(new String[0]);
+        return section;
+    }
+
+    /**
+     * Crea sección de ayuda para Personal Pronouns con una imagen de apoyo
+     */
+    private HelpActivity.HelpSection createPersonalPronounsHelpSection(List<String> questions) {
+        HelpActivity.HelpSection section = new HelpActivity.HelpSection();
+        section.title = "Pronombres personales /\n Personal pronouns";
+        section.centralSound = "PRN";
+        section.audioResource = "personal_pronouns_help"; // agrega el MP3 en assets y mapea si lo deseas
+
+        // Configurar imagen de apoyo (una sola imagen)
+        section.hasSequentialImages = true;
+        section.imageResources = new String[]{"help_personal_pronouns"};
+        section.imageDisplayOrder = 1;
+        section.imageDescription = "Los Personal Pronouns (Pronombres Personales) son palabras que usamos para reemplazar los nombres de personas, animales o cosas cuando son el sujeto de la oración.";
+        section.currentImageIndex = 0;
+
+        // Filtrar frases que contengan pronombres personales comunes
+        List<String> items = new ArrayList<>();
+        for (String q : questions) {
+            String x = q.toLowerCase();
+            if (x.matches(".*\\b(i|you|he|she|it|we|they|me|him|her|us|them|my|your|his|her|its|our|their)\\b.*")) {
+                items.add(q);
+            }
+        }
+
+        section.letters = items.toArray(new String[0]);
+        return section;
+    }
+
+    /**
+     * Crea sección de ayuda para Possessive Adjectives con una imagen de apoyo
+     */
+    private HelpActivity.HelpSection createPossessiveAdjectivesHelpSection(List<String> questions) {
+        HelpActivity.HelpSection section = new HelpActivity.HelpSection();
+        section.title = "Adjetivos posesivos /\n Possessive adjectives";
+        section.centralSound = "POS";
+        section.audioResource = "possessive_adjectives_help"; // agrega el MP3 en assets y mapea si lo deseas
+
+        // Imagen de apoyo única
+        section.hasSequentialImages = true;
+        section.imageResources = new String[]{"help_possessive_adjectives"};
+        section.imageDisplayOrder = 1;
+        section.imageDescription = "Los Possessive Adjectives (Adjetivos Posesivos) indican pertenencia: my, your, his, her, its, our, their.";
+        section.currentImageIndex = 0;
+
+        // Filtrar frases con adjetivos posesivos comunes
+        List<String> items = new ArrayList<>();
+        for (String q : questions) {
+            String x = q.toLowerCase();
+            if (x.matches(".*\\b(my|your|his|her|its|our|their)\\b.*")) {
+                items.add(q);
+            }
+        }
+
+        section.letters = items.toArray(new String[0]);
         return section;
     }
     
