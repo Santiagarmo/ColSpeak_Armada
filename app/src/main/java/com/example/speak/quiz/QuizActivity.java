@@ -451,17 +451,18 @@ public class QuizActivity extends AppCompatActivity {
     // Método para resetear el estado de los botones (solo colores)
     private void resetButtonStates() {
         // Reset button colors only
+        int customColor = Color.parseColor("#1A4F7C");
         if (option1Button.getVisibility() == View.VISIBLE) {
-            option1Button.setBackgroundTintList(getColorStateList(R.color.primary));
+            option1Button.setBackgroundTintList(android.content.res.ColorStateList.valueOf(customColor));
         }
         if (option2Button.getVisibility() == View.VISIBLE) {
-            option2Button.setBackgroundTintList(getColorStateList(R.color.primary));
+            option2Button.setBackgroundTintList(android.content.res.ColorStateList.valueOf(customColor));
         }
         if (option3Button.getVisibility() == View.VISIBLE) {
-            option3Button.setBackgroundTintList(getColorStateList(R.color.primary));
+            option3Button.setBackgroundTintList(android.content.res.ColorStateList.valueOf(customColor));
         }
         if (option4Button.getVisibility() == View.VISIBLE) {
-            option4Button.setBackgroundTintList(getColorStateList(R.color.primary));
+            option4Button.setBackgroundTintList(android.content.res.ColorStateList.valueOf(customColor));
         }
     }
 
@@ -595,12 +596,12 @@ public class QuizActivity extends AppCompatActivity {
         // Apply colors (same logic as ListeningActivity)
         if (isCorrect) {
             // Selected answer is correct - show green
-            getButtonByIndex(selectedOption).setBackgroundTintList(getColorStateList(android.R.color.holo_green_light));
+            getButtonByIndex(selectedOption).setBackgroundTintList(getColorStateList(R.color.verdeSena));
         } else {
             // Selected answer is wrong - show red for selected, green for correct
             getButtonByIndex(selectedOption).setBackgroundTintList(getColorStateList(android.R.color.holo_red_light));
             if (correctIndex != selectedOption && correctIndex != -1) {
-                getButtonByIndex(correctIndex).setBackgroundTintList(getColorStateList(android.R.color.holo_green_light));
+                getButtonByIndex(correctIndex).setBackgroundTintList(getColorStateList(R.color.verdeSena));
             }
         }
 
@@ -916,7 +917,7 @@ public class QuizActivity extends AppCompatActivity {
         TextView textView = new TextView(this);
         textView.setText(text);
         textView.setTextColor(isCorrect ?
-            getResources().getColor(R.color.limegreen) :
+            getResources().getColor(R.color.verdeSena) :
             getResources().getColor(R.color.black));
         textView.setPadding(12, 12, 12, 12);
         textView.setTextSize(14);
