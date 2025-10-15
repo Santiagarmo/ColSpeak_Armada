@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet"><path fill="#3B88C3" d="M36 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v28z"></path><path fill="#FFF" d="M7.336 17.962c0-6.449 4.341-11.41 10.666-11.41c6.232 0 10.666 5.116 10.666 11.41c0 6.418-4.31 11.41-10.666 11.41c-6.294 0-10.666-4.992-10.666-11.41zm16.496 0c0-3.752-1.954-7.131-5.83-7.131c-3.876 0-5.829 3.379-5.829 7.131c0 3.782 1.891 7.132 5.829 7.132c3.938 0 5.83-3.35 5.83-7.132z"></path></svg>
+<svg width="171" height="170" viewBox="0 0 171 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_1014_1674)">
+<rect x="8.4082" y="0.393555" width="154.357" height="154.357" rx="15.3779" fill="#D4E5ED"/>
+<rect x="17.707" y="9.69141" width="137.619" height="137.619" rx="15.3779" fill="#1A4F7C"/>
+<path d="M85.5199 43.167C92.5557 43.167 98.7008 44.5713 103.955 47.38C109.299 50.098 113.44 54.1298 116.379 59.4753C119.407 64.7302 120.921 71.0724 120.921 78.5017C120.921 85.9311 119.407 92.3185 116.379 97.664C113.44 102.919 109.299 106.951 103.955 109.759C98.7008 112.477 92.5557 113.836 85.5199 113.836C78.6622 113.836 72.5616 112.477 67.218 109.759C61.8743 106.951 57.6885 102.919 54.6604 97.664C51.7215 92.3185 50.252 85.9311 50.252 78.5017C50.252 71.0724 51.7215 64.7302 54.6604 59.4753C57.6885 54.1298 61.8743 50.098 67.218 47.38C72.5616 44.5713 78.6622 43.167 85.5199 43.167ZM85.5199 59.6112C82.9371 59.6112 80.7106 60.2454 78.8404 61.5139C76.9701 62.7823 75.5451 64.8208 74.5654 67.6295C73.5858 70.4382 73.096 74.0622 73.096 78.5017C73.096 82.9412 73.5858 86.5653 74.5654 89.3739C75.5451 92.092 76.9701 94.1305 78.8404 95.4896C80.7106 96.758 82.9371 97.3922 85.5199 97.3922C88.1917 97.3922 90.4627 96.758 92.333 95.4896C94.2033 94.1305 95.6282 92.092 96.6079 89.3739C97.5876 86.5653 98.0774 82.9412 98.0774 78.5017C98.0774 74.0622 97.5876 70.4382 96.6079 67.6295C95.6282 64.8208 94.2033 62.7823 92.333 61.5139C90.4627 60.2454 88.1917 59.6112 85.5199 59.6112Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_d_1014_1674" x="0.969314" y="0.393555" width="169.235" height="169.235" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="7.43889"/>
+<feGaussianBlur stdDeviation="3.71944"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1014_1674"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1014_1674" result="shape"/>
+</filter>
+</defs>
+</svg>

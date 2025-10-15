@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet"><path fill="#3B88C3" d="M36 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v28z"></path><path fill="#FFF" d="M12.513 9.342c0-1.271.868-2.418 2.419-2.418h7.937c1.365 0 2.078 1.054 2.078 2.14c0 1.054-.683 2.139-2.078 2.139h-5.705v4.527h4.806c1.488 0 2.232 1.054 2.232 2.108c0 1.085-.744 2.17-2.232 2.17h-4.806v6.76c0 1.551-.992 2.418-2.326 2.418s-2.326-.867-2.326-2.418V9.342z"></path></svg> 
+<svg width="170" height="170" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_1014_1624)">
+<rect x="8.17383" width="154.357" height="154.357" rx="15.3779" fill="#D4E5ED"/>
+<rect x="17.4722" y="9.29785" width="137.619" height="137.619" rx="15.3779" fill="#1A4F7C"/>
+<path d="M96.1311 29.5029C99.791 29.5029 103.005 29.9046 105.772 30.708C108.539 31.4222 110.592 32.2702 111.931 33.2521L109.655 47.4455C108.673 46.8207 107.557 46.3297 106.307 45.9726C105.058 45.6156 103.496 45.437 101.621 45.437C98.4966 45.437 95.9079 46.1512 93.8548 47.5794C91.8909 49.0077 90.909 51.5072 90.909 55.0778V63.7813L92.248 67.5305V126.714H69.485V53.6049C69.485 49.3201 70.1545 45.6602 71.4935 42.6251C72.9217 39.5901 74.8856 37.0906 77.3851 35.1267C79.8845 33.1629 82.7411 31.7346 85.9547 30.8419C89.1683 29.9493 92.5604 29.5029 96.1311 29.5029ZM111.262 59.7643V75.9662H58.7729V59.7643H111.262Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_d_1014_1624" x="0.734939" y="0" width="169.235" height="169.235" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="7.43889"/>
+<feGaussianBlur stdDeviation="3.71944"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1014_1624"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1014_1624" result="shape"/>
+</filter>
+</defs>
+</svg>

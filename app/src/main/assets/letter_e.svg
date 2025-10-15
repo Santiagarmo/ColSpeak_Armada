@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet"><path fill="#3B88C3" d="M36 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v28z"></path><path fill="#FFF" d="M12.219 9.621c0-1.55.775-2.697 2.418-2.697h7.689c1.488 0 2.202 1.054 2.202 2.14c0 1.054-.744 2.139-2.202 2.139H16.87v4.527h5.085c1.52 0 2.264 1.054 2.264 2.14c0 1.054-.775 2.139-2.264 2.139H16.87v4.713h5.736c1.488 0 2.201 1.055 2.201 2.14c0 1.055-.744 2.14-2.201 2.14h-7.999c-1.364 0-2.387-.93-2.387-2.325V9.621z"></path></svg>
+<svg width="170" height="170" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_1014_1620)">
+<rect x="7.93896" width="154.357" height="154.357" rx="15.3779" fill="#D4E5ED"/>
+<rect x="17.2378" y="9.29785" width="137.619" height="137.619" rx="15.3779" fill="#1A4F7C"/>
+<path d="M87.1411 113.443C79.6754 113.443 73.1992 112.039 67.7125 109.23C62.3156 106.421 58.1331 102.389 55.1648 97.1346C52.1965 91.8796 50.7124 85.5375 50.7124 78.1082C50.7124 70.6788 52.1965 64.3367 55.1648 59.0818C58.1331 53.8269 62.2706 49.7951 67.5775 46.9864C72.9744 44.1778 79.1358 42.7734 86.0617 42.7734C93.1676 42.7734 99.194 44.1778 104.141 46.9864C109.178 49.7045 113.001 53.5098 115.609 58.4023C118.218 63.2042 119.522 68.7309 119.522 74.9824C119.522 76.6132 119.477 78.2441 119.387 79.8749C119.297 81.5057 119.162 82.8648 118.982 83.952H65.5537V71.5848H108.863L97.9348 75.7978C97.9348 70.3617 96.9453 66.194 94.9665 63.2948C93.0776 60.3955 90.1093 58.9459 86.0617 58.9459C83.1834 58.9459 80.7098 59.6254 78.6411 60.9844C76.6622 62.3434 75.1331 64.4726 74.0537 67.3718C73.0643 70.2711 72.5696 73.9858 72.5696 78.5159C72.5696 82.9554 73.1543 86.5794 74.3236 89.3881C75.4929 92.1062 77.1569 94.0994 79.3157 95.3678C81.4744 96.5456 84.0829 97.1346 87.1411 97.1346C90.5591 97.1346 93.2575 96.455 95.2363 95.096C97.3051 93.737 98.8342 91.8343 99.8237 89.3881L118.173 95.5037C116.914 99.3996 114.71 102.707 111.562 105.425C108.504 108.052 104.816 110.045 100.498 111.404C96.2707 112.763 91.8183 113.443 87.1411 113.443Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_d_1014_1620" x="0.500076" y="0" width="169.235" height="169.235" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="7.43889"/>
+<feGaussianBlur stdDeviation="3.71944"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1014_1620"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1014_1620" result="shape"/>
+</filter>
+</defs>
+</svg>
