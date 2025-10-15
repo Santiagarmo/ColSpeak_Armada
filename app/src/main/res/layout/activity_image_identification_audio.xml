@@ -251,20 +251,27 @@
         </LinearLayout>
 
         <!-- Botón siguiente -->
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Siguiente"
-            android:textSize="16sp"
-            android:backgroundTint="#FF9017"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="32dp"
-            android:layout_gravity="center"
-            android:paddingStart="24dp"
-            android:paddingEnd="24dp"
-            android:minWidth="0dp"
-            android:visibility="gone" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp">
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Siguiente"
+                    android:textSize="16sp"
+                    android:backgroundTint="#00AA00"
+                    android:drawablePadding="8dp"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="32dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

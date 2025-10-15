@@ -1,15 +1,15 @@
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[pi]/pi/|[em]/em/|[pi]/pi/|[ar]/ɑ(r)/|ti|ALPHABET|A1.1|letter_p.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ei]/eɪ/|[ci]/si/|[ou]/əʊ/|[ei]/eɪ/|[kei]/keɪ/|ALPHABET|A1.1|letter_a.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ef]/ef/|[es]/es/|[ef]/ef/|[ai]/aɪ/|[dabliu]/ˈdʌb(ə)l ju/|ALPHABET|A1.1|letter_f.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ou]/əʊ/|[ou]/əʊ/|[iu]/ju/|[ex]/eks/|[uai]/waɪ/|ALPHABET|A1.1|letter_o.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[uai]/waɪ/|[ou]/əʊ/|[iu]/ju/|[uai]/waɪ/|[ti]/ti/|ALPHABET|A1.1|letter_y.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ar]/ɑ(r)|[eich]/eɪtʃ/|[kei]/keɪ/|[ai]/aɪ/|[ar]/ɑ(r)|ALPHABET|A1.1|letter_r.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ai]/aɪ/|[kei]/keɪ/|[eich]/eɪtʃ/|[ai]/aɪ/|[ex]/eks/|ALPHABET|A1.1|letter_i.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[es]/es/|[ex]/eks/|[uvi]/vi/|[en]/en/|[es]/es/|ALPHABET|A1.1|letter_s.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[bi]/bi/|[zi]/zed/|[pi]/pi/|[ti]/ti/|[bi]/bi/|ALPHABET|A1.1|letter_b.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[ci]/si/|[zi]/zed/|[pi]/pi/|[ci]/si/|[ti]/ti/|ALPHABET|A1.1|letter_c.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[di]/di/|[ti]/ti/|[di]/di/|[ci]/si/|[pi]/pi/|ALPHABET|A1.1|letter_d.svg
-¿Esta letra como se pronuncia? /        How is this letter pronounced?|[i]/i/|[pi]/pi/|[ci]/si/|[i]/i/|[ti]/ti/|ALPHABET|A1.1|letter_e.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounc ed?</b>|[pi]/pi/|[em]/em/|[pi]/pi/|[ar]/ɑ(r)/|ti|ALPHABET|A1.1|letter_p.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[ei]/eɪ/|[ci]/si/|[ou]/əʊ/|[ei]/eɪ/|[kei]/keɪ/|ALPHABET|A1.1|letter_a.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[ef]/ef/|[es]/es/|[ef]/ef/|[ai]/aɪ/|[dabliu]/ˈdʌb(ə)l ju/|ALPHABET|A1.1|letter_f.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[ou]/əʊ/|[ou]/əʊ/|[iu]/ju/|[ex]/eks/|[uai]/waɪ/|ALPHABET|A1.1|letter_o.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[uai]/waɪ/|[ou]/əʊ/|[iu]/ju/|[uai]/waɪ/|[ti]/ti/|ALPHABET|A1.1|letter_y.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[ar]/ɑ(r)|[eich]/eɪtʃ/|[kei]/keɪ/|[ai]/aɪ/|[ar]/ɑ(r)|ALPHABET|A1.1|letter_r.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[ai]/aɪ/|[kei]/keɪ/|[eich]/eɪtʃ/|[ai]/aɪ/|[ex]/eks/|ALPHABET|A1.1|letter_i.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[es]/es/|[ex]/eks/|[uvi]/vi/|[en]/en/|[es]/es/|ALPHABET|A1.1|letter_s.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[bi]/bi/|[zi]/zed/|[pi]/pi/|[ti]/ti/|[bi]/bi/|ALPHABET|A1.1|letter_b.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[ci]/si/|[zi]/zed/|[pi]/pi/|[ci]/si/|[ti]/ti/|ALPHABET|A1.1|letter_c.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[di]/di/|[ti]/ti/|[di]/di/|[ci]/si/|[pi]/pi/|ALPHABET|A1.1|letter_d.svg
+¿Cómo se pronuncia la siguiente letra? /        <b>How is this letter pronounced?</b>|[i]/i/|[pi]/pi/|[ci]/si/|[i]/i/|[ti]/ti/|ALPHABET|A1.1|letter_e.svg
 
 ¿Que número es esta imagen? /           What number is this image?|nineteen|twentyeight|nineteen|thirtynine|nine|NUMBERS|A1.1|19_calend.svg
 ¿Que número es esta imagen? /           What number is this image?|twentyfive|fifteen|thirtyfive|twentyfive|twentyeight|NUMBERS|A1.1|dec_25.svg

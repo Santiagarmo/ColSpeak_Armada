@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp"
+                android:padding="1dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp">
 
@@ -134,18 +134,18 @@
                 android:textColor="#002C4D"
                 android:gravity="center"
                 android:layout_marginBottom="16dp"
-                android:padding="16dp" />
+                android:layout_marginTop="8dp" />
 
             <!-- Imagen objetivo -->
             <ImageView
                 android:id="@+id/targetImageView"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:contentDescription="Target image"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginVertical="16dp" />
 
             <!-- Bird Image for feedback -->
             <ImageView
@@ -240,12 +240,39 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <!-- Instrucciones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seleccione la opción correcta /"
+                    android:textSize="16sp"
+                    android:textColor="#002C4D"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select the correct option"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#002C4D"
+                    android:gravity="center" />
+            </LinearLayout>
+
             <!-- Opciones -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="16dp">
+                android:layout_marginTop="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -304,36 +331,13 @@
                         android:layout_marginStart="4dp" />
                 </LinearLayout>
             </LinearLayout>
-
-            <!-- Botones de control -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <Button
-                    android:id="@+id/submitButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Enviar"
-                    android:textSize="16sp"
-                    android:backgroundTint="#FF9017"
-                    android:textColor="@android:color/white"
-                    android:layout_marginEnd="8dp"
-                    android:visibility="gone" />
-
-                <Button
-                    android:id="@+id/nextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Siguiente"
-                    android:textSize="16sp"
-                    android:backgroundTint="#FF9017"
-                    android:textColor="@android:color/white"
-                    android:layout_marginStart="8dp"
-                    android:visibility="gone" />
-            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+    <com.example.speak.components.ModalAlertComponent
+        android:id="@+id/modalAlertComponent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="bottom"
+        android:visibility="gone" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

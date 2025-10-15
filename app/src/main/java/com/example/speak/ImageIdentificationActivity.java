@@ -34,6 +34,7 @@ import com.example.speak.helpers.WildcardHelper;
 import com.example.speak.helpers.HelpModalHelper;
 import com.example.speak.helpers.StarProgressHelper;
 import com.example.speak.helpers.StarEarnedDialog;
+import com.example.speak.components.ModalAlertComponent;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -58,12 +59,11 @@ public class ImageIdentificationActivity extends AppCompatActivity {
     private TextView questionNumberTextView;
     private ImageView targetImageView;
     private Button playButton;
-    private Button submitButton;
-    private Button nextButton;
     private SeekBar speedSeekBar;
     private SeekBar pitchSeekBar;
     private TextView speedValue;
     private TextView pitchValue;
+    private ModalAlertComponent modalAlertComponent;
 
     // Return menu and topic/level views
     private LinearLayout returnContainer;
@@ -223,12 +223,11 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         questionNumberTextView = findViewById(R.id.questionNumberTextView);
         targetImageView = findViewById(R.id.targetImageView);
         playButton = findViewById(R.id.playButton);
-        submitButton = findViewById(R.id.submitButton);
-        nextButton = findViewById(R.id.nextButton);
         speedSeekBar = findViewById(R.id.speedSeekBar);
         pitchSeekBar = findViewById(R.id.pitchSeekBar);
         speedValue = findViewById(R.id.speedValue);
         pitchValue = findViewById(R.id.pitchValue);
+        modalAlertComponent = findViewById(R.id.modalAlertComponent);
 
         // Initialize return menu and topic/level views
         returnContainer = findViewById(R.id.returnContainer);
@@ -243,6 +242,23 @@ public class ImageIdentificationActivity extends AppCompatActivity {
 
         // Initialize bird image
         birdImageView = findViewById(R.id.birdImageView);
+
+        // Setup modal callbacks
+        if (modalAlertComponent != null) {
+            modalAlertComponent.setOnModalActionListener(new ModalAlertComponent.OnModalActionListener() {
+                @Override
+                public void onContinuePressed(ModalAlertComponent.ModalType type) {
+                    currentQuestionIndex++;
+                    modalAlertComponent.setVisibility(View.GONE);
+                    displayQuestion();
+                }
+
+                @Override
+                public void onModalHidden(ModalAlertComponent.ModalType type) {
+                    // No action needed when modal is hidden
+                }
+            });
+        }
 
         // Inicializar botón de comodines
         wildcardButton = findViewById(R.id.wildcardButton);
@@ -425,15 +441,6 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         playButton.setOnClickListener(v -> {
             Log.d(TAG, "Play button clicked");
             playCurrentQuestion();
-        });
-        
-        submitButton.setOnClickListener(v -> {
-            Toast.makeText(this, "Please select an answer by clicking on one of the option buttons", Toast.LENGTH_SHORT).show();
-        });
-        
-        nextButton.setOnClickListener(v -> {
-            currentQuestionIndex++;
-            displayQuestion();
         });
 
         // Setup option button listeners
@@ -652,8 +659,12 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         // Update question number
         questionNumberTextView.setText((currentQuestionIndex + 1) + "/" + currentQuestions.size());
         
-        // Set question text
-        questionTextView.setText(question.getQuestion());
+        // Set question text with HTML formatting
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            questionTextView.setText(android.text.Html.fromHtml(question.getQuestion(), android.text.Html.FROM_HTML_MODE_LEGACY));
+        } else {
+            questionTextView.setText(android.text.Html.fromHtml(question.getQuestion()));
+        }
         
         // Load image
         loadImage(question.getImageResourceName());
@@ -667,10 +678,12 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         
         // Reset button states
         resetButtonStates();
-        
-        // Hide next button initially
-        nextButton.setVisibility(View.GONE);
-        
+
+        // Hide modal initially
+        if (modalAlertComponent != null) {
+            modalAlertComponent.setVisibility(View.GONE);
+        }
+
         Log.d(TAG, "Displaying question " + (currentQuestionIndex + 1) + ": " + question.getQuestion());
     }
 
@@ -771,10 +784,10 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         option3Button.setEnabled(true);
         option4Button.setEnabled(true);
         
-        option1Button.setBackgroundTintList(getColorStateList(R.color.turquesa));
-        option2Button.setBackgroundTintList(getColorStateList(R.color.turquesa));
-        option3Button.setBackgroundTintList(getColorStateList(R.color.turquesa));
-        option4Button.setBackgroundTintList(getColorStateList(R.color.turquesa));
+        option1Button.setBackgroundTintList(getColorStateList(R.color.header_blue));
+        option2Button.setBackgroundTintList(getColorStateList(R.color.header_blue));
+        option3Button.setBackgroundTintList(getColorStateList(R.color.header_blue));
+        option4Button.setBackgroundTintList(getColorStateList(R.color.header_blue));
         
         // Reset bird image to default
         if (birdImageView != null) {
@@ -859,22 +872,26 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         option2Button.setEnabled(false);
         option3Button.setEnabled(false);
         option4Button.setEnabled(false);
-        
-        // Show next button
-        nextButton.setVisibility(View.VISIBLE);
-        
-        // Show feedback
-        String feedback;
-        if (isCorrect) {
-            if (wasQuestionChanged) {
-                feedback = "¡Correcto! (Pregunta cambiada por comodín - No suma puntos)";
+
+        // Show modal with appropriate message
+        if (modalAlertComponent != null) {
+            String primaryMsg, secondaryMsg;
+
+            if (isCorrect) {
+                if (wasQuestionChanged) {
+                    primaryMsg = "¡Muy bien!, tu nivel de inglés está mejorando";
+                    secondaryMsg = "(Pregunta cambiada por comodín - No suma puntos)";
+                } else {
+                    primaryMsg = "¡Muy bien!, tu nivel de inglés está mejorando";
+                    secondaryMsg = "Amazing, you are improving your English";
+                }
+                modalAlertComponent.showCorrectModal(primaryMsg, secondaryMsg);
             } else {
-                feedback = "¡Correcto!";
+                primaryMsg = "¡Ten cuidado!, sigue intentando";
+                secondaryMsg = "La respuesta correcta es: " + question.getCorrectAnswer();
+                modalAlertComponent.showIncorrectModal(primaryMsg, secondaryMsg);
             }
-        } else {
-            feedback = "Incorrecto. La respuesta correcta es: " + question.getCorrectAnswer();
         }
-        Toast.makeText(this, feedback, Toast.LENGTH_SHORT).show();
     }
 
     private void highlightButtons(int selectedOption, boolean isCorrect, String correctAnswer) {

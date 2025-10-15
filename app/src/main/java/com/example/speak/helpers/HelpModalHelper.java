@@ -120,6 +120,7 @@ public class HelpModalHelper {
         title.setText(titleText);
         title.setTextColor(Color.WHITE);
         title.setTextSize(14);
+        title.setTypeface(null, android.graphics.Typeface.BOLD);
         title.setGravity(Gravity.CENTER);
         title.setPadding(0, 8, 0, 0);
         title.setMaxLines(2);
