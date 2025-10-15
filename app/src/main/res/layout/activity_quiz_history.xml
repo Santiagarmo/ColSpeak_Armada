@@ -154,7 +154,7 @@
                     android:scrollbarSize="1dp"
                     android:fadeScrollbars="true"
                     android:scrollbarFadeDuration="1500"
-                    android:scrollbarDefaultDelayBeforeFade="500">
+                    android:scrollbarDefaultDelayBeforeFade="300">
 
                     <HorizontalScrollView
                         android:id="@+id/contentScrollView"
