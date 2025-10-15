@@ -32,11 +32,12 @@
                 android:src="@drawable/human" />
 
             <TextView
+                android:id="@+id/textAppDescription"
                 android:layout_width="300sp"
                 android:layout_height="wrap_content"
                 android:text="Una app de aprendizaje offline y online"
                 android:textSize="30sp"
-                android:textStyle="bold"
+                android:textStyle="normal"
                 android:gravity="center"
                 android:padding="10dp"
                 android:textColor="@color/white"/>
@@ -85,7 +86,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="24dp">
+                    android:padding="24dp"
+                    android:layout_marginBottom="32dp">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -95,11 +97,11 @@
                         android:src="@drawable/mico_chiva" />
 
                     <TextView
+                        android:id="@+id/textLearnAnywhere"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Aprende donde quieras y cuando quieras."
                         android:textSize="30sp"
-                        android:textStyle="bold"
                         android:gravity="center"
                         android:padding="10dp"
                         android:textColor="#008CB9"/>

@@ -2,8 +2,13 @@ package com.example.speak;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +26,8 @@ public class MajorActivity extends AppCompatActivity {
     private Button buttonGuestLogin;
     private TextView textRegister;
     private TextView textRegister2;
+    private TextView textAppDescription;
+    private TextView textLearnAnywhere;
     private DatabaseHelper dbHelper;
 
     @Override
@@ -43,6 +50,52 @@ public class MajorActivity extends AppCompatActivity {
             buttonGuestLogin = findViewById(R.id.button_guest_login);
             textRegister = findViewById(R.id.textRegister);
             textRegister2 = findViewById(R.id.textRegister2);
+            textAppDescription = findViewById(R.id.textAppDescription);
+            textLearnAnywhere = findViewById(R.id.textLearnAnywhere);
+
+            // Aplicar formato HTML al texto de descripción
+            if (textAppDescription != null) {
+                String htmlText = "Una app de <b>aprendizaje offline y online</b>";
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    textAppDescription.setText(android.text.Html.fromHtml(htmlText, android.text.Html.FROM_HTML_MODE_LEGACY));
+                } else {
+                    textAppDescription.setText(android.text.Html.fromHtml(htmlText));
+                }
+            }
+
+            // Aplicar formato al texto "Aprende donde quieras y cuando quieras."
+            if (textLearnAnywhere != null) {
+                String fullText = "Aprende donde quieras y cuando quieras.";
+                SpannableString spannableString = new SpannableString(fullText);
+
+                // "Aprende donde quieras" - posición 0 a 22 - color #173446
+                int startFirst = 0;
+                int endFirst = 22; // "Aprende donde quieras"
+                spannableString.setSpan(
+                    new ForegroundColorSpan(Color.parseColor("#173446")),
+                    startFirst,
+                    endFirst,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+
+                // "y cuando quieras." - posición 22 a 41 - color #008CB9 y Bold
+                int startSecond = 22;
+                int endSecond = fullText.length();
+                spannableString.setSpan(
+                    new ForegroundColorSpan(Color.parseColor("#008CB9")),
+                    startSecond,
+                    endSecond,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+                spannableString.setSpan(
+                    new StyleSpan(android.graphics.Typeface.BOLD),
+                    startSecond,
+                    endSecond,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+
+                textLearnAnywhere.setText(spannableString);
+            }
         } catch (Exception e) {
             Toast.makeText(this, "Error al inicializar las vistas", Toast.LENGTH_SHORT).show();
             finish();
