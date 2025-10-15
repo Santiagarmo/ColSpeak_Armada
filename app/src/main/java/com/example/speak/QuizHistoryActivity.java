@@ -506,15 +506,24 @@ public class QuizHistoryActivity extends AppCompatActivity {
 
                 // Configurar el click listener
                 continueButton.setOnClickListener(v -> {
+                    Log.d(TAG, "Continue button clicked");
+                    Log.d(TAG, "Current topic: " + finalCurrentTopic);
+                    Log.d(TAG, "Score: " + finalScoreForLambda + "%");
+
                     // Marcar tema actual como completado
                     ProgressionHelper.markTopicCompleted(this, finalCurrentTopic, finalScoreForLambda);
+                    Log.d(TAG, "Topic marked as completed");
 
                     // Crear intent para continuar con el siguiente tema
                     Intent continueIntent = ProgressionHelper.createContinueIntent(this, finalCurrentTopic, "");
+                    Log.d(TAG, "Continue intent created: " + (continueIntent != null ? continueIntent.getComponent() : "null"));
+
                     if (continueIntent != null) {
+                        Log.d(TAG, "Starting next activity");
                         startActivity(continueIntent);
                         finish();
                     } else {
+                        Log.e(TAG, "Continue intent is null for topic: " + finalCurrentTopic);
                         Toast.makeText(this, "No hay más temas disponibles", Toast.LENGTH_SHORT).show();
                     }
                 });

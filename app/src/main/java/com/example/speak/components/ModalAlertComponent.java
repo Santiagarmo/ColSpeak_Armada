@@ -38,6 +38,7 @@ public class ModalAlertComponent extends LinearLayout {
     // Configuration
     private ModalType currentType = ModalType.CORRECT;
     private OnModalActionListener listener;
+    private boolean isProcessing = false;
 
     // Modal types
     public enum ModalType {
@@ -85,6 +86,15 @@ public class ModalAlertComponent extends LinearLayout {
             // Set up click listener
             if (continueButton != null) {
                 continueButton.setOnClickListener(v -> {
+                    // Prevenir múltiples clics
+                    if (isProcessing) {
+                        Log.d(TAG, "Button click ignored - already processing");
+                        return;
+                    }
+
+                    isProcessing = true;
+                    continueButton.setEnabled(false);
+
                     hideModal();
                     if (listener != null) {
                         listener.onContinuePressed(currentType);
@@ -114,6 +124,12 @@ public class ModalAlertComponent extends LinearLayout {
      */
     public void showCorrectModal(String primaryMsg, String secondaryMsg) {
         try {
+            // Resetear el flag de procesamiento y habilitar el botón
+            isProcessing = false;
+            if (continueButton != null) {
+                continueButton.setEnabled(true);
+            }
+
             currentType = ModalType.CORRECT;
 
             if (topDivider != null) {
@@ -177,6 +193,12 @@ public class ModalAlertComponent extends LinearLayout {
      */
     public void showIncorrectModal(String primaryMsg, String secondaryMsg) {
         try {
+            // Resetear el flag de procesamiento y habilitar el botón
+            isProcessing = false;
+            if (continueButton != null) {
+                continueButton.setEnabled(true);
+            }
+
             currentType = ModalType.INCORRECT;
 
             if (topDivider != null) {

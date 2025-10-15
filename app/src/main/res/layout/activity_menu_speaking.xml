@@ -105,7 +105,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/dolphin_map_a1"
                     android:adjustViewBounds="true"
-                    android:alpha="0.8" />
+                    android:alpha="1" />
 
                 <!-- Botón Start Speaking - Posición responsive -->
                 <ImageView
