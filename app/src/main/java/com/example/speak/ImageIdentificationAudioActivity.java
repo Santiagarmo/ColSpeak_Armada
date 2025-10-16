@@ -843,6 +843,18 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
                     Log.e(TAG, "Error mostrando StarEarnedDialog: " + e.getMessage());
                 }
             }, 200);
+
+            // Además, marcar el progreso de Reading para desbloquear el siguiente tema en el mapa
+            try {
+                SharedPreferences rprefs = getSharedPreferences("ProgressPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor redit = rprefs.edit();
+                String readingKey = "PASSED_READING_" + selectedTopic.toUpperCase().replace(" ", "_");
+                redit.putBoolean(readingKey, true);
+                redit.apply();
+                Log.d(TAG, "Reading progress marked as passed: " + readingKey);
+            } catch (Exception ex) {
+                Log.e(TAG, "Error marking reading progress: " + ex.getMessage());
+            }
         }
 
         // Mostrar resultados en diálogo estilo dialog_quiz_result
