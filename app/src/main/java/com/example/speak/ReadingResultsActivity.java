@@ -227,19 +227,34 @@ public class ReadingResultsActivity extends AppCompatActivity {
     }
 
     private void setupContinueButton() {
-        // Solo mostrar el botón si el usuario aprobó (score >= 70)
-        if (finalScore >= 70) {
+        // Si el score es menor a 70%, mostrar botón "Try again"
+        if (finalScore < 70) {
+            btnContinue.setVisibility(View.GONE);
+            btnReintentar.setVisibility(View.VISIBLE);
+
+            btnReintentar.setOnClickListener(v -> {
+                // Reiniciar la misma actividad
+                Intent intent = new Intent(this, TranslationReadingActivity.class);
+                intent.putExtra("TOPIC", topic);
+                intent.putExtra("LEVEL", level);
+                startActivity(intent);
+                finish();
+            });
+        }
+        // Si el score es >= 70%, mostrar "Continue"
+        else if (finalScore >= 70) {
+            btnReintentar.setVisibility(View.GONE);
+            btnContinue.setVisibility(View.VISIBLE);
             String nextTopic = ProgressionHelper.getNextReadingTopic(topic);
-            
+
             if (nextTopic != null) {
                 // Hay un siguiente tema disponible
                 btnContinue.setText("➡️ Continuar: " + nextTopic);
-                btnContinue.setVisibility(View.VISIBLE);
-                
+
                 btnContinue.setOnClickListener(v -> {
                     // Marcar tema actual como completado
                     ProgressionHelper.markTopicCompleted(this, topic, finalScore);
-                    
+
                     // Ir al siguiente tema de reading
                     Intent intent = new Intent(this, TranslationReadingActivity.class);
                     intent.putExtra("TOPIC", nextTopic);
@@ -250,12 +265,11 @@ public class ReadingResultsActivity extends AppCompatActivity {
             } else {
                 // Es el último tema de reading, ir al mapa de writing
                 btnContinue.setText("✍️ ¡Desbloquear Writing!");
-                btnContinue.setVisibility(View.VISIBLE);
-                
+
                 btnContinue.setOnClickListener(v -> {
                     // Marcar tema actual como completado
                     ProgressionHelper.markTopicCompleted(this, topic, finalScore);
-                    
+
                     // Ir al mapa de writing
                     Intent intent = new Intent(this, MenuWritingActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -263,18 +277,6 @@ public class ReadingResultsActivity extends AppCompatActivity {
                     finish();
                 });
             }
-        } else {
-            //btnContinue.setVisibility(View.GONE);
-            // No aprobó - mostrar opción de reintentar
-            btnReintentar.setText("Try again");
-            btnReintentar.setOnClickListener(v -> {
-                // Reiniciar la misma actividad
-                Intent intent = new Intent(this, TranslationReadingActivity.class);
-                intent.putExtra("TOPIC", topic);
-                intent.putExtra("LEVEL", level);
-                startActivity(intent);
-                finish();
-            });
         }
     }
 } 

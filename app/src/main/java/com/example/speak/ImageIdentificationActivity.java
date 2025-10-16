@@ -1014,36 +1014,45 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         counterTextView.setText(score + "/" + currentQuestions.size());
         scoreTextView.setText("Score: " + finalScore + "%");
 
-        // Continuar: ir al siguiente tema según progresión y mapa de origen
-        btnContinue.setOnClickListener(v -> {
-            String nextTopic = ProgressionHelper.getNextImageIdentificationTopicBySource(selectedTopic, sourceMap);
-            if (nextTopic != null) {
-                Class<?> nextActivity = ProgressionHelper.getReadingActivityClass(nextTopic);
-                Intent next = new Intent(this, nextActivity);
-                next.putExtra("TOPIC", nextTopic);
-                next.putExtra("LEVEL", selectedLevel);
-                next.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(next);
-                finish();
-            } else {
-                // Si no hay siguiente tema, volver al mapa correspondiente
-                Class<?> destMap = ProgressionHelper.getDestinationMapClass(sourceMap);
-                Intent back = new Intent(this, destMap);
-                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(back);
-                finish();
-            }
-        });
+        // Si el score es menor a 70%, mostrar "Try Again"
+        if (finalScore < 70) {
+            btnContinue.setText("Try Again");
+            btnContinue.setVisibility(View.VISIBLE);
+            btnReintentar.setVisibility(View.GONE);
 
-        // Reintentar: reiniciar esta actividad mismo tema/nivel
-        btnReintentar.setText("Try again");
-        btnReintentar.setOnClickListener(v -> {
-            Intent retry = new Intent(this, ImageIdentificationActivity.class);
-            retry.putExtra("TOPIC", selectedTopic);
-            retry.putExtra("LEVEL", selectedLevel);
-            startActivity(retry);
-            finish();
-        });
+            btnContinue.setOnClickListener(v -> {
+                Intent retry = new Intent(this, ImageIdentificationActivity.class);
+                retry.putExtra("TOPIC", selectedTopic);
+                retry.putExtra("LEVEL", selectedLevel);
+                startActivity(retry);
+                finish();
+            });
+        }
+        // Si el score es >= 70%, mostrar "Continue"
+        else if (finalScore >= 70) {
+            btnReintentar.setVisibility(View.GONE);
+            btnContinue.setVisibility(View.VISIBLE);
+
+            btnContinue.setOnClickListener(v -> {
+                String nextTopic = ProgressionHelper.getNextImageIdentificationTopicBySource(selectedTopic, sourceMap);
+                if (nextTopic != null) {
+                    Class<?> nextActivity = ProgressionHelper.getReadingActivityClass(nextTopic);
+                    Intent next = new Intent(this, nextActivity);
+                    next.putExtra("TOPIC", nextTopic);
+                    next.putExtra("LEVEL", selectedLevel);
+                    next.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(next);
+                    finish();
+                } else {
+                    // Si no hay siguiente tema, volver al mapa correspondiente
+                    Class<?> destMap = ProgressionHelper.getDestinationMapClass(sourceMap);
+                    Intent back = new Intent(this, destMap);
+                    back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(back);
+                    finish();
+                }
+            });
+        }
 
         // Ver detalles: abrir tabla de historial (QuizHistoryActivity) filtrada por la sesión actual
         btnViewDetails.setOnClickListener(v -> {
