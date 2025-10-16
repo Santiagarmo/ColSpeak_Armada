@@ -330,9 +330,23 @@
                         android:textColor="@android:color/white"
                         android:layout_marginStart="4dp" />
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
+    <!-- Botón Next (solo visual, sin funcionalidad) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/nextButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_standard"
+        android:text="Siguiente / Next"
+        android:textSize="@dimen/text_size_medium"
+        app:backgroundTint="#D9D9D9"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="50dp" />
+
     <com.example.speak.components.ModalAlertComponent
         android:id="@+id/modalAlertComponent"
         android:layout_width="match_parent"

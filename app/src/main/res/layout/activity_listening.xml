@@ -544,30 +544,18 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/submitButton"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/button_height_standard"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:text="Submit Answer"
-                android:textSize="@dimen/text_size_medium"
-                app:backgroundTint="#FF9017"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/optionsCard" />
-
-            <com.google.android.material.button.MaterialButton
                 android:id="@+id/nextButton"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/button_height_standard"
                 android:layout_marginTop="@dimen/spacing_medium"
-                android:layout_marginBottom="@dimen/spacing_large"
-                android:text="Próxima-Next"
+                android:layout_marginBottom="40dp"
+                android:text="Siguiente / Next"
                 android:textSize="@dimen/text_size_medium"
                 app:backgroundTint="#D9D9D9"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/submitButton" />
+               />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

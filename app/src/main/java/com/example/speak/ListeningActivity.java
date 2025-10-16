@@ -149,7 +149,6 @@ public class ListeningActivity extends AppCompatActivity {
         questionNumberTextView = findViewById(R.id.questionNumberTextView);
         optionsRadioGroup = findViewById(R.id.optionsRadioGroup);
 
-        submitButton = findViewById(R.id.submitButton);
         nextButton = findViewById(R.id.nextButton);
 
         // Inicializar botones de opciones
@@ -342,14 +341,8 @@ public class ListeningActivity extends AppCompatActivity {
         // Iniciar monitor para habilitar respuestas al comenzar la reproducción
         startReusablePlaybackMonitor();
 
-        submitButton.setOnClickListener(v -> {
-            // Este método ya no se usa
-        });
-
-        nextButton.setOnClickListener(v -> {
-            currentQuestionIndex++;
-            displayQuestion();
-        });
+        // Botones sin funcionalidad - solo visuales
+        nextButton.setEnabled(false);
 
         // Configurar botón de retorno
         LinearLayout returnContainer = findViewById(R.id.returnContainer);
@@ -774,7 +767,7 @@ public class ListeningActivity extends AppCompatActivity {
             disableAllButtons();
             setupOptionButtonListeners();
 
-            submitButton.setVisibility(View.GONE);
+            // Botones visibles pero sin funcionalidad
             nextButton.setVisibility(View.VISIBLE);
             nextButton.setEnabled(false);
         } else {
@@ -1041,7 +1034,8 @@ public class ListeningActivity extends AppCompatActivity {
             feedback += "\nProgreso: " + score + "/" + evaluatedQuestionsCount + " preguntas evaluadas";
         }
 
-        nextButton.setEnabled(true);
+        // Botón sin funcionalidad - permanece deshabilitado
+        // nextButton.setEnabled(true);
     }
 
     /**

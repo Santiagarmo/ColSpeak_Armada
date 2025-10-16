@@ -76,6 +76,9 @@ public class ImageIdentificationActivity extends AppCompatActivity {
     private Button option3Button;
     private Button option4Button;
 
+    // Next button (solo decorativo)
+    private Button nextButton;
+
     // Bird image for feedback
     private ImageView birdImageView;
 
@@ -239,6 +242,12 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         option2Button = findViewById(R.id.option2Button);
         option3Button = findViewById(R.id.option3Button);
         option4Button = findViewById(R.id.option4Button);
+
+        // Initialize next button (solo decorativo, sin funcionalidad)
+        nextButton = findViewById(R.id.nextButton);
+        if (nextButton != null) {
+            nextButton.setEnabled(false);
+        }
 
         // Initialize bird image
         birdImageView = findViewById(R.id.birdImageView);
