@@ -658,8 +658,8 @@ public class WritingActivity extends AppCompatActivity {
                 });
             }
         } else {
-            // No aprobó, mostrar botón de reintentar
-            btnContinue.setText("Reintentar");
+            // No aprobó, mostrar botón "Try Again"
+            btnContinue.setText("Try Again");
             btnContinue.setOnClickListener(v -> {
                 // Reiniciar la misma actividad
                 Intent intent = new Intent(this, WritingActivity.class);

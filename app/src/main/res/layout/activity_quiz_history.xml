@@ -151,7 +151,7 @@
                     android:layout_height="match_parent"
                     android:scrollbars="vertical"
                     android:scrollbarThumbVertical="@drawable/custom_scroll_thumb"
-                    android:scrollbarSize="1dp"
+                    android:scrollbarSize="3dp"
                     android:fadeScrollbars="true"
                     android:scrollbarFadeDuration="1500"
                     android:scrollbarDefaultDelayBeforeFade="300">
@@ -162,7 +162,7 @@
                         android:layout_height="wrap_content"
                         android:scrollbars="horizontal"
                         android:scrollbarThumbHorizontal="@drawable/custom_scroll_thumb"
-                        android:scrollbarSize="2dp"
+                        android:scrollbarSize="4dp"
                         android:fadeScrollbars="true"
                         android:scrollbarFadeDuration="2000"
                         android:scrollbarDefaultDelayBeforeFade="300">
@@ -184,7 +184,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="30dp"
+            android:layout_gravity="bottom"
             android:paddingBottom="20dp">
 
             <ImageView

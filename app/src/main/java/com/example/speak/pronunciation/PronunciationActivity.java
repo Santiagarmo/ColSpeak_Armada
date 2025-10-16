@@ -837,8 +837,25 @@ public class PronunciationActivity extends AppCompatActivity {
         final int finalTotalQuestions = totalQuestions;
         final int finalPassedQuestions = passedQuestions; // CORREGIDO: Crear variable final
 
-        // Configurar botón Continuar (CORREGIDO: Ya está en speaking, no necesita enhanced)
-        if (finalScore >= 70) {
+        // Configurar botón Continuar según score
+        if (finalScore < 70) {
+            // Mostrar "Try Again" en el botón principal
+            btnContinue.setText("Try Again");
+            btnContinue.setVisibility(View.VISIBLE);
+            btnReintentar.setVisibility(View.GONE);
+
+            btnContinue.setOnClickListener(v -> {
+                // Reiniciar la misma actividad
+                Intent intent = new Intent(this, PronunciationActivity.class);
+                intent.putExtra("TOPIC", finalSelectedTopic);
+                intent.putExtra("LEVEL", finalSelectedLevel);
+                startActivity(intent);
+                finish();
+            });
+        } else if (finalScore >= 70) {
+            btnContinue.setVisibility(View.VISIBLE);
+            btnReintentar.setVisibility(View.GONE);
+
             // Como ya está en speaking, solo navegar al siguiente tema del mapa
             if ("POSSESSIVE ADJECTIVES".equals(selectedTopic)) {
                 btnContinue.setText("📖 ¡Desbloquear Reading!");
@@ -871,17 +888,6 @@ public class PronunciationActivity extends AppCompatActivity {
                     });
                 }
             }
-        } else {
-            // No aprobó - mostrar opción de reintentar
-            btnReintentar.setText("Try again");
-            btnReintentar.setOnClickListener(v -> {
-                // Reiniciar la misma actividad
-                Intent intent = new Intent(this, PronunciationActivity.class);
-                intent.putExtra("TOPIC", finalSelectedTopic);
-                intent.putExtra("LEVEL", finalSelectedLevel);
-                startActivity(intent);
-                finish();
-            });
         }
         
         // Configurar botón Ver detalles (CORREGIDO: Usar variables final)

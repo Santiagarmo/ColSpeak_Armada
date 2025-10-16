@@ -1318,8 +1318,27 @@ public class ListeningActivity extends AppCompatActivity {
         final String finalSelectedLevel = selectedLevel;
         final int finalScoreForLambda = finalScore;
 
-        if (finalScore >= 70) {
+        // Si el score es menor a 70%, mostrar "Try Again" en el botón principal
+        if (finalScore < 70) {
+            btnContinue.setText("Try Again");
+            btnContinue.setVisibility(View.VISIBLE);
+            btnReintentar.setVisibility(View.GONE);
+
+            btnContinue.setOnClickListener(v -> {
+                // Reiniciar la misma actividad
+                Intent intent = new Intent(this, ListeningActivity.class);
+                intent.putExtra("TOPIC", finalSelectedTopic);
+                intent.putExtra("LEVEL", finalSelectedLevel);
+                startActivity(intent);
+                finish();
+            });
+        }
+        // Si el score es >= 70%, mostrar "Continue"
+        else if (finalScore >= 70) {
             btnContinue.setText(ProgressionHelper.getContinueButtonTextEnhanced(this, selectedTopic));
+            btnContinue.setVisibility(View.VISIBLE);
+            btnReintentar.setVisibility(View.GONE);
+
             btnContinue.setOnClickListener(v -> {
                 ProgressionHelper.markTopicCompleted(this, finalSelectedTopic, finalScoreForLambda);
 
@@ -1334,26 +1353,6 @@ public class ListeningActivity extends AppCompatActivity {
                     finish();
                 }
             });
-        } else {
-            String nextTopic = ProgressionHelper.getNextTopic(this, selectedTopic);
-            if (nextTopic == null) {
-                btnContinue.setText("¡Nivel completado!");
-                btnContinue.setOnClickListener(v -> {
-                    Intent intent = new Intent(this, MenuA1Activity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-                });
-            } else {
-                btnReintentar.setText("Try again");
-                btnReintentar.setOnClickListener(v -> {
-                    Intent intent = new Intent(this, ListeningActivity.class);
-                    intent.putExtra("TOPIC", finalSelectedTopic);
-                    intent.putExtra("LEVEL", finalSelectedLevel);
-                    startActivity(intent);
-                    finish();
-                });
-            }
         }
 
         btnViewDetails.setOnClickListener(v -> {
