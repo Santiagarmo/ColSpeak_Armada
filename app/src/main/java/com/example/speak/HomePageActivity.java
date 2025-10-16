@@ -18,9 +18,6 @@ public class HomePageActivity extends AppCompatActivity {
     private Button eButtonBegin;
     private Button eButtonTest;
 
-    //Return Terminos
-    private LinearLayout returnContainer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,17 +33,6 @@ public class HomePageActivity extends AppCompatActivity {
         //Inicializamos las variables
         initializeViews();
         setupClickListeners();
-
-        //Return Menu
-
-        //Return Menu
-        returnContainer = findViewById(R.id.returnContainer);
-        returnContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ReturnMenu();
-            }
-        });
     }
 
     /**
@@ -156,12 +142,6 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    //Return Menú
-    private void ReturnMenu() {
-        startActivity(new Intent(HomePageActivity.this, TermsConditions.class));
-        Toast.makeText(HomePageActivity.this, "Has retornado correctamente.", Toast.LENGTH_SHORT).show();
     }
 
 }
