@@ -83,7 +83,6 @@ public class QuizActivity extends AppCompatActivity {
     private TextView topicTextView;
     private TextView questionNumberTextView;
     private LinearLayout optionsRadioGroup;
-    private Button submitButton;
     private Button nextButton;
     private CardView questionCard;
     private ImageView birdImageView;
@@ -132,7 +131,6 @@ public class QuizActivity extends AppCompatActivity {
         topicTextView = findViewById(R.id.topicTextView);
         questionNumberTextView = findViewById(R.id.questionNumberTextView);
         optionsRadioGroup = findViewById(R.id.optionsRadioGroup);
-        submitButton = findViewById(R.id.submitButton);
         nextButton = findViewById(R.id.nextButton);
         questionCard = findViewById(R.id.questionCard);
         birdImageView = findViewById(R.id.birdImageView);
@@ -226,12 +224,8 @@ public class QuizActivity extends AppCompatActivity {
 
         Log.d(TAG, "Preguntas generadas exitosamente: " + questions.size());
 
-        // Configurar el botón de siguiente
-        nextButton.setOnClickListener(v -> showNextQuestion());
+        // Botones decorativos sin funcionalidad
         nextButton.setEnabled(false);
-
-        // Ocultar el botón de verificar ya que no es necesario
-        submitButton.setVisibility(View.GONE);
 
         // Mostrar primera pregunta
         showQuestion();
@@ -435,10 +429,7 @@ public class QuizActivity extends AppCompatActivity {
             // Configurar los listeners para evaluación automática
             setupOptionButtonListeners();
 
-            // Ocultar el botón de verificar ya que no es necesario
-            submitButton.setVisibility(View.GONE);
-
-            // Mostrar el botón de siguiente pero deshabilitado
+            // Botones decorativos - ambos visibles pero deshabilitados
             nextButton.setVisibility(View.VISIBLE);
             nextButton.setEnabled(false);
 
@@ -566,8 +557,8 @@ public class QuizActivity extends AppCompatActivity {
         option3Button.setEnabled(false);
         option4Button.setEnabled(false);
 
-        // Habilitar el botón de siguiente
-        nextButton.setEnabled(true);
+        // Los botones next y submit son decorativos, no se habilitan
+        // nextButton.setEnabled(true); // Comentado - solo decorativo
 
         // Muestra mensaje de éxito o error
         //showMessage(isCorrect ? "¡Correcto!" : "Incorrecto. La respuesta correcta era: " +

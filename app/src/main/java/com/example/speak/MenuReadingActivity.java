@@ -245,6 +245,7 @@ public class MenuReadingActivity extends AppCompatActivity {
                         Intent intent = new Intent(MenuReadingActivity.this, ImageIdentificationActivity.class);
                         intent.putExtra("TOPIC", "COLORS");
                         intent.putExtra("LEVEL", "A1.1");
+                        intent.putExtra("SOURCE_MAP", "READING");
                         startActivity(intent);
                     } catch (Exception e) {
                         Toast.makeText(MenuReadingActivity.this, "Error opening reading colors: " + e.getMessage(), Toast.LENGTH_SHORT).show();

@@ -108,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_pronun_title"
-                android:textSize="24sp"
+                android:textSize="12sp"
                 android:textColor="#002C4D"
                 android:gravity="center"
                 android:layout_marginBottom="24dp"/>
@@ -126,12 +126,21 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_pronunciation"
+                android:textSize="18sp"
+                android:textColor="#002C4D"
+                android:layout_marginBottom="16dp"
+                android:textAlignment="center"/>
+
             <!-- Card de instrucciones -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                app:cardCornerRadius="8dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="4dp">
 
                 <LinearLayout
@@ -152,14 +161,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:background="@color/cardSena">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_pronunciation"
-                            android:textSize="18sp"
-                            android:textColor="#002C4D"
-                            android:layout_marginBottom="16dp"/>
 
                         <TextView
                             android:id="@+id/referenceTextView"
@@ -206,37 +207,47 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/startButton"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height_large"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
-                    android:text="Comenzar / Start"
-                    android:textSize="11sp"
+                    android:text="Start"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     app:icon="@drawable/play_record"
                     app:iconGravity="textEnd"
-                    app:backgroundTint="@color/btn_tint_speaking_start" />
+                    app:backgroundTint="#00AA00" />
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/stopButton"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/button_height_large"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    android:text="Detener / Stop"
-                    android:textSize="11dp"
+                    android:text="Stop"
+                    android:textSize="18dp"
                     android:textStyle="bold"
                     app:icon="@drawable/stop"
                     app:iconGravity="textEnd"
-                    app:backgroundTint="@color/btn_tint_speaking_stop"
+                    app:backgroundTint="#FF0E32"
                     tools:ignore="DuplicateIds" />
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_pronun_answer"
+                android:textSize="18sp"
+                android:textColor="#002C4D"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"/>
 
             <!-- Card de resultados -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                app:cardCornerRadius="8dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="4dp">
 
                 <LinearLayout
@@ -244,16 +255,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="20dp"
-                    android:background="@color/cardSena">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/text_pronun_answer"
-                        android:textSize="18sp"
-                        android:textColor="#002C4D"
-                        android:gravity="center"
-                        android:layout_marginBottom="16dp"/>
+                    android:background="@color/cardSena"
+                    >
 
                     <TextView
                         android:id="@+id/recognizedTextView"
@@ -288,7 +291,7 @@
                     android:id="@+id/nextButton"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="Próximo / Next"
+                    android:text="Siguiente / Next"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:backgroundTint="@color/btn_tint_speaking_next"/>

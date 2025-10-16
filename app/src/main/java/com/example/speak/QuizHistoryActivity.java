@@ -514,8 +514,25 @@ public class QuizHistoryActivity extends AppCompatActivity {
                     ProgressionHelper.markTopicCompleted(this, finalCurrentTopic, finalScoreForLambda);
                     Log.d(TAG, "Topic marked as completed");
 
+                    // Determinar la fuente según el QUIZ_TYPE
+                    String quizType = getIntent().getStringExtra("QUIZ_TYPE");
+                    String source = "";
+                    if ("Quiz".equals(quizType)) {
+                        source = "quiz";
+                    } else if ("Listening".equals(quizType)) {
+                        source = "listening";
+                    } else if ("Speaking".equals(quizType) || "Pronunciation".equals(quizType)) {
+                        source = "speaking";
+                    } else if ("Reading".equals(quizType) || "Identificación Imagen".equals(quizType)) {
+                        source = "reading";
+                    } else if ("Writing".equals(quizType)) {
+                        source = "writing";
+                    }
+
+                    Log.d(TAG, "Quiz type: " + quizType + ", Source: " + source);
+
                     // Crear intent para continuar con el siguiente tema
-                    Intent continueIntent = ProgressionHelper.createContinueIntent(this, finalCurrentTopic, "");
+                    Intent continueIntent = ProgressionHelper.createContinueIntent(this, finalCurrentTopic, source);
                     Log.d(TAG, "Continue intent created: " + (continueIntent != null ? continueIntent.getComponent() : "null"));
 
                     if (continueIntent != null) {
