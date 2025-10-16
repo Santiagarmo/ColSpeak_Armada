@@ -1,69 +1,60 @@
-package com.example.speak;
+package com.example.speak
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.speak.MainActivity;
-
-import com.example.speak.pronunciation.PronunciationActivity;
-
-public class BeginActivity extends AppCompatActivity {
-
+class BeginActivity : AppCompatActivity() {
     //Declaramos las variables
-    private Button eButtonBegin;
+    private var eButtonBegin: Button? = null
 
     //Return Menú
-    private LinearLayout eBtnReturnMenu;
+    private var eBtnReturnMenu: LinearLayout? = null
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_begin);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_begin)
 
         //Inicializamos las variables
-        initializeViews();
-        setupClickListeners();
+        initializeViews()
+        setupClickListeners()
 
         //Return Menu
     }
 
-    private void initializeViews() {
+    private fun initializeViews() {
         try {
-            eButtonBegin = findViewById(R.id.eButtonBegin);
-            eBtnReturnMenu = findViewById(R.id.eBtnReturnMenu);
-
-        } catch (Exception e) {
-            Toast.makeText(this, "Error al inicializar las vistas", Toast.LENGTH_SHORT).show();
-            finish();
+            eButtonBegin = findViewById<Button>(R.id.eButtonBegin)
+            eBtnReturnMenu = findViewById<LinearLayout>(R.id.eBtnReturnMenu)
+        } catch (e: Exception) {
+            Toast.makeText(this, "Error al inicializar las vistas", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 
-    private void setupClickListeners() {
+    private fun setupClickListeners() {
         //Configuramos el botón de start
-        eButtonBegin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(BeginActivity.this, MenuA1Activity.class);
-                startActivity(intent);
+        eButtonBegin!!.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                val intent = Intent(this@BeginActivity, MenuA1Activity::class.java)
+                startActivity(intent)
             }
-        });
+        })
 
-        eBtnReturnMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(BeginActivity.this, MainActivity.class);
-                startActivity(intent);
-                Toast.makeText(BeginActivity.this, "Has retornado al menú correctamente.", Toast.LENGTH_SHORT).show();
+        eBtnReturnMenu!!.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                val intent = Intent(this@BeginActivity, MainActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(
+                    this@BeginActivity,
+                    "Has retornado al menú correctamente.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
-        });
-
+        })
     }
-
 }

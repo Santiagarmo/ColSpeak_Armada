@@ -1,5 +1,6 @@
 package com.example.speak
 
+import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -32,7 +33,7 @@ class SpeechRecognitionUI @JvmOverloads constructor(
 
     private fun setupButtons() {
         startButton.setOnClickListener {
-            if (SpeechPermissionHelper.checkAndRequestPermissions(context as Activity)) {
+            if (context is Activity && SpeechPermissionHelper.checkAndRequestPermissions(context as Activity)) {
                 startListening()
             }
         }
@@ -43,19 +44,20 @@ class SpeechRecognitionUI @JvmOverloads constructor(
     }
 
     private fun startListening() {
-        speechRecognizer = OfflineSpeechRecognizer(context).apply {
-            setOnResultListener { result ->
+        speechRecognizer = OfflineSpeechRecognizer(context)
+        speechRecognizer?.startListening(
+            onResult = { result ->
                 resultTextView.text = result
-            }
-            setOnErrorListener { error ->
+            },
+            onError = { error ->
                 Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
             }
-        }
-        speechRecognizer?.startListening()
+        )
     }
 
     private fun stopListening() {
         speechRecognizer?.stopListening()
+        speechRecognizer?.destroy()
         speechRecognizer = null
     }
 

@@ -1,471 +1,493 @@
-package com.example.speak;
+package com.example.speak
+
+import android.content.Intent
+import android.database.Cursor
+import android.graphics.Color
+import android.graphics.Typeface
+import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
+import android.view.View
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.widget.Button
+import android.widget.HorizontalScrollView
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.FileProvider
+import com.example.speak.database.DatabaseHelper
+import java.io.File
+import java.io.FileWriter
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 // Importaciones necesarias para trabajar con UI, base de datos y diseño
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import android.view.animation.Animation;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 
 // Importación de una clase personalizada para acceder a la base de datos
-import com.example.speak.database.DatabaseHelper;
-import com.example.speak.quiz.QuizActivity;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
-
 /**
  * Clase que muestra el historial de preguntas de un quiz.
  * Extiende AppCompatActivity, lo que le permite ser una pantalla dentro de la app.
  */
-public class QuizHistoryActivity extends AppCompatActivity {
-
-    private static final String TAG = "QuizHistoryActivity";
-
+class QuizHistoryActivity : AppCompatActivity() {
     // Referencias a la base de datos y al diseño (tabla)
-    private DatabaseHelper dbHelper;
-    private TableLayout tableLayout;
-    private TableLayout tableLayoutHeader;
-    private android.widget.HorizontalScrollView headerScrollView;
-    private android.widget.HorizontalScrollView contentScrollView;
-    private long currentUserId;
-    private Button continueButton;
+    private var dbHelper: DatabaseHelper? = null
+    private var tableLayout: TableLayout? = null
+    private var tableLayoutHeader: TableLayout? = null
+    private var headerScrollView: HorizontalScrollView? = null
+    private var contentScrollView: HorizontalScrollView? = null
+    private var currentUserId: Long = 0
+    private var continueButton: Button? = null
 
-    private androidx.constraintlayout.widget.ConstraintLayout eBtnReturnMenu;
+    private var eBtnReturnMenu: ConstraintLayout? = null
 
-    private boolean birdExpanded = false;
-    private ImageView birdMenu;
-    private ImageView quizMenu;
-    private ImageView pronunMenu;
+    private var birdExpanded = false
+    private var birdMenu: ImageView? = null
+    private var quizMenu: ImageView? = null
+    private var pronunMenu: ImageView? = null
 
-    private ImageView eButtonProfile;
-    private ImageView homeButton;
+    private var eButtonProfile: ImageView? = null
+    private var homeButton: ImageView? = null
 
     /**
      * Método que se ejecuta al crear la actividad.
      * Inicializa el layout, la base de datos y carga el historial.
      */
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_history);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_quiz_history)
 
-        dbHelper = new DatabaseHelper(this);
-        tableLayout = findViewById(R.id.quizHistoryTable);
-        tableLayoutHeader = findViewById(R.id.quizHistoryTableHeader);
-        headerScrollView = findViewById(R.id.headerScrollView);
-        contentScrollView = findViewById(R.id.contentScrollView);
-        TextView historyTitle = findViewById(R.id.historyTitle);
-        LinearLayout exportButton = findViewById(R.id.exportButton);
-        continueButton = findViewById(R.id.continueButton);
+        dbHelper = DatabaseHelper(this)
+        tableLayout = findViewById<TableLayout>(R.id.quizHistoryTable)
+        tableLayoutHeader = findViewById<TableLayout>(R.id.quizHistoryTableHeader)
+        headerScrollView = findViewById<HorizontalScrollView?>(R.id.headerScrollView)
+        contentScrollView = findViewById<HorizontalScrollView?>(R.id.contentScrollView)
+        val historyTitle = findViewById<TextView>(R.id.historyTitle)
+        val exportButton = findViewById<LinearLayout>(R.id.exportButton)
+        continueButton = findViewById<Button>(R.id.continueButton)
 
         // Sincronizar el scroll horizontal entre header y contenido
-        setupScrollSync();
+        setupScrollSync()
 
         //Declaramos las variables Menu
-        birdMenu = findViewById(R.id.imgBirdMenu);
-        quizMenu = findViewById(R.id.imgQuizMenu);
-        pronunMenu = findViewById(R.id.imgPronunMenu);
-        eButtonProfile = findViewById(R.id.btnProfile);
-        homeButton = findViewById(R.id.homeButton);
+        birdMenu = findViewById<ImageView?>(R.id.imgBirdMenu)
+        quizMenu = findViewById<ImageView?>(R.id.imgQuizMenu)
+        pronunMenu = findViewById<ImageView?>(R.id.imgPronunMenu)
+        eButtonProfile = findViewById<ImageView?>(R.id.btnProfile)
+        homeButton = findViewById<ImageView?>(R.id.homeButton)
 
         // Obtener el ID del usuario actual
-        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
-        currentUserId = prefs.getLong("user_id", -1);
-        Log.d("QuizHistory", "Current User ID: " + currentUserId);
+        val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
+        currentUserId = prefs.getLong("user_id", -1)
+        Log.d("QuizHistory", "Current User ID: " + currentUserId)
 
         // Obtener extras del Intent
-        String quizType = getIntent().getStringExtra("QUIZ_TYPE");
-        int score = getIntent().getIntExtra("SCORE", 0);
-        int totalQuestions = getIntent().getIntExtra("TOTAL_QUESTIONS", 0);
-        String currentTopic = getIntent().getStringExtra("TOPIC"); // Obtener el tema actual
+        val quizType = getIntent().getStringExtra("QUIZ_TYPE")
+        val score = getIntent().getIntExtra("SCORE", 0)
+        val totalQuestions = getIntent().getIntExtra("TOTAL_QUESTIONS", 0)
+        val currentTopic = getIntent().getStringExtra("TOPIC") // Obtener el tema actual
 
-        Log.d("QuizHistory", "Quiz Type: " + quizType);
-        Log.d("QuizHistory", "Score: " + score);
-        Log.d("QuizHistory", "Total Questions: " + totalQuestions);
-        Log.d("QuizHistory", "Current Topic: " + currentTopic);
+        Log.d("QuizHistory", "Quiz Type: " + quizType)
+        Log.d("QuizHistory", "Score: " + score)
+        Log.d("QuizHistory", "Total Questions: " + totalQuestions)
+        Log.d("QuizHistory", "Current Topic: " + currentTopic)
 
         // Actualizar el título según el tipo de quiz
         if (quizType != null) {
-            historyTitle.setText("Resultados de " + quizType);
+            historyTitle.setText("Resultados de " + quizType)
         } else {
-            historyTitle.setText("Historial de Actividades");
+            historyTitle.setText("Historial de Actividades")
         }
 
         try {
             // Usar el nuevo método loadQuizResults
-            loadQuizResults();
-        } catch (Exception e) {
-            Log.e("QuizHistory", "Error loading quiz history: " + e.getMessage());
-            Toast.makeText(this, "Error al cargar el historial", Toast.LENGTH_SHORT).show();
+            loadQuizResults()
+        } catch (e: Exception) {
+            Log.e("QuizHistory", "Error loading quiz history: " + e.message)
+            Toast.makeText(this, "Error al cargar el historial", Toast.LENGTH_SHORT).show()
         }
 
         // Configurar el botón "Continuar"
-        setupContinueButton(currentTopic, score, totalQuestions);
+        setupContinueButton(currentTopic, score, totalQuestions)
 
         // Configurar el botón de exportación
-        exportButton.setOnClickListener(v -> exportToCSV());
+        exportButton.setOnClickListener(View.OnClickListener { v: View? -> exportToCSV() })
 
         if (eButtonProfile != null) {
-            eButtonProfile.setOnClickListener(v -> {
+            eButtonProfile!!.setOnClickListener(View.OnClickListener { v: View? ->
                 try {
-                    Intent intent = new Intent(QuizHistoryActivity.this, ProfileActivity.class);
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Toast.makeText(QuizHistoryActivity.this, "Error opening activity: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    val intent = Intent(this@QuizHistoryActivity, ProfileActivity::class.java)
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        this@QuizHistoryActivity,
+                        "Error opening activity: " + e.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-            });
+            })
         }
 
         if (homeButton != null) {
-            homeButton.setOnClickListener(v -> {
+            homeButton!!.setOnClickListener(View.OnClickListener { v: View? ->
                 try {
-                    Intent intent = new Intent(QuizHistoryActivity.this, MainActivity.class);
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Toast.makeText(QuizHistoryActivity.this, "Error opening activity: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    val intent = Intent(this@QuizHistoryActivity, MainActivity::class.java)
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        this@QuizHistoryActivity,
+                        "Error opening activity: " + e.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-            });
+            })
         }
 
-        eBtnReturnMenu = findViewById(R.id.eBtnReturnMenu);
-        eBtnReturnMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ReturnMenu();
+        eBtnReturnMenu = findViewById<ConstraintLayout>(R.id.eBtnReturnMenu)
+        eBtnReturnMenu!!.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                ReturnMenu()
             }
-        });
+        })
 
         if (quizMenu != null) {
-            quizMenu.setOnClickListener(v -> {
+            quizMenu!!.setOnClickListener(View.OnClickListener { v: View? ->
                 try {
                     //Intent intent = new Intent(MenuA1Activity.this, com.example.speak.quiz.QuizActivity.class);
-                    Intent intent = new Intent(QuizHistoryActivity.this, QuizHistoryActivity.class);
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Toast.makeText(QuizHistoryActivity.this, "Error opening activity: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    val intent = Intent(this@QuizHistoryActivity, QuizHistoryActivity::class.java)
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        this@QuizHistoryActivity,
+                        "Error opening activity: " + e.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-            });
+            })
         }
 
         if (pronunMenu != null) {
-            pronunMenu.setOnClickListener(v -> {
+            pronunMenu!!.setOnClickListener(View.OnClickListener { v: View? ->
                 try {
-                    Intent intent = new Intent(QuizHistoryActivity.this, PronunciationHistoryActivity.class);
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Toast.makeText(QuizHistoryActivity.this, "Error opening activity: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    val intent =
+                        Intent(this@QuizHistoryActivity, PronunciationHistoryActivity::class.java)
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    Toast.makeText(
+                        this@QuizHistoryActivity,
+                        "Error opening activity: " + e.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-            });
+            })
         }
 
         if (birdMenu != null) {
-            birdMenu.setOnClickListener(v -> {
-                birdExpanded = !birdExpanded;
+            birdMenu!!.setOnClickListener(View.OnClickListener { v: View? ->
+                birdExpanded = !birdExpanded
                 if (birdExpanded) {
-                    birdMenu.setImageResource(R.drawable.bird1_menu);
-                    fadeInView(quizMenu);
-                    fadeInView(pronunMenu);
+                    birdMenu!!.setImageResource(R.drawable.bird1_menu)
+                    fadeInView(quizMenu)
+                    fadeInView(pronunMenu)
                 } else {
-                    birdMenu.setImageResource(R.drawable.bird0_menu);
-                    fadeOutView(quizMenu);
-                    fadeOutView(pronunMenu);
+                    birdMenu!!.setImageResource(R.drawable.bird0_menu)
+                    fadeOutView(quizMenu)
+                    fadeOutView(pronunMenu)
                 }
-            });
+            })
         }
     }
 
     /**
      * Sincroniza el scroll horizontal entre el header y el contenido
      */
-    private void setupScrollSync() {
+    private fun setupScrollSync() {
         if (headerScrollView != null && contentScrollView != null) {
             // Variable para evitar bucles infinitos de sincronización
-            final boolean[] isSyncing = {false};
+            val isSyncing = booleanArrayOf(false)
 
-            headerScrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            headerScrollView!!.setOnScrollChangeListener(View.OnScrollChangeListener { v: View?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int ->
                 if (!isSyncing[0]) {
-                    isSyncing[0] = true;
-                    contentScrollView.scrollTo(scrollX, scrollY);
-                    isSyncing[0] = false;
+                    isSyncing[0] = true
+                    contentScrollView!!.scrollTo(scrollX, scrollY)
+                    isSyncing[0] = false
                 }
-            });
+            })
 
-            contentScrollView.setOnScrollChangeListener((v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            contentScrollView!!.setOnScrollChangeListener(View.OnScrollChangeListener { v: View?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int ->
                 if (!isSyncing[0]) {
-                    isSyncing[0] = true;
-                    headerScrollView.scrollTo(scrollX, scrollY);
-                    isSyncing[0] = false;
+                    isSyncing[0] = true
+                    headerScrollView!!.scrollTo(scrollX, scrollY)
+                    isSyncing[0] = false
                 }
-            });
+            })
         }
     }
 
-    private void fadeOutView(final View view) {
-        if (view == null) return;
+    private fun fadeOutView(view: View?) {
+        if (view == null) return
 
-        Animation fadeOut = new AlphaAnimation(1, 0);
-        fadeOut.setDuration(500);
-        fadeOut.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {}
+        val fadeOut: Animation = AlphaAnimation(1f, 0f)
+        fadeOut.setDuration(500)
+        fadeOut.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {}
 
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                view.setVisibility(View.GONE);
+            override fun onAnimationEnd(animation: Animation?) {
+                view.setVisibility(View.GONE)
             }
 
-            @Override
-            public void onAnimationRepeat(Animation animation) {}
-        });
-        view.startAnimation(fadeOut);
+            override fun onAnimationRepeat(animation: Animation?) {}
+        })
+        view.startAnimation(fadeOut)
     }
 
-    private void fadeInView(final View view) {
-        if (view == null) return;
+    private fun fadeInView(view: View?) {
+        if (view == null) return
 
-        view.setVisibility(View.VISIBLE);
-        Animation fadeIn = new AlphaAnimation(0, 1);
-        fadeIn.setDuration(500);
-        view.startAnimation(fadeIn);
+        view.setVisibility(View.VISIBLE)
+        val fadeIn: Animation = AlphaAnimation(0f, 1f)
+        fadeIn.setDuration(500)
+        view.startAnimation(fadeIn)
     }
 
-    private void showFullHistory(TableLayout tableLayout, long currentUserId) {
+    private fun showFullHistory(tableLayout: TableLayout, currentUserId: Long) {
         // Crear encabezado de la tabla
-        tableLayoutHeader.removeAllViews();
-        addTableHeader(tableLayoutHeader);
+        tableLayoutHeader!!.removeAllViews()
+        addTableHeader(tableLayoutHeader!!)
 
-        Cursor cursor = dbHelper.getQuizHistory();
+        val cursor = dbHelper!!.getQuizHistory()
         if (cursor != null && cursor.moveToFirst()) {
             try {
                 // Obtener los índices de las columnas una sola vez
-                int userIdIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ID);
-                int questionIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION);
-                int userAnswerIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ANSWER);
-                int correctAnswerIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_CORRECT_ANSWER);
-                int isCorrectIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_IS_CORRECT);
-                int topicIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC);
-                int levelIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL);
+                val userIdIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ID)
+                val questionIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION)
+                val userAnswerIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ANSWER)
+                val correctAnswerIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_CORRECT_ANSWER)
+                val isCorrectIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_IS_CORRECT)
+                val topicIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC)
+                val levelIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL)
 
                 do {
-                    long recordUserId = cursor.getLong(userIdIndex);
+                    val recordUserId = cursor.getLong(userIdIndex)
                     if (recordUserId == currentUserId) {
-                        addTableRow(tableLayout, cursor);
+                        addTableRow(tableLayout, cursor)
                     }
-                } while (cursor.moveToNext());
-            } catch (Exception e) {
-                Log.e("QuizHistory", "Error processing cursor: " + e.getMessage());
-                e.printStackTrace();
+                } while (cursor.moveToNext())
+            } catch (e: Exception) {
+                Log.e("QuizHistory", "Error processing cursor: " + e.message)
+                e.printStackTrace()
             } finally {
-                cursor.close();
+                cursor.close()
             }
         }
     }
 
-    private void showCurrentActivityResults(TableLayout tableLayout, ArrayList<ListeningQuestion> questions, int score, int totalQuestions) {
-        Log.d("QuizHistory", "Showing current activity results");
+    private fun showCurrentActivityResults(
+        tableLayout: TableLayout,
+        questions: ArrayList<ListeningQuestion?>?,
+        score: Int,
+        totalQuestions: Int
+    ) {
+        Log.d("QuizHistory", "Showing current activity results")
 
         // Crear encabezado de la tabla
-        tableLayoutHeader.removeAllViews();
-        addTableHeader(tableLayoutHeader);
+        tableLayoutHeader!!.removeAllViews()
+        addTableHeader(tableLayoutHeader!!)
 
         // Obtener el timestamp de sesión
-        long sessionTimestamp = getIntent().getLongExtra("SESSION_TIMESTAMP", -1);
-        String quizType = getIntent().getStringExtra("QUIZ_TYPE");
+        val sessionTimestamp = getIntent().getLongExtra("SESSION_TIMESTAMP", -1)
+        val quizType = getIntent().getStringExtra("QUIZ_TYPE")
 
-        Log.d("QuizHistory", "Session Timestamp: " + sessionTimestamp);
-        Log.d("QuizHistory", "Quiz Type: " + quizType);
+        Log.d("QuizHistory", "Session Timestamp: " + sessionTimestamp)
+        Log.d("QuizHistory", "Quiz Type: " + quizType)
 
-        if (sessionTimestamp == -1) {
-            Log.e("QuizHistory", "No session timestamp found");
-            return;
+        if (sessionTimestamp == -1L) {
+            Log.e("QuizHistory", "No session timestamp found")
+            return
         }
 
         // Obtener las respuestas de la sesión actual
-        Cursor cursor = dbHelper.getQuizHistory();
+        val cursor = dbHelper!!.getQuizHistory()
         if (cursor == null) {
-            Log.e("QuizHistory", "Cursor is null");
-            return;
+            Log.e("QuizHistory", "Cursor is null")
+            return
         }
 
         if (!cursor.moveToFirst()) {
-            Log.e("QuizHistory", "No data in cursor");
-            cursor.close();
-            return;
+            Log.e("QuizHistory", "No data in cursor")
+            cursor.close()
+            return
         }
 
         try {
             // Obtener los índices de las columnas una sola vez
-            int userIdIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ID);
-            int questionIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION);
-            int userAnswerIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ANSWER);
-            int correctAnswerIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_CORRECT_ANSWER);
-            int isCorrectIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_IS_CORRECT);
-            int topicIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC);
-            int levelIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL);
-            int timestampIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP);
-            int quizTypeIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_QUIZ_TYPE);
+            val userIdIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ID)
+            val questionIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION)
+            val userAnswerIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ANSWER)
+            val correctAnswerIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_CORRECT_ANSWER)
+            val isCorrectIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_IS_CORRECT)
+            val topicIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC)
+            val levelIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL)
+            val timestampIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP)
+            val quizTypeIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_QUIZ_TYPE)
 
             // Verificar que todos los índices sean válidos
-            if (userIdIndex == -1 || questionIndex == -1 || userAnswerIndex == -1 ||
-                    correctAnswerIndex == -1 || isCorrectIndex == -1 || topicIndex == -1 ||
-                    levelIndex == -1 || timestampIndex == -1 || quizTypeIndex == -1) {
-                Log.e("QuizHistory", "Invalid column index");
-                return;
+            if (userIdIndex == -1 || questionIndex == -1 || userAnswerIndex == -1 || correctAnswerIndex == -1 || isCorrectIndex == -1 || topicIndex == -1 || levelIndex == -1 || timestampIndex == -1 || quizTypeIndex == -1) {
+                Log.e("QuizHistory", "Invalid column index")
+                return
             }
 
             // Mostrar solo las respuestas de la sesión actual
             do {
-                long recordUserId = cursor.getLong(userIdIndex);
-                String recordQuizType = cursor.getString(quizTypeIndex);
-                long recordTimestamp = cursor.getLong(timestampIndex);
+                val recordUserId = cursor.getLong(userIdIndex)
+                val recordQuizType = cursor.getString(quizTypeIndex)
+                val recordTimestamp = cursor.getLong(timestampIndex)
 
                 if (recordUserId == currentUserId &&
-                        quizType.equals(recordQuizType) &&
-                        recordTimestamp == sessionTimestamp) {  // Comparación exacta del timestamp
+                    quizType == recordQuizType && recordTimestamp == sessionTimestamp
+                ) {  // Comparación exacta del timestamp
 
-                    String question = cursor.getString(questionIndex);
-                    String userAnswer = cursor.getString(userAnswerIndex);
-                    String correctAnswer = cursor.getString(correctAnswerIndex);
-                    boolean isCorrect = cursor.getInt(isCorrectIndex) == 1;
-                    String topic = cursor.getString(topicIndex);
-                    String level = cursor.getString(levelIndex);
+                    val question = cursor.getString(questionIndex)
+                    val userAnswer = cursor.getString(userAnswerIndex)
+                    val correctAnswer = cursor.getString(correctAnswerIndex)
+                    val isCorrect = cursor.getInt(isCorrectIndex) == 1
+                    val topic = cursor.getString(topicIndex)
+                    val level = cursor.getString(levelIndex)
 
-                    addTableRow(tableLayout, cursor);
+                    addTableRow(tableLayout, cursor)
                 }
-            } while (cursor.moveToNext());
-        } catch (Exception e) {
-            Log.e("QuizHistory", "Error processing cursor: " + e.getMessage());
-            e.printStackTrace();
+            } while (cursor.moveToNext())
+        } catch (e: Exception) {
+            Log.e("QuizHistory", "Error processing cursor: " + e.message)
+            e.printStackTrace()
         } finally {
-            cursor.close();
+            cursor.close()
         }
     }
 
-    private void showFilteredHistory(TableLayout tableLayout, long currentUserId, String quizType, boolean showOnlyLast10) {
+    private fun showFilteredHistory(
+        tableLayout: TableLayout,
+        currentUserId: Long,
+        quizType: String,
+        showOnlyLast10: Boolean
+    ) {
         // Crear encabezado de la tabla
-        tableLayoutHeader.removeAllViews();
-        addTableHeader(tableLayoutHeader);
+        tableLayoutHeader!!.removeAllViews()
+        addTableHeader(tableLayoutHeader!!)
 
-        Cursor cursor = dbHelper.getQuizHistory();
+        val cursor = dbHelper!!.getQuizHistory()
         if (cursor != null && cursor.moveToFirst()) {
-            int count = 0;
+            var count = 0
             do {
-                long recordUserId = cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ID));
-                String recordQuizType = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_QUIZ_TYPE));
+                val recordUserId =
+                    cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ID))
+                val recordQuizType =
+                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_QUIZ_TYPE))
 
-                if (recordUserId == currentUserId && quizType.equals(recordQuizType)) {
-                    addTableRow(tableLayout, cursor);
-                    count++;
+                if (recordUserId == currentUserId && quizType == recordQuizType) {
+                    addTableRow(tableLayout, cursor)
+                    count++
 
                     if (showOnlyLast10 && count >= 10) {
-                        break;
+                        break
                     }
                 }
-            } while (cursor.moveToNext());
-            cursor.close();
+            } while (cursor.moveToNext())
+            cursor.close()
         }
     }
 
 
-    private void addTableHeader(TableLayout table) {
-        TableRow headerRow = new TableRow(this);
-        headerRow.setBackgroundColor(getResources().getColor(R.color.header_blue_table));
+    private fun addTableHeader(table: TableLayout) {
+        val headerRow = TableRow(this)
+        headerRow.setBackgroundColor(getResources().getColor(R.color.header_blue_table))
 
-        String[] headers = {"Date", "Question", "Correct Answer", "Your Answer", "Result", "Topic", "Level"};
-        for (String header : headers) {
-            TextView textView = new TextView(this);
-            textView.setText(header);
-            textView.setTextColor(Color.WHITE);
-            textView.setTextSize(16);
-            textView.setPadding(16, 12, 16, 12);
-            textView.setTypeface(null, Typeface.BOLD);
-            textView.setMinWidth(220); // Aumenta el ancho mínimo
-            textView.setMaxLines(1);   // Solo una línea
-            textView.setSingleLine(true); // Forzar una sola línea
-            textView.setEllipsize(TextUtils.TruncateAt.END);
-            headerRow.addView(textView);
+        val headers = arrayOf<String?>(
+            "Date",
+            "Question",
+            "Correct Answer",
+            "Your Answer",
+            "Result",
+            "Topic",
+            "Level"
+        )
+        for (header in headers) {
+            val textView = TextView(this)
+            textView.setText(header)
+            textView.setTextColor(Color.WHITE)
+            textView.setTextSize(16f)
+            textView.setPadding(16, 12, 16, 12)
+            textView.setTypeface(null, Typeface.BOLD)
+            textView.setMinWidth(220) // Aumenta el ancho mínimo
+            textView.setMaxLines(1) // Solo una línea
+            textView.setSingleLine(true) // Forzar una sola línea
+            textView.setEllipsize(TextUtils.TruncateAt.END)
+            headerRow.addView(textView)
         }
-        table.addView(headerRow);
+        table.addView(headerRow)
     }
 
-    private void addTableRow(TableLayout table, Cursor cursor) {
-        TableRow row = new TableRow(this);
-        row.setBackgroundColor(cursor.getPosition() % 2 == 0 ?
-                getResources().getColor(R.color.white) :
-                getResources().getColor(R.color.light_gray));
+    private fun addTableRow(table: TableLayout, cursor: Cursor) {
+        val row = TableRow(this)
+        row.setBackgroundColor(
+            if (cursor.getPosition() % 2 == 0) getResources().getColor(R.color.white) else getResources().getColor(
+                R.color.light_gray
+            )
+        )
 
         // Formatear la fecha
-        long timestamp = cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP));
-        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-                .format(new Date(timestamp));
+        val timestamp = cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP))
+        val date = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+            .format(Date(timestamp))
 
         // Obtener los datos
-        String question = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION));
-        String correctAnswer = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_CORRECT_ANSWER));
-        String selectedAnswer = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ANSWER));
-        boolean isCorrect = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_IS_CORRECT)) == 1;
-        String topic = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC));
-        String level = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL));
+        val question = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION))
+        val correctAnswer =
+            cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_CORRECT_ANSWER))
+        val selectedAnswer =
+            cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ANSWER))
+        val isCorrect = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_IS_CORRECT)) == 1
+        val topic = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC))
+        val level = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL))
 
         // Crear las celdas
-        String[] cellContents = {
-                date,
-                question,
-                correctAnswer,
-                selectedAnswer,
-                isCorrect ? "✓" : "✗",
-                topic,
-                level
-        };
+        val cellContents = arrayOf<String?>(
+            date,
+            question,
+            correctAnswer,
+            selectedAnswer,
+            if (isCorrect) "✓" else "✗",
+            topic,
+            level
+        )
 
-        for (int i = 0; i < cellContents.length; i++) {
-            TextView textView = new TextView(this);
-            textView.setText(cellContents[i]);
-            textView.setTextSize(14);
-            textView.setPadding(16, 12, 16, 12);
-            textView.setMinWidth(200); // Ancho mínimo para cada columna
-            textView.setMaxWidth(400); // Ancho máximo para cada columna
-            textView.setEllipsize(TextUtils.TruncateAt.END);
-            textView.setMaxLines(3);
+        for (i in cellContents.indices) {
+            val textView = TextView(this)
+            textView.setText(cellContents[i])
+            textView.setTextSize(14f)
+            textView.setPadding(16, 12, 16, 12)
+            textView.setMinWidth(200) // Ancho mínimo para cada columna
+            textView.setMaxWidth(400) // Ancho máximo para cada columna
+            textView.setEllipsize(TextUtils.TruncateAt.END)
+            textView.setMaxLines(3)
 
             // Aplicar color rojo o verde para el resultado
             if (i == 4) { // La columna del resultado
-                textView.setTextColor(isCorrect ? Color.GREEN : Color.RED);
-                textView.setTextSize(18); // Hacer el símbolo más grande
-                textView.setTypeface(null, Typeface.BOLD);
+                textView.setTextColor(if (isCorrect) Color.GREEN else Color.RED)
+                textView.setTextSize(18f) // Hacer el símbolo más grande
+                textView.setTypeface(null, Typeface.BOLD)
             }
 
-            row.addView(textView);
+            row.addView(textView)
         }
 
-        table.addView(row);
+        table.addView(row)
     }
 
     /**
@@ -473,369 +495,435 @@ public class QuizHistoryActivity extends AppCompatActivity {
      * @param message El mensaje a mostrar
      * @param isSuccess Si el mensaje es de éxito o error
      */
-    private void showMessage(String message, boolean isSuccess) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    private fun showMessage(message: String?, isSuccess: Boolean) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     /**
      * Configurar el botón "Continuar" según el progreso del usuario
      */
-    private void setupContinueButton(String currentTopic, int score, int totalQuestions) {
+    private fun setupContinueButton(currentTopic: String?, score: Int, totalQuestions: Int) {
         // Si no tenemos el tema del Intent, intentar obtenerlo de la base de datos
+        var currentTopic = currentTopic
         if (currentTopic == null || currentTopic.isEmpty()) {
-            currentTopic = getTopicFromDatabase();
+            currentTopic = this.topicFromDatabase
         }
 
         // Calcular el porcentaje del score
-        int finalScore = (totalQuestions > 0) ? (int) ((score / (double) totalQuestions) * 100) : 0;
+        val finalScore =
+            if (totalQuestions > 0) ((score / totalQuestions.toDouble()) * 100).toInt() else 0
 
-        Log.d(TAG, "Setting up continue button - Topic: " + currentTopic + ", Score: " + finalScore + "%");
+        Log.d(
+            TAG,
+            "Setting up continue button - Topic: " + currentTopic + ", Score: " + finalScore + "%"
+        )
 
         // Solo mostrar el botón si hay un tema válido y el usuario aprobó
         if (currentTopic != null && !currentTopic.isEmpty() && finalScore >= 70) {
-            String nextTopic = ProgressionHelper.getNextTopic(this, currentTopic);
+            val nextTopic = ProgressionHelper.getNextTopic(this, currentTopic)
 
             if (nextTopic != null) {
                 // Hay un siguiente tema disponible
-                continueButton.setText(ProgressionHelper.getContinueButtonText(nextTopic));
-                continueButton.setVisibility(View.VISIBLE);
+                continueButton!!.setText(ProgressionHelper.getContinueButtonText(nextTopic))
+                continueButton!!.setVisibility(View.VISIBLE)
 
                 // Crear copia final de las variables para usar en la lambda
-                final String finalCurrentTopic = currentTopic;
-                final int finalScoreForLambda = finalScore;
+                val finalCurrentTopic: String? = currentTopic
+                val finalScoreForLambda = finalScore
 
                 // Configurar el click listener
-                continueButton.setOnClickListener(v -> {
-                    Log.d(TAG, "Continue button clicked");
-                    Log.d(TAG, "Current topic: " + finalCurrentTopic);
-                    Log.d(TAG, "Score: " + finalScoreForLambda + "%");
+                continueButton!!.setOnClickListener(View.OnClickListener { v: View? ->
+                    Log.d(TAG, "Continue button clicked")
+                    Log.d(TAG, "Current topic: " + finalCurrentTopic)
+                    Log.d(TAG, "Score: " + finalScoreForLambda + "%")
 
                     // Marcar tema actual como completado
-                    ProgressionHelper.markTopicCompleted(this, finalCurrentTopic, finalScoreForLambda);
-                    Log.d(TAG, "Topic marked as completed");
+                    ProgressionHelper.markTopicCompleted(
+                        this,
+                        finalCurrentTopic,
+                        finalScoreForLambda
+                    )
+                    Log.d(TAG, "Topic marked as completed")
 
                     // Crear intent para continuar con el siguiente tema
-                    Intent continueIntent = ProgressionHelper.createContinueIntent(this, finalCurrentTopic, "");
-                    Log.d(TAG, "Continue intent created: " + (continueIntent != null ? continueIntent.getComponent() : "null"));
-
+                    val continueIntent =
+                        ProgressionHelper.createContinueIntent(this, finalCurrentTopic, "")
+                    Log.d(
+                        TAG,
+                        "Continue intent created: " + (if (continueIntent != null) continueIntent.getComponent() else "null")
+                    )
                     if (continueIntent != null) {
-                        Log.d(TAG, "Starting next activity");
-                        startActivity(continueIntent);
-                        finish();
+                        Log.d(TAG, "Starting next activity")
+                        startActivity(continueIntent)
+                        finish()
                     } else {
-                        Log.e(TAG, "Continue intent is null for topic: " + finalCurrentTopic);
-                        Toast.makeText(this, "No hay más temas disponibles", Toast.LENGTH_SHORT).show();
+                        Log.e(TAG, "Continue intent is null for topic: " + finalCurrentTopic)
+                        Toast.makeText(this, "No hay más temas disponibles", Toast.LENGTH_SHORT)
+                            .show()
                     }
-                });
+                })
 
-                Log.d(TAG, "Continue button configured for next topic: " + nextTopic);
+                Log.d(TAG, "Continue button configured for next topic: " + nextTopic)
             } else {
                 // Es el último tema
-                continueButton.setText("¡Nivel completado!");
-                continueButton.setVisibility(View.VISIBLE);
-                continueButton.setOnClickListener(v -> {
-                    Intent intent = new Intent(this, MenuA1Activity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-                });
+                continueButton!!.setText("¡Nivel completado!")
+                continueButton!!.setVisibility(View.VISIBLE)
+                continueButton!!.setOnClickListener(View.OnClickListener { v: View? ->
+                    val intent = Intent(this, MenuA1Activity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                    finish()
+                })
 
-                Log.d(TAG, "Continue button configured as level completed");
+                Log.d(TAG, "Continue button configured as level completed")
             }
         } else {
             // No mostrar el botón si no aprobó o no hay tema válido
-            continueButton.setVisibility(View.GONE);
-            Log.d(TAG, "Continue button hidden - Topic: " + currentTopic + ", Score: " + finalScore + "%");
+            continueButton!!.setVisibility(View.GONE)
+            Log.d(
+                TAG,
+                "Continue button hidden - Topic: " + currentTopic + ", Score: " + finalScore + "%"
+            )
         }
     }
 
-    /**
-     * Obtener el tema de la base de datos basado en la sesión actual
-     */
-    private String getTopicFromDatabase() {
-        try {
-            long sessionTimestamp = getIntent().getLongExtra("SESSION_TIMESTAMP", -1);
-            String quizType = getIntent().getStringExtra("QUIZ_TYPE");
+    private val topicFromDatabase: String?
+        /**
+         * Obtener el tema de la base de datos basado en la sesión actual
+         */
+        get() {
+            try {
+                val sessionTimestamp =
+                    getIntent().getLongExtra("SESSION_TIMESTAMP", -1)
+                val quizType = getIntent().getStringExtra("QUIZ_TYPE")
 
-            if (sessionTimestamp == -1 || quizType == null) {
-                Log.d(TAG, "No session timestamp or quiz type available");
-                return null;
-            }
-
-            String query = "SELECT DISTINCT " + DatabaseHelper.COLUMN_TOPIC +
-                    " FROM quiz_results WHERE " +
-                    DatabaseHelper.COLUMN_USER_ID + " = ? AND " +
-                    DatabaseHelper.COLUMN_QUIZ_TYPE + " = ? AND " +
-                    DatabaseHelper.COLUMN_TIMESTAMP + " = ? LIMIT 1";
-
-            Cursor cursor = dbHelper.getReadableDatabase().rawQuery(query, new String[]{
-                    String.valueOf(currentUserId), quizType, String.valueOf(sessionTimestamp)
-            });
-
-            if (cursor != null && cursor.moveToFirst()) {
-                int topicIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC);
-                if (topicIndex != -1) {
-                    String topic = cursor.getString(topicIndex);
-                    cursor.close();
-                    Log.d(TAG, "Topic obtained from database: " + topic);
-                    return topic;
+                if (sessionTimestamp == -1L || quizType == null) {
+                    Log.d(
+                        TAG,
+                        "No session timestamp or quiz type available"
+                    )
+                    return null
                 }
-                cursor.close();
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Error getting topic from database: " + e.getMessage());
-        }
 
-        return null;
-    }
+                val query =
+                    "SELECT DISTINCT " + DatabaseHelper.COLUMN_TOPIC +
+                            " FROM quiz_results WHERE " +
+                            DatabaseHelper.COLUMN_USER_ID + " = ? AND " +
+                            DatabaseHelper.COLUMN_QUIZ_TYPE + " = ? AND " +
+                            DatabaseHelper.COLUMN_TIMESTAMP + " = ? LIMIT 1"
+
+                val cursor = dbHelper!!.getReadableDatabase().rawQuery(
+                    query, arrayOf<String>(
+                        currentUserId.toString(), quizType, sessionTimestamp.toString()
+                    )
+                )
+
+                if (cursor != null && cursor.moveToFirst()) {
+                    val topicIndex =
+                        cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC)
+                    if (topicIndex != -1) {
+                        val topic = cursor.getString(topicIndex)
+                        cursor.close()
+                        Log.d(
+                            TAG,
+                            "Topic obtained from database: " + topic
+                        )
+                        return topic
+                    }
+                    cursor.close()
+                }
+            } catch (e: Exception) {
+                Log.e(
+                    TAG,
+                    "Error getting topic from database: " + e.message
+                )
+            }
+
+            return null
+        }
 
     /**
      * Se llama cuando la actividad se destruye. Cierra la base de datos para liberar recursos.
      */
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    override fun onDestroy() {
+        super.onDestroy()
         if (dbHelper != null) {
-            dbHelper.close();
+            dbHelper!!.close()
         }
     }
 
-    private void loadQuizResults() {
+    private fun loadQuizResults() {
         try {
-            String quizType = getIntent().getStringExtra("QUIZ_TYPE");
-            boolean showCurrentActivityOnly = getIntent().getBooleanExtra("SHOW_CURRENT_ACTIVITY_ONLY", false);
-            long sessionTimestamp = getIntent().getLongExtra("SESSION_TIMESTAMP", -1);
+            val quizType = getIntent().getStringExtra("QUIZ_TYPE")
+            val showCurrentActivityOnly =
+                getIntent().getBooleanExtra("SHOW_CURRENT_ACTIVITY_ONLY", false)
+            val sessionTimestamp = getIntent().getLongExtra("SESSION_TIMESTAMP", -1)
 
-            Log.d(TAG, "Loading quiz results - Type: " + quizType + ", ShowCurrentOnly: " + showCurrentActivityOnly + ", Timestamp: " + sessionTimestamp);
+            Log.d(
+                TAG,
+                "Loading quiz results - Type: " + quizType + ", ShowCurrentOnly: " + showCurrentActivityOnly + ", Timestamp: " + sessionTimestamp
+            )
 
-            tableLayout.removeAllViews();
-            tableLayoutHeader.removeAllViews();
-            addTableHeader(tableLayoutHeader);
+            tableLayout!!.removeAllViews()
+            tableLayoutHeader!!.removeAllViews()
+            addTableHeader(tableLayoutHeader!!)
 
-            if (quizType != null && quizType.equals("Writing")) {
-                Log.d(TAG, "Loading Writing results");
-                String writingQuery = "SELECT * FROM " + DatabaseHelper.TABLE_WRITING + " WHERE " +
-                        DatabaseHelper.COLUMN_WRITING_USER_ID + " = ?";
-                String[] writingSelectionArgs = new String[]{String.valueOf(currentUserId)};
+            if (quizType != null && quizType == "Writing") {
+                Log.d(TAG, "Loading Writing results")
+                var writingQuery = "SELECT * FROM " + DatabaseHelper.TABLE_WRITING + " WHERE " +
+                        DatabaseHelper.COLUMN_WRITING_USER_ID + " = ?"
+                var writingSelectionArgs: Array<String> = arrayOf(currentUserId.toString())
 
-                if (showCurrentActivityOnly && sessionTimestamp != -1) {
-                    writingQuery += " AND " + DatabaseHelper.COLUMN_WRITING_TIMESTAMP + " = ?";
-                    writingSelectionArgs = new String[]{String.valueOf(currentUserId), String.valueOf(sessionTimestamp)};
+                if (showCurrentActivityOnly && sessionTimestamp != -1L) {
+                    writingQuery += " AND " + DatabaseHelper.COLUMN_WRITING_TIMESTAMP + " = ?"
+                    writingSelectionArgs =
+                        arrayOf(currentUserId.toString(), sessionTimestamp.toString())
                 }
 
-                writingQuery += " ORDER BY " + DatabaseHelper.COLUMN_WRITING_TIMESTAMP + " DESC";
-                Log.d(TAG, "Writing query: " + writingQuery);
+                writingQuery += " ORDER BY " + DatabaseHelper.COLUMN_WRITING_TIMESTAMP + " DESC"
+                Log.d(TAG, "Writing query: " + writingQuery)
 
-                Cursor writingCursor = dbHelper.getReadableDatabase().rawQuery(writingQuery, writingSelectionArgs);
+                val writingCursor =
+                    dbHelper!!.getReadableDatabase().rawQuery(writingQuery, writingSelectionArgs)
 
                 // Verificar si el cursor tiene datos
                 if (writingCursor == null) {
-                    Log.e(TAG, "Writing cursor is null");
-                    return;
+                    Log.e(TAG, "Writing cursor is null")
+                    return
                 }
 
                 if (!writingCursor.moveToFirst()) {
-                    Log.d(TAG, "No writing results found");
-                    writingCursor.close();
-                    return;
+                    Log.d(TAG, "No writing results found")
+                    writingCursor.close()
+                    return
                 }
 
                 // Obtener índices de columnas
-                int timestampIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_TIMESTAMP);
-                int questionIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_QUESTION);
-                int userAnswerIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_USER_ANSWER);
-                int topicIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC);
-                int levelIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL);
-                int similarityIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_SIMILARITY);
-                int isCorrectIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_IS_CORRECT);
+                val timestampIndex =
+                    writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_TIMESTAMP)
+                val questionIndex =
+                    writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_QUESTION)
+                val userAnswerIndex =
+                    writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_USER_ANSWER)
+                val topicIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC)
+                val levelIndex = writingCursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL)
+                val similarityIndex =
+                    writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_SIMILARITY)
+                val isCorrectIndex =
+                    writingCursor.getColumnIndex(DatabaseHelper.COLUMN_WRITING_IS_CORRECT)
 
                 // Verificar que todos los índices sean válidos
-                if (timestampIndex == -1 || questionIndex == -1 || userAnswerIndex == -1 ||
-                        topicIndex == -1 || levelIndex == -1 || similarityIndex == -1 || isCorrectIndex == -1) {
-                    Log.e(TAG, "Invalid column index in writing table");
-                    writingCursor.close();
-                    return;
+                if (timestampIndex == -1 || questionIndex == -1 || userAnswerIndex == -1 || topicIndex == -1 || levelIndex == -1 || similarityIndex == -1 || isCorrectIndex == -1) {
+                    Log.e(TAG, "Invalid column index in writing table")
+                    writingCursor.close()
+                    return
                 }
 
                 do {
                     try {
-                        TableRow row = new TableRow(this);
-                        row.setBackgroundColor(writingCursor.getPosition() % 2 == 0 ?
-                                getResources().getColor(R.color.white) :
-                                getResources().getColor(R.color.light_gray));
+                        val row = TableRow(this)
+                        row.setBackgroundColor(
+                            if (writingCursor.getPosition() % 2 == 0) getResources().getColor(
+                                R.color.white
+                            ) else getResources().getColor(R.color.light_gray)
+                        )
 
-                        long timestamp = writingCursor.getLong(timestampIndex);
-                        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-                                .format(new Date(timestamp));
+                        val timestamp = writingCursor.getLong(timestampIndex)
+                        val date = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+                            .format(Date(timestamp))
 
-                        String question = writingCursor.getString(questionIndex);
-                        String userAnswer = writingCursor.getString(userAnswerIndex);
-                        String topic = writingCursor.getString(topicIndex);
-                        String level = writingCursor.getString(levelIndex);
-                        double similarity = writingCursor.getDouble(similarityIndex);
-                        String similarityText = String.format("%.1f%%", similarity * 100);
-                        boolean isCorrect = writingCursor.getInt(isCorrectIndex) == 1;
+                        val question = writingCursor.getString(questionIndex)
+                        val userAnswer = writingCursor.getString(userAnswerIndex)
+                        val topic = writingCursor.getString(topicIndex)
+                        val level = writingCursor.getString(levelIndex)
+                        val similarity = writingCursor.getDouble(similarityIndex)
+                        val similarityText = String.format("%.1f%%", similarity * 100)
+                        val isCorrect = writingCursor.getInt(isCorrectIndex) == 1
 
-                        String[] cellContents = {
-                                date,
-                                question,
-                                isCorrect ? "✓" : "✗",
-                                userAnswer,
-                                similarityText,
-                                topic,
-                                level
-                        };
+                        val cellContents = arrayOf<String?>(
+                            date,
+                            question,
+                            if (isCorrect) "✓" else "✗",
+                            userAnswer,
+                            similarityText,
+                            topic,
+                            level
+                        )
 
-                        for (int i = 0; i < cellContents.length; i++) {
-                            TextView textView = new TextView(this);
-                            textView.setText(cellContents[i]);
-                            textView.setTextSize(14);
-                            textView.setPadding(16, 12, 16, 12);
-                            textView.setMinWidth(220);
-                            textView.setMaxLines(3);
-                            textView.setEllipsize(TextUtils.TruncateAt.END);
+                        for (i in cellContents.indices) {
+                            val textView = TextView(this)
+                            textView.setText(cellContents[i])
+                            textView.setTextSize(14f)
+                            textView.setPadding(16, 12, 16, 12)
+                            textView.setMinWidth(220)
+                            textView.setMaxLines(3)
+                            textView.setEllipsize(TextUtils.TruncateAt.END)
 
                             // Aplicar color al símbolo de correcto/incorrecto
                             if (i == 2) { // La columna del símbolo ✓/✗
-                                textView.setTextColor(isCorrect ? Color.GREEN : Color.RED);
-                                textView.setTextSize(18);
-                                textView.setTypeface(null, Typeface.BOLD);
-                            }
-                            // Aplicar color al porcentaje de similitud
-                            else if (i == 4) { // La columna del porcentaje
-                                textView.setTextColor(similarity >= 0.7 ? Color.GREEN :
-                                        similarity >= 0.5 ? Color.rgb(255, 165, 0) : // Naranja
-                                                Color.RED);
-                                textView.setTextSize(16);
-                                textView.setTypeface(null, Typeface.BOLD);
+                                textView.setTextColor(if (isCorrect) Color.GREEN else Color.RED)
+                                textView.setTextSize(18f)
+                                textView.setTypeface(null, Typeface.BOLD)
+                            } else if (i == 4) { // La columna del porcentaje
+                                textView.setTextColor(
+                                    if (similarity >= 0.7) Color.GREEN else if (similarity >= 0.5) Color.rgb(
+                                        255,
+                                        165,
+                                        0
+                                    ) else  // Naranja
+                                        Color.RED
+                                )
+                                textView.setTextSize(16f)
+                                textView.setTypeface(null, Typeface.BOLD)
                             }
 
-                            row.addView(textView);
+                            row.addView(textView)
                         }
 
-                        tableLayout.addView(row);
-                    } catch (Exception e) {
-                        Log.e(TAG, "Error processing writing row: " + e.getMessage());
+                        tableLayout!!.addView(row)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Error processing writing row: " + e.message)
                     }
-                } while (writingCursor.moveToNext());
-                writingCursor.close();
+                } while (writingCursor.moveToNext())
+                writingCursor.close()
             } else {
-                Log.d(TAG, "Loading quiz_results");
-                String query = "SELECT * FROM quiz_results WHERE " + DatabaseHelper.COLUMN_USER_ID + " = ?";
-                String[] selectionArgs = new String[]{String.valueOf(currentUserId)};
+                Log.d(TAG, "Loading quiz_results")
+                var query =
+                    "SELECT * FROM quiz_results WHERE " + DatabaseHelper.COLUMN_USER_ID + " = ?"
+                var selectionArgs: Array<String> = arrayOf(currentUserId.toString())
 
-                if (showCurrentActivityOnly && sessionTimestamp != -1) {
-                    query += " AND " + DatabaseHelper.COLUMN_TIMESTAMP + " = ?";
-                    selectionArgs = new String[]{String.valueOf(currentUserId), String.valueOf(sessionTimestamp)};
+                if (showCurrentActivityOnly && sessionTimestamp != -1L) {
+                    query += " AND " + DatabaseHelper.COLUMN_TIMESTAMP + " = ?"
+                    selectionArgs =
+                        arrayOf(currentUserId.toString(), sessionTimestamp.toString())
                 } else if (quizType != null && !quizType.isEmpty()) {
-                    query += " AND " + DatabaseHelper.COLUMN_QUIZ_TYPE + " = ?";
-                    selectionArgs = new String[]{String.valueOf(currentUserId), quizType};
+                    query += " AND " + DatabaseHelper.COLUMN_QUIZ_TYPE + " = ?"
+                    selectionArgs = arrayOf(currentUserId.toString(), quizType)
                 }
 
-                query += " ORDER BY " + DatabaseHelper.COLUMN_TIMESTAMP + " DESC";
-                Log.d(TAG, "Quiz results query: " + query);
+                query += " ORDER BY " + DatabaseHelper.COLUMN_TIMESTAMP + " DESC"
+                Log.d(TAG, "Quiz results query: " + query)
 
-                Cursor cursor = dbHelper.getReadableDatabase().rawQuery(query, selectionArgs);
+                val cursor = dbHelper!!.getReadableDatabase().rawQuery(query, selectionArgs)
                 while (cursor.moveToNext()) {
-                    addTableRow(tableLayout, cursor);
+                    addTableRow(tableLayout!!, cursor)
                 }
-                cursor.close();
+                cursor.close()
             }
-        } catch (Exception e) {
-            Log.e(TAG, "Error in loadQuizResults: " + e.getMessage());
-            e.printStackTrace();
-            Toast.makeText(this, "Error al cargar el historial: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        } catch (e: Exception) {
+            Log.e(TAG, "Error in loadQuizResults: " + e.message)
+            e.printStackTrace()
+            Toast.makeText(this, "Error al cargar el historial: " + e.message, Toast.LENGTH_LONG)
+                .show()
         }
     }
 
-    private void exportToCSV() {
+    private fun exportToCSV() {
         try {
             // Crear el directorio si no existe
-            File exportDir = new File(getExternalFilesDir(null), "SpeakExports");
+            val exportDir = File(getExternalFilesDir(null), "SpeakExports")
             if (!exportDir.exists()) {
-                exportDir.mkdirs();
+                exportDir.mkdirs()
             }
 
             // Crear el archivo CSV con timestamp
-            String fileNameTimestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
-            File csvFile = new File(exportDir, "quiz_history_" + fileNameTimestamp + ".csv");
-            FileWriter writer = new FileWriter(csvFile);
+            val fileNameTimestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(
+                Date()
+            )
+            val csvFile = File(exportDir, "quiz_history_" + fileNameTimestamp + ".csv")
+            val writer = FileWriter(csvFile)
 
             // Escribir encabezados
-            writer.append("Date,Question,Correct Answer,User Answer,Score,Topic,Level\n");
+            writer.append("Date,Question,Correct Answer,User Answer,Score,Topic,Level\n")
 
             // Obtener los datos de la base de datos
-            Cursor cursor = dbHelper.getReadableDatabase().query(
-                    DatabaseHelper.TABLE_QUIZ,
-                    null,
-                    DatabaseHelper.COLUMN_USER_ID + " = ?",
-                    new String[]{String.valueOf(currentUserId)},
-                    null,
-                    null,
-                    DatabaseHelper.COLUMN_TIMESTAMP + " DESC"
-            );
+            val cursor = dbHelper!!.getReadableDatabase().query(
+                DatabaseHelper.TABLE_QUIZ,
+                null,
+                DatabaseHelper.COLUMN_USER_ID + " = ?",
+                arrayOf<String>(currentUserId.toString()),
+                null,
+                null,
+                DatabaseHelper.COLUMN_TIMESTAMP + " DESC"
+            )
 
             if (cursor != null && cursor.moveToFirst()) {
                 do {
                     // Obtener los valores de cada columna
-                    long recordTimestamp = cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP));
-                    String date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
-                            .format(new Date(recordTimestamp));
-                    String question = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION));
-                    String correctAnswer = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_CORRECT_ANSWER));
-                    String userAnswer = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ANSWER));
-                    boolean isCorrect = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_IS_CORRECT)) == 1;
-                    String topic = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC));
-                    String level = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL));
+                    val recordTimestamp =
+                        cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_TIMESTAMP))
+                    val date = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+                        .format(Date(recordTimestamp))
+                    var question =
+                        cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_QUESTION))
+                    var correctAnswer =
+                        cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_CORRECT_ANSWER))
+                    var userAnswer =
+                        cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_USER_ANSWER))
+                    val isCorrect =
+                        cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_IS_CORRECT)) == 1
+                    var topic = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_TOPIC))
+                    var level = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_LEVEL))
 
                     // Escapar comas y comillas en los campos
-                    question = "\"" + question.replace("\"", "\"\"") + "\"";
-                    correctAnswer = "\"" + correctAnswer.replace("\"", "\"\"") + "\"";
-                    userAnswer = "\"" + userAnswer.replace("\"", "\"\"") + "\"";
-                    topic = "\"" + topic.replace("\"", "\"\"") + "\"";
-                    level = "\"" + level.replace("\"", "\"\"") + "\"";
+                    question = "\"" + question.replace("\"", "\"\"") + "\""
+                    correctAnswer = "\"" + correctAnswer.replace("\"", "\"\"") + "\""
+                    userAnswer = "\"" + userAnswer.replace("\"", "\"\"") + "\""
+                    topic = "\"" + topic.replace("\"", "\"\"") + "\""
+                    level = "\"" + level.replace("\"", "\"\"") + "\""
 
                     // Escribir la línea en el CSV
-                    writer.append(String.format("%s,%s,%s,%s,%s,%s,%s\n",
+                    writer.append(
+                        String.format(
+                            "%s,%s,%s,%s,%s,%s,%s\n",
                             date,
                             question,
                             correctAnswer,
                             userAnswer,
-                            isCorrect ? "Correct" : "Incorrect",
+                            if (isCorrect) "Correct" else "Incorrect",
                             topic,
                             level
-                    ));
-                } while (cursor.moveToNext());
-                cursor.close();
+                        )
+                    )
+                } while (cursor.moveToNext())
+                cursor.close()
             }
 
-            writer.flush();
-            writer.close();
+            writer.flush()
+            writer.close()
 
             // Mostrar mensaje de éxito con la ubicación del archivo
-            String message = "Archivo CSV exportado exitosamente a:\n" + csvFile.getAbsolutePath();
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+            val message = "Archivo CSV exportado exitosamente a:\n" + csvFile.getAbsolutePath()
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
             // Compartir el archivo
-            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setType("text/csv");
-            Uri csvUri = FileProvider.getUriForFile(this,
-                    getApplicationContext().getPackageName() + ".provider",
-                    csvFile);
-            shareIntent.putExtra(Intent.EXTRA_STREAM, csvUri);
-            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            startActivity(Intent.createChooser(shareIntent, "Compartir archivo CSV"));
-
-        } catch (Exception e) {
-            Log.e(TAG, "Error exporting to CSV: " + e.getMessage());
-            Toast.makeText(this, "Error al exportar el archivo CSV", Toast.LENGTH_SHORT).show();
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.setType("text/csv")
+            val csvUri = FileProvider.getUriForFile(
+                this,
+                getApplicationContext().getPackageName() + ".provider",
+                csvFile
+            )
+            shareIntent.putExtra(Intent.EXTRA_STREAM, csvUri)
+            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            startActivity(Intent.createChooser(shareIntent, "Compartir archivo CSV"))
+        } catch (e: Exception) {
+            Log.e(TAG, "Error exporting to CSV: " + e.message)
+            Toast.makeText(this, "Error al exportar el archivo CSV", Toast.LENGTH_SHORT).show()
         }
     }
 
     //Return Menú
-    private void ReturnMenu() {
-        startActivity(new Intent(QuizHistoryActivity.this, MainActivity.class));
-        Toast.makeText(QuizHistoryActivity.this, "Has retornado al menú correctamente.", Toast.LENGTH_SHORT).show();
+    private fun ReturnMenu() {
+        startActivity(Intent(this@QuizHistoryActivity, MainActivity::class.java))
+        Toast.makeText(
+            this@QuizHistoryActivity,
+            "Has retornado al menú correctamente.",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
+    companion object {
+        private const val TAG = "QuizHistoryActivity"
+    }
 }

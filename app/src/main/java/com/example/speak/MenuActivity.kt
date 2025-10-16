@@ -1,52 +1,51 @@
-package com.example.speak;
+package com.example.speak
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-import androidx.appcompat.app.AppCompatActivity;
-import com.example.speak.pronunciation.TopicListActivity;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatActivity
+import com.example.speak.pronunciation.TopicListActivity
 
-public class MenuActivity extends AppCompatActivity {
-    private ImageButton btnListening;
-    private ImageButton btnPronunciation;
-    private ImageButton btnWriting;
-    private ImageButton btnProfile;
+class MenuActivity : AppCompatActivity() {
+    private var btnListening: ImageButton? = null
+    private var btnPronunciation: ImageButton? = null
+    private var btnWriting: ImageButton? = null
+    private var btnProfile: ImageButton? = null
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-        initializeViews();
-        setupClickListeners();
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_menu)
+        initializeViews()
+        setupClickListeners()
     }
 
-    private void initializeViews() {
-        btnListening = findViewById(R.id.btnListening);
-        btnPronunciation = findViewById(R.id.btnPronunciation);
-        btnWriting = findViewById(R.id.btnWriting);
-        btnProfile = findViewById(R.id.btnProfile);
+    private fun initializeViews() {
+        btnListening = findViewById<ImageButton>(R.id.btnListening)
+        btnPronunciation = findViewById<ImageButton>(R.id.btnPronunciation)
+        btnWriting = findViewById<ImageButton>(R.id.btnWriting)
+        btnProfile = findViewById<ImageButton>(R.id.btnProfile)
     }
 
-    private void setupClickListeners() {
-        btnListening.setOnClickListener(v -> {
-            Intent intent = new Intent(MenuActivity.this, ListeningActivity.class);
-            startActivity(intent);
-        });
+    private fun setupClickListeners() {
+        btnListening!!.setOnClickListener(View.OnClickListener { v: View? ->
+            val intent = Intent(this@MenuActivity, ListeningActivity::class.java)
+            startActivity(intent)
+        })
 
-        btnPronunciation.setOnClickListener(v -> {
-            Intent intent = new Intent(MenuActivity.this, TopicListActivity.class);
-            startActivity(intent);
-        });
+        btnPronunciation!!.setOnClickListener(View.OnClickListener { v: View? ->
+            val intent = Intent(this@MenuActivity, TopicListActivity::class.java)
+            startActivity(intent)
+        })
 
-        btnWriting.setOnClickListener(v -> {
-            Intent intent = new Intent(MenuActivity.this, WritingActivity.class);
-            startActivity(intent);
-        });
+        btnWriting!!.setOnClickListener(View.OnClickListener { v: View? ->
+            val intent = Intent(this@MenuActivity, WritingActivity::class.java)
+            startActivity(intent)
+        })
 
-        btnProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(MenuActivity.this, ProfileActivity.class);
-            startActivity(intent);
-        });
+        btnProfile!!.setOnClickListener(View.OnClickListener { v: View? ->
+            val intent = Intent(this@MenuActivity, ProfileActivity::class.java)
+            startActivity(intent)
+        })
     }
-} 
+}

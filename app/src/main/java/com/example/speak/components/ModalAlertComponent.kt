@@ -1,294 +1,287 @@
-package com.example.speak.components;
+package com.example.speak.components
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import androidx.annotation.Nullable;
-
-import com.example.speak.R;
-import com.example.speak.helpers.ModalAnimationHelper;
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.util.AttributeSet
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.example.speak.R
+import com.example.speak.helpers.ModalAnimationHelper
 
 /**
  * Componente reutilizable para modales de alerta (correcto/incorrecto)
  * Se puede usar en cualquier actividad
  */
-public class ModalAlertComponent extends LinearLayout {
-
-    private static final String TAG = "ModalAlertComponent";
-
+class ModalAlertComponent : LinearLayout {
     // Views
-    private View topDivider;
-    private View decorativeLine;
-    private LinearLayout bannerLayout;
-    private ImageView modalIcon;
-    private TextView bannerText;
-    private LinearLayout messageLayout;
-    private TextView primaryMessage;
-    private TextView secondaryMessage;
-    private Button continueButton;
+    private var topDivider: View? = null
+    private var decorativeLine: View? = null
+    private var bannerLayout: LinearLayout? = null
+    private var modalIcon: ImageView? = null
+    private var bannerText: TextView? = null
+    private var messageLayout: LinearLayout? = null
+    private var primaryMessage: TextView? = null
+    private var secondaryMessage: TextView? = null
+    private var continueButton: Button? = null
 
+    /**
+     * Get current modal type
+     */
     // Configuration
-    private ModalType currentType = ModalType.CORRECT;
-    private OnModalActionListener listener;
-    private boolean isProcessing = false;
+    var currentType: ModalType = ModalType.CORRECT
+        private set
+    private var listener: OnModalActionListener? = null
+    private var isProcessing = false
 
     // Modal types
-    public enum ModalType {
+    enum class ModalType {
         CORRECT,
         INCORRECT
     }
 
     // Interface for callbacks
-    public interface OnModalActionListener {
-        void onContinuePressed(ModalType type);
-        void onModalHidden(ModalType type);
+    interface OnModalActionListener {
+        fun onContinuePressed(type: ModalType?)
+        fun onModalHidden(type: ModalType?)
     }
 
-    public ModalAlertComponent(Context context) {
-        super(context);
-        init(context);
+    constructor(context: Context?) : super(context) {
+        init(context)
     }
 
-    public ModalAlertComponent(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init(context);
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+        init(context)
     }
 
-    public ModalAlertComponent(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(context);
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+        init(context)
     }
 
-    private void init(Context context) {
+    private fun init(context: Context?) {
         try {
             // Inflate the layout
-            LayoutInflater.from(context).inflate(R.layout.modal_alert_component, this, true);
+            LayoutInflater.from(context).inflate(R.layout.modal_alert_component, this, true)
 
             // Initialize views
-            topDivider = findViewById(R.id.topDivider);
-            decorativeLine = findViewById(R.id.decorativeLine);
-            bannerLayout = findViewById(R.id.bannerLayout);
-            modalIcon = findViewById(R.id.modalIcon);
-            bannerText = findViewById(R.id.bannerText);
-            messageLayout = findViewById(R.id.messageLayout);
-            primaryMessage = findViewById(R.id.primaryMessage);
-            secondaryMessage = findViewById(R.id.secondaryMessage);
-            continueButton = findViewById(R.id.continueButton);
+            topDivider = findViewById<View?>(R.id.topDivider)
+            decorativeLine = findViewById<View?>(R.id.decorativeLine)
+            bannerLayout = findViewById<LinearLayout?>(R.id.bannerLayout)
+            modalIcon = findViewById<ImageView?>(R.id.modalIcon)
+            bannerText = findViewById<TextView?>(R.id.bannerText)
+            messageLayout = findViewById<LinearLayout?>(R.id.messageLayout)
+            primaryMessage = findViewById<TextView?>(R.id.primaryMessage)
+            secondaryMessage = findViewById<TextView?>(R.id.secondaryMessage)
+            continueButton = findViewById<Button?>(R.id.continueButton)
 
             // Set up click listener
             if (continueButton != null) {
-                continueButton.setOnClickListener(v -> {
+                continueButton!!.setOnClickListener { v: View? ->
                     // Prevenir múltiples clics
                     if (isProcessing) {
-                        Log.d(TAG, "Button click ignored - already processing");
-                        return;
+                        Log.d(TAG, "Button click ignored - already processing")
+                        return@setOnClickListener
                     }
 
-                    isProcessing = true;
-                    continueButton.setEnabled(false);
+                    isProcessing = true
+                    continueButton!!.setEnabled(false)
 
-                    hideModal();
+                    hideModal()
                     if (listener != null) {
-                        listener.onContinuePressed(currentType);
+                        listener!!.onContinuePressed(currentType)
                     }
-                });
+                }
             }
 
             // Initially hidden
-            setVisibility(GONE);
+            setVisibility(GONE)
 
-            Log.d(TAG, "ModalAlertComponent initialized successfully");
-
-        } catch (Exception e) {
-            Log.e(TAG, "Error initializing ModalAlertComponent: " + e.getMessage(), e);
+            Log.d(TAG, "ModalAlertComponent initialized successfully")
+        } catch (e: Exception) {
+            Log.e(TAG, "Error initializing ModalAlertComponent: " + e.message, e)
         }
     }
 
     /**
      * Set the listener for modal actions
      */
-    public void setOnModalActionListener(OnModalActionListener listener) {
-        this.listener = listener;
+    fun setOnModalActionListener(listener: OnModalActionListener?) {
+        this.listener = listener
     }
 
     /**
      * Show correct answer modal
      */
-    public void showCorrectModal(String primaryMsg, String secondaryMsg) {
+    fun showCorrectModal(primaryMsg: String?, secondaryMsg: String?) {
         try {
             // Resetear el flag de procesamiento y habilitar el botón
-            isProcessing = false;
+            isProcessing = false
             if (continueButton != null) {
-                continueButton.setEnabled(true);
+                continueButton!!.setEnabled(true)
             }
 
-            currentType = ModalType.CORRECT;
+            currentType = ModalType.CORRECT
 
             if (topDivider != null) {
-                topDivider.setVisibility(GONE);
+                topDivider!!.setVisibility(GONE)
             }
 
             // Mostrar la línea decorativa para correcto con color verde
             if (decorativeLine != null) {
-                decorativeLine.setVisibility(VISIBLE);
-                decorativeLine.setBackgroundColor(android.graphics.Color.parseColor("#00AA00"));
+                decorativeLine!!.setVisibility(VISIBLE)
+                decorativeLine!!.setBackgroundColor(Color.parseColor("#00AA00"))
             }
 
             // FORZAR fondo verde con drawable programático
-            GradientDrawable bgDrawable = new GradientDrawable();
-            bgDrawable.setColor(android.graphics.Color.parseColor("#80D580"));
-            bgDrawable.setCornerRadius(dpToPx(20));
-            setBackground(bgDrawable);
+            val bgDrawable = GradientDrawable()
+            bgDrawable.setColor(Color.parseColor("#80D580"))
+            bgDrawable.setCornerRadius(dpToPx(20).toFloat())
+            setBackground(bgDrawable)
 
             // Configurar badge REDONDEADO
             if (bannerLayout != null) {
-                GradientDrawable badgeDrawable = new GradientDrawable();
-                badgeDrawable.setColor(android.graphics.Color.parseColor("#2E7D32"));
-                badgeDrawable.setCornerRadius(dpToPx(18));
-                bannerLayout.setBackground(badgeDrawable);
+                val badgeDrawable = GradientDrawable()
+                badgeDrawable.setColor(Color.parseColor("#2E7D32"))
+                badgeDrawable.setCornerRadius(dpToPx(18).toFloat())
+                bannerLayout!!.setBackground(badgeDrawable)
             }
 
             // Configurar icono
             if (modalIcon != null) {
-                modalIcon.setImageResource(R.drawable.checkmark);
-                modalIcon.setBackgroundResource(R.drawable.circle_green);
+                modalIcon!!.setImageResource(R.drawable.checkmark)
+                modalIcon!!.setBackgroundResource(R.drawable.circle_green)
             }
 
             // Configurar textos
             if (bannerText != null) {
-                bannerText.setText("Correct Answer");
+                bannerText!!.setText("Correct Answer")
             }
             if (primaryMessage != null) {
-                primaryMessage.setText(primaryMsg != null ? primaryMsg : "¡Muy bien!, tu nivel de inglés está mejorando");
-                primaryMessage.setTextColor(android.graphics.Color.parseColor("#2E7D32"));
+                primaryMessage!!.setText(if (primaryMsg != null) primaryMsg else "¡Muy bien!, tu nivel de inglés está mejorando")
+                primaryMessage!!.setTextColor(Color.parseColor("#2E7D32"))
             }
             if (secondaryMessage != null) {
-                secondaryMessage.setText(secondaryMsg != null ? secondaryMsg : "Amazing, you are improving your English");
-                secondaryMessage.setTextColor(android.graphics.Color.parseColor("#1B5E20"));
+                secondaryMessage!!.setText(if (secondaryMsg != null) secondaryMsg else "Amazing, you are improving your English")
+                secondaryMessage!!.setTextColor(Color.parseColor("#1B5E20"))
             }
 
             // MessageLayout transparente
             if (messageLayout != null) {
-                messageLayout.setBackgroundColor(android.graphics.Color.TRANSPARENT);
+                messageLayout!!.setBackgroundColor(Color.TRANSPARENT)
             }
 
-            ModalAnimationHelper.showCorrectAnswerModal(this, getContext());
-            Log.d(TAG, "Correct modal shown");
-
-        } catch (Exception e) {
-            Log.e(TAG, "Error showing correct modal: " + e.getMessage(), e);
+            ModalAnimationHelper.showCorrectAnswerModal(this, getContext())
+            Log.d(TAG, "Correct modal shown")
+        } catch (e: Exception) {
+            Log.e(TAG, "Error showing correct modal: " + e.message, e)
         }
     }
 
     /**
      * Show incorrect answer modal
      */
-    public void showIncorrectModal(String primaryMsg, String secondaryMsg) {
+    fun showIncorrectModal(primaryMsg: String?, secondaryMsg: String?) {
         try {
             // Resetear el flag de procesamiento y habilitar el botón
-            isProcessing = false;
+            isProcessing = false
             if (continueButton != null) {
-                continueButton.setEnabled(true);
+                continueButton!!.setEnabled(true)
             }
 
-            currentType = ModalType.INCORRECT;
+            currentType = ModalType.INCORRECT
 
             if (topDivider != null) {
-                topDivider.setVisibility(GONE);
+                topDivider!!.setVisibility(GONE)
             }
 
             // Mostrar la línea decorativa para incorrecto con color rojo
             if (decorativeLine != null) {
-                decorativeLine.setVisibility(VISIBLE);
-                decorativeLine.setBackgroundColor(android.graphics.Color.parseColor("#DC3545"));
+                decorativeLine!!.setVisibility(VISIBLE)
+                decorativeLine!!.setBackgroundColor(Color.parseColor("#DC3545"))
             }
 
             // FORZAR fondo ROSA con drawable programático
-            GradientDrawable bgDrawable = new GradientDrawable();
-            bgDrawable.setColor(android.graphics.Color.parseColor("#FF8699"));
-            bgDrawable.setCornerRadius(dpToPx(20));
-            setBackground(bgDrawable);
+            val bgDrawable = GradientDrawable()
+            bgDrawable.setColor(Color.parseColor("#FF8699"))
+            bgDrawable.setCornerRadius(dpToPx(20).toFloat())
+            setBackground(bgDrawable)
 
             // Configurar badge redondeado
             if (bannerLayout != null) {
-                GradientDrawable badgeDrawable = new GradientDrawable();
-                badgeDrawable.setColor(android.graphics.Color.parseColor("#DC3545"));
-                badgeDrawable.setCornerRadius(dpToPx(18));
-                bannerLayout.setBackground(badgeDrawable);
+                val badgeDrawable = GradientDrawable()
+                badgeDrawable.setColor(Color.parseColor("#DC3545"))
+                badgeDrawable.setCornerRadius(dpToPx(18).toFloat())
+                bannerLayout!!.setBackground(badgeDrawable)
             }
 
             // Configurar icono
             if (modalIcon != null) {
-                modalIcon.setImageResource(R.drawable.close);
-                modalIcon.setBackgroundResource(R.drawable.circle_red);
+                modalIcon!!.setImageResource(R.drawable.close)
+                modalIcon!!.setBackgroundResource(R.drawable.circle_red)
             }
 
             // Configurar textos
             if (bannerText != null) {
-                bannerText.setText("Incorrect Answer");
+                bannerText!!.setText("Incorrect Answer")
             }
             if (primaryMessage != null) {
-                primaryMessage.setText(primaryMsg != null ? primaryMsg : "¡Ten cuidado!, sigue intentando");
-                primaryMessage.setTextColor(android.graphics.Color.parseColor("#FFFFFF"));
+                primaryMessage!!.setText(if (primaryMsg != null) primaryMsg else "¡Ten cuidado!, sigue intentando")
+                primaryMessage!!.setTextColor(Color.parseColor("#FFFFFF"))
             }
             if (secondaryMessage != null) {
-                secondaryMessage.setText(secondaryMsg != null ? secondaryMsg : "Be careful, try again");
-                secondaryMessage.setTextColor(android.graphics.Color.parseColor("#FFFFFF"));
+                secondaryMessage!!.setText(if (secondaryMsg != null) secondaryMsg else "Be careful, try again")
+                secondaryMessage!!.setTextColor(Color.parseColor("#FFFFFF"))
             }
 
             // MessageLayout transparente
             if (messageLayout != null) {
-                messageLayout.setBackgroundColor(android.graphics.Color.TRANSPARENT);
+                messageLayout!!.setBackgroundColor(Color.TRANSPARENT)
             }
 
-            ModalAnimationHelper.showIncorrectAnswerModal(this, getContext());
-            Log.d(TAG, "Incorrect modal shown with PINK background");
-
-        } catch (Exception e) {
-            Log.e(TAG, "Error showing incorrect modal: " + e.getMessage(), e);
+            ModalAnimationHelper.showIncorrectAnswerModal(this, getContext())
+            Log.d(TAG, "Incorrect modal shown with PINK background")
+        } catch (e: Exception) {
+            Log.e(TAG, "Error showing incorrect modal: " + e.message, e)
         }
     }
 
-    private int dpToPx(int dp) {
-        float density = getContext().getResources().getDisplayMetrics().density;
-        return Math.round(dp * density);
+    private fun dpToPx(dp: Int): Int {
+        val density = getContext().getResources().getDisplayMetrics().density
+        return Math.round(dp * density)
     }
 
     /**
      * Hide modal with animation
      */
-    public void hideModal() {
+    fun hideModal() {
         try {
-            ModalAnimationHelper.hideModal(this, getContext());
+            ModalAnimationHelper.hideModal(this, getContext())
             if (listener != null) {
-                listener.onModalHidden(currentType);
+                listener!!.onModalHidden(currentType)
             }
-            Log.d(TAG, "Modal hidden");
-        } catch (Exception e) {
-            Log.e(TAG, "Error hiding modal: " + e.getMessage(), e);
-            setVisibility(GONE);
+            Log.d(TAG, "Modal hidden")
+        } catch (e: Exception) {
+            Log.e(TAG, "Error hiding modal: " + e.message, e)
+            setVisibility(GONE)
         }
     }
 
-    /**
-     * Check if modal is visible
-     */
-    public boolean isVisible() {
-        return getVisibility() == VISIBLE;
-    }
+    val isVisible: Boolean
+        /**
+         * Check if modal is visible
+         */
+        get() = getVisibility() == VISIBLE
 
-    /**
-     * Get current modal type
-     */
-    public ModalType getCurrentType() {
-        return currentType;
+    companion object {
+        private const val TAG = "ModalAlertComponent"
     }
 }

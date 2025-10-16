@@ -1,332 +1,341 @@
-package com.example.speak;
+package com.example.speak
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.LinearLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import com.example.speak.R;
-import com.example.speak.ProgressionHelper;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 
-public class ImageIdentificationResultsActivity extends AppCompatActivity {
-    
-    private ImageView birdImageView;
-    private TextView resultTitleTextView;
-    private TextView finalScoreTextView;
-    private TextView summaryTextView;
-    private LinearLayout detailsContainer;
-    private Button btnBackToMap;
-    private Button btnRetry;
-    private Button btnContinue;
-    private LinearLayout btnViewDetails;
-    private TextView messageTextView;
-    private TextView counterTextView;
-    
-    private int finalScore;
-    private int totalQuestions;
-    private int correctAnswers;
-    private String topic;
-    private String level;
-    private boolean[] questionResults;
-    private String[] questions;
-    private long sessionTimestamp;
-    private String sourceMap;
+class ImageIdentificationResultsActivity : AppCompatActivity() {
+    private var birdImageView: ImageView? = null
+    private var resultTitleTextView: TextView? = null
+    private var finalScoreTextView: TextView? = null
+    private var summaryTextView: TextView? = null
+    private var detailsContainer: LinearLayout? = null
+    private var btnBackToMap: Button? = null
+    private var btnRetry: Button? = null
+    private var btnContinue: Button? = null
+    private var btnViewDetails: LinearLayout? = null
+    private var messageTextView: TextView? = null
+    private var counterTextView: TextView? = null
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_identification_results);
-        
+    private var finalScore = 0
+    private var totalQuestions = 0
+    private var correctAnswers = 0
+    private var topic: String? = null
+    private var level: String? = null
+    private var questionResults: BooleanArray? = null
+    private var questions: Array<String?>? = null
+    private var sessionTimestamp: Long = 0
+    private var sourceMap: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_image_identification_results)
+
+
         // Obtener datos del intent
-        Intent intent = getIntent();
-        finalScore = intent.getIntExtra("FINAL_SCORE", 0);
-        totalQuestions = intent.getIntExtra("TOTAL_QUESTIONS", 0);
-        correctAnswers = intent.getIntExtra("CORRECT_ANSWERS", 0);
-        topic = intent.getStringExtra("TOPIC");
-        level = intent.getStringExtra("LEVEL");
-        questionResults = intent.getBooleanArrayExtra("QUESTION_RESULTS");
-        questions = intent.getStringArrayExtra("QUESTIONS");
-        sessionTimestamp = intent.getLongExtra("SESSION_TIMESTAMP", -1);
-        sourceMap = intent.getStringExtra("SOURCE_MAP");
-        
+        val intent = getIntent()
+        finalScore = intent.getIntExtra("FINAL_SCORE", 0)
+        totalQuestions = intent.getIntExtra("TOTAL_QUESTIONS", 0)
+        correctAnswers = intent.getIntExtra("CORRECT_ANSWERS", 0)
+        topic = intent.getStringExtra("TOPIC")
+        level = intent.getStringExtra("LEVEL")
+        questionResults = intent.getBooleanArrayExtra("QUESTION_RESULTS")
+        questions = intent.getStringArrayExtra("QUESTIONS")
+        sessionTimestamp = intent.getLongExtra("SESSION_TIMESTAMP", -1)
+        sourceMap = intent.getStringExtra("SOURCE_MAP")
+
+
         // Inicializar vistas
-        initViews();
-        
+        initViews()
+
+
         // Configurar interfaz
-        setupBirdImage();
-        setupTexts();
-        setupDetailedResults();
-        setupButtons();
-        setupContinueButton();
+        setupBirdImage()
+        setupTexts()
+        setupDetailedResults()
+        setupButtons()
+        setupContinueButton()
     }
-    
-    private void initViews() {
-        birdImageView = findViewById(R.id.birdImageView);
-        messageTextView = findViewById(R.id.messageTextView);
-        counterTextView = findViewById(R.id.counterTextView);
-        resultTitleTextView = findViewById(R.id.resultTitleTextView);
-        finalScoreTextView = findViewById(R.id.finalScoreTextView);
-        summaryTextView = findViewById(R.id.summaryTextView);
-        detailsContainer = findViewById(R.id.detailsContainer);
-        btnBackToMap = findViewById(R.id.btnBackToMap);
-        btnRetry = findViewById(R.id.btnRetry);
-        btnContinue = findViewById(R.id.btnContinue);
-        btnViewDetails = findViewById(R.id.btnViewDetails);
+
+    private fun initViews() {
+        birdImageView = findViewById<ImageView>(R.id.birdImageView)
+        messageTextView = findViewById<TextView>(R.id.messageTextView)
+        counterTextView = findViewById<TextView>(R.id.counterTextView)
+        resultTitleTextView = findViewById<TextView>(R.id.resultTitleTextView)
+        finalScoreTextView = findViewById<TextView>(R.id.finalScoreTextView)
+        summaryTextView = findViewById<TextView>(R.id.summaryTextView)
+        detailsContainer = findViewById<LinearLayout>(R.id.detailsContainer)
+        btnBackToMap = findViewById<Button>(R.id.btnBackToMap)
+        btnRetry = findViewById<Button>(R.id.btnRetry)
+        btnContinue = findViewById<Button>(R.id.btnContinue)
+        btnViewDetails = findViewById<LinearLayout>(R.id.btnViewDetails)
     }
-    
-    private void setupBirdImage() {
+
+    private fun setupBirdImage() {
         // Set bird image based on score (misma lógica que ListeningActivity)
         if (finalScore >= 100) {
-            messageTextView.setText("Excellent your English is getting better!");
-            birdImageView.setImageResource(R.drawable.crab_ok);
+            messageTextView!!.setText("Excellent your English is getting better!")
+            birdImageView!!.setImageResource(R.drawable.crab_ok)
         } else if (finalScore >= 90) {
-            messageTextView.setText("Good, but you can do it better!");
-            birdImageView.setImageResource(R.drawable.crab_ok);
+            messageTextView!!.setText("Good, but you can do it better!")
+            birdImageView!!.setImageResource(R.drawable.crab_ok)
         } else if (finalScore >= 80) {
-            messageTextView.setText("Good, but you can do it better!");
-            birdImageView.setImageResource(R.drawable.crab_ok);
+            messageTextView!!.setText("Good, but you can do it better!")
+            birdImageView!!.setImageResource(R.drawable.crab_ok)
         } else if (finalScore >= 69) {
-            messageTextView.setText("You should practice more!");
-            birdImageView.setImageResource(R.drawable.crab_test);
+            messageTextView!!.setText("You should practice more!")
+            birdImageView!!.setImageResource(R.drawable.crab_test)
         } else if (finalScore >= 60) {
-            messageTextView.setText("You should practice more!");
-            birdImageView.setImageResource(R.drawable.crab_test);
+            messageTextView!!.setText("You should practice more!")
+            birdImageView!!.setImageResource(R.drawable.crab_test)
         } else if (finalScore >= 50) {
-            messageTextView.setText("You should practice more!");
-            birdImageView.setImageResource(R.drawable.crab_bad);
+            messageTextView!!.setText("You should practice more!")
+            birdImageView!!.setImageResource(R.drawable.crab_bad)
         } else if (finalScore >= 40) {
-            messageTextView.setText("You should practice more!");
-            birdImageView.setImageResource(R.drawable.crab_bad);
+            messageTextView!!.setText("You should practice more!")
+            birdImageView!!.setImageResource(R.drawable.crab_bad)
         } else if (finalScore >= 30) {
-            messageTextView.setText("You should practice more!");
-            birdImageView.setImageResource(R.drawable.crab_bad);
+            messageTextView!!.setText("You should practice more!")
+            birdImageView!!.setImageResource(R.drawable.crab_bad)
         } else if (finalScore >= 20) {
-            messageTextView.setText("You should practice more!");
-            birdImageView.setImageResource(R.drawable.crab_bad);
-        }else {
-            messageTextView.setText("You should practice more!");
-            birdImageView.setImageResource(R.drawable.crab_bad);
+            messageTextView!!.setText("You should practice more!")
+            birdImageView!!.setImageResource(R.drawable.crab_bad)
+        } else {
+            messageTextView!!.setText("You should practice more!")
+            birdImageView!!.setImageResource(R.drawable.crab_bad)
         }
 
-        counterTextView.setText(correctAnswers + "/" + totalQuestions);
+        counterTextView!!.setText(correctAnswers.toString() + "/" + totalQuestions)
     }
-    
-    private void setupTexts() {
+
+    private fun setupTexts() {
         // Título del resultado
-        resultTitleTextView.setText("🖼️ Resultados de Identificación de Imágenes");
-        
+        resultTitleTextView!!.setText("🖼️ Resultados de Identificación de Imágenes")
+
+
         // Puntaje final
-        finalScoreTextView.setText("Score: " + finalScore + "%");
+        finalScoreTextView!!.setText("Score: " + finalScore + "%")
+
         /*finalScoreTextView.setTextColor(getResources().getColor(
             finalScore >= 70 ? android.R.color.white :
             finalScore >= 50 ? android.R.color.holo_orange_dark : 
             android.R.color.holo_red_dark
         ));*/
-        
+
         // Resumen
-        String status = finalScore >= 70 ? "¡Excelente identificación!" : 
-                       finalScore >= 50 ? "¡Buen intento!" : 
-                       "¡Sigue practicando!";
-        
-        summaryTextView.setText(String.format(
-            "%s\n\nTema: %s\nNivel: %s\n\nRespuestas correctas: %d de %d\n(70%% requerido para aprobar)",
-            status, topic, level, correctAnswers, totalQuestions
-        ));
+        val status =
+            if (finalScore >= 70) "¡Excelente identificación!" else if (finalScore >= 50) "¡Buen intento!" else "¡Sigue practicando!"
+
+        summaryTextView!!.setText(
+            String.format(
+                "%s\n\nTema: %s\nNivel: %s\n\nRespuestas correctas: %d de %d\n(70%% requerido para aprobar)",
+                status, topic, level, correctAnswers, totalQuestions
+            )
+        )
     }
-    
-    private void setupDetailedResults() {
+
+    private fun setupDetailedResults() {
         if (questionResults == null || questions == null) {
-            return;
+            return
         }
-        
-        detailsContainer.removeAllViews();
-        
-        for (int i = 0; i < questionResults.length; i++) {
-            CardView cardView = new CardView(this);
-            LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
+
+        detailsContainer!!.removeAllViews()
+
+        for (i in questionResults!!.indices) {
+            val cardView = CardView(this)
+            val cardParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
-            );
-            cardParams.setMargins(0, 8, 0, 8);
-            cardView.setLayoutParams(cardParams);
-            cardView.setRadius(8);
-            cardView.setCardBackgroundColor(getResources().getColor(
-                questionResults[i] ? android.R.color.white : android.R.color.holo_red_light
-            ));
-            
-            LinearLayout cardContent = new LinearLayout(this);
-            cardContent.setOrientation(LinearLayout.VERTICAL);
-            cardContent.setPadding(16, 16, 16, 16);
-            
-            TextView questionText = new TextView(this);
-            questionText.setText("Pregunta " + (i + 1) + ": " + questions[i]);
-            questionText.setTextSize(16);
-            questionText.setTextColor(getResources().getColor(android.R.color.black));
-            questionText.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            ));
-            
-            TextView resultText = new TextView(this);
-            resultText.setText(questionResults[i] ? "✅ Correcta" : "❌ Incorrecta");
-            resultText.setTextSize(14);
-            resultText.setTextColor(getResources().getColor(android.R.color.black));
-            resultText.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            ));
-            
-            cardContent.addView(questionText);
-            cardContent.addView(resultText);
-            cardView.addView(cardContent);
-            detailsContainer.addView(cardView);
+            )
+            cardParams.setMargins(0, 8, 0, 8)
+            cardView.setLayoutParams(cardParams)
+            cardView.setRadius(8f)
+            cardView.setCardBackgroundColor(
+                getResources().getColor(
+                    if (questionResults!![i]) R.color.white else R.color.error_color
+                )
+            )
+
+            val cardContent = LinearLayout(this)
+            cardContent.setOrientation(LinearLayout.VERTICAL)
+            cardContent.setPadding(16, 16, 16, 16)
+
+            val questionText = TextView(this)
+            questionText.setText("Pregunta " + (i + 1) + ": " + questions!![i])
+            questionText.setTextSize(16f)
+            questionText.setTextColor(getResources().getColor(R.color.black))
+            questionText.setLayoutParams(
+                LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+            )
+
+            val resultText = TextView(this)
+            resultText.setText(if (questionResults!![i]) "✅ Correcta" else "❌ Incorrecta")
+            resultText.setTextSize(14f)
+            resultText.setTextColor(getResources().getColor(R.color.black))
+            resultText.setLayoutParams(
+                LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+            )
+
+            cardContent.addView(questionText)
+            cardContent.addView(resultText)
+            cardView.addView(cardContent)
+            detailsContainer!!.addView(cardView)
         }
     }
-    
-    private void setupButtons() {
-        btnBackToMap.setOnClickListener(v -> {
+
+    private fun setupButtons() {
+        btnBackToMap!!.setOnClickListener(View.OnClickListener { v: View? ->
             // Volver al mapa correspondiente según el origen
-            Class<?> destinationMapClass = ProgressionHelper.getDestinationMapClass(sourceMap);
-            Intent intent = new Intent(this, destinationMapClass);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-        });
-        
-        btnRetry.setOnClickListener(v -> {
+            val destinationMapClass = ProgressionHelper.getDestinationMapClass(sourceMap)
+            val intent = Intent(this, destinationMapClass)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+            finish()
+        })
+
+        btnRetry!!.setOnClickListener(View.OnClickListener { v: View? ->
             // Volver a la actividad de Image Identification con el mapa de origen
-            Intent intent = new Intent(this, ImageIdentificationActivity.class);
-            intent.putExtra("TOPIC", topic);
-            intent.putExtra("LEVEL", level);
-            intent.putExtra("SOURCE_MAP", sourceMap);
-            startActivity(intent);
-            finish();
-        });
-        
-        btnViewDetails.setOnClickListener(v -> {
+            val intent = Intent(this, ImageIdentificationActivity::class.java)
+            intent.putExtra("TOPIC", topic)
+            intent.putExtra("LEVEL", level)
+            intent.putExtra("SOURCE_MAP", sourceMap)
+            startActivity(intent)
+            finish()
+        })
+
+        btnViewDetails!!.setOnClickListener(View.OnClickListener { v: View? ->
             // Abrir la actividad de historial con los datos actuales
-            Intent intent = new Intent(this, ImageIdentificationHistoryActivity.class);
-            intent.putExtra("TOPIC", topic);
-            intent.putExtra("FINAL_SCORE", finalScore);
-            intent.putExtra("TOTAL_QUESTIONS", totalQuestions);
-            intent.putExtra("CORRECT_ANSWERS", correctAnswers);
-            intent.putExtra("LEVEL", level);
-            intent.putExtra("SESSION_TIMESTAMP", sessionTimestamp);
-            intent.putExtra("SOURCE_MAP", sourceMap);
-            startActivity(intent);
-        });
+            val intent = Intent(this, ImageIdentificationHistoryActivity::class.java)
+            intent.putExtra("TOPIC", topic)
+            intent.putExtra("FINAL_SCORE", finalScore)
+            intent.putExtra("TOTAL_QUESTIONS", totalQuestions)
+            intent.putExtra("CORRECT_ANSWERS", correctAnswers)
+            intent.putExtra("LEVEL", level)
+            intent.putExtra("SESSION_TIMESTAMP", sessionTimestamp)
+            intent.putExtra("SOURCE_MAP", sourceMap)
+            startActivity(intent)
+        })
     }
-    
-    private void setupContinueButton() {
+
+    private fun setupContinueButton() {
         if (finalScore >= 70) {
-            if ("READING".equals(sourceMap)) {
+            if ("READING" == sourceMap) {
                 // Si viene del mapa de Reading, usar la progresión de Reading
-                String nextReadingTopic = ProgressionHelper.getNextImageIdentificationTopicBySource(topic, sourceMap);
-                
+                val nextReadingTopic =
+                    ProgressionHelper.getNextImageIdentificationTopicBySource(topic, sourceMap)
+
                 if (nextReadingTopic != null) {
                     // Hay siguiente tema en Reading
-                    btnContinue.setText("Continuar: " + nextReadingTopic);
-                    btnContinue.setVisibility(View.VISIBLE);
-                    btnContinue.setOnClickListener(v -> {
+                    btnContinue!!.setText("Continuar: " + nextReadingTopic)
+                    btnContinue!!.setVisibility(View.VISIBLE)
+                    btnContinue!!.setOnClickListener(View.OnClickListener { v: View? ->
                         // Determinar qué actividad usar según el tema
-                        Class<?> nextActivityClass = ProgressionHelper.getReadingActivityClass(nextReadingTopic);
-                        
+                        val nextActivityClass =
+                            ProgressionHelper.getReadingActivityClass(nextReadingTopic)
+
+
                         // Si vamos a TranslationReadingActivity, marcar el tema como desbloqueado
-                        if (nextActivityClass == TranslationReadingActivity.class) {
-                            ProgressionHelper.markTopicCompleted(this, nextReadingTopic, 70);
+                        if (nextActivityClass == TranslationReadingActivity::class.java) {
+                            ProgressionHelper.markTopicCompleted(this, nextReadingTopic, 70)
                         }
-                        
-                        Intent intent = new Intent(this, nextActivityClass);
-                        intent.putExtra("TOPIC", nextReadingTopic);
-                        intent.putExtra("LEVEL", level);
-                        if (nextActivityClass == ImageIdentificationActivity.class || 
-                            nextActivityClass == ImageIdentificationAudioActivity.class) {
-                            intent.putExtra("SOURCE_MAP", sourceMap);
+
+                        val intent = Intent(this, nextActivityClass)
+                        intent.putExtra("TOPIC", nextReadingTopic)
+                        intent.putExtra("LEVEL", level)
+                        if (nextActivityClass == ImageIdentificationActivity::class.java ||
+                            nextActivityClass == ImageIdentificationAudioActivity::class.java
+                        ) {
+                            intent.putExtra("SOURCE_MAP", sourceMap)
                         }
-                        startActivity(intent);
-                        finish();
-                    });
+                        startActivity(intent)
+                        finish()
+                    })
                 } else {
                     // Es el último tema de Reading, desbloquear Writing
-                    btnContinue.setText("✍️ ¡Desbloquear Writing!");
-                    btnContinue.setVisibility(View.VISIBLE);
-                    btnContinue.setOnClickListener(v -> {
-                        Intent intent = new Intent(this, MenuWritingActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                        finish();
-                    });
+                    btnContinue!!.setText("✍️ ¡Desbloquear Writing!")
+                    btnContinue!!.setVisibility(View.VISIBLE)
+                    btnContinue!!.setOnClickListener(View.OnClickListener { v: View? ->
+                        val intent = Intent(this, MenuWritingActivity::class.java)
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        startActivity(intent)
+                        finish()
+                    })
                 }
             } else {
                 // Si viene del mapa de Listening, usar la progresión de Image Identification
-                String nextTopic = ProgressionHelper.getNextImageIdentificationTopicBySource(topic, sourceMap);
-                
+                val nextTopic =
+                    ProgressionHelper.getNextImageIdentificationTopicBySource(topic, sourceMap)
+
                 if (nextTopic != null) {
                     // Hay siguiente tema en Image Identification
-                    btnContinue.setText("Continuar: " + nextTopic);
-                    btnContinue.setVisibility(View.VISIBLE);
-                    btnContinue.setOnClickListener(v -> {
-                        Intent intent = new Intent(this, ImageIdentificationActivity.class);
-                        intent.putExtra("TOPIC", nextTopic);
-                        intent.putExtra("LEVEL", level);
-                        intent.putExtra("SOURCE_MAP", sourceMap);
-                        startActivity(intent);
-                        finish();
-                    });
+                    btnContinue!!.setText("Continuar: " + nextTopic)
+                    btnContinue!!.setVisibility(View.VISIBLE)
+                    btnContinue!!.setOnClickListener(View.OnClickListener { v: View? ->
+                        val intent = Intent(this, ImageIdentificationActivity::class.java)
+                        intent.putExtra("TOPIC", nextTopic)
+                        intent.putExtra("LEVEL", level)
+                        intent.putExtra("SOURCE_MAP", sourceMap)
+                        startActivity(intent)
+                        finish()
+                    })
                 } else {
                     // Es el último tema del módulo, desbloquear siguiente módulo
                     if (ProgressionHelper.isLastTopicOfModule(topic, sourceMap)) {
                         // Determinar el siguiente módulo en la progresión
-                        Class<?> nextModuleClass = ProgressionHelper.getNextModuleClass(sourceMap);
-                        String nextModuleName = getModuleDisplayName(sourceMap);
-                        
-                        btnContinue.setText("🎯 ¡Desbloquear " + nextModuleName + "!");
-                        btnContinue.setVisibility(View.VISIBLE);
-                        btnContinue.setOnClickListener(v -> {
-                            Intent intent = new Intent(this, nextModuleClass);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-                            finish();
-                        });
+                        val nextModuleClass = ProgressionHelper.getNextModuleClass(sourceMap)
+                        val nextModuleName = getModuleDisplayName(sourceMap!!)
+
+                        btnContinue!!.setText("🎯 ¡Desbloquear " + nextModuleName + "!")
+                        btnContinue!!.setVisibility(View.VISIBLE)
+                        btnContinue!!.setOnClickListener(View.OnClickListener { v: View? ->
+                            val intent = Intent(this, nextModuleClass)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(intent)
+                            finish()
+                        })
                     } else {
                         // No es el último tema, volver al mapa actual
-                        Class<?> destinationMapClass = ProgressionHelper.getDestinationMapClass(sourceMap);
-                        btnContinue.setText("🎯 ¡Completar módulo!");
-                        btnContinue.setVisibility(View.VISIBLE);
-                        btnContinue.setOnClickListener(v -> {
-                            Intent intent = new Intent(this, destinationMapClass);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-                            finish();
-                        });
+                        val destinationMapClass =
+                            ProgressionHelper.getDestinationMapClass(sourceMap)
+                        btnContinue!!.setText("🎯 ¡Completar módulo!")
+                        btnContinue!!.setVisibility(View.VISIBLE)
+                        btnContinue!!.setOnClickListener(View.OnClickListener { v: View? ->
+                            val intent = Intent(this, destinationMapClass)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            startActivity(intent)
+                            finish()
+                        })
                     }
                 }
             }
         } else {
             // No aprobó, ocultar botón continuar
-            btnContinue.setVisibility(View.GONE);
+            btnContinue!!.setVisibility(View.GONE)
         }
     }
-    
+
     /**
      * Obtiene el nombre de visualización del módulo
      */
-    private String getModuleDisplayName(String sourceMap) {
-        switch (sourceMap) {
-            case "LISTENING":
-                return "Speaking";
-            case "SPEAKING":
-                return "Reading";
-            case "READING":
-                return "Writing";
-            case "WRITING":
-                return "Listening";
-            default:
-                return "Siguiente Módulo";
+    private fun getModuleDisplayName(sourceMap: String): String {
+        when (sourceMap) {
+            "LISTENING" -> return "Speaking"
+            "SPEAKING" -> return "Reading"
+            "READING" -> return "Writing"
+            "WRITING" -> return "Listening"
+            else -> return "Siguiente Módulo"
         }
     }
-} 
+}

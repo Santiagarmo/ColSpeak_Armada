@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
 
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
@@ -32,6 +33,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+        }
+    }
 
     // Agregar esta configuración para resolver el conflicto de META-INF
     packaging {
@@ -58,6 +64,9 @@ android {
             assets.srcDirs("src/main/assets")
         }
     }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 configurations.all {
@@ -76,6 +85,9 @@ configurations.all {
 }
 
 dependencies {
+    // Kotlin
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.2.20")
+
     // AndroidX Core
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -87,6 +99,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-database")
+    implementation(libs.core.ktx)
 
     // Testing
     testImplementation("junit:junit:4.13.2") {

@@ -1,141 +1,126 @@
-package com.example.speak;
+package com.example.speak
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.speech.tts.TextToSpeech;
-import android.speech.tts.UtteranceProgressListener;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.speak.components.ReusableAudioPlayerCard
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Locale;
-
-import android.content.res.ColorStateList;
-import androidx.core.view.ViewCompat;
-import androidx.core.content.ContextCompat;
-
-import com.example.speak.components.ReusableAudioPlayerCard;
-
-public class NumberActivity extends AppCompatActivity {
-    private static final String TAG = "NumberActivity";
-
+class NumberActivity : AppCompatActivity() {
     //Control de Audio reutilizable
-    private ReusableAudioPlayerCard reusableAudioPlayerCard;
+    private var reusableAudioPlayerCard: ReusableAudioPlayerCard? = null
 
     //Declaramos las variables
-    private Button eButtonListening;
-    private TextView alphabetTextView;
+    private var eButtonListening: Button? = null
+    private var alphabetTextView: TextView? = null
+
 
     // Reproductor de audio
-
-
     //Return Map Listening
-    private LinearLayout returnContainer;
+    private var returnContainer: LinearLayout? = null
 
     // TextToSpeech
-    private String alphabetText = "one   two   three   four   five   six   seven   eight   nine   ten   eleven   twelve   thirteen   fourteen   fifteen   sixteen   seventeen   eighteen   nineteen   twenty   onehundred   onethousand   tenthousand   zero";
+    private val alphabetText =
+        "one   two   three   four   five   six   seven   eight   nine   ten   eleven   twelve   thirteen   fourteen   fifteen   sixteen   seventeen   eighteen   nineteen   twenty   onehundred   onethousand   tenthousand   zero"
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_number);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_number)
 
         //Inicializamos las variables
-        initializeViews();
-        setupClickListeners();
-        setupAudioPlayer();
+        initializeViews()
+        setupClickListeners()
+        setupAudioPlayer()
 
         //Return Menu
-        returnContainer = findViewById(R.id.returnContainer);
-        returnContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ReturnMapA1();
+        returnContainer = findViewById<LinearLayout>(R.id.returnContainer)
+        returnContainer!!.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                ReturnMapA1()
             }
-        });
+        })
     }
 
-    private void initializeViews() {
+    private fun initializeViews() {
         try {
-            eButtonListening = findViewById(R.id.eButtonListening);
-            alphabetTextView = findViewById(R.id.alphabetTextView);
+            eButtonListening = findViewById<Button>(R.id.eButtonListening)
+            alphabetTextView = findViewById<TextView?>(R.id.alphabetTextView)
 
 
             // Reproductor de audio
-
-            reusableAudioPlayerCard = findViewById(R.id.reusableAudioPlayerCard);
-
-        } catch (Exception e) {
+            reusableAudioPlayerCard =
+                findViewById<ReusableAudioPlayerCard?>(R.id.reusableAudioPlayerCard)
+        } catch (e: Exception) {
             //Toast.makeText(this, "Error al inicializar las vistas", Toast.LENGTH_SHORT).show();
-            finish();
+            finish()
         }
     }
 
-    private void setupClickListeners() {
+    private fun setupClickListeners() {
         //Configuramos el botón de start
-        eButtonListening.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(NumberActivity.this, ListeningActivity.class);
-                intent.putExtra("TOPIC", "NUMBERS");
-                intent.putExtra("LEVEL", "A1.1");
-                startActivity(intent);
+        eButtonListening!!.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                val intent = Intent(this@NumberActivity, ListeningActivity::class.java)
+                intent.putExtra("TOPIC", "NUMBERS")
+                intent.putExtra("LEVEL", "A1.1")
+                startActivity(intent)
             }
-        });
+        })
     }
 
-    private void setupAudioPlayer() {
+    private fun setupAudioPlayer() {
         try {
             if (reusableAudioPlayerCard != null) {
                 // Configurar el componente para la carpeta de alphabet
-                reusableAudioPlayerCard.configure("audio_video/number", alphabetText);
-                Log.d(TAG, "Audio player configured successfully for alphabet folder");
+                reusableAudioPlayerCard!!.configure("audio_video/number", alphabetText)
+                Log.d(TAG, "Audio player configured successfully for alphabet folder")
             } else {
-                Log.w(TAG, "ReusableAudioPlayerCard is null, skipping audio setup");
+                Log.w(TAG, "ReusableAudioPlayerCard is null, skipping audio setup")
             }
-        } catch (Exception e) {
-            Log.e(TAG, "Error setting up audio player: " + e.getMessage(), e);
-            Toast.makeText(this, "Error configurando reproductor de audio: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        } catch (e: Exception) {
+            Log.e(TAG, "Error setting up audio player: " + e.message, e)
+            Toast.makeText(
+                this,
+                "Error configurando reproductor de audio: " + e.message,
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
     //Return Menú
-    private void ReturnMapA1() {
-        startActivity(new Intent(NumberActivity.this, MenuA1Activity.class));
+    private fun ReturnMapA1() {
+        startActivity(Intent(this@NumberActivity, MenuA1Activity::class.java))
         //Toast.makeText(AlphabetActivity.this, "Has retornado correctamente.", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    override fun onDestroy() {
+        super.onDestroy()
         try {
             if (reusableAudioPlayerCard != null) {
-                reusableAudioPlayerCard.cleanup();
+                reusableAudioPlayerCard!!.cleanup()
             }
-        } catch (Exception e) {
-            Log.e(TAG, "Error cleaning up audio player: " + e.getMessage(), e);
+        } catch (e: Exception) {
+            Log.e(TAG, "Error cleaning up audio player: " + e.message, e)
         }
-        Log.d(TAG, "Activity destroyed");
+        Log.d(TAG, "Activity destroyed")
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "Activity paused");
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "Activity paused")
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "Activity resumed");
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "Activity resumed")
+    }
+
+    companion object {
+        private const val TAG = "NumberActivity"
     }
 }

@@ -1,80 +1,69 @@
-package com.example.speak;
+package com.example.speak
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.os.Parcel
+import android.os.Parcelable
 
-public class ListeningQuestion implements Parcelable {
-    private final String question;
-    private final String correctAnswer;
-    private final String[] options;
-    private final String topic;
-    private final String level;
-    private final boolean showText;
-    private final String info;
+class ListeningQuestion : Parcelable {
+    val question: String?
+    val correctAnswer: String?
+    val options: Array<String?>?
+    val topic: String?
+    val level: String?
+    val isShowText: Boolean
+    val info: String?
 
-    public ListeningQuestion(String question, String correctAnswer, String[] options, String topic, String level, boolean showText, String info) {
-        this.question = question;
-        this.correctAnswer = correctAnswer;
-        this.options = options;
-        this.topic = topic;
-        this.level = level;
-        this.showText = showText;
-        this.info = info;
+    constructor(
+        question: String?,
+        correctAnswer: String?,
+        options: Array<String?>?,
+        topic: String?,
+        level: String?,
+        showText: Boolean,
+        info: String?
+    ) {
+        this.question = question
+        this.correctAnswer = correctAnswer
+        this.options = options
+        this.topic = topic
+        this.level = level
+        this.isShowText = showText
+        this.info = info
     }
 
-    protected ListeningQuestion(Parcel in) {
-        question = in.readString();
-        correctAnswer = in.readString();
-        options = in.createStringArray();
-        topic = in.readString();
-        level = in.readString();
-        showText = in.readByte() != 0;
-        info = in.readString();
+    protected constructor(`in`: Parcel) {
+        question = `in`.readString()
+        correctAnswer = `in`.readString()
+        options = `in`.createStringArray()
+        topic = `in`.readString()
+        level = `in`.readString()
+        this.isShowText = `in`.readByte().toInt() != 0
+        info = `in`.readString()
     }
 
-    public static final Creator<ListeningQuestion> CREATOR = new Creator<ListeningQuestion>() {
-        @Override
-        public ListeningQuestion createFromParcel(Parcel in) {
-            return new ListeningQuestion(in);
-        }
-
-        @Override
-        public ListeningQuestion[] newArray(int size) {
-            return new ListeningQuestion[size];
-        }
-    };
-
-    public String getQuestion() {
-        return question;
+    override fun describeContents(): Int {
+        return 0
     }
 
-    public String getCorrectAnswer() {
-        return correctAnswer;
+    override fun writeToParcel(dest: Parcel, flags: Int) {
+        dest.writeString(question)
+        dest.writeString(correctAnswer)
+        dest.writeStringArray(options)
+        dest.writeString(topic)
+        dest.writeString(level)
+        dest.writeByte((if (this.isShowText) 1 else 0).toByte())
+        dest.writeString(info)
     }
 
-    public String[] getOptions() {
-        return options;
+    companion object {
+        val CREATOR: Parcelable.Creator<ListeningQuestion?> =
+            object : Parcelable.Creator<ListeningQuestion?> {
+                override fun createFromParcel(`in`: Parcel): ListeningQuestion {
+                    return ListeningQuestion(`in`)
+                }
+
+                override fun newArray(size: Int): Array<ListeningQuestion?> {
+                    return arrayOfNulls<ListeningQuestion>(size)
+                }
+            }
     }
-
-    public String getTopic() { return topic; }
-    public String getLevel() { return level; }
-    public boolean isShowText() { return showText; }
-    public String getInfo() { return info; }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(question);
-        dest.writeString(correctAnswer);
-        dest.writeStringArray(options);
-        dest.writeString(topic);
-        dest.writeString(level);
-        dest.writeByte((byte) (showText ? 1 : 0));
-        dest.writeString(info);
-    }
-
-} 
+}
