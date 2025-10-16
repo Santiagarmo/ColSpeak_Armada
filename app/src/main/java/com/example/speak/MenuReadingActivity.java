@@ -121,10 +121,12 @@ public class MenuReadingActivity extends AppCompatActivity {
             }
         }
 
-        applyBlock(map_blocked_2Reading, "DEP_MAP2_ACT1", "DEP_MAP2_ACT2");
-        applyBlock(map_blocked_3Reading, "DEP_MAP3_ACT1", "DEP_MAP3_ACT2");
-        applyBlock(map_blocked_4Reading, "DEP_MAP4_ACT1", "DEP_MAP4_ACT2");
-        applyBlock(map_blocked_5Reading, "DEP_MAP5_ACT1", "DEP_MAP5_ACT2");
+        // Desbloqueos secuenciales del mapa de Reading basados en progreso real
+        // ALPHABET aprobado desbloquea NUMBERS, etc.
+        applyBlock(map_blocked_2Reading, "PASSED_READING_ALPHABET");
+        applyBlock(map_blocked_3Reading, "PASSED_READING_NUMBERS");
+        applyBlock(map_blocked_4Reading, "PASSED_READING_COLORS");
+        applyBlock(map_blocked_5Reading, "PASSED_READING_PERSONAL_PRONOUNS");
 
         //Return Menu
         eBtnReturnMenu = findViewById(R.id.eBtnReturnMenu);
@@ -554,6 +556,11 @@ public class MenuReadingActivity extends AppCompatActivity {
         super.onResume();
         // Actualizar efectos visuales al regresar a la actividad
         refreshReadingVisualEffects();
+        // Reaplicar bloqueos/desbloqueos de candados según el progreso actualizado
+        applyBlock(map_blocked_2Reading, "PASSED_READING_ALPHABET");
+        applyBlock(map_blocked_3Reading, "PASSED_READING_NUMBERS");
+        applyBlock(map_blocked_4Reading, "PASSED_READING_COLORS");
+        applyBlock(map_blocked_5Reading, "PASSED_READING_PERSONAL_PRONOUNS");
     }
 
     // MÉTODO TEMPORAL PARA TESTING - Marcar todos los temas de reading como completados

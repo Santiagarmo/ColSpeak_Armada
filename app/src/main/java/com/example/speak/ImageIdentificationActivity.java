@@ -954,6 +954,17 @@ public class ImageIdentificationActivity extends AppCompatActivity {
         // Mark topic as passed if score >= 70%
         if (percentage >= 70) {
             markTopicAsPassed(selectedTopic);
+            // Además, marcar el progreso de Reading para desbloquear el siguiente tema en el mapa
+            try {
+                SharedPreferences rprefs = getSharedPreferences("ProgressPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor redit = rprefs.edit();
+                String readingKey = "PASSED_READING_" + selectedTopic.toUpperCase().replace(" ", "_");
+                redit.putBoolean(readingKey, true);
+                redit.apply();
+                Log.d(TAG, "Reading progress marked as passed: " + readingKey);
+            } catch (Exception ex) {
+                Log.e(TAG, "Error marking reading progress: " + ex.getMessage());
+            }
             // Sumar puntos de estrella (10) y mostrar modal de estrella, igual que Speaking
             StarProgressHelper.addSessionPoints(this, 10);
             new Handler().postDelayed(() -> {
