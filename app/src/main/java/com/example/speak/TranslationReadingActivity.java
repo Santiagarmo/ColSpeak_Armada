@@ -300,7 +300,7 @@ public class TranslationReadingActivity extends AppCompatActivity {
         selectedWordsRecyclerView.setAdapter(selectedWordsAdapter);
         
         // Setup Spanish words RecyclerView (grid)
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 5);
         spanishWordsRecyclerView.setLayoutManager(gridLayoutManager);
         spanishWordsAdapter = new SpanishWordsAdapter();
         spanishWordsRecyclerView.setAdapter(spanishWordsAdapter);

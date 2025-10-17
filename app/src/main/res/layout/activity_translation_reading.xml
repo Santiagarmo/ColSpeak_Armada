@@ -7,273 +7,291 @@
     android:background="@color/background_color"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:fillViewport="true">
 
-        <!-- Header con botón retornar, Level, Topic, número de pregunta y puntuación -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="2dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <!-- Botón de retorno -->
+            <!-- Header simplificado -->
             <LinearLayout
-                android:id="@+id/returnContainer"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:padding="4dp"
-                android:layout_marginEnd="16dp">
+                android:padding="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="2dp">
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/back"
-                    android:contentDescription="Return"
-                    android:layout_marginEnd="6dp"/>
-
-                <TextView
+                <!-- Botón de retorno -->
+                <LinearLayout
+                    android:id="@+id/returnContainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Return"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    android:layout_marginEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/back"
+                        android:contentDescription="Return"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Return"
+                        android:textSize="18sp"
+                        android:textColor="#002C4D" />
+                </LinearLayout>
+
+                <!-- Texto "Level:" -->
+                <TextView
+                    android:id="@+id/levelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Level:"
                     android:textSize="18sp"
-                    android:textColor="#002C4D" />
+                    android:textStyle="bold"
+                    android:textColor="#002C4D"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="center_vertical"/>
+
+                <!-- Número de la pregunta, expandido al resto del espacio -->
+                <TextView
+                    android:id="@+id/questionNumberTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#002C4D"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/scoreTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Score: 0"
+                    android:textSize="18sp"
+                    android:textColor="#002C4D"
+                    android:textStyle="bold" />
+
+                <!-- Botón de comodines -->
+                <ImageView
+                    android:id="@+id/wildcardButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/wild_icon"
+                    android:contentDescription="Comodines"
+                    android:layout_marginEnd="6dp"/>
+
+                <ImageView
+                    android:id="@+id/helpButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/help_icon"
+                    android:contentDescription="Ayuda"
+                    android:layout_marginEnd="6dp"/>
+
             </LinearLayout>
 
-            <!-- Texto "Level:" -->
+            <!-- Topic -->
             <TextView
-                android:id="@+id/levelTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Level:"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#002C4D"
-                android:layout_marginEnd="8dp"
-                android:layout_gravity="center_vertical"/>
-
-            <!-- Número de la pregunta, expandido al resto del espacio -->
-            <TextView
-                android:id="@+id/questionNumberTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="1"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#002C4D"
-                android:layout_gravity="center_vertical"/>
-
-            <TextView
-                android:id="@+id/scoreTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Score: 0"
-                android:textSize="18sp"
-                android:textColor="#002C4D"
-                android:textStyle="bold" />
-
-            <!-- Botón de comodines -->
-            <ImageView
-                android:id="@+id/wildcardButton"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/wild_icon"
-                android:contentDescription="Comodines"
-                android:layout_marginEnd="6dp"/>
-
-            <ImageView
-                android:id="@+id/helpButton"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/help_icon"
-                android:contentDescription="Ayuda"
-                android:layout_marginEnd="6dp"/>
-
-        </LinearLayout>
-
-        <!-- Topic TextView -->
-        <TextView
-            android:id="@+id/topicTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Topic:"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textColor="#002C4D"
-            android:layout_marginBottom="15dp" />
-
-        <!-- Instrucciones -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lee el texto y selecciona las palabras correspondientes a su orden"
-            android:textSize="18sp"
-            android:textColor="#002C4D"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:background="@color/cardSena"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Texto en inglés (referencia) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/cardSena"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp">
-
-            <TextView
+                android:id="@+id/topicTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Texto:"
-                android:textSize="16sp"
-                android:textColor="#002C4D"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/englishTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hello, my name is John"
+                android:text="Pronombres / Pronouns"
                 android:textSize="20sp"
-                android:textColor="#173446"
-                android:background="@color/white"
-                android:padding="12dp"
-                android:gravity="center" />
-        </LinearLayout>
-
-        <!-- Área de construcción del texto (donde aparecen las palabras seleccionadas) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/cardSena"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tu traducción:"
-                android:textSize="16sp"
-                android:textColor="#002C4D"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
-
-            <!-- FlexboxLayout para las palabras seleccionadas -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/selectedWordsRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="60dp"
-                android:background="@drawable/option_background"
-                android:padding="8dp" />
-        </LinearLayout>
-
-        <!-- Palabras en español para seleccionar -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@color/cardSena"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Selecciona las palabras:"
-                android:textSize="16sp"
                 android:textColor="#002C4D"
-                android:textStyle="bold"
+                android:gravity="center"
                 android:layout_marginBottom="12dp" />
 
-            <!-- Grid para las palabras en español -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/spanishWordsRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:padding="8dp"
-                android:scrollbars="vertical"
-                android:fadeScrollbars="false"
-                android:scrollbarStyle="outsideOverlay"
-                android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
-                android:scrollbarTrackVertical="@drawable/scrollbar_track"
-                android:requiresFadingEdge="vertical"
-                android:fadingEdgeLength="32dp" />
-        </LinearLayout>
-
-        <!-- Botones de acción -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="16dp">
-
-            <!-- Botones Limpiar y Evaluar en horizontal -->
-            <LinearLayout
-                android:id="@+id/actionButtonsContainer"
+            <!-- Instrucciones -->
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:text="Lee el texto y selecciona la palabra correspondiente / Listen the audio and then select the correct picture"
+                android:textSize="14sp"
+                android:textColor="#002C4D"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
 
-                <Button
-                    android:id="@+id/clearButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Limpiar"
-                    android:textSize="16sp"
-                    android:backgroundTint="#FF0E32"
-                    android:textColor="@android:color/white"
-                    android:layout_marginEnd="8dp" />
+            <!-- Card principal con la imagen y el texto -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                android:backgroundTint="#E6EBF0">
 
-                <Button
-                    android:id="@+id/checkButton"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Evaluar"
-                    android:textSize="16sp"
-                    android:backgroundTint="#00AA00"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <!-- ESPACIO PARA LA IMAGEN DEL PERSONAJE -->
+                    <!-- Aquí agregarás tu ImageView después -->
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="230dp"
+                        android:contentDescription="Character"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/boy" />
+
+                    <!-- Texto con instrucción y frase en inglés -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Identifica el nombre propio dentro de la frase:"
+                            android:textSize="16sp"
+                            android:textColor="#002C4D"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:id="@+id/englishTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="&quot;This is John. He is a student&quot;"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#002C4D" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Área de construcción del texto (palabras seleccionadas) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                android:backgroundTint="#E6EBF0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- RecyclerView para palabras seleccionadas -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/selectedWordsRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="80dp"
+                        android:padding="8dp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Palabras disponibles para seleccionar -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                android:backgroundTint="#E6EBF0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- RecyclerView para palabras disponibles -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/spanishWordsRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="80dp"
+                        android:padding="8dp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Botones de acción -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Botones Limpiar y Evaluar en horizontal -->
+                <LinearLayout
+                    android:id="@+id/actionButtonsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/clearButton"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:text="Clean"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="#1A4F7C"
+                        android:textColor="@android:color/white"
+                        android:layout_marginEnd="8dp"
+                        app:cornerRadius="20dp" />
+
+                    <Button
+                        android:id="@+id/checkButton"
+                        android:layout_width="0dp"
+                        android:layout_height="56dp"
+                        android:layout_weight="1"
+                        android:text="Check"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="#00AA00"
+                        android:textColor="@android:color/white"
+                        android:layout_marginStart="8dp"
+                        app:cornerRadius="20dp" />
+                </LinearLayout>
+
+                <!-- Botón siguiente (oculto inicialmente) -->
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Siguiente"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#FF9017"
                     android:textColor="@android:color/white"
-                    android:layout_marginStart="8dp" />
+                    android:visibility="gone"
+                    app:cornerRadius="8dp" />
+
             </LinearLayout>
 
-            <!-- Botón siguiente (oculto inicialmente, aparece en el mismo lugar) -->
-            <Button
-                android:id="@+id/nextButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Siguiente"
-                android:textSize="18sp"
-                android:backgroundTint="#FF9017"
-                android:textColor="@android:color/white"
-                android:visibility="gone" />
-
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
