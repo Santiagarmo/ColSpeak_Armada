@@ -135,7 +135,7 @@ public class ImageIdentificationAudioActivity extends AppCompatActivity {
             levelTextView.setText("Level: " + selectedLevel);
         }
         if (selectedTopic != null) {
-            topicTextView.setText("Topic: " + selectedTopic);
+            topicTextView.setText(selectedTopic);
         }
 
         // Initialize sound players

@@ -180,7 +180,7 @@ public class TranslationReadingActivity extends AppCompatActivity {
             levelTextView.setText("Level: " + selectedLevel);
         }
         if (selectedTopic != null) {
-            topicTextView.setText("Topic: " + selectedTopic);
+            topicTextView.setText(selectedTopic);
         }
         
         // Set up return button click listener

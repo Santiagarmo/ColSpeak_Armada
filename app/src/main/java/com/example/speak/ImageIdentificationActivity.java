@@ -143,7 +143,7 @@ public class ImageIdentificationActivity extends AppCompatActivity {
             levelTextView.setText("Level: " + selectedLevel);
         }
         if (selectedTopic != null) {
-            topicTextView.setText("Topic: " + selectedTopic);
+            topicTextView.setText(selectedTopic);
         }
         
         Log.d(TAG, "Intent data - Topic: " + selectedTopic + ", Level: " + selectedLevel);
@@ -302,7 +302,7 @@ public class ImageIdentificationActivity extends AppCompatActivity {
             levelTextView.setText("Level: " + selectedLevel);
         }
         if (selectedTopic != null) {
-            topicTextView.setText("Topic: " + selectedTopic);
+            topicTextView.setText(selectedTopic);
         }
 
         // Set up return button click listener

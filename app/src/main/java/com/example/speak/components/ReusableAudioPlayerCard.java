@@ -39,10 +39,10 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
     private LinearLayout voiceTypeCard;
     private Button languageSpanishButton;
     private Button languageEnglishButton;
-    private Button voiceChildButton;
-    private Button voiceGirlButton;
-    private Button voiceWomanButton;
-    private Button voiceManButton;
+    private ImageButton voiceChildButton;
+    private ImageButton voiceGirlButton;
+    private ImageButton voiceWomanButton;
+    private ImageButton voiceManButton;
 
     // Audio helper
     private ReusableAudioHelper audioHelper;
@@ -521,7 +521,7 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
             if (voiceManButton != null) resetVoiceButton(voiceManButton);
 
             // Highlight selected button
-            Button selectedButton = null;
+            ImageButton selectedButton = null;
             switch (currentVoiceType) {
                 case "child":
                     selectedButton = voiceChildButton;
@@ -538,65 +538,46 @@ public class ReusableAudioPlayerCard extends MaterialCardView {
             }
 
             if (selectedButton != null) {
-                // Efecto de selección como en HelpActivity: agrandar y sin fondo
-                selectedButton.setBackgroundResource(android.R.color.transparent);
+                // Solo agrandar, sin color filter
                 selectedButton.setScaleX(1.2f);
                 selectedButton.setScaleY(1.2f);
-                // Color de texto para seleccionado (usa @color/selected_voice si existe)
-                try {
-                    selectedButton.setTextColor(getResources().getColor(R.color.selected_voice));
-                } catch (Exception ignore) {
-                    // fallback sin romper si no existe el color
-                }
+                selectedButton.setElevation(8f); // Agregar elevación para destacar
             }
         } catch (Exception e) {
             Log.e(TAG, "Error updating voice buttons: " + e.getMessage(), e);
         }
     }
 
-    private void resetVoiceButton(Button button) {
-        button.setBackgroundResource(android.R.color.transparent);
+    private void resetVoiceButton(ImageButton button) {
         button.setScaleX(1.0f);
         button.setScaleY(1.0f);
-        // Restaurar color de texto a un color por defecto legible sobre el fondo actual
-        try {
-            button.setTextColor(getResources().getColor(R.color.help_audio_player_background));
-        } catch (Exception ignore) {
-            // fallback
-        }
+        button.setElevation(2f);
+        button.clearColorFilter(); // Limpiar cualquier filtro
     }
 
     private void updateLanguageButtons() {
         try {
             if (languageSpanishButton != null && languageEnglishButton != null) {
                 if (isSpanishMode) {
-                    // Botón "Original" (español) seleccionado
-                    languageSpanishButton.setScaleX(1.15f);
-                    languageSpanishButton.setScaleY(1.15f);
-                    languageSpanishButton.setTextColor(getResources().getColor(R.color.naranjaSena));
-                    languageSpanishButton.setBackgroundResource(R.drawable.rounded_background);
-                    languageSpanishButton.setElevation(8f);
+                    // Botón "Normal" seleccionado - fondo azul, texto blanco
+                    languageSpanishButton.setBackgroundResource(R.drawable.language_button_selected);
+                    languageSpanishButton.setTextColor(Color.WHITE);
+                    languageSpanishButton.setTypeface(null, android.graphics.Typeface.BOLD);
 
-                    // Botón "English" no seleccionado
-                    languageEnglishButton.setScaleX(1.0f);
-                    languageEnglishButton.setScaleY(1.0f);
-                    languageEnglishButton.setTextColor(getResources().getColor(android.R.color.darker_gray));
-                    languageEnglishButton.setBackgroundResource(android.R.color.transparent);
-                    languageEnglishButton.setElevation(0f);
+                    // Botón "IA" no seleccionado - fondo blanco, borde azul, texto azul
+                    languageEnglishButton.setBackgroundResource(R.drawable.language_button_unselected);
+                    languageEnglishButton.setTextColor(Color.parseColor("#06739F"));
+                    languageEnglishButton.setTypeface(null, android.graphics.Typeface.NORMAL);
                 } else {
-                    // Botón "English" seleccionado
-                    languageEnglishButton.setScaleX(1.15f);
-                    languageEnglishButton.setScaleY(1.15f);
-                    languageEnglishButton.setTextColor(getResources().getColor(R.color.naranjaSena));
-                    languageEnglishButton.setBackgroundResource(R.drawable.rounded_background);
-                    languageEnglishButton.setElevation(8f);
+                    // Botón "IA" seleccionado - fondo azul, texto blanco
+                    languageEnglishButton.setBackgroundResource(R.drawable.language_button_selected);
+                    languageEnglishButton.setTextColor(Color.WHITE);
+                    languageEnglishButton.setTypeface(null, android.graphics.Typeface.BOLD);
 
-                    // Botón "Original" no seleccionado
-                    languageSpanishButton.setScaleX(1.0f);
-                    languageSpanishButton.setScaleY(1.0f);
-                    languageSpanishButton.setTextColor(getResources().getColor(android.R.color.darker_gray));
-                    languageSpanishButton.setBackgroundResource(android.R.color.transparent);
-                    languageSpanishButton.setElevation(0f);
+                    // Botón "Normal" no seleccionado - fondo blanco, borde azul, texto azul
+                    languageSpanishButton.setBackgroundResource(R.drawable.language_button_unselected);
+                    languageSpanishButton.setTextColor(Color.parseColor("#06739F"));
+                    languageSpanishButton.setTypeface(null, android.graphics.Typeface.NORMAL);
                 }
             }
         } catch (Exception e) {
